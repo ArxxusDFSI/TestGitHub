@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Assessment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Assessments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Assessment Complete --></label>
+        <name>IPM_Assessment_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assessment Display --></label>
+        <name>IPM_Assessment_Display__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of SME Decision --></label>
+        <name>IPM_Date_of_SME_Decision__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurer Review Process --></label>
+        <name>IPM_Insurer_Review_Process__c</name>
+        <relationshipLabel><!-- Assessments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PM Reviewed --></label>
+        <name>IPM_PM_Reviewed__c</name>
+    </fields>
+    <fields>
+        <label><!-- SME Contact --></label>
+        <name>IPM_SME_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- SME Group --></label>
+        <name>IPM_SME_Group__c</name>
+        <picklistValues>
+            <masterLabel>Compliance Team</masterLabel>
+            <translation><!-- Compliance Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Team</masterLabel>
+            <translation><!-- Data Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Consultancy</masterLabel>
+            <translation><!-- External Consultancy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Team</masterLabel>
+            <translation><!-- Finance Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurer Performance Team - Compliance</masterLabel>
+            <translation><!-- Insurer Performance Team - Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Team</masterLabel>
+            <translation><!-- Legal Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SafeWork</masterLabel>
+            <translation><!-- SafeWork --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>IPM_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- SME Approval --></label>
+        <name>SME_Approval__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SME Not Required</masterLabel>
+            <translation><!-- SME Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SME Required</masterLabel>
+            <translation><!-- SME Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to SME</masterLabel>
+            <translation><!-- Sent to SME --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Assessment information should not be changed once Insurer Review Process has proceeded to Approve or Stop --></errorMessage>
+        <name>Approve_and_Stop_Prevent_Changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date of SME Decision required when SME Approval has been provided --></errorMessage>
+        <name>IPM_Date_of_SME_Decision_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

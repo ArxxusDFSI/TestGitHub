@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Risk Indicator Reference</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Risk Indicator References</value>
+    </caseValues>
+    <fields>
+        <label><!-- Category --></label>
+        <name>IPM_Category__c</name>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance</masterLabel>
+            <translation><!-- Performance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Nature Of Requirement --></label>
+        <name>IPM_Nature_Of_Requirement__c</name>
+        <picklistValues>
+            <masterLabel>Legislative Requirement</masterLabel>
+            <translation><!-- Legislative Requirement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Licence Condition</masterLabel>
+            <translation><!-- Licence Condition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIRA</masterLabel>
+            <translation><!-- SIRA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Risk Being Evaluated --></label>
+        <name>IPM_Risk_Being_Evaluated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Indicator Reference ID --></label>
+        <name>IPM_Risk_Indicator_Reference_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deactivated</masterLabel>
+            <translation><!-- Deactivated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Category --></label>
+        <name>IPM_Sub_Category__c</name>
+        <picklistValues>
+            <masterLabel>Claims Management</masterLabel>
+            <translation><!-- Claims Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conduct</masterLabel>
+            <translation><!-- Conduct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial</masterLabel>
+            <translation><!-- Financial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- System Performance Relationship --></label>
+        <name>IPM_System_Performance_Relationship__c</name>
+        <picklistValues>
+            <masterLabel>Affordability</masterLabel>
+            <translation><!-- Affordability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Experience</masterLabel>
+            <translation><!-- Customer Experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Effectiveness</masterLabel>
+            <translation><!-- Effectiveness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Efficiency</masterLabel>
+            <translation><!-- Efficiency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equity</masterLabel>
+            <translation><!-- Equity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Viability</masterLabel>
+            <translation><!-- Viability --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Top Tier Expectation --></label>
+        <name>IPM_Top_Tier_Expectation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Top Tier Requirement --></label>
+        <name>IPM_Top_Tier_Requirement__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

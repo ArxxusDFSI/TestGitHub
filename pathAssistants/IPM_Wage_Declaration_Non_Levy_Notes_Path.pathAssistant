@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>Wage Declaration / Non Levy Notes Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete the Assessment - Related tab&lt;/li&gt;&lt;li&gt;Mark status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <fieldNames>IPM_Total_Levy_Amount__c</fieldNames>
+        <fieldNames>IPM_First_Invoice_Paid_Date__c</fieldNames>
+        <fieldNames>IPM_Second_Invoice_Paid_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Liaise with Finance department&lt;/li&gt;&lt;li&gt;Progressively complete all fields - Details tab, Approve section&lt;/li&gt;&lt;li&gt;Email each invoice using the Instalment invoice template&lt;/li&gt;&lt;li&gt;Email follow up to late payment using the Instalment Not Received email template&lt;/li&gt;&lt;li&gt;Once all payments received, Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPM_Wage_Declaration__c</fieldNames>
+        <fieldNames>IPM_Received_Date__c</fieldNames>
+        <fieldNames>IPM_Total_Wages__c</fieldNames>
+        <fieldNames>IPM_Number_of_Employees__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Mark status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Due_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Request section&lt;/li&gt;&lt;li&gt;Email the Wages Declaration Request email&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_Wage_Declaration_Non_Levy_Notes</recordTypeName>
+</PathAssistant>

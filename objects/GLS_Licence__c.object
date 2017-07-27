@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Licence_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Construction Assist: Licence data populated via GLS</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>GLS_expiryDate__c</fullName>
+        <description>Construction Assist:</description>
+        <externalId>false</externalId>
+        <label>Expiry Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GLS_startDate__c</fullName>
+        <description>DFSI - Construct Assist</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Used to relate the licence to an Insurer account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Licences</relationshipLabel>
+        <relationshipName>Licences</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Approved__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is automatically updated by Process Builder when an Insurer Review Process is Approved and set to Stop. This flag will be used to activate a Licence at its Start Date.</description>
+        <externalId>false</externalId>
+        <label>Approved</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Full_Conditional__c</fullName>
+        <description>Identifies the type of insurer licences</description>
+        <externalId>false</externalId>
+        <label>Full/Conditional</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full</fullName>
+                    <default>false</default>
+                    <label>Full</label>
+                </value>
+                <value>
+                    <fullName>Conditional</fullName>
+                    <default>false</default>
+                    <label>Conditional</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Licence_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Property Industry</fullName>
+                    <default>false</default>
+                    <label>Property Industry</label>
+                </value>
+                <value>
+                    <fullName>Registry Services</fullName>
+                    <default>false</default>
+                    <label>Registry Services</label>
+                </value>
+                <value>
+                    <fullName>Workplace Insurance</fullName>
+                    <default>false</default>
+                    <label>Workplace Insurance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Status__c</fullName>
+        <description>Identifies the status of an Insurer Licence</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Prospective</fullName>
+                    <default>true</default>
+                    <label>Prospective</label>
+                </value>
+                <value>
+                    <fullName>Principal Approval</fullName>
+                    <default>false</default>
+                    <label>Principal Approval</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                    <label>Suspended</label>
+                </value>
+                <value>
+                    <fullName>Reduced</fullName>
+                    <default>false</default>
+                    <label>Reduced</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Term_Units__c</fullName>
+        <externalId>false</externalId>
+        <label>Term (Units)</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>IPM_Insurer_Licence_Term_Unit</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Term__c</fullName>
+        <description>Used for IPM to describe the term of the insurer licence</description>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>IPM_Licence_Group__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self Insurer - Single</fullName>
+                    <default>false</default>
+                    <label>Self Insurer - Single</label>
+                </value>
+                <value>
+                    <fullName>Self Insurer - Group</fullName>
+                    <default>false</default>
+                    <label>Self Insurer - Group</label>
+                </value>
+                <value>
+                    <fullName>Specialised</fullName>
+                    <default>false</default>
+                    <label>Specialised</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Workplace Insurance</controllingFieldValue>
+                <valueName>Self Insurer - Single</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Workplace Insurance</controllingFieldValue>
+                <valueName>Self Insurer - Group</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Workplace Insurance</controllingFieldValue>
+                <valueName>Specialised</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <label>Licence</label>
+    <nameField>
+        <label>Licence Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Licences</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IPM_Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>GLS_startDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>GLS_expiryDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>IPM_Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>GLS_startDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>GLS_expiryDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Status__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>GLS_startDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>GLS_expiryDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Run_DDP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Run Document Package</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!GLS_Licence__c.Id}</url>
+    </webLinks>
+</CustomObject>

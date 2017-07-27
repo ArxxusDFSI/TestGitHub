@@ -1,0 +1,4 @@
+{!IPM_Risk_Indicator__c.00N0k000000Obov} Risk Indicator for {!IPM_Risk_Indicator__c.IPM_Account__c} has been reviewed and approval outcome is available on Salesforce.
+
+Click on the link below to retrieve the Risk Indicator record.
+{!IPM_Risk_Indicator__c.Link}

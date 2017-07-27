@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Escalated Complaint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Escalated Complaints</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Escalated Complaints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Breach of Legislation --></label>
+        <name>IPM_Breach_of_Legislation__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSC Agent --></label>
+        <name>IPM_CSC_Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSC Closure Date --></label>
+        <name>IPM_CSC_Closure_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSC Reference Id --></label>
+        <name>IPM_CSC_Reference_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Complaint Category --></label>
+        <name>IPM_Complaint_Category__c</name>
+        <picklistValues>
+            <masterLabel>Communication</masterLabel>
+            <translation><!-- Communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service</masterLabel>
+            <translation><!-- Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Making</masterLabel>
+            <translation><!-- Decision Making --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payments</masterLabel>
+            <translation><!-- Payments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provider Complaints</masterLabel>
+            <translation><!-- Provider Complaints --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reforms 2015</masterLabel>
+            <translation><!-- Reforms 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suitable Employment</masterLabel>
+            <translation><!-- Suitable Employment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical</masterLabel>
+            <translation><!-- Technical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHS Customer Service</masterLabel>
+            <translation><!-- WHS Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHS Outcome</masterLabel>
+            <translation><!-- WHS Outcome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHS Process</masterLabel>
+            <translation><!-- WHS Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WHS Response Management</masterLabel>
+            <translation><!-- WHS Response Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Capacity</masterLabel>
+            <translation><!-- Work Capacity --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date CSC Advised of Resolution by PM --></label>
+        <name>IPM_Date_CSC_Advised_of_Resolution_by_PM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Receipt by SIRA --></label>
+        <name>IPM_Date_of_Receipt_by_SIRA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>IPM_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name of Claimant --></label>
+        <name>IPM_Name_of_Claimant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>IPM_Source__c</name>
+        <picklistValues>
+            <masterLabel>CSC</masterLabel>
+            <translation><!-- CSC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-CSC</masterLabel>
+            <translation><!-- Non-CSC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Closed is when the CSC closed the complaint. --></help>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- CSC Closure Date must be populated when the Status is Closed. --></errorMessage>
+        <name>IPM_CSC_Closure_Date_must_be_populated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date CSC Advised of Resolution by PM must be populated when the Status is Closed. --></errorMessage>
+        <name>IPM_Date_of_Resolution_must_be_populated</name>
+    </validationRules>
+</CustomObjectTranslation>

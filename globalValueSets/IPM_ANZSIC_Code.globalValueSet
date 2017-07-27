@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>A - Agriculture, Forestry and Fishing</fullName>
+        <default>false</default>
+        <label>A - Agriculture, Forestry and Fishing</label>
+    </customValue>
+    <customValue>
+        <fullName>B - Mining</fullName>
+        <default>false</default>
+        <label>B - Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>C - Manufacturing</fullName>
+        <default>false</default>
+        <label>C - Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>D - Electricity, Gas, Water and Waste Services</fullName>
+        <default>false</default>
+        <label>D - Electricity, Gas, Water and Waste Services</label>
+    </customValue>
+    <customValue>
+        <fullName>E - Construction</fullName>
+        <default>false</default>
+        <label>E - Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>F - Wholesale Trade</fullName>
+        <default>false</default>
+        <label>F - Wholesale Trade</label>
+    </customValue>
+    <customValue>
+        <fullName>G - Retail Trade</fullName>
+        <default>false</default>
+        <label>G - Retail Trade</label>
+    </customValue>
+    <customValue>
+        <fullName>H - Accommodation and Food Services</fullName>
+        <default>false</default>
+        <label>H - Accommodation and Food Services</label>
+    </customValue>
+    <customValue>
+        <fullName>I - Transport, Postal and Warehousing</fullName>
+        <default>false</default>
+        <label>I - Transport, Postal and Warehousing</label>
+    </customValue>
+    <customValue>
+        <fullName>J - Information Media and Telecommunications</fullName>
+        <default>false</default>
+        <label>J - Information Media and Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>K - Financial and Insurance Services</fullName>
+        <default>false</default>
+        <label>K - Financial and Insurance Services</label>
+    </customValue>
+    <customValue>
+        <fullName>L - Rental, Hiring and Real Estate Services</fullName>
+        <default>false</default>
+        <label>L - Rental, Hiring and Real Estate Services</label>
+    </customValue>
+    <customValue>
+        <fullName>M - Professional, Scientific and Technical Services</fullName>
+        <default>false</default>
+        <label>M - Professional, Scientific and Technical Services</label>
+    </customValue>
+    <customValue>
+        <fullName>N - Administrative and Support Services</fullName>
+        <default>false</default>
+        <label>N - Administrative and Support Services</label>
+    </customValue>
+    <customValue>
+        <fullName>O - Public Administration and Safety</fullName>
+        <default>false</default>
+        <label>O - Public Administration and Safety</label>
+    </customValue>
+    <customValue>
+        <fullName>P - Education and Training</fullName>
+        <default>false</default>
+        <label>P - Education and Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Q - Health Care and Social Assistance</fullName>
+        <default>false</default>
+        <label>Q - Health Care and Social Assistance</label>
+    </customValue>
+    <customValue>
+        <fullName>R - Arts and Recreation Services</fullName>
+        <default>false</default>
+        <label>R - Arts and Recreation Services</label>
+    </customValue>
+    <customValue>
+        <fullName>S - Other Services</fullName>
+        <default>false</default>
+        <label>S - Other Services</label>
+    </customValue>
+    <masterLabel>ANZSIC Code</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

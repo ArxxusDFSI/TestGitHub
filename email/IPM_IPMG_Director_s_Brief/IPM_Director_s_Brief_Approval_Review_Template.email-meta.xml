@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used as a part of the Technical Manager QA and Director Endorsement Review Approval process for Director&apos;s Brief</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Director&apos;s Brief Approval Review Template</name>
+    <style>none</style>
+    <subject>{!IPM_Director_s_Brief__c.Name} for {!IPM_Director_s_Brief__c.IPM_Account__c} requires review and approval</subject>
+    <type>text</type>
+</EmailTemplate>

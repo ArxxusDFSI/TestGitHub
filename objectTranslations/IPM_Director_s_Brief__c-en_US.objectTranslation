@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Director&apos;s Brief</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Director&apos;s Briefs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Director&apos;s Briefs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is manually captured by Portfolio Manager --></help>
+        <label><!-- Approved by ED --></label>
+        <name>IPM_Approved_by_ED__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Location --></label>
+        <name>IPM_Document_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalated Complaint --></label>
+        <name>IPM_Escalated_Complaint__c</name>
+        <relationshipLabel><!-- Director&apos;s Briefs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Insurer Review Process --></label>
+        <name>IPM_Insurer_Review_Process__c</name>
+        <relationshipLabel><!-- Director&apos;s Briefs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is manually captured by Portfolio Manager --></help>
+        <label><!-- Requires ED Approval --></label>
+        <name>IPM_Requires_ED_Approval__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Requires QA Approval --></label>
+        <name>IPM_Requires_QA_Approval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

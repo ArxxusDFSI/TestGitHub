@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Self Insurer</fullName>
+        <default>false</default>
+        <label>Self Insurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Group Self Insurer</fullName>
+        <default>false</default>
+        <label>Group Self Insurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Specialised</fullName>
+        <default>false</default>
+        <label>Specialised</label>
+    </customValue>
+    <customValue>
+        <fullName>Nominal Insurer</fullName>
+        <default>false</default>
+        <label>Nominal Insurer</label>
+    </customValue>
+    <customValue>
+        <fullName>SICorp</fullName>
+        <default>false</default>
+        <label>SICorp</label>
+    </customValue>
+    <customValue>
+        <fullName>iCare</fullName>
+        <default>false</default>
+        <label>iCare</label>
+    </customValue>
+    <customValue>
+        <fullName>Scheme Agent</fullName>
+        <default>false</default>
+        <label>Scheme Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>Subsidiary</fullName>
+        <default>false</default>
+        <label>Subsidiary</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Former</fullName>
+        <default>false</default>
+        <label>Former</label>
+    </customValue>
+    <description>Used on Account object to categorise the type of Workplace Insurer.</description>
+    <masterLabel>Workplace Insurer Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

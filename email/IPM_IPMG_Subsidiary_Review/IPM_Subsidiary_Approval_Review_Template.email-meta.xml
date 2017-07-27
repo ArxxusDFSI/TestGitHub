@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used as a part of the Technical Manager QA Review Approval process for Subsidiary Change</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Subsidiary Approval Review Template</name>
+    <style>none</style>
+    <subject>{!IPM_Insurer_Review_Process__c.RecordType} for {!IPM_Insurer_Review_Process__c.IPM_Account__c} requires review and approval</subject>
+    <type>text</type>
+</EmailTemplate>

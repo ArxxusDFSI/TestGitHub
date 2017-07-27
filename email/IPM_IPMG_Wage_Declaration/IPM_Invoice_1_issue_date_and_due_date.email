@@ -1,0 +1,17 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c}, 
+
+Please find attached a copy of the Workers Compensation Operational Fund contribution letter and 1st instalment invoice.
+
+Regards, 
+{!User.Name} 
+{!User.Title} 
+{!User.Department} 
+p {!User.Phone} 
+m {!User.MobilePhone} 
+e {!User.Email} | www.sira.nsw.gov.au 
+{!User.Address} 
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender. 
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

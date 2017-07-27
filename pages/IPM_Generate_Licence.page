@@ -1,0 +1,5 @@
+<apex:page standardController="IPM_Insurer_Review_Process__c" action="/apex/loop__looplus?&eid={!IPM_Insurer_Review_Process__c.Id}&filter={!IPM_Insurer_Review_Process__c.IPM_Drawloop_Filter__c}&filterType=contains">
+
+Generating document using {!IPM_Insurer_Review_Process__c.Id} and {!IPM_Insurer_Review_Process__c.IPM_Drawloop_Filter__c}
+
+</apex:page>

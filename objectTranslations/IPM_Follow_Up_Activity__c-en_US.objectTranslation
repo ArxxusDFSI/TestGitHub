@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Follow Up Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Follow Up Activities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Follow Up Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Advised --></label>
+        <name>IPM_Date_Advised__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>IPM_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>IPM_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurer Review Process --></label>
+        <name>IPM_Insurer_Review_Process__c</name>
+        <relationshipLabel><!-- Follow Up Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Level of Concern --></label>
+        <name>IPM_Level_of_Concern__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Licence --></label>
+        <name>IPM_Licence__c</name>
+        <relationshipLabel><!-- Follow Up Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Risk / Issue --></label>
+        <name>IPM_Risk_Issue__c</name>
+        <relationshipLabel><!-- Follow Up Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>IPM_Type__c</name>
+        <picklistValues>
+            <masterLabel>Mitigating Action</masterLabel>
+            <translation><!-- Mitigating Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monitoring</masterLabel>
+            <translation><!-- Monitoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Impact</masterLabel>
+            <translation><!-- Strategic Impact --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Date Advised must be selected for a Strategic Impact. --></errorMessage>
+        <name>Date_Advised_must_be_populated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Due Date must be selected for a Monitoring record. --></errorMessage>
+        <name>Due_Date_must_be_populated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Level of Concern must be selected for a Strategic Impact. --></errorMessage>
+        <name>Level_of_Concern_must_be_populated</name>
+    </validationRules>
+</CustomObjectTranslation>

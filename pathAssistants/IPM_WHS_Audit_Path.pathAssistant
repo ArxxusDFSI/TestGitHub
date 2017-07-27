@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>WHS Audit Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_S_Drive_Location__c</fieldNames>
+        <fieldNames>IPM_Score__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Enter the Audit score - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Complete the Assessment - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Update the Process Outcome - Details tab, Approve section&lt;/li&gt;&lt;li&gt;NB - Process Outcome = Approved, means the WHS Audit has been passed by Safework. Process Outcome = Not Approved, means the WHS Audit has been failed by Safework. &lt;/li&gt;&lt;li&gt;Create Follow Up activities, as required&lt;/li&gt;&lt;li&gt;Ensure the Audit Report is stored on S drive&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Ins_Conf_Recd__c</fieldNames>
+        <fieldNames>IPM_SafeW_Conf_Recd__c</fieldNames>
+        <fieldNames>IPM_Received_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Enter dates in Details tab, Gather section - noting dates of confirmation of audit by Safework and Insurer&lt;/li&gt;&lt;li&gt;NB - the &amp;quot;&amp;quot;Received Date&amp;quot;&amp;quot; is the Audit Completion date&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Due_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Contact Safework&lt;/li&gt;&lt;li&gt;Contact Insurer&lt;/li&gt;&lt;li&gt;Complete fields in Details tab, Request section&lt;/li&gt;&lt;li&gt;The &amp;quot;Requested Date&amp;quot; is the Audit Scheduled date&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_WHS_Audit</recordTypeName>
+</PathAssistant>

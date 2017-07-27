@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Risk_Issue__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>Issue</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Create Follow Up Activity of the Type - Mitigating Actions to monitor and track.&lt;/p&gt;</info>
+        <picklistValueName>Agreed Actions</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Date_Closed__c</fieldNames>
+        <fieldNames>IPM_QA_Approval_Date__c</fieldNames>
+        <info>&lt;p&gt;Finalise and capture Date Closed and QA Approval Date (If required)&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Notification_Date__c</fieldNames>
+        <fieldNames>IPM_Insurer_Agreed_on_Risk_Issue__c</fieldNames>
+        <fieldNames>IPM_Agreement_Date_of_Risk_Issue__c</fieldNames>
+        <fieldNames>IPM_Insurer_Agree_on_taking_Action__c</fieldNames>
+        <fieldNames>IPM_Insurer_Action_Agreement_Date__c</fieldNames>
+        <info>&lt;p&gt;Notify the Insurer on Risk/Issue and reach agreement that it is a Risk/Issue.&lt;/p&gt;&lt;p&gt;Reach agreement with Insurer on the necessary mitigating actions.&lt;/p&gt;</info>
+        <picklistValueName>Validate</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Issue</recordTypeName>
+</PathAssistant>

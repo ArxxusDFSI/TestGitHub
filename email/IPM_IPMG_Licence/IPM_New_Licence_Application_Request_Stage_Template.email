@@ -1,0 +1,23 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c}
+
+Thank you for your enquiry on the requirements for self-insurance under Section 210 of the Workers Compensation Act 1987. Copies of SIRA’s licensing policy, licence conditions, application requirements and other documentation are attached.
+ 
+I would also like to draw your attention to the following:
+1. Levies are payable by self-insurers under Section 39 of the Workplace Injury Management and Workers Compensation Act 1998and under Section 6 of the Workers Compensation (Dust Diseases) Act 1942.
+2. An application fee of $45,000 (for group licence applications) or $40,000 (single licence) must accompany the self-insurer application. The fee is GST exempt and non-refundable, regardless of the outcome of the application.
+ 
+Should you have any further enquiries please contact me or email to Self&SpecialisedInsurers@sira.nsw.gov.au
+
+Regards,
+{!User.Name}
+{!User.Title}
+{!User.Department}
+p {!User.Phone}
+m {!User.MobilePhone}
+e {!User.Email} | www.sira.nsw.gov.au
+{!User.Address}
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender.
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

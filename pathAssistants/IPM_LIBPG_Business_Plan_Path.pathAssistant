@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>LIBPG Business Plan Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <fieldNames>IPM_Further_Information_Required__c</fieldNames>
+        <fieldNames>IPM_Further_Information_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Further_Information_Received_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete all fields - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Complete the Assessment - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete all fields - Details tab, Approve section&lt;/li&gt;&lt;li&gt;Add relevant follow up actions - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPM_Business_Plan__c</fieldNames>
+        <fieldNames>IPM_Received_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Tick each document as received - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Record date document was received.&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Due_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Request section&lt;/li&gt;&lt;li&gt;Email the LIBPG Business Plan Request&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;p&gt;Process Outcome = Approved means the LIBPG Business Plan is satisfactory&lt;/p&gt;&lt;p&gt;Process Outcome = Rejected means the LIBPG Business Plan is unsatisfactory&lt;/p&gt;</info>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_LIBPG_Business_Plan</recordTypeName>
+</PathAssistant>

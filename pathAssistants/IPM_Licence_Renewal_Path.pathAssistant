@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>Licence Renewal Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <fieldNames>IPM_Security_Lodged__c</fieldNames>
+        <fieldNames>IPM_Security_Lodgement_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete the Security fields - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Complete the Assessments - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Open the Licence record - Details tab&lt;/li&gt;&lt;li&gt;Complete the Licence terms - Details tab on Licence Record&lt;/li&gt;&lt;li&gt;Add Special Conditions - Related tab on Licence Record&lt;/li&gt;&lt;li&gt;Complete Director&amp;#39;s Brief - submit for approval&lt;/li&gt;&lt;li&gt;Generate Licence document&lt;/li&gt;&lt;li&gt;Proof read Licence document - makes changes as required&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPMP_Application_Form__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Tick each document as received - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Account__c</fieldNames>
+        <fieldNames>IPM_Contact__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Send Licence Renewal request email&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_Licence_Renewal</recordTypeName>
+</PathAssistant>

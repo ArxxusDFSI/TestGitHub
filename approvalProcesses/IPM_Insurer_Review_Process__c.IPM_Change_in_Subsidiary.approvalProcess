@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>IPM_Account__c</field>
+        <field>IPM_Subsidiary__c</field>
+        <field>Subsidiary_Action__c</field>
+        <field>Security_Level_Review__c</field>
+        <field>IPM_Notification_of_Security_Reqt_Date__c</field>
+        <field>IPM_Sufficient_Security_Lodged_Date__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>weng.lim@sira.nsw.gov.au</name>
+                <type>user</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Step 1 - Technical Manager QA</label>
+        <name>IPM_Step_1_Technical_Manager_QA</name>
+    </approvalStep>
+    <description>Submits Change in Subsidiary Insurer Review Process for approval from QA</description>
+    <emailTemplate>IPM_IPMG_Subsidiary_Review/IPM_Subsidiary_Approval_Review_Template</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>IPM_Insurer_Review_Process__c.RecordType</field>
+            <operation>equals</operation>
+            <value>Review of Subsidiaries</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IPM_Insurer_Review_Process__c.Subsidiary_Action__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IPM_Insurer_Review_Process__c.IPM_Notification_of_Security_Reqt_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IPM_Insurer_Review_Process__c.IPM_Sufficient_Security_Lodged_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>IPM_Insurer_Review_Process__c.Security_Level_Review__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>IPM_Update_Process_Outcome_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>IPM_Update_Process_Outcome_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <label>Change in Subsidiary</label>
+    <recordEditability>AdminOnly</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

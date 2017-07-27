@@ -1,0 +1,2377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Insurer_Review_Process_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>IPM_Account_Contact_All_Doc_All_Assessments_Approval</fullName>
+        <fields>Name</fields>
+        <fields>IPM_Account__c</fields>
+        <label>Account Contact All Doc All Assessments Approval</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Object representing Insurer Review Processes</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IPMP_Application_Form__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Application Form</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_ASIC_Review__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ASIC Review</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Insurer Review Processes</relationshipLabel>
+        <relationshipName>Insurer_Review_Processes</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Actuarial_Valuation_Report__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Self-insurers are required to provide a copy of their reinsurance policy.</inlineHelpText>
+        <label>Actuarial Valuation Report</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_All_Assessments_Complete_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>All Assessments Complete Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_All_Assessments_Complete__c</fullName>
+        <description>IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))</description>
+        <externalId>false</externalId>
+        <formula>If( RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; || RecordType.Name = &quot;Review of Subsidiaries&quot;,&quot;N/A&quot;,
+IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All Assessments Complete</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_All_Documents_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  ( RecordType.Name  = &quot;New Licence Application&quot; &amp;&amp;  IPM_New_Lic_App_Docs_Recd_Flag__c = true) ||
+(RecordType.Name = &quot;Licence Renewal&quot; &amp;&amp; IPMP_Application_Form__c = true) ||
+(RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; &amp;&amp; IPM_Wage_Declaration__c = TRUE) ||
+(RecordType.Name = &quot;LIBPG Business Plan&quot; &amp;&amp; IPM_Business_Plan__c = TRUE) ||
+(RecordType.Name = &quot;MPPG Review&quot; &amp;&amp; IPM_Premium_Filings_Form__c = true) ||
+(RecordType.Name = &quot;Claims Management Self Audit&quot; &amp;&amp; ISBLANK(IPM_Received_Date__c)=FALSE) ||
+(RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp;    IPM_Review_Subsidiary_Doc_Received_Flag__c = true) ||
+(RecordType.Name = &quot;WHS Audit&quot; &amp;&amp;  IPM_Ins_Conf_Recd__c = true &amp;&amp; IPM_SafeW_Conf_Recd__c = true) ||
+(RecordType.Name = &quot;Annual Review&quot; &amp;&amp;   IPM_Ann_Rev_Docs_Recd_Flag__c  = true),
+true, false)</formula>
+        <label>All Documents Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_All_Documents_Received__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( IPM_All_Documents_Received_Flag__c = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>All Documents Received</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Ann_Rev_Docs_Recd_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND(  IPM_Principal_Business_Operations__c  = true,
+  IPM_Principal_and_Secondary_Persons__c   = true,
+  IPM_Complaints_Contact__c   = true,
+  IPM_Corporate_Structure__c   = true,
+  IPM_Annual_Report__c   = true,
+  IPM_Audited_Financial_Statements__c   = true,
+  IPM_Independent_Auditor_Report__c   = true,
+  IPM_Actuarial_Valuation_Report__c   = true,
+  IPM_Reinsurance_Policy__c   = true,
+   IPM_Business_Plan__c    = true)
+, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Annual Review Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Annual_Report__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Self-insurers must supply SIRA with a copy of their annual report including audited financial statements, an independent auditor report for the self-insurer, and ultimate Australian holding company (if different).</inlineHelpText>
+        <label>Annual Report</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Annual_Reports__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Annual reports (including audited financial statements) for the previous four financial years. If the applicant is not the ultimate holding company in Australia, then the annual reports of the ultimate Australian holding company are to be provided.</inlineHelpText>
+        <label>Annual Reports</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Any_Other_Financial_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Any other financial information including credit rating reports that will assist in supporting the application.</inlineHelpText>
+        <label>Any Other Financial Information</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Any_Other_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Any other information that would help SIRA consider the suitability and financial ability of the applicant.</inlineHelpText>
+        <label>Any Other Information</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Application_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Application Fee</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Outcome</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Yet Approved</fullName>
+                    <default>true</default>
+                    <label>Not Yet Approved</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Audit_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the audit was completed by the Insurer.</inlineHelpText>
+        <label>Audit Completed Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Audited_Financial_Statements__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>State government self-insurers must provide audited financial statements within four months of financial year end, once they are tabled in Parliament.</inlineHelpText>
+        <label>Audited Financial Statements</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Business_Plan__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Every self-insurer must provide a copy of the business plan for its NSW workers compensation insurance portfolio.</inlineHelpText>
+        <label>Business Plan</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_CEO_Written_Statement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Written statement from the Chief Executive Officer outlining the reasons why the applicant is seeking to be licensed and its suitability to become a self-insurer.</inlineHelpText>
+        <label>CEO Written Statement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Claims_Exp_and_Premiums_Paid_Sched__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A schedule showing the claims experience and premiums paid for the past four years.</inlineHelpText>
+        <label>Claims Exp. and Premiums Paid Sched.</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Claims_Mgmt_Policies_Procedures__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Claims management policies and procedures.</inlineHelpText>
+        <label>Claims Management Policies/Procedures</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Claims_Self_Audit_Doc_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND( ISBLANK(IPM_Received_Date__c)=FALSE) 
+, true, false)</formula>
+        <label>NOT USED Self Audit Doc Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Company_Secretary_Letter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Company Secretary Letter</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Complaints_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Name and contact details of the principal person (or group) who will respond to complaints at:
+- Complaints level 1 (initial enquiry)
+- Complaints level 2 (follow up enquiry)</inlineHelpText>
+        <label>Complaints Contact</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.IPM_Account__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Insurer Review Processes</relationshipLabel>
+        <relationshipName>Insurer_Review_Processes</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Corporate_Structure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Group self-insurers must also provide a schedule showing the names, ABNs and corporate structure of all wholly-owned subsidiary companies who are employers in NSW.</inlineHelpText>
+        <label>Corporate Structure</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Date_Approved__c</fullName>
+        <description>Used for MPPG Process</description>
+        <externalId>false</externalId>
+        <label>Date Approved</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Date_Letter_Sent__c</fullName>
+        <description>Used for MPPG Process</description>
+        <externalId>false</externalId>
+        <label>Date Letter Sent</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Draft_Business_Plan__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Draft business plan for applicant’s workers compensation operations, developed with reference to Requirements for self-insurer annual information.</inlineHelpText>
+        <label>Draft Business Plan</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Drawloop_Filter__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( RecordType.Name = &quot;Review of Subsidiaries&quot;,&quot;Schedule&quot;,
+If( CONTAINS(TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c),&quot;Self Insurer&quot;), &quot;Self Insurer&quot;,TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c)
+)
+)</formula>
+        <label>Drawloop Filter</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Evidence_of_Non_Best_Practice__c</fullName>
+        <description>For Claims Management Self Audit process</description>
+        <externalId>false</externalId>
+        <label>Evidence of Non-Best Practice</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Evidence_of_Non_Compliance__c</fullName>
+        <externalId>false</externalId>
+        <label>Evidence of Non-Compliance</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_First_Invoice_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Invoice Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_First_Invoice_Notice_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Invoice Notice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_First_Invoice_Paid_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Invoice Paid Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_First_Invoice_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Invoice Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Further_Information_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Further Information Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Further_Information_Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Further Information Requested Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Further_Information_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Further Information Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Group_Corporate_Structure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the group corporate structure including principal shareholders of the applicant (and its wholly-owned subsidiaries that are employers if applying for a group self-insurer licence).</inlineHelpText>
+        <label>Group Corporate Structure</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Improvement_Plan_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Improvement Plan Received Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Improvement_Plan_Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Improvement Plan Requested Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Improvement_Plan_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Improvement Plan Required?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Independent_Auditor_Report__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Every self-insurer must provide a copy of its actuarial valuation report.</inlineHelpText>
+        <label>Independent Auditor Report</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Injury_Management_Program_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Injury Management Program Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Injury_Management_Program__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Injury management program prepared in accordance with SIRA’s Injury Management Program – a guide and checklist for insurers under section 43 of the 1998 Act.</inlineHelpText>
+        <label>Injury Management Program</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Ins_Conf_Recd__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Insurer Confirmation Received</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Corporate name, Australian Business Number (ABN) and registered office of the applicant.</inlineHelpText>
+        <label>Insurer Information</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurers_Scheme_Agents__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of insurer(s) or scheme agent(s) for NSW workers compensation for the past three years.</inlineHelpText>
+        <label>Insurers/Scheme Agents</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_LIBPG_Bus_Plan_Docs_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND(IPM_Business_Plan__c = TRUE) 
+, true, false)</formula>
+        <label>NOT USED Bus Plan Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Licence_Renewal_Docs_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( IPMP_Application_Form__c = true , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Licence Renewal Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Licence_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(IPM_Licence__r.IPM_Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Licence Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Licence__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Licence</label>
+        <referenceTo>GLS_Licence__c</referenceTo>
+        <relationshipLabel>Insurer Review Processes</relationshipLabel>
+        <relationshipName>Insurer_Review_Processes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_MPPG_Review_Docs_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( IPM_Premium_Filings_Form__c = true, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MPPG Review Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Nature_of_Business__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Nature of business undertakings of the employer (and across the group if applying for a group self-insurer licence).</inlineHelpText>
+        <label>Nature of Business</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_New_Lic_App_Docs_Recd_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND( IPM_Insurer_Information__c = true,
+ IPM_CEO_Written_Statement__c  = true,
+ IPM_Group_Corporate_Structure__c  = true,
+ IPM_Nature_of_Business__c  = true,
+ IPMP_Application_Form__c  = true,
+ IPM_Application_Fee__c  = true,
+ IPM_Draft_Business_Plan__c  = true,
+ IPM_WIC_Wages_and_Deemed_Premium__c  = true,
+ IPM_Insurers_Scheme_Agents__c  = true,
+ IPM_Claims_Exp_and_Premiums_Paid_Sched__c  = true,
+ IPM_Self_Insured_in_Other_Jurisdictions__c  = true,
+ IPM_Senior_Staff_Members__c  = true,
+ IPM_Proposed_Organisation_Structure__c  = true,
+ IPM_Proposed_Administrative_Facilities__c  = true,
+ IPM_Planned_Prof_Development_Program__c  = true,
+ IPM_Return_to_Work_Co_ordinators__c  = true,
+ IPM_Claims_Mgmt_Policies_Procedures__c  = true,
+  IPM_Return_to_Work_Program__c = true,
+ IPM_Injury_Management_Program__c  = true,
+ IPM_Proposed_Claim_Mgmt_System_Processes__c  = true,
+ IPM_Annual_Reports__c  = true,
+ IPM_Any_Other_Information__c  = true,
+ IPM_Any_Other_Financial_Information__c  = true,
+ IPM_Signed_Declaration__c  = true,
+ TEXT(IPM_Number_of_Employees__c) &lt;&gt; &quot;&quot;
+)
+, true, false)</formula>
+        <label>New Licence App Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Notification_of_Security_Reqt_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification of Security Reqt Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Number_of_Employees__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of employees in NSW, including persons deemed to be workers, employed by the applicant for the last three financial years (“employees” means all permanent staff of the applicant, whether full-time or part-time).</inlineHelpText>
+        <label>Number of Employees</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Parent_Entity_Security_Updated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>For Review of Subsidiary process</description>
+        <externalId>false</externalId>
+        <label>Parent Entity Security Updated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Planned_Prof_Development_Program__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the planned capability and professional development program for staff engaged in workers compensation activities.</inlineHelpText>
+        <label>Planned Professional Development Program</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Premium_Filings_Form__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Premium Filings Form</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Previous_Insurer__c</fullName>
+        <externalId>false</externalId>
+        <label>Previous Insurer</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Principal_Business_Operations__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the principal business operations, including details of any corporate restructure.</inlineHelpText>
+        <label>Principal Business Operations</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Principal_and_Secondary_Persons__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Name and contact details of the principal and secondary persons for the receipt of SIRA correspondence including:
+Position title
+Telephone number
+Email address
+Mailing address
+Street address</inlineHelpText>
+        <label>Principal and Secondary Persons</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Process_Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Proposed_Administrative_Facilities__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the proposed administrative facilities for handling workers compensation claims including staffing arrangements, secure and private record keeping and location.</inlineHelpText>
+        <label>Proposed Administrative Facilities</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Proposed_Claim_Mgmt_System_Processes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the (proposed) claims management systems and processes.</inlineHelpText>
+        <label>Proposed Claims Mgmt System/Processes</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Proposed_Organisation_Structure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Proposed organisation structure of the claims management section including proposed number of claims per claims officer.</inlineHelpText>
+        <label>Proposed Organisation Structure</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_RSVP_Date__c</fullName>
+        <description>Used for MPPG Process</description>
+        <externalId>false</externalId>
+        <label>RSVP Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Received Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Record_Type_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Reinsurance_Policy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Self-insurers are required to provide a copy of their reinsurance policy.</inlineHelpText>
+        <label>Reinsurance Policy</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Return_to_Work_Co_ordinators__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of the return to work co-ordinator(s) including name, previous positions held, qualifications and experience and names of accredited rehabilitation provider(s).</inlineHelpText>
+        <label>Return to Work Co-ordinators</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Return_to_Work_Program__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Return to work program prepared in accordance with SIRA’s Guidelines for Workplace Return to Work programs under section 52 of the Workplace Injury Management and Workers Compensation Act 1998 (1998 Act).</inlineHelpText>
+        <label>Return to Work Program</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Review_Subsidiary_Doc_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND( IPM_Company_Secretary_Letter__c  = TRUE, IPM_ASIC_Review__c =TRUE) 
+, true, false)</formula>
+        <label>Review of Subsidiary Doc Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_S_Drive_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>S Drive Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_SafeW_Conf_Recd__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SafeWork Confirmation Received</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Score</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Second_Invoice_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Second Invoice Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Second_Invoice_Notice_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Second Invoice Notice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Second_Invoice_Paid_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Second Invoice Paid Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Second_Invoice_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Second Invoice Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Security_Lodged__c</fullName>
+        <externalId>false</externalId>
+        <label>Security Lodged</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Security_Lodgement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Security Lodgement Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Self_Audit_Report_Received__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Self Audit Report Received</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Self_Insured_in_Other_Jurisdictions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether the applicant is self-insured in other jurisdictions.</inlineHelpText>
+        <label>Self-Insured in Other Jurisdictions</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Senior_Staff_Members__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Details of senior staff member(s) who will be responsible for workers compensation claims management and administration under self-insurance. These details include name, previous positions held, qualifications and experience.</inlineHelpText>
+        <label>Senior Staff Members</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Signed_Declaration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Completed and signed declaration.</inlineHelpText>
+        <label>Signed Declaration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Request</fullName>
+                    <default>true</default>
+                    <label>Request</label>
+                </value>
+                <value>
+                    <fullName>Gather</fullName>
+                    <default>false</default>
+                    <label>Gather</label>
+                </value>
+                <value>
+                    <fullName>Assess</fullName>
+                    <default>false</default>
+                    <label>Assess</label>
+                </value>
+                <value>
+                    <fullName>Decide</fullName>
+                    <default>false</default>
+                    <label>Approve</label>
+                </value>
+                <value>
+                    <fullName>Stop</fullName>
+                    <default>false</default>
+                    <label>Stop</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Subsidiary__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Subsidiary</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Subsidiary</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Insurer Review Processes (Subsidiary)</relationshipLabel>
+        <relationshipName>Insurer_Review_Processes1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Sufficient_Security_Lodged_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this date for both increase and reduction in security</inlineHelpText>
+        <label>Sufficient Security Lodged Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Summary__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;Documents: &quot; &amp;  IPM_All_Documents_Received__c &amp; &quot; Assessments: &quot; &amp;  IPM_All_Assessments_Complete__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Summary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Total_Levy_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Levy Amount</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Total_Wages__c</fullName>
+        <description>Used in the Wages Declaration Process</description>
+        <externalId>false</externalId>
+        <label>Total Wages</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IPM_WIC_Codes_Correct__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>WIC Codes Correct</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_WIC_Wages_and_Deemed_Premium__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Workers compensation industry classifications, wages and deemed premium calculation for the current year and the estimated deemed premium for the next financial year (in order to determine the initial security to be provided).</inlineHelpText>
+        <label>WIC, Wages and Deemed Premium</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Wage_Dec_Docs_Received_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+AND( IPM_Wage_Declaration__c  = TRUE) 
+, true, false)</formula>
+        <label>NOT USED Wage Dec Docs Received Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Wage_Declaration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Document received</description>
+        <externalId>false</externalId>
+        <label>Wage Declaration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Security_Level_Review__c</fullName>
+        <externalId>false</externalId>
+        <label>Security Level Review</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>More Security</fullName>
+                    <default>false</default>
+                    <label>More Security</label>
+                </value>
+                <value>
+                    <fullName>Less Security</fullName>
+                    <default>false</default>
+                    <label>Less Security</label>
+                </value>
+                <value>
+                    <fullName>No Changes to Security</fullName>
+                    <default>false</default>
+                    <label>No Changes to Security</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subsidiary_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Subsidiary Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Addition</fullName>
+                    <default>false</default>
+                    <label>Addition</label>
+                </value>
+                <value>
+                    <fullName>Removal</fullName>
+                    <default>false</default>
+                    <label>Removal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Insurer Review Process</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>IPM_All_Documents_Received__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Approval__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>IPM_Licence__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Closed_Insurer_Review_Processes</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>IPM_All_Documents_Received__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Approval__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>IPM_Status__c</field>
+            <operation>equals</operation>
+            <value>Stop</value>
+        </filters>
+        <label>My Closed Insurer Review Processes</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Insurer_Review_Processes</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>IPM_All_Documents_Received__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Approval__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Insurer Review Processes</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_Insurer_Review_Processes</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>IPM_All_Documents_Received__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Approval__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>IPM_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Stop</value>
+        </filters>
+        <label>My Open Insurer Review Processes</label>
+    </listViews>
+    <nameField>
+        <label>Insurer Review Process Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Insurer Review Processes</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>IPM_Annual_Review</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>Annual Review</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_Claims_Management_Self_Audit</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>Claims Management Self Audit</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_LIBPG_Business_Plan</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>LIBPG Business Plan</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_Licence_Renewal</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>Licence Renewal</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_MPPG_Review</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>MPPG Review</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_New_Licence_Application</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>New Licence Application</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_Review_of_Subsidiaries</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>Review of Subsidiaries</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_WHS_Audit</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>WHS Audit</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IPM_Wage_Declaration_Non_Levy_Notes</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>IPM_Account_Contact_All_Doc_All_Assessments_Approval</compactLayoutAssignment>
+        <label>Wage Declaration / Non Levy Notes</label>
+        <picklistValues>
+            <picklist>IPM_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Approved</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Best_Practice__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Evidence_of_Non_Compliance__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Assess</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Stop</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Security_Level_Review__c</picklist>
+            <values>
+                <fullName>Less Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Changes to Security</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subsidiary_Action__c</picklist>
+            <values>
+                <fullName>Addition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Removal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>IPM_Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_All_Documents_Received__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Approval__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>IPM_Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_All_Documents_Received__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Approval__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_All_Documents_Received__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Approval__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>IPM_Cannot_Set_Status_to_Approve_Detail</fullName>
+        <active>true</active>
+        <description>Assessment section on Detail page needs to be completed before moving to Approve</description>
+        <errorConditionFormula>TEXT(IPM_Status__c) = &quot;Decide&quot; &amp;&amp; 
+
+(
+((RecordType.Name = &quot;New Licence Application&quot; || RecordType.Name = &quot;Licence Renewal&quot;) 
+&amp;&amp; 
+(ISBLANK( IPM_Security_Lodgement_Date__c ) ||  ISBLANK(IPM_Security_Lodged__c) )) 
+
+|| 
+
+(RecordType.Name = &quot;MPPG Review&quot; &amp;&amp;  IPM_WIC_Codes_Correct__c = FALSE ) 
+
+|| 
+
+(RecordType.Name = &quot;Claims Management Self Audit&quot; &amp;&amp; (ISBLANK( IPM_Score__c ) || ISBLANK(IPM_Audit_Completed_Date__c) || ISBLANK(TEXT( IPM_Evidence_of_Non_Best_Practice__c)) || ISBLANK(TEXT(IPM_Evidence_of_Non_Compliance__c) ) ) ) 
+
+|| 
+
+(RecordType.Name = &quot;LIBPG Business Plan&quot; &amp;&amp;  IPM_Further_Information_Required__c = TRUE &amp;&amp; (ISBLANK( IPM_Further_Information_Received_Date__c) || ISBLANK( IPM_Further_Information_Requested_Date__c ) ) ) 
+
+|| 
+
+(RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp;  (   IPM_Parent_Entity_Security_Updated__c = FALSE || ISBLANK(TEXT( Security_Level_Review__c )) 
+
+|| (  TEXT( Security_Level_Review__c ) &lt;&gt; &quot;No Changes to Security&quot; &amp;&amp; ISBLANK ( IPM_Notification_of_Security_Reqt_Date__c )    )  ) )
+
+|| 
+
+(RecordType.Name = &quot;WHS Audit&quot; &amp;&amp;  ISBLANK( IPM_Score__c ) ) 
+
+
+)</errorConditionFormula>
+        <errorMessage>Details in Assess Section needs to be captured before you can move to Approve</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Cannot_set_Status_to_Assess</fullName>
+        <active>true</active>
+        <description>All Documents Received must be true to allow the Insurer Review Process to progress to Status = Assess</description>
+        <errorConditionFormula>TEXT(IPM_Status__c) = &apos;Assess&apos; &amp;&amp;  
+(
+
+IPM_All_Documents_Received_Flag__c = false
+
+|| 
+
+( 
+
+((RecordType.Name = &quot;Claims Management Self Audit&quot; || RecordType.Name = &quot;LIBPG Business Plan&quot; || RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; || RecordType.Name = &quot;MPPG Review&quot; || RecordType.Name = &quot;WHS Audit&quot;) 
+&amp;&amp; 
+(ISBLANK( IPM_Received_Date__c ) )) 
+
+
+|| 
+
+(RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp; ISBLANK( IPM_Previous_Insurer__c ) ) 
+
+|| 
+
+(RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; &amp;&amp; (ISBLANK(IPM_Total_Wages__c) || ISBLANK ( IPM_Number_of_Employees__c ))) 
+
+)
+
+)</errorConditionFormula>
+        <errorMessage>Details in Gather Section needs to be captured before you can move to Assess</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Cannot_set_Status_to_Gather</fullName>
+        <active>true</active>
+        <description>Prevents use from moving to Gather until certain details have been completed</description>
+        <errorConditionFormula>TEXT(IPM_Status__c) = &quot;Gather&quot; &amp;&amp; 
+
+(
+
+((RecordType.Name = &quot;Claims Management Self Audit&quot; || RecordType.Name = &quot;LIBPG Business Plan&quot; || RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; || RecordType.Name = &quot;MPPG Review&quot; || RecordType.Name = &quot;WHS Audit&quot;)
+&amp;&amp; 
+(ISBLANK(IPM_Requested_Date__c) || ISBLANK( IPM_Due_Date__c ) ))
+
+
+||
+
+(RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp; (ISBLANK(IPM_Subsidiary__c) || TEXT(Subsidiary_Action__c) = &quot;&quot;) )
+
+||
+
+(RecordType.Name = &quot;MPPG Review&quot; &amp;&amp; (ISBLANK( IPM_RSVP_Date__c )  ))
+
+)</errorConditionFormula>
+        <errorMessage>Details in Request Section needs to be captured before you can move to Gather</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Cannot_set_Status_to_Stop</fullName>
+        <active>true</active>
+        <description>The record has to be approved or rejected before the Status can be set to Stop.</description>
+        <errorConditionFormula>(TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; TEXT(IPM_Approval__c) = &quot;Not Yet Approved&quot;)
+||
+(RecordType.Name = &quot;Annual Review&quot; &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; TEXT(IPM_Approval__c) &lt;&gt; &quot;Approved&quot;)
+||
+((RecordType.Name = &quot;New Licence Application&quot; || RecordType.Name = &quot;Licence Renewal&quot;) &amp;&amp; (TEXT(IPM_Security_Lodged__c) = &quot;&quot;) &amp;&amp; 
+TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; TEXT(IPM_Approval__c) = &quot;Not Yet Approved&quot;)
+||
+(	RecordType.Name = &quot;MPPG Review&quot; &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; TEXT(IPM_Approval__c) = &quot;Not Yet Approved&quot; &amp;&amp; ISBLANK(IPM_Date_Approved__c) &amp;&amp; ISBLANK(IPM_Date_Letter_Sent__c))
+||
+((RecordType.Name = &quot;WHS Audit&quot;) &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; ( (TEXT(IPM_Score__c) = &quot;&quot; || TEXT(IPM_Received_Date__c) = &quot;&quot;) &amp;&amp; (TEXT(IPM_Approval__c) &lt;&gt; &quot;Rejected&quot;)))
+||
+(RecordType.Name = &quot;Claims Management Self Audit&quot; &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; IPM_Improvement_Plan_Required__c = TRUE &amp;&amp; (ISBLANK( IPM_Improvement_Plan_Received_Date__c ) || ISBLANK( IPM_Improvement_Plan_Requested_Date__c ) ) )
+||
+(RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; ( ISBLANK( IPM_Total_Levy_Amount__c )||ISBLANK( IPM_First_Invoice_Due_Date__c ) || ISBLANK( IPM_First_Invoice_Notice_Date__c ) || ISBLANK( IPM_First_Invoice_Paid_Date__c ) || ISBLANK( IPM_First_Invoice_Sent_Date__c ) || ISBLANK( IPM_Second_Invoice_Due_Date__c ) || ISBLANK( IPM_Second_Invoice_Notice_Date__c ) || ISBLANK( IPM_Second_Invoice_Paid_Date__c ) || ISBLANK( IPM_Second_Invoice_Sent_Date__c ) ) )
+||
+(RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp; TEXT(IPM_Status__c) = &quot;Stop&quot; &amp;&amp; ISBLANK( IPM_Sufficient_Security_Lodged_Date__c ) )</errorConditionFormula>
+        <errorMessage>Details in Approve Section needs to be captured before you can move to Stop as well as review Guided Process Instruction.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Evidence_of_Non_Compliance_Required</fullName>
+        <active>true</active>
+        <description>When the Process Outcome is set to Approved, the user must select whether there was Evidence of Non-Compliance</description>
+        <errorConditionFormula>RecordType.Name = &quot;Claims Management Self Audit&quot; &amp;&amp;  TEXT(IPM_Approval__c) = &quot;Approved&quot; &amp;&amp; ISNULL( TEXT(IPM_Evidence_of_Non_Compliance__c) )</errorConditionFormula>
+        <errorMessage>Please select a value for Evidence of Non-Compliance.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Security_Lodgemt_Date_mandatory</fullName>
+        <active>true</active>
+        <description>When Security Lodged is true then Security Lodgement Date must be populated.</description>
+        <errorConditionFormula>TEXT(IPM_Security_Lodged__c) &lt;&gt; &quot;&quot; &amp;&amp; ISNULL( IPM_Security_Lodgement_Date__c )</errorConditionFormula>
+        <errorMessage>Please enter the Security Lodgement Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Status_to_Approve_Related_List</fullName>
+        <active>true</active>
+        <description>All Assessments must be complete before the Status can be set to Approve. This applies to all processes except Wage Declaration / Non Levy Notes and Review of Subsidiaries.</description>
+        <errorConditionFormula>(RecordType.Name &lt;&gt; &quot;Wage Declaration / Non Levy Notes&quot; &amp;&amp; RecordType.Name &lt;&gt; &quot;Review of Subsidiaries&quot;) &amp;&amp;  TEXT(IPM_Status__c) = &quot;Decide&quot; &amp;&amp;  IPM_All_Assessments_Complete_Flag__c = false</errorConditionFormula>
+        <errorMessage>All Assessments (In Related tab) must be complete before setting the Status to &quot;Approve&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Workplace_Insurer_Type_not_valid</fullName>
+        <active>true</active>
+        <description>Display an error if the Account&apos;s Workplace Insurer Type is not valid for the Insurer Review Process Record Type.</description>
+        <errorConditionFormula>OR(
+(RecordType.Name = &quot;New Licence Application&quot; || RecordType.Name = &quot;Licence Renewal&quot; || RecordType.Name = &quot;Annual Review&quot;) &amp;&amp; (TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Self Insurer&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Group Self Insurer&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Specialised&quot;),
+RecordType.Name = &quot;Claims Management Self Audit&quot; &amp;&amp; ((TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Self Insurer&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Group Self Insurer&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Specialised&quot;) ||  IPM_Account__r.IPM_Workplace_Insurer_Process_Exemption__c = true),
+(RecordType.Name = &quot;MPPG Review&quot; || RecordType.Name = &quot;LIBPG Business Plan&quot;) &amp;&amp; ((TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Nominal Insurer&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Specialised&quot;) ||  IPM_Account__r.IPM_Workplace_Insurer_Process_Exemption__c = true),
+RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) = &quot;Subsidiary&quot;,
+RecordType.Name = &quot;Review of Subsidiaries&quot; &amp;&amp; TEXT(IPM_Account__r.IPM_Workplace_Insurer_Type__c) &lt;&gt; &quot;Group Self Insurer&quot;
+)</errorConditionFormula>
+        <errorMessage>The Workplace Insurer Type is not valid for this type of Insurer Review Process or the Insurer is exempt from this Insurer Review Process.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>IPM_Generate_Licence</fullName>
+        <availability>online</availability>
+        <description>Drawloop</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Licence</masterLabel>
+        <openType>sidebar</openType>
+        <page>IPM_Generate_Licence</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Run_DDP</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Run Document Package</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?&amp;eid={!IPM_Insurer_Review_Process__c.Id}&amp;filter={!IPM_Insurer_Review_Process__c.IPM_Drawloop_Filter__c}&amp;filterType=contains</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used to respond to the Submitter on the outcome of the Approval Process</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Risk Indicator Review Outcome</name>
+    <style>none</style>
+    <subject>{!IPM_Risk_Indicator__c.00N0k000000Obov} Risk Indicator for {!IPM_Risk_Indicator__c.IPM_Account__c} has been reviewed</subject>
+    <type>text</type>
+</EmailTemplate>

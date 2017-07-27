@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>IPM_All_IPMG_users_can_edit_all_Assessments_owned_by_an_IPMG_user</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All IPMG users can edit all Assessments owned by an IPMG user.</description>
+        <label>All IPMG users can edit all Assessments owned by an IPMG user</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,4 @@
+The following {!IPM_Insurer_Review_Process__c.RecordType} for {!IPM_Insurer_Review_Process__c.IPM_Account__c} requires review and approval
+
+Click below to access the approval review in Salesforce.
+{!IPM_Insurer_Review_Process__c.Link}

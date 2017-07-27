@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>MPPG Review Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <fieldNames>IPM_WIC_Codes_Correct__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete all fields - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Complete the Assessment - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <fieldNames>IPM_Date_Approved__c</fieldNames>
+        <fieldNames>IPM_Date_Letter_Sent__c</fieldNames>
+        <info>&lt;p&gt;Send &amp;quot;Not Rejected&amp;quot; letter as attachment in email&lt;/p&gt;&lt;p&gt;Complete all fields - Details tab, Approve section&lt;/p&gt;&lt;p&gt;Create follow up activities, as required&lt;/p&gt;&lt;p&gt;Mark Status as Complete&lt;/p&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPM_Premium_Filings_Form__c</fieldNames>
+        <fieldNames>IPM_Received_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Tick each document as received - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Email the MPPG Filings Received email&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Due_Date__c</fieldNames>
+        <fieldNames>IPM_RSVP_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Request section&lt;/li&gt;&lt;li&gt;Email the MPPG Premium Filings request&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_MPPG_Review</recordTypeName>
+</PathAssistant>

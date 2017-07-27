@@ -1,0 +1,19 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c} 
+
+The Business Plan for {!IPM_Insurer_Review_Process__c.IPM_Account__c} is due for submission to SIRA by {!IPM_Insurer_Review_Process__c.IPM_Due_Date__c}.
+To discuss further, please do not hesitate to contact me on the details below.
+
+Regards, 
+{!User.Name} 
+{!User.Title} 
+{!User.Division}
+{!User.Department} 
+p {!User.Phone} 
+m {!User.MobilePhone} 
+e {!User.Email} | www.sira.nsw.gov.au 
+{!User.Address} 
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender. 
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

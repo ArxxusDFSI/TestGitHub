@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Individual assessments related to Insurer Review Process</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IPM_Assessment_Complete__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( IPM_PM_Reviewed__c = true &amp;&amp; (TEXT( SME_Approval__c ) = &quot;SME Not Required&quot; || TEXT( SME_Approval__c ) = &quot;Approved&quot; || TEXT( SME_Approval__c ) = &quot;Rejected&quot;), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Assessment Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Assessment_Display__c</fullName>
+        <description>Used to show on the Insurer Review process - Assessment related list</description>
+        <externalId>false</externalId>
+        <formula>&quot;SME Approval - &quot; + TEXT(SME_Approval__c) +  BR() +
+&quot;PM Review - &quot; +  If( IPM_PM_Reviewed__c=TRUE,&quot;Reviewed&quot;,&quot;Not Reviewed&quot;) +  BR() +
+&quot;Assessment Complete - &quot; +  If(  IPM_Assessment_Complete__c =TRUE,&quot;Yes&quot;,&quot;No&quot;)</formula>
+        <label>Assessment Display</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Date_of_SME_Decision__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of SME Decision</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Review_Process__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Insurer Review Process</label>
+        <referenceTo>IPM_Insurer_Review_Process__c</referenceTo>
+        <relationshipLabel>Assessments</relationshipLabel>
+        <relationshipName>Assessments</relationshipName>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_PM_Reviewed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PM Reviewed</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_SME_Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>SME Contact</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_SME_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>SME Group</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Compliance Team</fullName>
+                    <default>false</default>
+                    <label>Compliance Team</label>
+                </value>
+                <value>
+                    <fullName>Data Team</fullName>
+                    <default>false</default>
+                    <label>Data Team</label>
+                </value>
+                <value>
+                    <fullName>External Consultancy</fullName>
+                    <default>false</default>
+                    <label>External Consultancy</label>
+                </value>
+                <value>
+                    <fullName>Finance Team</fullName>
+                    <default>false</default>
+                    <label>Finance Team</label>
+                </value>
+                <value>
+                    <fullName>Insurer Performance Team - Compliance</fullName>
+                    <default>false</default>
+                    <label>Insurer Performance Team - Compliance</label>
+                </value>
+                <value>
+                    <fullName>Legal Team</fullName>
+                    <default>false</default>
+                    <label>Legal Team</label>
+                </value>
+                <value>
+                    <fullName>SafeWork</fullName>
+                    <default>false</default>
+                    <label>SafeWork</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>IPM_Assessment_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SME_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>SME Approval</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SME Not Required</fullName>
+                    <default>true</default>
+                    <label>SME Not Required</label>
+                </value>
+                <value>
+                    <fullName>SME Required</fullName>
+                    <default>false</default>
+                    <label>SME Required</label>
+                </value>
+                <value>
+                    <fullName>Sent to SME</fullName>
+                    <default>false</default>
+                    <label>Sent to SME</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Assessment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Type__c</columns>
+        <columns>IPM_PM_Reviewed__c</columns>
+        <columns>SME_Approval__c</columns>
+        <columns>IPM_SME_Group__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Assessments</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Type__c</columns>
+        <columns>IPM_PM_Reviewed__c</columns>
+        <columns>SME_Approval__c</columns>
+        <columns>IPM_SME_Group__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Assessments</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Closed_Assessments</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Type__c</columns>
+        <columns>IPM_PM_Reviewed__c</columns>
+        <columns>SME_Approval__c</columns>
+        <columns>IPM_SME_Group__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>IPM_PM_Reviewed__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SME_Approval__c</field>
+            <operation>equals</operation>
+            <value>SME Not Required,Approved,Rejected</value>
+        </filters>
+        <label>My Closed Assessments</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_Assessments</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Type__c</columns>
+        <columns>IPM_PM_Reviewed__c</columns>
+        <columns>SME_Approval__c</columns>
+        <columns>IPM_SME_Group__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>IPM_PM_Reviewed__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>SME_Approval__c</field>
+            <operation>equals</operation>
+            <value>SME Required,Sent to SME</value>
+        </filters>
+        <label>My Open Assessments</label>
+    </listViews>
+    <nameField>
+        <label>Assessment Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Assessments</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IPM_Insurer_Review_Process__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_PM_Reviewed__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SME_Approval__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_SME_Group__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>IPM_Insurer_Review_Process__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_PM_Reviewed__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SME_Approval__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_SME_Group__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Insurer_Review_Process__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_PM_Reviewed__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SME_Approval__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_SME_Group__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Approve_and_Stop_Prevent_Changes</fullName>
+        <active>true</active>
+        <description>Once Insurer Review Process has moved to Approve or Stop, key changes should not be made to Assessment record</description>
+        <errorConditionFormula>(TEXT(IPM_Insurer_Review_Process__r.IPM_Status__c) = &quot;Decide&quot; ||  TEXT(IPM_Insurer_Review_Process__r.IPM_Status__c) = &quot;Stop&quot;)
+&amp;&amp;
+(ISCHANGED( SME_Approval__c )
+||
+ ISCHANGED( IPM_PM_Reviewed__c ) )</errorConditionFormula>
+        <errorMessage>Assessment information should not be changed once Insurer Review Process has proceeded to Approve or Stop</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IPM_Date_of_SME_Decision_Required</fullName>
+        <active>true</active>
+        <description>Date of SME decision required if SME Approved = Approved or Rejected</description>
+        <errorConditionFormula>(TEXT(SME_Approval__c) = &quot;Approved&quot; || TEXT(SME_Approval__c) = &quot;Rejected&quot; ) &amp;&amp;
+ISBLANK( IPM_Date_of_SME_Decision__c )</errorConditionFormula>
+        <errorDisplayField>IPM_Date_of_SME_Decision__c</errorDisplayField>
+        <errorMessage>Date of SME Decision required when SME Approval has been provided</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

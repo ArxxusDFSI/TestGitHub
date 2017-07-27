@@ -1,0 +1,4 @@
+{!IPM_Director_s_Brief__c.Name} for {!IPM_Director_s_Brief__c.IPM_Account__c} has been {!IPM_Director_s_Brief__c.IPM_Status__c}.
+
+Click on the link below for further details in Salesforce.
+{!IPM_Director_s_Brief__c.Link}

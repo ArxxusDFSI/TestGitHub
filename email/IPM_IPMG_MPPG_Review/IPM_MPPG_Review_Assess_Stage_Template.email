@@ -1,0 +1,23 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c}
+
+We refer to you premium filing in accordance with the Market Practice and Premium Guidelines which was received on {!IPM_Insurer_Review_Process__c.IPM_Received_Date__c}. We are seeking additional information to assist in the assessment of your filing and [invite you to attend a meeting on <Insert Date here>]: or [would appreciate it if you could please respond to the questions listed below]-
+ 
+Question 1
+Question 2 etc
+ 
+
+Please don’t hesitate to call {!User.Name} on {!User.Phone} or email {!User.Email} should you have any queries.
+
+Regards,
+{!User.Name}
+{!User.Title}
+{!User.Department}
+p {!User.Phone}
+m {!User.MobilePhone}
+e {!User.Email} | www.sira.nsw.gov.au
+{!User.Address}
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender.
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

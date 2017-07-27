@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>Review of Subsidiaries Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <fieldNames>Security_Level_Review__c</fieldNames>
+        <fieldNames>IPM_Notification_of_Security_Reqt_Date__c</fieldNames>
+        <fieldNames>IPM_Parent_Entity_Security_Updated__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Submit for Approval (button at top right)&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <fieldNames>IPM_Sufficient_Security_Lodged_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Approve stage&lt;/li&gt;&lt;li&gt;Obtain QA&lt;/li&gt;&lt;li&gt;Generate revised Schedule&lt;/li&gt;&lt;li&gt;Email revised Schedule to Insurer&lt;/li&gt;&lt;li&gt;Ensure revised Schedule is stored on S drive&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPM_Company_Secretary_Letter__c</fieldNames>
+        <fieldNames>IPM_ASIC_Review__c</fieldNames>
+        <fieldNames>IPM_Previous_Insurer__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Mark status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Account__c</fieldNames>
+        <fieldNames>IPM_Contact__c</fieldNames>
+        <fieldNames>IPM_Subsidiary__c</fieldNames>
+        <fieldNames>Subsidiary_Action__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;If a new subsidiary, create the new subsidiary as a new account linked to the Parent account - Accounts menu, + Account&lt;/li&gt;&lt;li&gt;Select Addition or Deletion - Details tab, Request stage&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;p&gt;Key Fields to the left&lt;/p&gt;&lt;p&gt;Business Instructions/Rules here &lt;/p&gt;&lt;ul&gt;&lt;li&gt;Step 1&lt;/li&gt;&lt;li&gt;Step 2&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_Review_of_Subsidiaries</recordTypeName>
+</PathAssistant>

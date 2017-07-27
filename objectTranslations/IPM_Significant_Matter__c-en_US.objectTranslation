@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Significant Matter</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Significant Matters</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Significant Matters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>IPM_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Location --></label>
+        <name>IPM_Document_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reported By (Other) --></label>
+        <name>IPM_Reported_By_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reported By --></label>
+        <name>IPM_Reported_By__c</name>
+        <relationshipLabel><!-- Significant Matters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reported Date --></label>
+        <name>IPM_Reported_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please refer to Self-insurer general information requirements - section 3 for further details pertaining to notification of Significant Matters. --></help>
+        <label><!-- Type --></label>
+        <name>IPM_Type__c</name>
+        <picklistValues>
+            <masterLabel>Legal issues or Litigation</masterLabel>
+            <translation><!-- Legal issues or Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prevention of Approval and/or Operational Requirements</masterLabel>
+            <translation><!-- Prevention of Approval and/or Operational Requirements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Section 190 Default</masterLabel>
+            <translation><!-- Section 190 Default --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Significant Breach - Legislation or Licence Conditions</masterLabel>
+            <translation><!-- Significant Breach - Legislation or Licence Conditions --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

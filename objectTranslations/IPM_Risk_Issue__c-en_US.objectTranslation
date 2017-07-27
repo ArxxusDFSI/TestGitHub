@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Risk Activity / Issue</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Risk Activities / Issues</value>
+    </caseValues>
+    <fields>
+        <help><!-- The date that the Risk/Issue was opened --></help>
+        <label><!-- Date Opened --></label>
+        <name>Date_Opened__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Risk Activities / Issues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Agreement Date of Risk/Issue --></label>
+        <name>IPM_Agreement_Date_of_Risk_Issue__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date that the Risk/Issue was closed --></help>
+        <label><!-- Date Closed --></label>
+        <name>IPM_Date_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>IPM_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurer Action Agreement Date --></label>
+        <name>IPM_Insurer_Action_Agreement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Insurer Agrees on taking Action --></label>
+        <name>IPM_Insurer_Agree_on_taking_Action__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Insurer Agreed on Risk/Issue --></label>
+        <name>IPM_Insurer_Agreed_on_Risk_Issue__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Insurer Type --></label>
+        <name>IPM_Insurer_Type__c</name>
+        <picklistValues>
+            <masterLabel>Across Insurer Types</masterLabel>
+            <translation><!-- Across Insurer Types --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI Level</masterLabel>
+            <translation><!-- NI Level --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self Level</masterLabel>
+            <translation><!-- Self Level --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SiCorp Level</masterLabel>
+            <translation><!-- SiCorp Level --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialised Level</masterLabel>
+            <translation><!-- Specialised Level --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notification Date --></label>
+        <name>IPM_Notification_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- QA Approval Date --></label>
+        <name>IPM_QA_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Indicator --></label>
+        <name>IPM_Risk_Indicator__c</name>
+        <relationshipLabel><!-- Risk Activities / Issues --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>1-Validate</masterLabel>
+            <translation><!-- 1-Validate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-Agreed Actions</masterLabel>
+            <translation><!-- 2-Agreed Actions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-Closed</masterLabel>
+            <translation><!-- 3-Closed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <label><!-- Issue --></label>
+        <name>Issue</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Risk Activity --></label>
+        <name>Risk</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Key fields in Validation section must be completed before moving to Agreed Action --></errorMessage>
+        <name>Cannot_proceed_to_Agreed_Action</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date Closed is required when closing a Risk/Issue --></errorMessage>
+        <name>Closed_Status_and_Date</name>
+    </validationRules>
+</CustomObjectTranslation>

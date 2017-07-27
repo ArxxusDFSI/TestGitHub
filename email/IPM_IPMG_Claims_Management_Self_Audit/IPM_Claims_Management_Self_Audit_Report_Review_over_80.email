@@ -1,0 +1,19 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c}, 
+
+SIRA/Insurer Performance has completed a review of {!IPM_Insurer_Review_Process__c.IPM_Account__c}'s Claims Management Self Audit Report and the findings can be found in the attached report.
+
+If applicable please respond to the corrective actions by the date required to SIRA at Self&SpecialisedInsurers@sira.nsw.gov.au
+
+Regards, 
+{!User.Name} 
+{!User.Title} 
+{!User.Department} 
+p {!User.Phone} 
+m {!User.MobilePhone} 
+e {!User.Email} | www.sira.nsw.gov.au 
+{!User.Address} 
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender. 
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

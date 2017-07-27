@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Used for identifying significant matters for Insurer Portfolio Manager</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Significant Matters</relationshipLabel>
+        <relationshipName>Significant_Matters</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Document_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Document Location</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Reported_By_Other__c</fullName>
+        <description>Identifies if someone other than a Contact reported the Significant Matter</description>
+        <externalId>false</externalId>
+        <label>Reported By (Other)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Reported_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identifies the contact who reported the significant matter</description>
+        <externalId>false</externalId>
+        <label>Reported By</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Significant Matters</relationshipLabel>
+        <relationshipName>Significant_Matters</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Reported_Date__c</fullName>
+        <description>The date that the Significant Matter was reported.</description>
+        <externalId>false</externalId>
+        <label>Reported Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please refer to Self-insurer general information requirements - section 3 for further details pertaining to notification of Significant Matters.</inlineHelpText>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Significant Breach - Legislation or Licence Conditions</fullName>
+                    <default>false</default>
+                    <label>Significant Breach - Legislation or Licence Conditions</label>
+                </value>
+                <value>
+                    <fullName>Section 190 Default</fullName>
+                    <default>false</default>
+                    <label>Section 190 Default</label>
+                </value>
+                <value>
+                    <fullName>Prevention of Approval and/or Operational Requirements</fullName>
+                    <default>false</default>
+                    <label>Prevention of Approval and/or Operational Requirements</label>
+                </value>
+                <value>
+                    <fullName>Legal issues or Litigation</fullName>
+                    <default>false</default>
+                    <label>Legal issues or Litigation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Significant Matter</label>
+    <nameField>
+        <label>Significant Matter Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Significant Matters</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

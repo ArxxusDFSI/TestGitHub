@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Licence</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Licences</value>
+    </caseValues>
+    <fields>
+        <label><!-- Expiry Date --></label>
+        <name>GLS_expiryDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>GLS_startDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>IPM_Account__c</name>
+        <relationshipLabel><!-- Licences --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>IPM_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Full/Conditional --></label>
+        <name>IPM_Full_Conditional__c</name>
+        <picklistValues>
+            <masterLabel>Conditional</masterLabel>
+            <translation><!-- Conditional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Group --></label>
+        <name>IPM_Licence_Group__c</name>
+        <picklistValues>
+            <masterLabel>Property Industry</masterLabel>
+            <translation><!-- Property Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registry Services</masterLabel>
+            <translation><!-- Registry Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workplace Insurance</masterLabel>
+            <translation><!-- Workplace Insurance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Principal Approval</masterLabel>
+            <translation><!-- Principal Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective</masterLabel>
+            <translation><!-- Prospective --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reduced</masterLabel>
+            <translation><!-- Reduced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Term (Units) --></label>
+        <name>IPM_Term_Units__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term --></label>
+        <name>IPM_Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>IPM_Type__c</name>
+        <picklistValues>
+            <masterLabel>Self Insurer - Group</masterLabel>
+            <translation><!-- Self Insurer - Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self Insurer - Single</masterLabel>
+            <translation><!-- Self Insurer - Single --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialised</masterLabel>
+            <translation><!-- Specialised --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Run_DDP --></label>
+        <name>Run_DDP</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>IPM_Insurer_Review_Process__c</entityName>
+    <fieldName>IPM_Status__c</fieldName>
+    <masterLabel>Claims Management Self Audit Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Assessments_Complete__c</fieldNames>
+        <fieldNames>IPM_Score__c</fieldNames>
+        <fieldNames>IPM_Audit_Completed_Date__c</fieldNames>
+        <fieldNames>IPM_Evidence_of_Non_Best_Practice__c</fieldNames>
+        <fieldNames>IPM_Evidence_of_Non_Compliance__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete all fields - Details tab, Assess section&lt;/li&gt;&lt;li&gt;Complete the Assessment - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete.&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Assess</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Improvement_Plan_Required__c</fieldNames>
+        <fieldNames>IPM_Improvement_Plan_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Improvement_Plan_Received_Date__c</fieldNames>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete all fields - Details tab, Approve section&lt;/li&gt;&lt;li&gt;If an Improvement Plan is requested, record the date of request &lt;/li&gt;&lt;li&gt;Add relevant follow up actions - Related tab&lt;/li&gt;&lt;li&gt;If an improvement plan was requested, record the received date and update the follow up actions - Related tab&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Decide</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_All_Documents_Received__c</fieldNames>
+        <fieldNames>IPM_Self_Audit_Report_Received__c</fieldNames>
+        <fieldNames>IPM_Received_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Tick each document as received - Details tab, Gather section&lt;/li&gt;&lt;li&gt;Record date document was received.&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Gather</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Requested_Date__c</fieldNames>
+        <fieldNames>IPM_Due_Date__c</fieldNames>
+        <info>&lt;ol&gt;&lt;li&gt;Complete fields - Details tab, Request section&lt;/li&gt;&lt;li&gt;Email the Claims Management Self Audit Request&lt;/li&gt;&lt;li&gt;Mark Status as Complete&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>IPM_Approval__c</fieldNames>
+        <picklistValueName>Stop</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>IPM_Claims_Management_Self_Audit</recordTypeName>
+</PathAssistant>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>01 - Agriculture</fullName>
+        <default>false</default>
+        <label>01 - Agriculture</label>
+    </customValue>
+    <customValue>
+        <fullName>02 - Services to Agriculture, Hunting and Trapping</fullName>
+        <default>false</default>
+        <label>02 - Services to Agriculture, Hunting and Trapping</label>
+    </customValue>
+    <customValue>
+        <fullName>03 - Forestry and Logging</fullName>
+        <default>false</default>
+        <label>03 - Forestry and Logging</label>
+    </customValue>
+    <customValue>
+        <fullName>04 - Commercial Fishing</fullName>
+        <default>false</default>
+        <label>04 - Commercial Fishing</label>
+    </customValue>
+    <customValue>
+        <fullName>12 - Oil and Gas Extraction</fullName>
+        <default>false</default>
+        <label>12 - Oil and Gas Extraction</label>
+    </customValue>
+    <customValue>
+        <fullName>13 - Metal Ore Mining</fullName>
+        <default>false</default>
+        <label>13 - Metal Ore Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>14 - Other Mining</fullName>
+        <default>false</default>
+        <label>14 - Other Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>15 - Services to Mining</fullName>
+        <default>false</default>
+        <label>15 - Services to Mining</label>
+    </customValue>
+    <customValue>
+        <fullName>21 - Food, Beverage and Tobacco Manufacturing</fullName>
+        <default>false</default>
+        <label>21 - Food, Beverage and Tobacco Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>22 - Textile, Clothing, Footwear and Leather Manufacturing</fullName>
+        <default>false</default>
+        <label>22 - Textile, Clothing, Footwear and Leather Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>23 - Wood and Paper Product Manufacturing</fullName>
+        <default>false</default>
+        <label>23 - Wood and Paper Product Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>24 - Printing, Publishing and Recorded Media</fullName>
+        <default>false</default>
+        <label>24 - Printing, Publishing and Recorded Media</label>
+    </customValue>
+    <customValue>
+        <fullName>25 - Petroleum, Coal, Chemical and Associated Product Manufacturing</fullName>
+        <default>false</default>
+        <label>25 - Petroleum, Coal, Chemical and Associated Product Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>26 - Non-metallic Mineral Product Manufacturing</fullName>
+        <default>false</default>
+        <label>26 - Non-metallic Mineral Product Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>27 - Metal Product Manufacturing</fullName>
+        <default>false</default>
+        <label>27 - Metal Product Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>28 - Machinery and Equipment Manufacturing</fullName>
+        <default>false</default>
+        <label>28 - Machinery and Equipment Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>29 - Other Manufacturing</fullName>
+        <default>false</default>
+        <label>29 - Other Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>36 - Electricity and Gas Supply</fullName>
+        <default>false</default>
+        <label>36 - Electricity and Gas Supply</label>
+    </customValue>
+    <customValue>
+        <fullName>37 - Water Supply, Sewerage and Drainage Services</fullName>
+        <default>false</default>
+        <label>37 - Water Supply, Sewerage and Drainage Services</label>
+    </customValue>
+    <customValue>
+        <fullName>41 - General Construction</fullName>
+        <default>false</default>
+        <label>41 - General Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>42 - Construction Trade Services</fullName>
+        <default>false</default>
+        <label>42 - Construction Trade Services</label>
+    </customValue>
+    <customValue>
+        <fullName>45 - Basic Material Wholesaling</fullName>
+        <default>false</default>
+        <label>45 - Basic Material Wholesaling</label>
+    </customValue>
+    <customValue>
+        <fullName>46 - Machinery and Motor Vehicle Wholesaling</fullName>
+        <default>false</default>
+        <label>46 - Machinery and Motor Vehicle Wholesaling</label>
+    </customValue>
+    <customValue>
+        <fullName>47 - Personal and Household Good Wholesaling</fullName>
+        <default>false</default>
+        <label>47 - Personal and Household Good Wholesaling</label>
+    </customValue>
+    <customValue>
+        <fullName>52 - Personal and Household Good Retailing</fullName>
+        <default>false</default>
+        <label>52 - Personal and Household Good Retailing</label>
+    </customValue>
+    <customValue>
+        <fullName>53 - Motor Vehicle Retailing and Services</fullName>
+        <default>false</default>
+        <label>53 - Motor Vehicle Retailing and Services</label>
+    </customValue>
+    <customValue>
+        <fullName>57 – Accommodation, Cafes and Restaurants</fullName>
+        <default>false</default>
+        <label>57 – Accommodation, Cafes and Restaurants</label>
+    </customValue>
+    <customValue>
+        <fullName>62 - Rail Transport</fullName>
+        <default>false</default>
+        <label>62 - Rail Transport</label>
+    </customValue>
+    <customValue>
+        <fullName>64 - Air and Space Transport</fullName>
+        <default>false</default>
+        <label>64 - Air and Space Transport</label>
+    </customValue>
+    <customValue>
+        <fullName>65 - Other Transport</fullName>
+        <default>false</default>
+        <label>65 - Other Transport</label>
+    </customValue>
+    <customValue>
+        <fullName>66 - Services to Transport</fullName>
+        <default>false</default>
+        <label>66 - Services to Transport</label>
+    </customValue>
+    <customValue>
+        <fullName>67 - Storage</fullName>
+        <default>false</default>
+        <label>67 - Storage</label>
+    </customValue>
+    <customValue>
+        <fullName>71 - Communication Services</fullName>
+        <default>false</default>
+        <label>71 - Communication Services</label>
+    </customValue>
+    <customValue>
+        <fullName>73 - Finance</fullName>
+        <default>false</default>
+        <label>73 - Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>74 - Insurance</fullName>
+        <default>false</default>
+        <label>74 - Insurance</label>
+    </customValue>
+    <customValue>
+        <fullName>77 - Property Services</fullName>
+        <default>false</default>
+        <label>77 - Property Services</label>
+    </customValue>
+    <customValue>
+        <fullName>81 - Government Administration</fullName>
+        <default>false</default>
+        <label>81 - Government Administration</label>
+    </customValue>
+    <customValue>
+        <fullName>82 - Defence</fullName>
+        <default>false</default>
+        <label>82 - Defence</label>
+    </customValue>
+    <customValue>
+        <fullName>84 - Education</fullName>
+        <default>false</default>
+        <label>84 - Education</label>
+    </customValue>
+    <customValue>
+        <fullName>87 - Community Services</fullName>
+        <default>false</default>
+        <label>87 - Community Services</label>
+    </customValue>
+    <customValue>
+        <fullName>91 - Motion Picture, Radio and Television Services</fullName>
+        <default>false</default>
+        <label>91 - Motion Picture, Radio and Television Services</label>
+    </customValue>
+    <customValue>
+        <fullName>93 - Sport and Recreation</fullName>
+        <default>false</default>
+        <label>93 - Sport and Recreation</label>
+    </customValue>
+    <customValue>
+        <fullName>95 - Personal Services</fullName>
+        <default>false</default>
+        <label>95 - Personal Services</label>
+    </customValue>
+    <customValue>
+        <fullName>97 - Private Household Employing Staff</fullName>
+        <default>false</default>
+        <label>97 - Private Household Employing Staff</label>
+    </customValue>
+    <masterLabel>WIC Subdivision</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

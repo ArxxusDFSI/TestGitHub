@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Compliance</fullName>
+        <default>false</default>
+        <label>Compliance</label>
+    </customValue>
+    <customValue>
+        <fullName>Data</fullName>
+        <default>false</default>
+        <label>Data</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance</fullName>
+        <default>false</default>
+        <label>Finance</label>
+    </customValue>
+    <customValue>
+        <fullName>Injury Management Plan</fullName>
+        <default>false</default>
+        <label>Injury Management Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>Legal</fullName>
+        <default>false</default>
+        <label>Legal</label>
+    </customValue>
+    <customValue>
+        <fullName>Strategic</fullName>
+        <default>false</default>
+        <label>Strategic</label>
+    </customValue>
+    <customValue>
+        <fullName>WHS (SafeWork)</fullName>
+        <default>false</default>
+        <label>WHS (SafeWork)</label>
+    </customValue>
+    <masterLabel>Assessment Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

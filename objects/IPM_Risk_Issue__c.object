@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Risk_Issue_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Used to track Risks and Issues for the IPM project</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Date_Opened__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <description>The date that the Risk/Issue was opened</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the Risk/Issue was opened</inlineHelpText>
+        <label>Date Opened</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identifies the insurer that this Risk/Issue relate to</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Agreement_Date_of_Risk_Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Agreement Date of Risk/Issue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Date_Closed__c</fullName>
+        <description>The date that the Risk/Issue was closed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the Risk/Issue was closed</inlineHelpText>
+        <label>Date Closed</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Action_Agreement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurer Action Agreement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Agree_on_taking_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurer Agrees on taking Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Agreed_on_Risk_Issue__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurer Agreed on Risk/Issue</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurer Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self Level</fullName>
+                    <default>false</default>
+                    <label>Self Level</label>
+                </value>
+                <value>
+                    <fullName>Specialised Level</fullName>
+                    <default>false</default>
+                    <label>Specialised Level</label>
+                </value>
+                <value>
+                    <fullName>NI Level</fullName>
+                    <default>false</default>
+                    <label>NI Level</label>
+                </value>
+                <value>
+                    <fullName>SiCorp Level</fullName>
+                    <default>false</default>
+                    <label>SiCorp Level</label>
+                </value>
+                <value>
+                    <fullName>Across Insurer Types</fullName>
+                    <default>false</default>
+                    <label>Across Insurer Types</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Notification_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_QA_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>QA Approval Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Risk_Indicator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identifies the Risk Indicator that this Risk/Issue belongs to</description>
+        <externalId>false</externalId>
+        <label>Risk Indicator</label>
+        <referenceTo>IPM_Risk_Indicator__c</referenceTo>
+        <relationshipName>Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Validate</fullName>
+                    <default>true</default>
+                    <label>1-Validate</label>
+                </value>
+                <value>
+                    <fullName>Agreed Actions</fullName>
+                    <default>false</default>
+                    <label>2-Agreed Actions</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>3-Closed</label>
+                </value>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Open</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Risk Activity / Issue</label>
+    <nameField>
+        <label>Risk Activity / Issue Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Risk Activities / Issues</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Issue</fullName>
+        <active>true</active>
+        <description>Used for Issues</description>
+        <label>Issue</label>
+        <picklistValues>
+            <picklist>IPM_Insurer_Agree_on_taking_Action__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insurer_Agreed_on_Risk_Issue__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insurer_Type__c</picklist>
+            <values>
+                <fullName>Across Insurer Types</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NI Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SiCorp Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised Level</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Agreed Actions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Risk</fullName>
+        <active>true</active>
+        <description>Used for Risk</description>
+        <label>Risk Activity</label>
+        <picklistValues>
+            <picklist>IPM_Insurer_Agree_on_taking_Action__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insurer_Agreed_on_Risk_Issue__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insurer_Type__c</picklist>
+            <values>
+                <fullName>Across Insurer Types</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NI Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SiCorp Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised Level</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Agreed Actions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Cannot_proceed_to_Agreed_Action</fullName>
+        <active>true</active>
+        <description>Key fields must be completed before moving to Agreed Action</description>
+        <errorConditionFormula>TEXT(IPM_Status__c)=&quot;Agreed Actions&quot; &amp;&amp;
+(
+ISBLANK( IPM_Notification_Date__c ) ||
+ISBLANK( TEXT(IPM_Insurer_Agreed_on_Risk_Issue__c) ) ||
+ISBLANK( TEXT( IPM_Insurer_Agree_on_taking_Action__c ) ) ||
+ISBLANK( IPM_Agreement_Date_of_Risk_Issue__c ) ||
+ISBLANK( IPM_Insurer_Action_Agreement_Date__c )
+)</errorConditionFormula>
+        <errorMessage>Key fields in Validation section must be completed before moving to Agreed Action</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Closed_Status_and_Date</fullName>
+        <active>true</active>
+        <description>Ensures that Closed Date is populated when Status is Closed</description>
+        <errorConditionFormula>AND(ISBLANK(IPM_Date_Closed__c),(TEXT( IPM_Status__c )=&quot;Closed&quot;))</errorConditionFormula>
+        <errorMessage>Date Closed is required when closing a Risk/Issue</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

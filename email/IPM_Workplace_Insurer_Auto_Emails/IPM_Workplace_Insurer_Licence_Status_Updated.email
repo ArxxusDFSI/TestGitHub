@@ -1,0 +1,13 @@
+Hello
+
+This email is to notify that the Status of the Licence with the following details has been updated:
+Licence Name: {!GLS_Licence__c.Name}
+Insurer: {!GLS_Licence__c.IPM_Account__c}
+Start Date: {!GLS_Licence__c.GLS_startDate__c}
+Expiry Date: {!GLS_Licence__c.GLS_expiryDate__c}
+Status: {!GLS_Licence__c.IPM_Status__c}
+
+To access the Salesforce record, please use this URL:
+{!GLS_Licence__c.Link}
+
+Thank you.

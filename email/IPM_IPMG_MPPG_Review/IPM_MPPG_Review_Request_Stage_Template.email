@@ -1,0 +1,19 @@
+Dear {!IPM_Insurer_Review_Process__c.IPM_Contact__c}
+
+I refer to the Market Practice and Premium Guidelines (MPPGs)  in accordance with the Workers Compensation Act 1987 that were issued on {!IPM_Insurer_Review_Process__c.IPM_Requested_Date__c}. The due date for insurer premium filings as specified by the MPPGs is {!IPM_Insurer_Review_Process__c.IPM_Due_Date__c}.
+
+You may wish to organise to attend a pre-filing meeting with SIRA prior to submitting your premium filing where you may wish to present changes from previous filings or raise questions or issues in relation to the filing. Please contact Shane Kelly, Manager Market Practice and Premium Supervision 02 8270 2616 or {!User.Name} on 02 8270 2616 prior to {!IPM_Insurer_Review_Process__c.IPM_RSVP_Date__c} if you would like to attend a pre-filing meeting.
+
+Regards,
+{!User.Name}
+{!User.Title}
+{!User.Department}
+p {!User.Phone}
+m {!User.MobilePhone}
+e {!User.Email} | www.sira.nsw.gov.au
+{!User.Address}
+
+
+“This message and any attached files is intended solely for the use of the individual or entity to whom it is addressed and may contain information that is privileged, confidential, proprietary and/or exempt from disclosure under applicable law. Personal and health information is highly sensitive. You should not disclose or retain such information unless you have consent or are authorised by law. 
+If you are not the intended recipient of this message, please delete all copies and notify the sender.
+Any views expressed in this message are not necessarily the views of State Insurance Regulatory Authority”

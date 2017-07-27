@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Follow up activities related to various objects for IPMG.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Follow Up Activities</relationshipLabel>
+        <relationshipName>Follow_Up_Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Date_Advised__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Advised</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Review_Process__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Insurer Review Process</label>
+        <referenceTo>IPM_Insurer_Review_Process__c</referenceTo>
+        <relationshipLabel>Follow Up Activities</relationshipLabel>
+        <relationshipName>Follow_Up_Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Level_of_Concern__c</fullName>
+        <externalId>false</externalId>
+        <label>Level of Concern</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>true</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Licence__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Licence</label>
+        <referenceTo>GLS_Licence__c</referenceTo>
+        <relationshipLabel>Follow Up Activities</relationshipLabel>
+        <relationshipName>Follow_Up_Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Risk_Issue__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Risk / Issue</label>
+        <referenceTo>IPM_Risk_Issue__c</referenceTo>
+        <relationshipLabel>Follow Up Activities</relationshipLabel>
+        <relationshipName>Follow_Up_Activities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Progress Monitoring</fullName>
+                    <default>false</default>
+                    <label>Monitoring</label>
+                </value>
+                <value>
+                    <fullName>Strategic Impact</fullName>
+                    <default>false</default>
+                    <label>Strategic Impact</label>
+                </value>
+                <value>
+                    <fullName>Mitigating Action</fullName>
+                    <default>false</default>
+                    <label>Mitigating Action</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Follow Up Activity</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Description__c</columns>
+        <columns>IPM_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Closed_Follow_Up_Activities</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Description__c</columns>
+        <columns>IPM_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>My Closed Follow Up Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Follow_Up_Activities</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Description__c</columns>
+        <columns>IPM_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Follow Up Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_Follow_Up_Activities</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Insurer_Review_Process__c</columns>
+        <columns>IPM_Description__c</columns>
+        <columns>IPM_Due_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>My Open Follow Up Activities</label>
+    </listViews>
+    <nameField>
+        <label>Follow Up Activity Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Follow Up Activities</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IPM_Insurer_Review_Process__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Due_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Insurer_Review_Process__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Due_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Insurer_Review_Process__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Due_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Date_Advised_must_be_populated</fullName>
+        <active>true</active>
+        <description>If the Follow Up Activity Type = Strategic Impact then the Date Advised must be populated.</description>
+        <errorConditionFormula>TEXT( IPM_Type__c) = &quot;Strategic Impact&quot; &amp;&amp; TEXT(  IPM_Date_Advised__c) = &quot;&quot;</errorConditionFormula>
+        <errorMessage>Date Advised must be selected for a Strategic Impact.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Due_Date_must_be_populated</fullName>
+        <active>true</active>
+        <description>If the Follow Up Activity Type = Monitoring then the Due Date must be populated.</description>
+        <errorConditionFormula>TEXT( IPM_Type__c ) = &quot;Monitoring&quot; &amp;&amp; TEXT( IPM_Due_Date__c ) = &quot;&quot;</errorConditionFormula>
+        <errorMessage>Due Date must be selected for a Monitoring record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Level_of_Concern_must_be_populated</fullName>
+        <active>true</active>
+        <description>If the Follow Up Activity Type = Strategic Impact then the Level of Concern must be populated.</description>
+        <errorConditionFormula>TEXT(IPM_Type__c) = &quot;Strategic Impact&quot; &amp;&amp; TEXT( IPM_Level_of_Concern__c ) = &quot;&quot;</errorConditionFormula>
+        <errorMessage>Level of Concern must be selected for a Strategic Impact.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

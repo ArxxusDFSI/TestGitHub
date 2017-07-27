@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Licence Condition</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Licence Conditions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>GLS_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Licence --></label>
+        <name>GLS_Licence__c</name>
+        <relationshipLabel><!-- Licence Conditions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>IPM_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display --></label>
+        <name>IPM_Display__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>IPM_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>IPM_Type__c</name>
+        <picklistValues>
+            <masterLabel>Special Condition</masterLabel>
+            <translation><!-- Special Condition --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

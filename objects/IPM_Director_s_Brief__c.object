@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Director_s_Brief</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>IPMG - Tracks approval of director&apos;s brief within an Insurer Review Process, or independently.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>IPM_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Director&apos;s Briefs</relationshipLabel>
+        <relationshipName>Director_s_Briefs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Approved_by_ED__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is manually captured by Portfolio Manager</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is manually captured by Portfolio Manager</inlineHelpText>
+        <label>Approved by ED</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Document_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Document Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPM_Escalated_Complaint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Escalated Complaint</label>
+        <referenceTo>IPM_Escalated_Complaint__c</referenceTo>
+        <relationshipLabel>Director&apos;s Briefs</relationshipLabel>
+        <relationshipName>Director_s_Briefs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Insurer_Review_Process__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Insurer Review Process</label>
+        <referenceTo>IPM_Insurer_Review_Process__c</referenceTo>
+        <relationshipLabel>Director&apos;s Briefs</relationshipLabel>
+        <relationshipName>Director_s_Briefs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Requires_ED_Approval__c</fullName>
+        <description>This is manually captured by Portfolio Manager</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is manually captured by Portfolio Manager</inlineHelpText>
+        <label>Requires ED Approval</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IPM_Requires_QA_Approval__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Used to drive step 1 of the approval process for Technical Manager review</description>
+        <externalId>false</externalId>
+        <label>Requires QA Approval</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPM_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Director&apos;s Brief</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>IPM_Document_Location__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Requires_ED_Approval__c</columns>
+        <columns>IPM_Approved_by_ED__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Director_s_Briefs</fullName>
+        <columns>NAME</columns>
+        <columns>IPM_Account__c</columns>
+        <columns>IPM_Document_Location__c</columns>
+        <columns>IPM_Status__c</columns>
+        <columns>IPM_Requires_ED_Approval__c</columns>
+        <columns>IPM_Approved_by_ED__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Director&apos;s Briefs</label>
+    </listViews>
+    <nameField>
+        <label>Director&apos;s Brief Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Director&apos;s Briefs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>IPM_Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Document_Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Requires_ED_Approval__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IPM_Approved_by_ED__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Document_Location__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Requires_ED_Approval__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IPM_Approved_by_ED__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Document_Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Requires_ED_Approval__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IPM_Approved_by_ED__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

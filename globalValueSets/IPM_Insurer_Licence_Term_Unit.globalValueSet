@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Day(s)</fullName>
+        <default>false</default>
+        <label>Day(s)</label>
+    </customValue>
+    <customValue>
+        <fullName>Week(s)</fullName>
+        <default>false</default>
+        <label>Week(s)</label>
+    </customValue>
+    <customValue>
+        <fullName>Month(s)</fullName>
+        <default>false</default>
+        <label>Month(s)</label>
+    </customValue>
+    <customValue>
+        <fullName>Year(s)</fullName>
+        <default>false</default>
+        <label>Year(s)</label>
+    </customValue>
+    <masterLabel>Insurer Licence Term Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

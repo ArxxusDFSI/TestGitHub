@@ -4,7 +4,6 @@
     <description>Document Generation powered by Nintex</description>
     <formFactors>Large</formFactors>
     <label>Nintex Drawloop</label>
-    <logo>Loop__LOOP_Files/Loop__LOOP_Logo_gif.png</logo>
     <tab>Loop__DDP_Admin</tab>
     <tab>Loop__DDP__c</tab>
     <tab>standard-Document</tab>

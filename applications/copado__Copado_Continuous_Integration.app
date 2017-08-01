@@ -3,7 +3,6 @@
     <defaultLandingTab>copado__Continuous_Integration__c</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>Copado Continuous Integration</label>
-    <logo>copado__Copado/copado__Copado_Logo.png</logo>
     <tab>copado__Org__c</tab>
     <tab>copado__Git_Repository__c</tab>
     <tab>copado__Continuous_Integration__c</tab>

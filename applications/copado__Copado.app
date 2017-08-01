@@ -3,7 +3,6 @@
     <defaultLandingTab>copado__Getting_Started</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>Copado</label>
-    <logo>copado__Copado/copado__Copado_Logo.png</logo>
     <tab>copado__Getting_Started</tab>
     <tab>copado__Org__c</tab>
     <tab>copado__Deployment__c</tab>

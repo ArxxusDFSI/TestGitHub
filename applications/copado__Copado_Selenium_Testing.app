@@ -3,7 +3,6 @@
     <defaultLandingTab>copado__SeleniumGettingStarted</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>Copado Selenium Testing</label>
-    <logo>copado__Copado/copado__Copado_Logo.png</logo>
     <tab>copado__SeleniumGettingStarted</tab>
     <tab>copado__Selenium_Test_Case__c</tab>
     <tab>copado__Selenium_Test_Suite__c</tab>

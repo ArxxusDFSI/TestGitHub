@@ -3,7 +3,6 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <formFactors>Large</formFactors>
     <label>Copado Change Management</label>
-    <logo>copado__Copado/copado__Copado_Logo.png</logo>
     <tab>copado__Project__c</tab>
     <tab>copado__User_Story__c</tab>
     <tab>copado__Sprint__c</tab>

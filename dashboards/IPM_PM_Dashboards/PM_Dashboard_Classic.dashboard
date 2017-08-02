@@ -158,6 +158,25 @@
             <title>Insurers due for MPPG Review</title>
             <useReportChart>true</useReportChart>
         </components>
+        <components>
+            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+            <chartAxisRange>Auto</chartAxisRange>
+            <componentType>Bar</componentType>
+            <displayUnits>Auto</displayUnits>
+            <drillEnabled>false</drillEnabled>
+            <drillToDetailEnabled>false</drillToDetailEnabled>
+            <enableHover>false</enableHover>
+            <expandOthers>false</expandOthers>
+            <footer>Last Audit more than 11 months ago</footer>
+            <legendPosition>Bottom</legendPosition>
+            <report>IPM_PM_Dashboard_Reports/IPM_Insurers_due_for_Self_Audit</report>
+            <showPercentage>false</showPercentage>
+            <showPicturesOnCharts>false</showPicturesOnCharts>
+            <showValues>false</showValues>
+            <sortBy>RowLabelAscending</sortBy>
+            <title>Insurers due for Self Audit</title>
+            <useReportChart>true</useReportChart>
+        </components>
     </middleSection>
     <rightSection>
         <columnSize>Medium</columnSize>
@@ -217,27 +236,8 @@
             <title>MPPG Reviews without Premium Filings</title>
             <useReportChart>true</useReportChart>
         </components>
-        <components>
-            <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
-            <chartAxisRange>Auto</chartAxisRange>
-            <componentType>Bar</componentType>
-            <displayUnits>Auto</displayUnits>
-            <drillEnabled>false</drillEnabled>
-            <drillToDetailEnabled>false</drillToDetailEnabled>
-            <enableHover>false</enableHover>
-            <expandOthers>false</expandOthers>
-            <footer>Last Audit more than 11 months ago</footer>
-            <legendPosition>Bottom</legendPosition>
-            <report>IPM_PM_Dashboard_Reports/IPM_Insurers_due_for_Self_Audit</report>
-            <showPercentage>false</showPercentage>
-            <showPicturesOnCharts>false</showPicturesOnCharts>
-            <showValues>false</showValues>
-            <sortBy>RowLabelAscending</sortBy>
-            <title>Insurers due for Self Audit</title>
-            <useReportChart>true</useReportChart>
-        </components>
     </rightSection>
-    <runningUser>dfsiadvantage.sira@arxxus.com</runningUser>
+    <runningUser>lapman.ho@tquilaanz.com</runningUser>
     <textColor>#000000</textColor>
     <title>PM Dashboard</title>
     <titleColor>#000000</titleColor>

@@ -56,8 +56,87 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <businessProcesses>
+        <fullName>Merit Review Service</fullName>
+        <description>Merit Review Service Application Management Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Assess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validate</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>Online Claims Notification</fullName>
+        <description>Process for all Online Claims Notification to CAS teams</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Assess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Require Notification Follow-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validate</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -73,11 +152,291 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Attachments__c</fullName>
+        <description>Count of Attachments</description>
+        <externalId>false</externalId>
+        <label>Attachments</label>
+        <summaryForeignKey>Attachment__c.Case__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>BriefSummaryOfOutcome__c</fullName>
+        <description>MRS - Brief Summary of Outcome (if Different Reasoning to Insurer)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Brief Summary of Outcome (if Different Reasoning to Insurer)</inlineHelpText>
+        <label>Brief Summary of Outcome</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>BusinessHoursId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CaseReasons__c</fullName>
+        <description>Custom Case Reasons - for field dependency on status</description>
+        <externalId>false</externalId>
+        <label>Case Reasons</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No application for internal review made</fullName>
+                    <default>false</default>
+                    <label>No application for internal review made</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - No Work Capacity Decision</fullName>
+                    <default>false</default>
+                    <label>Review Declined - No Work Capacity Decision</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - No internal review</fullName>
+                    <default>false</default>
+                    <label>Review Declined - No internal review</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Out of time application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Out of time application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Frivolous application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Frivolous application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Vexatious application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Vexatious application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Expired application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Expired application</label>
+                </value>
+                <value>
+                    <fullName>Review Withdrawn - Insurer withdrew WCD</fullName>
+                    <default>false</default>
+                    <label>Review Withdrawn - Insurer withdrew WCD</label>
+                </value>
+                <value>
+                    <fullName>Review Withdrawn - Worker withdrew MR</fullName>
+                    <default>false</default>
+                    <label>Review Withdrawn - Worker withdrew MR</label>
+                </value>
+                <value>
+                    <fullName>Same Decision - No new information</fullName>
+                    <default>false</default>
+                    <label>Same Decision - No new information</label>
+                </value>
+                <value>
+                    <fullName>Same Decision - New information</fullName>
+                    <default>false</default>
+                    <label>Same Decision - New information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Better for worker - No new information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Better for worker - No new information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Better for worker - New information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Better for worker - New information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Worse for worker - No new information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Worse for worker - No new information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Worse for worker - New information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Worse for worker - New information</label>
+                </value>
+                <value>
+                    <fullName>No Internal review &amp; 30 days has not lapsed since application for internal review was made</fullName>
+                    <default>false</default>
+                    <label>No Internal review &amp; 30 days has not lapsed since application for internal review was made</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Deleted draft application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Deleted draft application</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>No application for internal review made</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - No Work Capacity Decision</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - No internal review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Out of time application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Frivolous application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Vexatious application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Withdrawn - Insurer withdrew WCD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Withdrawn - Worker withdrew MR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Same Decision - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Same Decision - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Better for worker - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Better for worker - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Worse for worker - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Worse for worker - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>No Internal review &amp; 30 days has not lapsed since application for internal review was made</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Review Declined - Expired application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Review Declined - Deleted draft application</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ClaimNumber__c</fullName>
+        <description>Claim Number provided by the Insurer</description>
+        <externalId>true</externalId>
+        <label>Claim Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClaimType__c</fullName>
+        <description>MRS - Claim Type</description>
+        <externalId>false</externalId>
+        <label>Claim Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On or after 01/10/12</fullName>
+                    <default>false</default>
+                    <label>On or after 01/10/12</label>
+                </value>
+                <value>
+                    <fullName>Before 01/10/12</fullName>
+                    <default>false</default>
+                    <label>Before 01/10/12</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>ClosedDate</fullName>
@@ -86,13 +445,6 @@
     <fields>
         <fullName>Comments</fullName>
         <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
-        <fullName>CommunityId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ContactEmail</fullName>
@@ -118,13 +470,200 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>ContactPreference__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Contact.ContactPreference__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The preferred contact method indicated by the contact on their Contact record..</inlineHelpText>
+        <label>Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DRSStatusFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DRS Status Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DRS_ContactLastname__c</fullName>
+        <description>The LastName of the Contact (ContactId) associated with the Case. The field needs to be a Text field to be used in aggregate functions.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The LastName of the Contact (ContactId) associated with the Case. The field needs to be a Text field to be used in aggregate functions.</inlineHelpText>
+        <label>Contact Lastname</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DateDecisionSent__c</fullName>
+        <description>MRS - Date/Time decision was sent to parties (insurer/worker). Key metric used in reporting to indicate end of case lifecycle.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date MRS sent the decision to all parties.</inlineHelpText>
+        <label>Decision Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOfInjury__c</fullName>
+        <description>MRS Date of Injury</description>
+        <externalId>false</externalId>
+        <label>Date of Injury</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateTimeCaseLodged__c</fullName>
+        <description>MRS - Date/Time Case Lodged, this is is the date/time the case was submitted to MRS</description>
+        <externalId>false</externalId>
+        <label>Date/Time Case Lodged</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DateWorkerReceivedIR__c</fullName>
+        <description>MRS - Date Worker Received IR</description>
+        <externalId>false</externalId>
+        <label>Date Worker  Received IR</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DaysToDecisionSent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+NOT( ISBLANK(DecisionDate__c)) , 
+(DecisionDate__c -  DATEVALUE( DateTimeCaseLodged__c) ), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of days it has taken from Date/Time Lodged to Decision Date.</inlineHelpText>
+        <label>Days to Decision Sent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DecisionDate__c</fullName>
+        <description>MRS Application Decision Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date MRS made decision.</inlineHelpText>
+        <label>Decision Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>DoNotPublish__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The option selected by the worker on submission of the Case Item whether to publish the decision or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The option selected by the worker on submission of the Case Item whether to publish the decision or not.</inlineHelpText>
+        <label>Do Not Publish?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DuplicateFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by a Batch Job to indicate if another record/s are found that meet the criteria.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DuplicateStatus__c</fullName>
+        <description>This field is managed by users to indicate which records have been data quality checked. are considered clean or not after data checks have commenced.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Duplicate_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>EntitlementId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IRDecision__c</fullName>
+        <description>MRS - IR Decision</description>
+        <externalId>false</externalId>
+        <label>IR Decision Notice Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IRLodged__c</fullName>
+        <description>MRS - IR Lodged</description>
+        <externalId>false</externalId>
+        <label>Date IR Application Made</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Insurer__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Insurer Account Name</description>
+        <externalId>false</externalId>
+        <label>Insurer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -161,12 +700,48 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>MRSCaseNumber__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://regdev2-dfsi--regdev2.cs6.force.com/insurerlegal/s/casedetail?recordId=&quot; &amp;  Id , CaseNumber)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MRS Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MRSInsurerAccount__c</fullName>
+        <description>MRS Insurer Account for Sharing rules</description>
+        <externalId>false</externalId>
+        <label>MRS Insurer Account</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MilestoneStatus</fullName>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>MilestoneStatusIcon</fullName>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>NotAWorkCapacityDecision__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type Not a Work Capacity Decision</description>
+        <externalId>false</externalId>
+        <label>Not a Work Capacity Decision</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Origin</fullName>
@@ -177,7 +752,7 @@
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -190,8 +765,79 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Priority</fullName>
+        <fullName>PeerReviewComplete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS peer review complete indicator - checked = yes unchecked = no</description>
+        <externalId>false</externalId>
+        <label>Peer Review Complete?</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactName__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.FirstName + &apos; &apos; + PrimaryContact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactPublicEmail__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.PublicEmail__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Public Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactPublicPhone__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.PublicPhone__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Public Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Displayed in DRS Communities, Including User.PublicPhone__C and User.PublicEmail__C</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Primary Contact for external parties.</inlineHelpText>
+        <label>Primary Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases_w_Primary_Contact</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -204,18 +850,149 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>QuestionId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Reason</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ReplyToDateReceived__c</fullName>
+        <description>MRS - Insurer Reply to Date Received</description>
+        <externalId>false</externalId>
+        <label>Reply to Date Received</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RepresentativeType__c</fullName>
+        <description>Representative Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the Representative as submitted on the Application. To see who submitted the form, look at the Created By field.</inlineHelpText>
+        <label>Representative Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Union</fullName>
+                    <default>false</default>
+                    <label>Union</label>
+                </value>
+                <value>
+                    <fullName>Worker Advocate</fullName>
+                    <default>false</default>
+                    <label>Worker Advocate</label>
+                </value>
+                <value>
+                    <fullName>Accountant</fullName>
+                    <default>false</default>
+                    <label>Accountant</label>
+                </value>
+                <value>
+                    <fullName>Family Member</fullName>
+                    <default>false</default>
+                    <label>Family Member</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>S43AWorkCapacity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WCD Decision Type S43A - Work Capacity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43A - Work Capacity</inlineHelpText>
+        <label>S43A Work Capacity</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43BSuitableEmployment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43B - Suitable Employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43B - Suitable Employment</inlineHelpText>
+        <label>S43B Suitable Employment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43CAmountEarntInSE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43C - Amount earnt in SE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43C - Amount earnt in SE</inlineHelpText>
+        <label>S43C Amount earnt in SE</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43D1PIAWE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43D1 - PIAWE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43D1 - PIAWE</inlineHelpText>
+        <label>S43D1 PIAWE</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43D2CurrentWeeklyEarnings__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43D2 Current Weekly Earnings</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43D2 - Current Weekly Earnings</inlineHelpText>
+        <label>S43D2 Current Weekly Earnings</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43EUnableToEngageInCertainEmploy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43E - Inability to engage in certain employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43E - Inability to engage in certain employment</inlineHelpText>
+        <label>S43E Unable to engage in certain employ.</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43FAnyOtherWeeklyPaymentsDecision__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43F - Any other weekly payments decision</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43F - Any other weekly payments decision</inlineHelpText>
+        <label>S43F Any other weekly payments decision</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>SlaExitDate</fullName>
@@ -268,29 +1045,138 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>TopicFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The field helps users to find the Cases that do not have a Topic assigned to them. The field is checked and unchecked through a trigger on Case Assignment object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The field helps users to find the Cases that do not have a Topic assigned to them. The field is checked and unchecked through a trigger on Case Assignment object.</inlineHelpText>
+        <label>Topic Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>WCDNoticeDate__c</fullName>
+        <description>MRS - WCD Notice Date</description>
+        <externalId>false</externalId>
+        <label>WCD Notice Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <listViews>
         <fullName>AllOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
             <operation>equals</operation>
             <value>0</value>
         </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Draft</value>
+        </filters>
         <label>All Open Cases</label>
     </listViews>
     <listViews>
+        <fullName>All_Closed_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed Cases</label>
+        <sharedTo>
+            <roleAndSubordinates>DRS_Director</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </filters>
+        <label>All Open Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>Merit_Review_Service_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Merit Review Service Queue</label>
+        <queue>Merit_Review_Service</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
     </listViews>
     <listViews>
         <fullName>MyOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -329,11 +1215,204 @@
         </filters>
         <label>Trial Activities</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Merit_Review_Service</fullName>
+        <active>true</active>
+        <businessProcess>Merit Review Service</businessProcess>
+        <description>Merit Review Service (Do not change name, referenced in Process)</description>
+        <label>Merit Review Service</label>
+        <picklistValues>
+            <picklist>CaseReasons__c</picklist>
+            <values>
+                <fullName>Different Decision - Better for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Better for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No application for internal review made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Deleted draft application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Expired application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Frivolous application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No Work Capacity Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No internal review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Out of time application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Vexatious application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Insurer withdrew WCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Worker withdrew MR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - No new information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ClaimType__c</picklist>
+            <values>
+                <fullName>Before 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On or after 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DuplicateStatus__c</picklist>
+            <values>
+                <fullName>Duplicate - no additional information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate - submitted in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved - Duplicate%2C additional informationDuplicate - Additional information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RepresentativeType__c</picklist>
+            <values>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker Advocate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <excludedStandardButtons>NewCase</excludedStandardButtons>
+        <excludedStandardButtons>MassClose</excludedStandardButtons>
+        <excludedStandardButtons>ChangeStatus</excludedStandardButtons>
+        <listViewButtons>New_Merit_Review_case</listViewButtons>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
@@ -351,6 +1430,58 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Change_Validate_Status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Status, &quot;Validate&quot;),$Profile.Id = &quot;00eN0000000I7lM&quot;)</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Please close all your outstanding tasks to proceed to the next stage</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DRS_CompleteDecision</fullName>
+        <active>true</active>
+        <description>When Case Status is updated to Decision, ensure that Decision Date and Outcome fields are complete.</description>
+        <errorConditionFormula>IF( RecordType.DeveloperName = &quot;Merit_Review_Service&quot;,
+
+IF(ISPICKVAL(Status, &quot;Decision&quot;), 
+AND(
+OR(
+ ISBLANK( BriefSummaryOfOutcome__c ) ,
+ ISBLANK( DecisionDate__c ) 
+)
+)
+, False)
+,False
+)</errorConditionFormula>
+        <errorMessage>Please ensure you have completed the fields &apos;Brief Summary of Outcome&apos; and &apos;Decision Date&apos; in the MRS Decision section before updating the Case to Decision.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>DRS_Create_Document</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Document</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var redirectUrl = &quot;/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;image1={!User.SignatureID__c}&amp;eid={!Case.Id}&amp;contactId={!Case.ContactId}&quot;;
+if (sforce &amp;&amp; sforce.console &amp;&amp; sforce.console.isInConsole()) {
+        sforce.console.getEnclosingTabId(function(enclosingResult){
+            sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
+            if (primaryResult &amp;&amp; primaryResult.success)
+                sforce.console.openSubtab(primaryResult.id, redirectUrl+&apos;&amp;previousTabId=&apos;+enclosingResult.id+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            else
+                sforce.console.openPrimaryTab(null, redirectUrl+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            });
+        });
+    }
+    else {
+        window.location.href = redirectUrl;
+    }</url>
+    </webLinks>
     <webLinks>
         <fullName>Loop__LOOP</fullName>
         <availability>online</availability>
@@ -422,5 +1553,34 @@ else
     url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
     window.location.href = url;
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Merit_Review_case</fullName>
+        <availability>online</availability>
+        <description>New Merit Review case</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Merit Review case</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/DRS_Case_WorkerCaseItemCreate</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_Additional_Information</fullName>
+        <availability>online</availability>
+        <description>A button to initiate the flow for requesting additional information</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Request Additional Information</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/22.0/integration.js&quot;)}
+
+sforce.console.getEnclosingPrimaryTabId(function(result) {
+   sforce.console.openSubtab(result.id, &apos;/apex/DRS_Case_AdditionalInformationCreate?id={!Case.Id}&apos;, true, &apos;Additional Information&apos;);
+});</url>
     </webLinks>
 </CustomObject>

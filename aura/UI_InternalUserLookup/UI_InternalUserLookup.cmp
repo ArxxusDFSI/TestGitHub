@@ -1,0 +1,27 @@
+<aura:component controller="DRS_CaseItemForm_CC" extends="c:UI_FormElement">
+    <aura:attribute name="label" type="String" default="Usrer*" />
+    <aura:attribute name="validation" type="Boolean" default="false" />
+    <aura:attribute name="validationMessage" type="String" default="Please ensure you enter correct user name" />
+    <aura:attribute name="selectedInsurer" type="Object" />
+	<aura:attribute name="feedback" type="Object[]" default=""/>
+	<aura:handler name="change" value="{!v.displayedValue}" action="{!c.handleValueChange}" />
+
+    <div aura:id="has-feedback">
+        <ui:inputText class="form-control insurerLookup" label="{!v.label}" labelClass="control-label" aura:id="insurerInput" keyup="{!c.insurerSearch}" blur="{!c.insurerValidate}" value="{!v.selectedInsurer.Name}" disabled="{!v.disabled}" />
+        <aura:if isTrue="{!v.validation}">
+            <label class="control-label">
+               {!v.validationMessage}
+            </label>
+        </aura:if>
+    </div>
+    
+	<!-- Show feedback result -->
+    <div class="list-group">
+        <aura:renderIf isTrue="{!v.feedback.length > 0}">
+            <div></div>
+            <aura:iteration items="{!v.feedback}" var="item">
+                <li class="list-group-item" onclick="{!c.selectInsurer}" data-id="{!item.Id}" data-profile="{!item.ProfileId}">{!item.FirstName}&nbsp;{!item.LastName}</li>
+            </aura:iteration>
+        </aura:renderIf>
+    </div>
+</aura:component>

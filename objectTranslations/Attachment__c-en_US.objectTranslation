@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Attachment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Attachments</value>
+    </caseValues>
+    <fields>
+        <help><!-- The link to the VisualForce page which creates the URL to retrieve documents from S3 and display in a PrizmDoc viewer. --></help>
+        <label><!-- Attachment Link --></label>
+        <name>AttachmentLink__c</name>
+    </fields>
+    <fields>
+        <help><!-- The original author of the attachment. --></help>
+        <label><!-- Author --></label>
+        <name>Author__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date on which original document was authored. --></help>
+        <label><!-- Authored Date --></label>
+        <name>AuthoredDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Item --></label>
+        <name>CaseItem__c</name>
+        <relationshipLabel><!-- Attachments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Attachments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The first tier of category in category hierarchy --></help>
+        <label><!-- Category A --></label>
+        <name>CategoryA__c</name>
+    </fields>
+    <fields>
+        <help><!-- The second tier of category in category hierarchy --></help>
+        <label><!-- Category B --></label>
+        <name>CategoryB__c</name>
+    </fields>
+    <fields>
+        <help><!-- The third tier of category in category hierarchy --></help>
+        <label><!-- Category C --></label>
+        <name>CategoryC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The start date for the communication/correspondence for which the attachment is created. --></help>
+        <label><!-- Correspondence Date From --></label>
+        <name>CorrespondenceDateFrom__c</name>
+    </fields>
+    <fields>
+        <help><!-- The end date for the communication/correspondence for which the attachment is created. --></help>
+        <label><!-- Correspondence Date To --></label>
+        <name>CorrespondenceDateTo__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date the decision was sent to parties. --></help>
+        <label><!-- Date Decision Sent --></label>
+        <name>DateDecisionSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The flag to decide whether an attachment is externally visible or not --></help>
+        <label><!-- Externally Visible? --></label>
+        <name>ExternallyVisible__c</name>
+    </fields>
+    <fields>
+        <label><!-- File Name --></label>
+        <name>FileName__c</name>
+    </fields>
+    <fields>
+        <help><!-- The person who owns this document. --></help>
+        <label><!-- Internal Author --></label>
+        <name>InternalAuthor__c</name>
+        <relationshipLabel><!-- Attachments (Internal Author) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The person who reviewed this document. --></help>
+        <label><!-- Internal Reviewer --></label>
+        <name>InternalReviewer__c</name>
+        <relationshipLabel><!-- Attachments (Internal Reviewer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Case, Case Item and Attachment IDs combination for the key of document stored in S3. --></help>
+        <label><!-- S3 Key --></label>
+        <name>S3Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted By --></label>
+        <name>SubmittedBy__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Id of the Multipart upload object. This Id is generated at the time of initialisation of multipart uploads. The Id is then used for upload requests as well as completion or abortion requests. --></help>
+        <label><!-- Upload Id --></label>
+        <name>UploadId__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+    <webLinks>
+        <label><!-- Upload --></label>
+        <name>Upload</name>
+    </webLinks>
+</CustomObjectTranslation>

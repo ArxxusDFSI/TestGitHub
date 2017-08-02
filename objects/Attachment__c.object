@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The documents uploaded as part of a case. These are physically stored in an external repository. Attachments object only contains the link to the external repository.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AttachmentLink__c</fullName>
+        <description>The link to the VisualForce page which creates the URL to retrieve documents from S3 and display in a PrizmDoc viewer.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/apex/DRS_Attachment_View?id=&apos; + Id,  Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The link to the VisualForce page which creates the URL to retrieve documents from S3 and display in a PrizmDoc viewer.</inlineHelpText>
+        <label>Attachment Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Author__c</fullName>
+        <description>The original author of the attachment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The original author of the attachment.</inlineHelpText>
+        <label>Author</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AuthoredDate__c</fullName>
+        <description>The date on which original document was authored.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date on which original document was authored.</inlineHelpText>
+        <label>Authored Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CaseItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Item</label>
+        <referenceTo>CaseItem__c</referenceTo>
+        <relationshipLabel>Attachments</relationshipLabel>
+        <relationshipName>Attachments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Attachments</relationshipLabel>
+        <relationshipName>Attachments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CategoryA__c</fullName>
+        <description>The first tier of category in category hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first tier of category in category hierarchy</inlineHelpText>
+        <label>Category A</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CategoryB__c</fullName>
+        <description>The second tier of category in category hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The second tier of category in category hierarchy</inlineHelpText>
+        <label>Category B</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CategoryC__c</fullName>
+        <description>The third tier of category in category hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The third tier of category in category hierarchy</inlineHelpText>
+        <label>Category C</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CorrespondenceDateFrom__c</fullName>
+        <description>The start date for the communication/correspondence for which the attachment is created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The start date for the communication/correspondence for which the attachment is created.</inlineHelpText>
+        <label>Correspondence Date From</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CorrespondenceDateTo__c</fullName>
+        <description>The end date for the communication/correspondence for which the attachment is created.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The end date for the communication/correspondence for which the attachment is created.</inlineHelpText>
+        <label>Correspondence Date To</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateDecisionSent__c</fullName>
+        <description>Date decision was sent to parties (insurer/worker). DRS: Key metric used in reporting to indicate end of case lifecycle.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the decision was sent to parties.</inlineHelpText>
+        <label>Date Decision Sent</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ExternallyVisible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The flag to decide whether an attachment is externally visible or not</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The flag to decide whether an attachment is externally visible or not</inlineHelpText>
+        <label>Externally Visible?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FileName__c</fullName>
+        <description>The name of the attached file.</description>
+        <externalId>false</externalId>
+        <label>File Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalAuthor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used y MRS to indicate the Decision Maker for Attachments in the Decision Category.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The person who owns this document.</inlineHelpText>
+        <label>Internal Author</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Attachments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>InternalReviewer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used y MRS to indicate the Peer Reviewer for Attachments in the Decision Category.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The person who reviewed this document.</inlineHelpText>
+        <label>Internal Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Attachments1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>S3Key__c</fullName>
+        <description>The Case, Case Item and Attachment IDs combination for the key of document stored in S3.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Case, Case Item and Attachment IDs combination for the key of document stored in S3.</inlineHelpText>
+        <label>S3 Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedBy__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName + &apos; &apos; + CreatedBy.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Submitted By</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UploadId__c</fullName>
+        <description>The Id of the Multipart upload object. This Id is generated at the time of initialisation of multipart uploads. The Id is then used for upload requests as well as completion or abortion requests.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Id of the Multipart upload object. This Id is generated at the time of initialisation of multipart uploads. The Id is then used for upload requests as well as completion or abortion requests.</inlineHelpText>
+        <label>Upload Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Attachment</label>
+    <nameField>
+        <displayFormat>AT-{000000000}</displayFormat>
+        <label>Attachment Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Attachments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Upload</fullName>
+        <availability>online</availability>
+        <description>Upload an attachments</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Upload</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/DRS_Case_UploadApp?caseId={!Case.Id}</url>
+    </webLinks>
+</CustomObject>

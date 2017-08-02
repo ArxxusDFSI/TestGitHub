@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>dev@systempartners.com</contactEmail>
+    <label>Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://sira2017--sirauat.cs6.my.salesforce.com/services/oauth2/callback</callbackUrl>
+        <consumerKey>3MVG9e2mBbZnmM6mpMc5OFNdze66xdzz5K93hGlLj59rG8BrdSQJhSYYf75CzFx2Ufuh50RCxbxcIJ7RfW2Jr</consumerKey>
+        <scopes>Api</scopes>
+        <scopes>OpenID</scopes>
+    </oauthConfig>
+</ConnectedApp>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>The email sent out to worker to inform them that the application is saved and will expire after some time</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>SIRA_Letterhead</letterhead>
+    <name>Worker Application Saved for Later</name>
+    <style>freeForm</style>
+    <subject>Your Draft Application is Saved until {expiryDate}</subject>
+    <textOnly>Your draft will be available until Midnight EST on {expiryDate}. You can revisit your draft and submit it via the community {caseItemLink}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,157 @@
+<aura:component controller="DRS_Dashboard_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="profileId" type="string" />
+    <aura:attribute name="draftApplications" type="string[]" />
+    <aura:attribute name="openApplications" type="string[]" />
+    <aura:attribute name="pendingApplications" type="string[]" /> 
+    <aura:attribute name="closedApplications" type="string[]" /> 
+    <aura:attribute name="toDeleteCaseItemId" type="string" />
+    <aura:attribute name="communitylink" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="showNewApplication" type="Boolean" />
+    <aura:attribute name="isDelegatedAdmin" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showNewApplication}">
+        <div class="row form-group">
+            <div class="col-xs-12">
+                <c:UI_Button href="{!(v.communitylink + '/form')}" class="btn-submit" onClickFunction="{!c.submit}">Start new application</c:UI_Button>
+            </div>
+        </div>
+    </aura:if>
+    
+    <div class="side-panel">
+        <aura:if isTrue="{!v.draftApplications.length > 0}"> 
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">My draft applications</div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="30%">View Draft</th>
+                                <th width="60%">Date created</th>
+                                <th width="10%">Delete</th>
+                            </tr>
+                            <aura:iteration items="{!v.draftApplications}" var="app">
+                                <tr>
+                                    <td><a href="{!v.communitylink + '/' + app.communityPageURL + '?recordId=' + app.caseItemId}">View draft</a></td>
+                                    <td>{!app.createdDate}</td>
+                                    <td><i class="glyphicon glyphicon-trash glyphicon" onclick="{!c.deleteCase}" data="{!app.caseId}"></i></td>
+                                </tr>
+                            </aura:iteration>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{!v.pendingApplications.length > 0}"> 
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Pending cases items</div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="30%"><b>Case no.</b></th>
+                                <th width="40%"><b>Worker name</b></th>
+                                <th width="30%"><b>Status</b></th>
+                            </tr>
+                            <aura:iteration items="{!v.pendingApplications}" var="app">
+                                <tr>
+                                    <td><a href="{!v.communitylink + '/casedetail?recordId=' + app.caseId}">{!app.caseNumber}</a></td>
+                                    <td>{!app.submittedBy}</td>
+                                    <td>{!app.status}</td>
+                                </tr>
+                            </aura:iteration>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{!v.openApplications.length > 0}"> 
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">My open cases</div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="30%"><b>Case no.</b></th>
+                                <th width="40%"><b>Worker name</b></th>
+                                <th width="30%"><b>Status</b></th>
+                            </tr>
+                            <aura:iteration items="{!v.openApplications}" var="app">
+                                <tr>
+                                    <td><a href="{!v.communitylink + '/casedetail?recordId=' + app.caseId}">{!app.caseNumber}</a></td>
+                                    <td>{!app.submittedBy}</td>
+                                    <td>{!app.status}</td>
+                                </tr>
+                            </aura:iteration>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{!v.closedApplications.length > 0}">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Closed cases</div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <th width="30%">Case number</th>
+                                <th width="30%">Submitter</th>
+                                <th width="40%">Completed</th>
+                            </tr>
+                            <aura:iteration items="{!v.closedApplications}" var="app">
+                                <tr>
+                                    <td><a href="{!v.communitylink + '/casedetail?recordId=' + app.caseId}">{!app.caseNumber}</a></td>
+                                    <td>{!app.submittedBy}</td>
+                                    <td>{!app.submittedDate}</td>
+                                </tr>
+                            </aura:iteration>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{!v.isDelegatedAdmin}"> 
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">User administration</div>
+                    <div class="panel-body">
+                        <a class="btn-white" href="{!v.communitylink + '/permission'}">Manage users</a>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Manage your profile</div>
+                <div class="panel-body">
+                    <a class="btn-white" href="{!v.communitylink + '/profile/' + v.profileId}">edit<h3 class="glyphicon glyphicon-cog details-icon"></h3></a>
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="confirmDeleteModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">Are you sure you want to delete this draft application?</h2>
+            </div>
+            <div class="slds-modal__footer">
+                <c:UI_Button class="btn-previous pull-left" onClickFunction="{!c.closeConfirmDeleteModal}">No</c:UI_Button>
+                <c:UI_Button class="btn-submit" onClickFunction="{!c.continueConfirmDeleteModal}">Yes</c:UI_Button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop" id="backdrop"></div>
+</aura:component>

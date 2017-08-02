@@ -64,7 +64,7 @@
         <actionName>WebsiteHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>IPM_Workplace_Insurer_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>IPM_Workplace_Insurer_Compact_Layout</fullName>
         <fields>Name</fields>
@@ -77,9 +77,9 @@
     </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AccountNumber</fullName>
-        <inlineHelpText>For Insurer Performance Management Group, Account Number is the Insurer CDR Number.</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
@@ -863,12 +863,69 @@ IF(TEXT(IPM_Workplace_Insurer_Type__c) = &quot;SICorp&quot; ||  TEXT(Parent.IPM_
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>InsurerType__c</fullName>
+        <description>Insurer Type based on the type of insurance they cover</description>
+        <externalId>false</externalId>
+        <label>Insurer Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>TMF</fullName>
+                    <default>false</default>
+                    <label>TMF</label>
+                </value>
+                <value>
+                    <fullName>Self</fullName>
+                    <default>false</default>
+                    <label>Self</label>
+                </value>
+                <value>
+                    <fullName>Group Self</fullName>
+                    <default>false</default>
+                    <label>Group Self</label>
+                </value>
+                <value>
+                    <fullName>Specialised</fullName>
+                    <default>false</default>
+                    <label>Specialised</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>IsCustomerPortal</fullName>
+    </fields>
+    <fields>
+        <fullName>IsPartner</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>MRSAccountName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MRS Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Name</fullName>
@@ -948,20 +1005,61 @@ IF(TEXT(IPM_Workplace_Insurer_Type__c) = &quot;SICorp&quot; ||  TEXT(Parent.IPM_
     <listViews>
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>IPM_Workplace_Insurer_Type__c</columns>
-        <columns>IPM_Workplace_Insurer_Status__c</columns>
-        <columns>IPM_Current_Licence_Status__c</columns>
-        <columns>IPM_S_Drive_Folder__c</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
     </listViews>
     <listViews>
-        <fullName>MyAccounts</fullName>
+        <fullName>All_Insurers</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>IPM_Workplace_Insurer_Type__c</columns>
-        <columns>IPM_Workplace_Insurer_Status__c</columns>
-        <columns>IPM_Current_Licence_Status__c</columns>
-        <columns>IPM_S_Drive_Folder__c</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.TYPE</field>
+            <operation>equals</operation>
+            <value>Insurer</value>
+        </filters>
+        <label>All Insurers</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Legal_Reps</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.TYPE</field>
+            <operation>equals</operation>
+            <value>Legal Representative</value>
+        </filters>
+        <label>All Legal Reps</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Workers_Workers_Rep</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.TYPE</field>
+            <operation>equals</operation>
+            <value>Worker,Worker Rep</value>
+        </filters>
+        <label>All Workers/Workers Rep</label>
+    </listViews>
+    <listViews>
+        <fullName>MyAccounts</fullName>
         <filterScope>Mine</filterScope>
         <label>My Accounts</label>
     </listViews>
@@ -983,6 +1081,1704 @@ IF(TEXT(IPM_Workplace_Insurer_Type__c) = &quot;SICorp&quot; ||  TEXT(Parent.IPM_
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>DRS_Business</fullName>
+        <active>true</active>
+        <description>DRS Accounts related to a business which can have many Insurer contacts.</description>
+        <label>MRS-Business</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_ANZSIC_Code__c</picklist>
+            <values>
+                <fullName>A - Agriculture%2C Forestry and Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B - Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C - Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D - Electricity%2C Gas%2C Water and Waste Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E - Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F - Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G - Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>H - Accommodation and Food Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I - Transport%2C Postal and Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J - Information Media and Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K - Financial and Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L - Rental%2C Hiring and Real Estate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M - Professional%2C Scientific and Technical Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N - Administrative and Support Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O - Public Administration and Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P - Education and Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Q - Health Care and Social Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R - Arts and Recreation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S - Other Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Benchmarking_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Financial_Year_End_Day__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>18</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>19</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>21</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>23</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>26</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>28</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Financial_Year_End_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insured_in_Other_States__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Tier_Level__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Rated</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_WIC_Subdivision__c</picklist>
+            <values>
+                <fullName>01 - Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02 - Services to Agriculture%2C Hunting and Trapping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03 - Forestry and Logging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04 - Commercial Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 - Oil and Gas Extraction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13 - Metal Ore Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14 - Other Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15 - Services to Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>21 - Food%2C Beverage and Tobacco Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22 - Textile%2C Clothing%2C Footwear and Leather Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>23 - Wood and Paper Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24 - Printing%2C Publishing and Recorded Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25 - Petroleum%2C Coal%2C Chemical and Associated Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>26 - Non-metallic Mineral Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27 - Metal Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>28 - Machinery and Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>29 - Other Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>36 - Electricity and Gas Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>37 - Water Supply%2C Sewerage and Drainage Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41 - General Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42 - Construction Trade Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45 - Basic Material Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>46 - Machinery and Motor Vehicle Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>47 - Personal and Household Good Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52 - Personal and Household Good Retailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53 - Motor Vehicle Retailing and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>57 %E2%80%93 Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62 - Rail Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64 - Air and Space Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65 - Other Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66 - Services to Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67 - Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>71 - Communication Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73 - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74 - Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>77 - Property Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>81 - Government Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82 - Defence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84 - Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>87 - Community Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>91 - Motion Picture%2C Radio and Television Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>93 - Sport and Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>95 - Personal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>97 - Private Household Employing Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Workplace_Insurer_Status__c</picklist>
+            <values>
+                <fullName>Existing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Workplace_Insurer_Type__c</picklist>
+            <values>
+                <fullName>Former</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group Self Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nominal Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SICorp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheme Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iCare</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InsurerType__c</picklist>
+            <values>
+                <fullName>Group Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TMF</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Firm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>DRS_Individual</fullName>
+        <active>true</active>
+        <description>DRS Accounts related to a Workers</description>
+        <label>MRS-Individual</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_ANZSIC_Code__c</picklist>
+            <values>
+                <fullName>A - Agriculture%2C Forestry and Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B - Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C - Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D - Electricity%2C Gas%2C Water and Waste Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E - Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>F - Wholesale Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G - Retail Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>H - Accommodation and Food Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I - Transport%2C Postal and Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>J - Information Media and Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K - Financial and Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L - Rental%2C Hiring and Real Estate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M - Professional%2C Scientific and Technical Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N - Administrative and Support Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O - Public Administration and Safety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P - Education and Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Q - Health Care and Social Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R - Arts and Recreation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S - Other Services</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Benchmarking_Group__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Financial_Year_End_Day__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>18</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>19</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>21</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>23</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>26</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>28</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Financial_Year_End_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Insured_in_Other_States__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Tier_Level__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Yet Rated</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_WIC_Subdivision__c</picklist>
+            <values>
+                <fullName>01 - Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>02 - Services to Agriculture%2C Hunting and Trapping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03 - Forestry and Logging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>04 - Commercial Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 - Oil and Gas Extraction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13 - Metal Ore Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14 - Other Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15 - Services to Mining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>21 - Food%2C Beverage and Tobacco Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22 - Textile%2C Clothing%2C Footwear and Leather Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>23 - Wood and Paper Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24 - Printing%2C Publishing and Recorded Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25 - Petroleum%2C Coal%2C Chemical and Associated Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>26 - Non-metallic Mineral Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27 - Metal Product Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>28 - Machinery and Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>29 - Other Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>36 - Electricity and Gas Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>37 - Water Supply%2C Sewerage and Drainage Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>41 - General Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42 - Construction Trade Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45 - Basic Material Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>46 - Machinery and Motor Vehicle Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>47 - Personal and Household Good Wholesaling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>52 - Personal and Household Good Retailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>53 - Motor Vehicle Retailing and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>57 %E2%80%93 Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>62 - Rail Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>64 - Air and Space Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>65 - Other Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>66 - Services to Transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>67 - Storage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>71 - Communication Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>73 - Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>74 - Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>77 - Property Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>81 - Government Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>82 - Defence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>84 - Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>87 - Community Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>91 - Motion Picture%2C Radio and Television Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>93 - Sport and Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>95 - Personal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>97 - Private Household Employing Staff</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Workplace_Insurer_Status__c</picklist>
+            <values>
+                <fullName>Existing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospective</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Workplace_Insurer_Type__c</picklist>
+            <values>
+                <fullName>Former</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group Self Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nominal Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SICorp</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheme Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>iCare</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InsurerType__c</picklist>
+            <values>
+                <fullName>Group Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialised</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TMF</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Legal Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Practitioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker%2FWorker Rep</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>IPM_Business</fullName>
         <active>true</active>
@@ -3489,25 +5285,21 @@ IF(TEXT(IPM_Workplace_Insurer_Type__c) = &quot;SICorp&quot; ||  TEXT(Parent.IPM_
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IPM_Workplace_Insurer_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IPM_Workplace_Insurer_Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IPM_Current_Licence_Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IPM_S_Drive_Folder__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>IPM_Workplace_Insurer_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>IPM_Workplace_Insurer_Status__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>IPM_Current_Licence_Status__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>IPM_S_Drive_Folder__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>IPM_Workplace_Insurer_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>IPM_Workplace_Insurer_Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>IPM_Current_Licence_Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>IPM_S_Drive_Folder__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>

@@ -1,0 +1,154 @@
+.THIS ul {
+    list-style: inside;
+    margin-left: 2em;
+    margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.THIS .login-wrapper {
+    width: 90%; 
+    margin: 0 auto;
+}
+
+.THIS .login-nav {
+    background: #f5f5f5;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 5px;
+    padding-left: 1em;
+    margin-top: 1.5em;
+}
+.THIS .login-nav a {
+    color: #20399D;
+    text-decoration: none;
+}
+.THIS .login-nav .nav-separator{
+    padding: 0 5px;
+    color: #ccc;
+}
+.THIS .login-nav .current-nav {
+    color: #333;
+}
+
+.THIS .login-title h1 {
+    font-size: 2.5em;
+    margin-left: 25px;
+}
+
+.THIS .login-form-table {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 2em 0;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 2em;
+}
+.THIS .login-form-row {
+    display: table-row;
+}
+.THIS .login-form-cell {
+    display: table-cell;
+    width: 50%;
+}
+.THIS .login-form-title {
+    line-height: 1.538em;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 1em;
+    margin-top: 0px;
+    font-size: 1.8em;
+}
+
+.THIS .login-form-table label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+}
+.THIS .login-form-table .login-input {
+    height: 36px;
+    border-radius: 2px;
+    padding: 7px;
+    border: 1px solid #CCC;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.THIS .login-form-btn {
+    background: #2574a9;
+    color: #FFF;
+    font-weight: 500;
+    padding: 8px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 0px;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.THIS .login-form-btn:hover {
+    background-color: #286090;
+	border-color: #122b40;
+    color: #FFF;
+    outline: none;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+.THIS .login-form-forgot a {
+    display: inline-block;
+    font-size: 14px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    border-radius: 2px;
+    font-weight: 500;
+    color: #3D88EC;
+    padding: 8px;
+    min-width: 64px;
+    margin: 8px 0;
+}
+.THIS .login-form-forgot a:hover {
+	background-color: rgba(158, 158, 158, 0.2);
+}
+.THIS .login-new-account {
+    font-family: "Source Sans Pro", sans-serif;
+}
+.THIS .login-new-account a {
+    color: #20399D;
+    text-decoration: none;
+}
+.THIS .hover-underline:hover {
+    text-decoration: underline;
+}
+
+.THIS .login-no-account-wrapper {
+    margin-left: 2em;
+    font-family: "Source Sans Pro", sans-serif;
+}
+.THIS .login-bottom-wrapper {
+    font-family: "Source Sans Pro", sans-serif;
+	text-align: center;
+    font-size: 85%;
+    border-bottom: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
+
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+.THIS .login-bottom-wrapper a {
+    color: #20399D;
+    text-decoration: none;
+}
+@media only screen and (max-width: 500px) {
+    .THIS .login-wrapper {
+        width: 100%;
+    }
+    .THIS .login-form-cell{
+        width: 100%;
+        display: block;
+    }
+}

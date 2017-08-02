@@ -1,0 +1,14 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<span style="background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2">Hi {Contact.Name},&nbsp;</font></span><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2"><br></font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2">You have been added to the&nbsp;<span class="m_6406634547341728077gmail-il">case</span>&nbsp;<span class="m_6406634547341728077gmail-il">team</span>&nbsp;for Merit Review&nbsp;<span class="m_6406634547341728077gmail-il">Case</span>: {CaseNumber}.&nbsp;</font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2"><br></font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2">Please click the following link to browse the&nbsp;<span class="m_6406634547341728077gmail-il">Case</span>:&nbsp;</font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2"><a href="{CaseLink}">{CaseLink}</a><br></font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2"><br></font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2">Thanks</font></div><div style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><font face="Arial, sans-serif" size="2">Merit Review Service</font></div>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

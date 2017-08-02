@@ -1,0 +1,16 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="options" type="Object[]" default="[{'name': '', 'label': '', 'key': ''}]"/>
+
+    <label for="inputSelect" class="selectLabel control-label">{!v.label}</label>
+    <select aura:id="inputSelect" class="form-control input-select" disabled="{!v.disabled}" onchange="{!c.onChangeFunction}">
+        <option value=""></option>
+        <aura:iteration items="{!v.options}" var="option">
+        	<aura:if isTrue="{!v.value == option.key}">
+    			<option value="{!option.key}" selected="true">{!option.label}</option>
+		        <aura:set attribute="else">
+	            	<option value="{!option.key}">{!option.label}</option>
+	            </aura:set>
+	        </aura:if>
+	    </aura:iteration>
+    </select>
+</aura:component>

@@ -1,0 +1,141 @@
+<aura:component controller="DRS_Dashboard_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="profileId" type="string" />
+    <aura:attribute name="openApplications" type="string[]" /> 
+    <aura:attribute name="pendingApplications" type="string[]" />
+    <aura:attribute name="draftApplications" type="string[]" /> 
+    <aura:attribute name="closedApplications" type="string[]"/>
+    <aura:attribute name="communitylink" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="userName" type="string" />
+    <aura:attribute name="toDeleteCaseItemId" type="string" />
+    <aura:attribute name="newUser" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+
+    <section class="section-grey" id="dashboardGrey">
+        <aura:if isTrue="{!v.newUser}">
+            <h1>Hi <span class="userName">{!v.userName}</span>, let's get started.</h1>
+            <p>Welcome to your DRS Live home screen. From here you can lodge new applications, save draft applications, check on existing applications, or see completed applications. You can also edit your profile.</p>
+            <br/>
+            <c:UI_Button href="{!(v.communitylink + '/s/form')}" class="btn-submit" onClickFunction="{!c.submit}">Start new application</c:UI_Button>
+            <br/>
+            <p>Click here to lodge a new application for Merit Review with the Workers Compensation Merit Review Service (MRS).</p>
+            <aura:set attribute="else">
+                <h1>Hi <span class="userName">{!v.userName}</span>, welcome back.</h1>
+                <p>Below you will find any draft, open or closed cases that you have submitted into the portal. If you would like to submit a new application, please click on the <b>Start New Application</b> button to the left.</p>
+            </aura:set>
+        </aura:if>
+    </section>
+    <br/>
+
+    <div class="dashboard" id="dashboard">
+        <div class="row form-group">
+            <div class="col-xs-12">
+                <aura:if isTrue="{!!v.newUser}">
+                    <aura:if isTrue="{!v.draftApplications.length > 0}"> 
+                        <div class="panel">
+                            <h3>My draft applications</h3>
+                            <p>Below you will find all of the applications you have started to fill in but have not yet submitted to Merit Review. Please note that until you finish and submit these applications in full, Merit Review will not review these draft applications.</p>
+                            <br/>
+                            <table>
+                                <tr>
+                                    <th width="30%">View Draft</th>
+                                    <th width="60%">Date created</th>
+                                    <th width="10%">Delete</th>
+                                </tr>
+                                <aura:iteration items="{!v.draftApplications}" var="app">
+                                    <tr>
+                                        <td><a href="{!v.communitylink + '/s/' + app.communityPageURL + '?recordId=' + app.caseItemId}">View draft</a></td>
+                                        <td>{!app.createdDate}</td>
+                                        <td><i class="glyphicon glyphicon-trash glyphicon" onclick="{!c.deleteCase}" data="{!app.caseId}"></i></td>
+                                    </tr>
+                                </aura:iteration>
+                            </table>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.openApplications.length > 0}"> 
+                        <div class="panel">
+                            <h3>Open cases</h3>
+                            <p>Items listed below have been submitted to us as part of your application. Examples of items usually shown here include your application for merit review, the insurer's reply, or a response to our request for additional information.</p>
+                            <br/>
+                            <table>
+                                <tr>
+                                    <th width="35%">Case number</th>
+                                    <th width="30%">Worker</th>
+                                    <th width="25%">Submitted</th>
+                                    <th width="10%">Status</th>
+                                </tr>
+                                <aura:iteration items="{!v.openApplications}" var="app">
+                                    <tr>
+                                        <td><a href="{!v.communitylink + '/s/casedetail?recordId=' + app.caseId}" class="pendingItemLink">{!app.caseNumber}</a>
+                                            <aura:if isTrue="{!app.caseItemType}">
+                                                <span class="pendingItemHeading">Pending Item</span>
+                                                <br/>
+                                                <span class="pendingItemName"><i class="glyphicon glyphicon-exclamation-sign" />&nbsp;Additional information requested</span>
+                                            </aura:if>
+                                        </td>
+                                        <td>{!app.submittedBy}</td>
+                                        <td>{!app.submittedDate}</td>
+                                        <td>{!app.status}</td>
+                                    </tr>
+                                </aura:iteration>
+                            </table>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.closedApplications.length > 0}">
+                        <div class="panel">
+                            <h3>Closed cases</h3>
+                            <p>Below you will find all of your completed and closed cases. To view any relevant findings that were issued for this case, please click the case number.</p>
+                            <br/>
+                            <table>
+                                <tr>
+                                    <th width="30%">Case number</th>
+                                    <th width="30%">Submitter</th>
+                                    <th width="10%">Completed</th>
+                                </tr>
+                                <aura:iteration items="{!v.closedApplications}" var="app">
+                                    <tr>
+                                        <td><a href="{!v.communitylink + '/s/casedetail?recordId=' + app.caseId}">{!app.caseNumber}</a></td>
+                                        <td>{!app.submittedBy}</td>
+                                        <td>{!app.submittedDate}</td>
+                                    </tr>
+                                </aura:iteration>
+                            </table>
+                        </div>
+                    </aura:if>
+                </aura:if>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 user-guide-link">
+                <a href="http://www.sira.nsw.gov.au/disputes/workers-compensation-disputes/work-capacity-disputes">
+                    <img src="{!(v.communitylink + '/resource/pdf')}" />
+                    <div class="user-guide-text">
+                        <span class="p1">Further information on merit reviews can be found in</span>
+                        <br/>
+                        <span class="p2">The Merit Review User Guide</span>
+                    </div>
+                    <i class="glyphicon glyphicon-menu-right"/>
+                </a>
+            </div>
+        </div>
+    </div>
+        
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="confirmDeleteModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">Are you sure you want to delete this draft application?</h2>
+            </div>
+            <div class="slds-modal__footer">
+                <c:UI_Button class="btn-previous pull-left" onClickFunction="{!c.closeConfirmDeleteModal}">No</c:UI_Button>
+                <c:UI_Button class="btn-submit" onClickFunction="{!c.continueConfirmDeleteModal}">Yes</c:UI_Button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop" id="backdrop"></div>
+</aura:component>

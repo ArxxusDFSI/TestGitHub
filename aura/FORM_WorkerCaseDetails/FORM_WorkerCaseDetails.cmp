@@ -1,0 +1,571 @@
+<aura:component controller="DRS_Case_CC" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="caseDetail" type="string" />
+    <aura:attribute name="caseApplications" type="string[]"/>
+    <aura:attribute name="snippets" type="String" />
+    <aura:attribute name="keyContact" type="string" />
+    <aura:attribute name="fileName" type="String" />
+    <aura:attribute name="fileDescription" type="String" />
+    <aura:attribute name="fileUploadValidation" type="Boolean" default="false"/>
+    <aura:attribute name="uploadDocuments" type="Object[]" />
+    <aura:attribute name="pendingApplications" type="Object[]" />
+    <aura:attribute name="publisherPlaceHolder" type="Aura.Component[]"/>
+    <aura:attribute name="feedPlaceHolder" type="Aura.Component[]"/>
+    <aura:attribute name="users" type="Object[]" />
+    <aura:attribute name="roles" type="Object[]" />
+    <aura:attribute name="workflows" type="Object[]" />
+    <aura:attribute name="caseTeamMembers" type="Object[]" />
+    <aura:attribute name="communitylink" type="string" />
+    <aura:attribute name="loginUser" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="errorMessageRole" type="string" />
+    <aura:attribute name="showManageCaseTeamMembers" type="Boolean" />
+    <aura:attribute name="caseTableBody" type="Aura.Component[]" />
+    <aura:attribute name="day" type="String" />
+    <aura:attribute name="time" type="String" />
+    <!-- Upload Documments Variables -->
+    <aura:attribute name="optionSubmenuVisible" type="Decimal"/>
+    <aura:attribute name="optionSubSubmenuVisible" type="Decimal"/>
+    <!-- <aura:registerEvent name="cmpEvent" type="c:ceEvent"/> -->
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+
+    <div id="caseDetailsPage" class="caseDetailsPage row">
+        <div class="col-xs-12 caseDetailsHeading">
+            <h1>{!v.caseDetail.workerName}</h1>
+            <div class="row form-group">
+                <div class="col-xs-12 col-md-8">
+                    <h3>Case number&nbsp;&nbsp;-&nbsp;&nbsp;{!v.caseDetail.caseNumber}</h3>
+                    <br/>
+                    <p>
+                        <div class="date-label">Date submitted&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+                        <div class="date"><i class="glyphicon glyphicon-calendar"></i>&nbsp;{!v.day}&nbsp;-&nbsp;</div>
+                        <div class="time"><i class="glyphicon glyphicon-time"></i>&nbsp;{!v.time}</div>
+                    </p>
+                </div>
+                <div class="col-xs-12 col-md-4 contactDetails">
+                    <aura:if isTrue="{!and(v.caseDetail.primaryContactPublicPhone, v.caseDetail.primaryContactPublicEmail)}">
+                        <p class="contact-mrs-heading">Case manager details</p>
+                        <p class="contact-mrs-name">{!v.caseDetail.primaryContactName}</p>
+                        <p><a href="{!'mailto:' + v.caseDetail.primaryContactPublicEmail}">{!v.caseDetail.primaryContactPublicEmail}</a></p>
+                        <p><a href="{!'tel: ' + v.caseDetail.primaryContactPublicPhone}">{!v.caseDetail.primaryContactPublicPhone}</a></p>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+        <hr class="caseDetails-content-hr"/>
+        <div class="col-xs-12 col-md-9 caseDetailsContent">
+            <h2>Your case status: <span class="status">{!v.caseDetail.status}</span></h2>
+            <br/>
+            <p>
+                <aura:iteration items="{!v.workflows}" var="workflow">
+                    <aura:if isTrue="{!(workflow.label == v.caseDetail.status)}">
+                        {!workflow.tooltip}
+                    </aura:if>
+                </aura:iteration>
+            </p>
+            <br/>
+            <div class="panel">
+                <h3>Pending case item</h3>
+                <p>{!v.snippets.pendingCases.description}</p>
+                <br/>
+                <aura:if isTrue="{!v.pendingApplications.length > 0}">
+                    <table>
+                        <tr>
+                            <th width="35%">Type</th>
+                            <th width="25%">Assigned to</th>
+                            <th width="15%">Status</th>
+                            <th width="25%">Due date</th>
+                        </tr>
+                        <aura:iteration items="{!v.pendingApplications}" var="application">
+                            <tr>
+                                <td><a href="{!v.communitylink + '/' + application.communityPageURL + '?recordId=' + application.caseItemId}">{!application.caseItemType}</a></td>
+                                <td>{!application.roleGroup}</td>
+                                <td>{!application.status}</td>
+                                <td>{!application.dueDate}</td>
+                            </tr>
+                        </aura:iteration>
+                    </table>
+                </aura:if>
+                <aura:if isTrue="{!v.pendingApplications.length == 0}">
+                    No pending Case Items
+                </aura:if>
+            </div>
+            
+            <div class="panel">
+                <h3>Case items</h3>
+                <p>{!v.snippets.caseItems.description}</p>
+                <br/>
+                <aura:if isTrue="{!v.caseApplications.length > 0}"> 
+                    <table>
+                        <tr>
+                            <th width="50%">Type</th>
+                            <th width="20%">Submitter</th>
+                            <th width="30%">Date submitted</th>
+                        </tr>
+                        <aura:iteration items="{!v.caseApplications}" var="application">
+                            <tr>
+                                <td><a href="{!v.communitylink + '/' + application.communityPageURL + '?recordId=' + application.caseItemId}">{!application.caseItemType}</a></td>
+                                <td>{!application.submittedBy}</td>
+                                <td>{!application.dateSubmitted}</td>
+                            </tr>
+                        </aura:iteration>
+                    </table>
+                </aura:if>
+            </div>
+            
+            <div class="panel caseDetails-attachements-table">
+                <h3>Attachments</h3>
+                <c:UI_upload aura:id="uiUpload" uploadDocuments="{!v.uploadDocuments}" pageMode="casedetails" loginUser="{!v.loginUser}" caseId="{!v.caseId}" formLocked="{!(v.caseDetail.status == 'Closed'? 'true': 'false')}" uploadDocumentsSnippets="{!v.snippets.attachments.description}" />
+            </div>
+            <br/>
+            <aura:if isTrue="{!v.showManageCaseTeamMembers}">
+                <div class="panel">
+                    <h3>Manage case team access</h3>
+                    <br/>
+                    <p>Add or remove case team members</p>
+                    <button class="button btn btn-primary btn-lg btn-manage" onclick="{!c.manage}">Manage</button>
+                    <br/>
+                    <table>
+                        <tr>
+                            <th width="60%">Team member</th>
+                            <th width="40%">Team role</th>
+                        </tr>
+                        <aura:iteration items="{!v.caseTeamMembers}" var="team">
+                            <tr>
+                                <td>{!team.memberName}</td>
+                                <td>{!team.roleName}</td>
+                            </tr>
+                        </aura:iteration>
+                    </table>
+                </div>
+            </aura:if>
+        </div>
+        <div class="col-md-3 col-xs-12 workflow">
+            <h3 class="heading">Case Status</h3>
+            <ol class="counter">
+                <aura:iteration items="{!v.workflows}" var="workflow">
+                    <aura:if isTrue="{!workflow.label == v.caseDetail.status}">
+                        <li class="active">
+                            <i class="glyphicon glyphicon-record"></i>
+                            <span class="active-label">{!workflow.label}</span>
+                            <span class="number-circle-hint workflow-tooltip">?<span class="tooltiptext">{!workflow.tooltip}</span></span>
+                            <aura:if isTrue="{!workflow.label != 'Closed'}">
+                                <br/><span class="active-dots"/>
+                            </aura:if>
+                        </li>
+                        <aura:set attribute="else">
+                            <li>
+                                <div class="number-circle">{!workflow.key}</div>
+                                <span class="number-circle-label">{!workflow.label}</span>
+                                <span class="number-circle-hint workflow-tooltip">?<span class="tooltiptext">{!workflow.tooltip}</span></span>
+                                <br/><span class="dots"/>
+                            </li>
+                        </aura:set>
+                    </aura:if>
+                </aura:iteration>    
+            </ol>
+        </div>
+    </div>
+
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">Attach File</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{!v.fileName}</p>
+                <br/>
+                <aura:if isTrue="{!v.fileUploadValidation}">
+                    <div class="alert alert-danger">
+                        Please make sure you have entered all the fields
+                    </div>
+                </aura:if>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Application documents" name="category" onclick="{!c.evntOptionSubmenu}" data="1" />
+                                Application documents
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 1}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Section 74 notices issued on the claim" data="1"/>
+                                                        Section 74 notices issued on the claim
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Work capacity decision notices" name="category" onclick="{!c.evntOptionSubmenu}" data="2"/>
+                                Work capacity decision notice/s
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 2}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline" >
+                                                        <input type="radio" name="category_sub" value="Original work capacity decision" onclick="{!c.evntSubOptionSubmenu}" data="2"/>
+                                                        Original work capacity decision
+
+                                                        <aura:if isTrue="{!v.optionSubSubmenuVisible == 2}" >
+                                                            <div>
+                                                                <br></br>
+                                                                <p class="second-level-submenu__text">
+                                                                    Please indicate the decisions made in the WDC notice
+                                                                </p>
+                                                                <ul class="option-list">
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(a) - Current work capacity" data="2"/>
+                                                                            s43(1)(a) - Current work capacity
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(b) - Suitable employment" data="2"/>
+                                                                            s43(1)(b) - Suitable employment
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(c) - Ability to earn in S/E" data="2"/>
+                                                                            s43(1)(c) - Ability to earn in S/E
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(d) - PIAWE or CWE" data="2"/>
+                                                                            s43(1)(d) - PIAWE or CWE
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(e) - Further risk of injury" data="2"/>
+                                                                            s43(1)(e) - Further risk of injury
+                                                                        </label>
+                                                                    </li>
+                                                                    <li class="option-list__item">
+                                                                        <label class="radio-inline">
+                                                                            <input type="checkbox" name="category_sub_checkbox" value="s43(1)(f) - Any other decision" data="2"/>
+                                                                            s43(1)(f) - Any other decision
+                                                                        </label>
+                                                                    </li>
+                                                                </ul>
+                                                                <br></br>
+                                                            </div>
+                                                        </aura:if>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Notice insurer internal decision" name="category" onclick="{!c.evntOptionSubmenu}" data="3"/>
+                                Notice of insurer internal review decision
+                            </label>
+                            <!-- First level suboptions -->
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 3}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Internal review decision" onclick="{!c.evntSubOptionSubmenu}" data="3"/>
+                                                        Internal review decision
+                                                    </label>
+                                                    
+                                                    <!-- Second level suboptions -->
+                                                    <aura:if isTrue="{!v.optionSubSubmenuVisible == 3}" >
+                                                        <div>
+                                                            <br></br>
+                                                            <p class="second-level-submenu__text">
+                                                                Please indicate the decisions made in the WDC notice
+                                                            </p>
+                                                            <ul class="option-list">
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(a) - Current work capacity" data="3"/>
+                                                                        s43(1)(a) - Current work capacity
+                                                                    </label>
+                                                                </li>
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(b) - Suitable employment" data="3"/>
+                                                                        s43(1)(b) - Suitable employment
+                                                                    </label>
+                                                                </li>
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(c) - Ability to earn in S/E" data="3"/>
+                                                                        s43(1)(c) - Ability to earn in S/E
+                                                                    </label>
+                                                                </li>
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(d) - PIAWE or CWE" data="3"/>
+                                                                        s43(1)(d) - PIAWE or CWE
+                                                                    </label>
+                                                                </li>
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(e) - Further risk of injury" data="3"/>
+                                                                        s43(1)(e) - Further risk of injury
+                                                                    </label>
+                                                                </li>
+                                                                <li class="option-list__item">
+                                                                    <label class="radio-inline">
+                                                                        <input type="checkbox" name="category_sub_checkbox" value="s43(1)(f) - Any other decision" data="3"/>
+                                                                        s43(1)(f) - Any other decision
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                            <br></br>
+                                                        </div>
+                                                    </aura:if>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Internal review application" data="3"/>
+                                                        Internal review application
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Relevant information regarding the decision" data="3"/>
+                                                        Relevant information regarding the decision
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Certificates of capacity" name="category" onclick="{!c.evntOptionSubmenu}" data="4"/>
+                                Certificates of capacity
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 4}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline" >
+                                                        <input type="radio" name="category_sub" value="WorkCover NSW certificates of capacity" data="4"/>
+                                                        WorkCover NSW certificates of capacity
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Medical certificates (Including any final medical certificate)" data="4"/>
+                                                        Medical certificates (Including any final medical certificate)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Medical" name="category" onclick="{!c.evntOptionSubmenu}" data="5"/>
+                                Medical
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 5}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Independent medical reports (IME)" data="5"/>
+                                                        Independent medical reports (IME)
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item"  >
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Injury management consultant reports" data="5"/>
+                                                        Injury management consultant reports
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Treating specialist reports (IMC)" data="5"/>
+                                                        Treating specialist reports (IMC)
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Treating doctor reports" data="5"/>
+                                                        Treating doctor reports
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Treatment provider reports and plans (E.g. physiotherapy plans, hydrotherapy, etc)" data="5"/>
+                                                        Treatment provider reports and plans (E.g. physiotherapy plans, hydrotherapy, etc)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Return to Work" name="category" onclick="{!c.evntOptionSubmenu}" data="6"/>
+                                Return to Work
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 6}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Rehabilitation reports" data="6"/>
+                                                        Rehabilitation reports
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Vocational assessment reports" data="6"/>
+                                                        Vocational assessment reports
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Functional assessment reports" data="6"/>
+                                                        Functional assessment reports
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Employment and Pay" name="category" onclick="{!c.evntOptionSubmenu}" data="7"/>
+                                Employment and Pay
+                            </label>
+                            <aura:if isTrue="{!v.optionSubmenuVisible == 7}">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="first-level-submenu">
+                                            <ul class="option-list">
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Payslips for the most recent 12 weeks" data="7"/>
+                                                        Payslips for the most recent 12 weeks
+                                                    </label>
+                                                </li>
+                                                <li class="option-list__item">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="category_sub" value="Position description of the worker’s current employment including" data="7"/>
+                                                        Position description of the worker’s current employment including
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>     
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                                <input type="radio" value="Correspondence and other" name="category" onclick="{!c.evntOptionSubmenu}" data="8"/>
+                                Correspondence and Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-12">
+                        <label for="uploadFileDescription">Description</label>
+                        <input type="text" class="form-control" id="uploadFileDescription"/>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Back</button>
+                <button class="slds-button slds-button--brand" onclick="{!c.saveFile}">Attach</button>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="teamModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading--medium">Case team</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <aura:if isTrue="{!v.errorMessageRole.length > 0}">
+                    <div class="alert alert-danger">
+                       {!v.errorMessageRole}
+                    </div>
+                </aura:if>
+                <table aura:id="caseTeamTable" id="caseTeamTable">
+                    <tr>
+                        <th width="15%">Action</th>
+                        <th width="45%">Team members</th>
+                        <th width="40%">Team roles</th>
+                    </tr>
+                    <aura:iteration items="{!v.users}" var="user" indexVar="key">
+                        <tr>
+                            <td><input type="checkbox" data="{!user.memberId}" value="true" name="users" checked="{!user.isExisting}"/></td>
+                            <td>{!user.memberName}</td>
+                            <td>
+                                <select class="form-control" name="caseTeamRoles" id="caseTeamRoles">
+                                    <option value=""></option>
+                                    <aura:iteration items="{!user.availableRoles}" var="role">
+                                        <aura:if isTrue="{!role.roleName == user.roleName}">
+                                            <option value="{!role.roleName}" data="{!role.roleId}" selected="selected">{!role.roleName}</option>
+                                        </aura:if>
+                                        <aura:if isTrue="{!role.roleName != user.roleName}">
+                                            <option value="{!role.roleName}" data="{!role.roleId}">{!role.roleName}</option>
+                                        </aura:if>
+                                    </aura:iteration>
+                                </select>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </table>
+            </div>
+            <div class="slds-modal__footer">
+                <c:UI_Button class="btn-previous" onClickFunction="{!c.closeTeamModal}">Cancel</c:UI_Button>
+                <c:UI_Button class="btn-submit" onClickFunction="{!c.saveTeamModal}">Save</c:UI_Button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop" id="backdrop"></div>
+</aura:component>

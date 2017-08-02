@@ -1,0 +1,46 @@
+<aura:component controller="DRS_Dashboard_CC" implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="profileId" type="string" />
+    <aura:attribute name="openApplications" type="string[]" /> 
+    <aura:attribute name="pendingApplications" type="string[]" />
+    <aura:attribute name="draftApplications" type="string[]" /> 
+    <aura:attribute name="closedApplications" type="string[]"/>
+    <aura:attribute name="communitylink" type="string" />
+    <aura:attribute name="communityOriginlink" type="string" />
+    <aura:attribute name="userName" type="string" />
+    <aura:attribute name="newUser" type="Boolean" default="true"/>
+    <aura:attribute name="errorMessage" type="string" />
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+
+	<div class="dashboard_LeftPanel not-print" id="dashboard_LeftPanel">
+		<h1 class="panel heading">
+			DRS&nbsp;Live
+		</h1>
+		<div class="userInfo">
+			<div class="row">
+				<div class="col-xs-3">
+					<img src="{!(v.communitylink + '/resource/profile')}" />
+				</div>
+				<div class="col-xs-9">
+					<p class="userName">{!v.userName}</p>
+					<p><a class="btn-white" href="{!v.communitylink + '/s/profile/' + v.profileId}">Edit profile</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{!v.communitylink + '/secur/logout.jsp'}">Logout</a></p>
+				</div>
+			</div>
+		</div>
+		<aura:if isTrue="{!!v.newUser}">
+			<c:UI_Button href="{!(v.communityOriginlink + v.communitylink + '/s/form')}" class="start-new-application">Start new application</c:UI_Button>
+        </aura:if>
+        <div class="contactUs">
+            <p class="contactUs-heading">CONTACT US</p>
+            <p><i class="glyphicon glyphicon-envelope"></i><a href="mailto:mrs@sira.nsw.gov.au">mrs@sira.nsw.gov.au</a></p>
+            <p><i class="glyphicon glyphicon-earphone"></i><a href="tel:0292842284">02 9284 2284</a></p>
+        </div>
+
+        <div class="info">
+        	<p>DRS Live is a 24/7 online system for dispute resolution services including MRS, MAS, CARS, LTCSA reviews &amp; DRS.</p>
+        	<p>This portal has been developed so content is available to the widest possible audience, including readers using assistive technology or accessibility features.</p>
+			<p>If you are having trouble accessing pages or content, please send an email to  mrs@sira.nsw.gov.au or call us on 02 9284 2284 and we will strive to ensure you receive the information you need within 48 hours</p>
+			<p><a href="http://www.sira.nsw.gov.au/accessibility">http://www.sira.nsw.gov.au/accessibility</a></p>
+        </div>
+	</div>
+</aura:component>

@@ -1,0 +1,21 @@
+.THIS.login-wrapper{
+	box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.15);
+    padding: 50px;
+}
+.THIS h1{
+    font-family: 'Gotham-Book';
+    font-size: 44px;
+    color: #000000;
+}
+.THIS ol{
+    list-style-type: disc;
+    margin-left: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+@media only screen and (max-width: 500px) {
+	.THIS.login-wrapper{
+		box-shadow: none;
+        padding: 0px;
+    }
+}

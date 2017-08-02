@@ -1,0 +1,14 @@
+.THIS select{
+    background-color: #fff;
+}
+
+.THIS .selectLabel{
+    font-weight: normal;
+}
+.THIS .input-select[disabled]{
+	background-color: #eee;
+}
+.THIS .input-select{
+	border-radius: 0px;
+	font-size:16px;
+}

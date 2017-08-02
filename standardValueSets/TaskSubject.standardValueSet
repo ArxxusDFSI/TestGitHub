@@ -21,4 +21,9 @@
         <default>false</default>
         <label>Other</label>
     </standardValue>
+    <standardValue>
+        <fullName>Additional Information Required</fullName>
+        <default>false</default>
+        <label>Additional Information Required</label>
+    </standardValue>
 </StandardValueSet>

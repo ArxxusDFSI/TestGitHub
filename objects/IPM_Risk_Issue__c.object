@@ -56,6 +56,7 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Date_Opened__c</fullName>
         <defaultValue>TODAY()</defaultValue>
@@ -305,6 +306,11 @@
         </valueSet>
     </fields>
     <label>Risk Activity / Issue</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Risk Activity / Issue Name</label>
         <trackHistory>true</trackHistory>

@@ -1,0 +1,4 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="rows" type="integer" />
+	<ui:inputTextArea class="form-control" aura:id="inputTextArea" keyup="{!c.updateValue}" placeholder="{!v.placeholder}" value="{!v.value}" disabled="{!v.disabled}" updateOn="keyUp" rows="{!v.rows}" blur="{!c.blurFunction}"/>
+</aura:component>

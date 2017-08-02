@@ -95,11 +95,22 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AdminUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - Contact Admin User indicates users who can provision users for their account</description>
+        <externalId>false</externalId>
+        <label>Admin User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>AssistantName</fullName>
@@ -122,6 +133,48 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>ContactPreference__c</fullName>
+        <description>Populated by Internal &apos;New Merit Review case&apos; Visualforce page. Also editable by users on Contact layout.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The preferred contact method indicated by the contact.</inlineHelpText>
+        <label>Contact Preference</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                    <label>Phone</label>
+                </value>
+                <value>
+                    <fullName>Post</fullName>
+                    <default>false</default>
+                    <label>Post</label>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+                <value>
+                    <fullName>Limited (mental health risk)</fullName>
+                    <default>false</default>
+                    <label>Limited (mental health risk)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Department</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -135,6 +188,30 @@
         <fullName>DoNotCall</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DuplicateFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by a Batch Job to indicate if another record/s are found that meet the criteria.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DuplicateStatus__c</fullName>
+        <description>This field is managed by users to indicate which records have been data quality checked. are considered clean or not after data checks have commenced. It is also populated by a Batch Job when records meet matching criteria.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Duplicate_Status</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Email</fullName>
@@ -267,9 +344,191 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>IdentificationNumber__c</fullName>
+        <description>Any kind of identification for the Contact record</description>
+        <externalId>false</externalId>
+        <label>Identification Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IdentificationValidFrom__c</fullName>
+        <description>The date from which the Identification Number is valid.</description>
+        <externalId>false</externalId>
+        <label>Identification Valid From</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IdentificationValidTo__c</fullName>
+        <description>The date to which the Identification Number is valid</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date to which the Identification Number is valid</inlineHelpText>
+        <label>Identification Valid To</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>InterpreterRequired__c</fullName>
+        <description>Accessibility Field: Do you require an interpreter?</description>
+        <externalId>false</externalId>
+        <label>Interpreter Required?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>KnownWorkerDisabilities__c</fullName>
+        <description>Does the worker have any disabilities we need to know about when communicating with them?</description>
+        <externalId>false</externalId>
+        <label>Known Worker Disabilities</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <description>Worker requires an interpreter who speaks the entered language</description>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>English</fullName>
+                    <default>false</default>
+                    <label>English</label>
+                </value>
+                <value>
+                    <fullName>French</fullName>
+                    <default>false</default>
+                    <label>French</label>
+                </value>
+                <value>
+                    <fullName>German</fullName>
+                    <default>false</default>
+                    <label>German</label>
+                </value>
+                <value>
+                    <fullName>Italian</fullName>
+                    <default>false</default>
+                    <label>Italian</label>
+                </value>
+                <value>
+                    <fullName>Chinese</fullName>
+                    <default>false</default>
+                    <label>Chinese</label>
+                </value>
+                <value>
+                    <fullName>Japanese</fullName>
+                    <default>false</default>
+                    <label>Japanese</label>
+                </value>
+                <value>
+                    <fullName>Greek</fullName>
+                    <default>false</default>
+                    <label>Greek</label>
+                </value>
+                <value>
+                    <fullName>Arabic</fullName>
+                    <default>false</default>
+                    <label>Arabic</label>
+                </value>
+                <value>
+                    <fullName>Spanish</fullName>
+                    <default>false</default>
+                    <label>Spanish</label>
+                </value>
+                <value>
+                    <fullName>Chinese (Simplified)</fullName>
+                    <default>false</default>
+                    <label>Chinese (Simplified)</label>
+                </value>
+                <value>
+                    <fullName>Chinese (Traditional)</fullName>
+                    <default>false</default>
+                    <label>Chinese (Traditional)</label>
+                </value>
+                <value>
+                    <fullName>Danish</fullName>
+                    <default>false</default>
+                    <label>Danish</label>
+                </value>
+                <value>
+                    <fullName>Dutch</fullName>
+                    <default>false</default>
+                    <label>Dutch</label>
+                </value>
+                <value>
+                    <fullName>Finnish</fullName>
+                    <default>false</default>
+                    <label>Finnish</label>
+                </value>
+                <value>
+                    <fullName>Korean</fullName>
+                    <default>false</default>
+                    <label>Korean</label>
+                </value>
+                <value>
+                    <fullName>Portuguese (Brazil)</fullName>
+                    <default>false</default>
+                    <label>Portuguese (Brazil)</label>
+                </value>
+                <value>
+                    <fullName>Russian</fullName>
+                    <default>false</default>
+                    <label>Russian</label>
+                </value>
+                <value>
+                    <fullName>Swedish</fullName>
+                    <default>false</default>
+                    <label>Swedish</label>
+                </value>
+                <value>
+                    <fullName>Thai</fullName>
+                    <default>false</default>
+                    <label>Thai</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>LastCURequestDate</fullName>
@@ -282,6 +541,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MRSFullName__c</fullName>
+        <externalId>false</externalId>
+        <formula>FirstName + &apos; &apos; + LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MailingAddress</fullName>
@@ -326,8 +596,59 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Triage</fullName>
+                    <default>false</default>
+                    <label>Triage</label>
+                </value>
+                <value>
+                    <fullName>Claims Manager</fullName>
+                    <default>false</default>
+                    <label>Claims Manager</label>
+                </value>
+                <value>
+                    <fullName>Worker</fullName>
+                    <default>false</default>
+                    <label>Worker</label>
+                </value>
+                <value>
+                    <fullName>Legal Rep</fullName>
+                    <default>false</default>
+                    <label>Legal Rep</label>
+                </value>
+                <value>
+                    <fullName>Administrator</fullName>
+                    <default>false</default>
+                    <label>Administrator</label>
+                </value>
+                <value>
+                    <fullName>Sole Practitioner</fullName>
+                    <default>false</default>
+                    <label>Sole Practitioner</label>
+                </value>
+                <value>
+                    <fullName>Lawyer</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Lawyer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Title</fullName>
-        <inlineHelpText>For Insurer Performance, this is the Position</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
@@ -335,11 +656,13 @@
         <fullName>AllContacts</fullName>
         <columns>FULL_NAME</columns>
         <columns>ACCOUNT.NAME</columns>
-        <columns>CONTACT.EMAIL</columns>
-        <columns>CONTACT.PHONE3</columns>
+        <columns>CONTACT.TITLE</columns>
         <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All Contacts</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>BirthdaysThisMonth</fullName>
@@ -384,17 +707,287 @@
         </filters>
         <label>New This Week</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>DRS_Contact</fullName>
+        <active>true</active>
+        <description>This record type is for Contacts associated to the DRS business</description>
+        <label>DRS-Contact</label>
+        <picklistValues>
+            <picklist>ContactPreference__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Limited %28mental health risk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DuplicateStatus__c</picklist>
+            <values>
+                <fullName>Duplicate - no additional information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate - submitted in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved - Duplicate%2C additional informationDuplicate - Additional information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Other_Specialist_Area__c</picklist>
+            <values>
+                <fullName>Complaints Level 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaints Level 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Role__c</picklist>
+            <values>
+                <fullName>Primary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secondary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>IPM_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InterpreterRequired__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language__c</picklist>
+            <values>
+                <fullName>Arabic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese %28Simplified%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese %28Traditional%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Danish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dutch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>English</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finnish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greek</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portuguese %28Brazil%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swedish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar - Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Name</picklist>
+            <values>
+                <fullName>Dr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mr%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prof%2E</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Claims Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Rep</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Practitioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Triage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CONTACT.EMAIL</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CONTACT.PHONE3</customTabListAdditionalFields>
         <customTabListAdditionalFields>CONTACT.PHONE1</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CONTACT.EMAIL</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CONTACT.PHONE3</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CONTACT.PHONE1</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
@@ -405,9 +998,10 @@
         <lookupPhoneDialogsAdditionalFields>CONTACT.PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CONTACT.PHONE3</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CONTACT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <webLinks>

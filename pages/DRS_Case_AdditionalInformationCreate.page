@@ -1,0 +1,34 @@
+<apex:page standardController="Case" extensions="DRS_AdditionalInformation_CX">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Case.CaseNumber}"/>
+                <apex:outputField value="{!objTask.Subject}"/>
+                <apex:inputField value="{!objTask.ActivityDate}"/>
+                <apex:inputField value="{!objTask.Description}" required="true" />
+                <apex:inputField value="{!objCaseItem.RoleGroup__c}" required="true" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton id="btnSave" action="{!saveAdditionalInformation}" value="Save" oncomplete="refreshParentAndClose();" onclick="disableSaveButton(this);"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <script type="text/javascript">
+    var btnSaveForAdditionalInformation;
+    function disableSaveButton(btnObject) {
+        btnSaveForAdditionalInformation = btnObject;
+        btnObject.disabled = true;
+    }
+    function refreshParentAndClose() {
+        sforce.console.getEnclosingPrimaryTabId(function(result) { 
+            sforce.console.refreshPrimaryTabById(result.id, true, function(result2) {
+                sforce.console.getEnclosingTabId(function(result3) {
+                    sforce.console.closeTab(result3.id);
+                });
+            });
+        });
+    }
+    </script>
+    <script src="/support/console/22.0/integration.js" >
+    </script>
+</apex:page>

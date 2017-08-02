@@ -1,0 +1,280 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="pageMode" type="String" default="form" description="the page from a form or case details value = form || casedetails || internal"/>
+    <aura:attribute name="fileName" type="String" />
+    <aura:attribute name="fileDescription" type="String" />
+    <aura:attribute name="uploadDocuments" type="Object[]" />
+    <aura:attribute name="isLoadedInSalesforce" type="Boolean" />
+    <aura:attribute name="fileUploadValidationError" type="Boolean" default="false"/>
+    <aura:attribute name="loginUser" type="string" default=""/>
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="caseItemId" type="string" />
+    <aura:attribute name="optionSubmenuVisible" type="Decimal"/>
+    <aura:attribute name="optionSubSubmenuVisible" type="Decimal"/>
+    <aura:attribute name="categories" type="Object[]" />
+    <aura:attribute name="formLocked" type="boolean" />
+    <aura:attribute name="applicationId" type="String" />
+    <aura:attribute name="viewDocument" type="String" />
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="progressPercentage" type="Integer" default="0"/>
+    <aura:attribute name="communityPagePrefix" type="String" />
+    <aura:attribute name="uploadDocumentsSnippets" type="String" />
+    <aura:attribute name="uploadForm" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="aura:doneRendering" action="{!c.onScriptLoad}"/>
+    
+    <aura:if isTrue="{!v.viewDocument != null}">
+        <div id="myModal" class="modal" style="display: block; background-color: rgba(150,150,150,0.4);">
+            <div class="modal-content">
+                <span class="close" onclick="{!c.closeView}">&times;</span>
+                <iframe src="{!v.viewDocument}" style="height: 90%; width: 100%; min-height: 900px; border:1px solid lightgrey;"  />
+            </div>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!or(v.pageMode == 'form', v.pageMode == 'internal')}">
+        <div class="panel">
+            <p>Instructions</p>
+            <ul>
+                <li>Select Upload Attachment button</li>
+                <li>Choose a file to attach</li>
+                <!-- <li>Select category the file belongs to</li> -->
+                <li>Enter a description of the file and contents</li>
+                <li>Attach</li> 
+            </ul>
+        </div>
+        <!--  <div class="panel">
+            <b>Document categories</b><br/>
+            <ul>
+                <li>Certificates of Capacity eg...</li>
+                <li>Medical eg...</li>
+                <li>Return to Work eg...</li>
+                <li>Employment and Pay eg...</li>
+                <li>Correspondence and Other eg...</li>
+            </ul>
+        </div> -->
+    </aura:if>
+
+    <aura:renderIf isTrue="{!v.pageMode == 'casedetails'}">
+        <p>{!v.uploadDocumentsSnippets}</p>
+        <br/>
+        <aura:if isTrue="{!v.uploadDocuments.length == 0}"> 
+            No Attachments
+            <br />
+        </aura:if>
+
+        <aura:if isTrue="{!v.uploadDocuments.length > 0}"> 
+            <table>
+                <tr>
+                    <th width="10%">Action</th>
+                    <th width="15%">File description</th>
+                    <th width="40%">Category</th>
+                    <th width="20%">Submitter</th>
+                    <th width="30%">Date loaded</th>
+                </tr>
+                
+                <aura:iteration items="{!v.uploadDocuments}" var="doc">
+                    <tr>
+                        <td><a onclick="{!c.openView}" data-url="{!doc.attachmentId}">View</a></td>
+                        <td>{!doc.description}</td>
+                        <td>{!doc.category}</td>
+                        <td>{!doc.submitter}</td>
+                        <td>{!doc.dateLoaded}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </aura:if>
+        <br/>
+    </aura:renderIf>
+
+    <c:UI_Button aura:id="button" disabled="{!v.formLocked}" class="btn-upload" onClickFunction="{!c.upload}">
+        <i class="glyphicon glyphicon-cloud-upload details-icon"></i><span>Upload attachment</span>
+    </c:UI_Button>
+    <input id="fileUploaderInput" type="file" name="files[]" value="browse" style="display:none;" />
+
+    <aura:if isTrue="{!and(or(v.pageMode == 'form', v.pageMode == 'internal'), v.uploadDocuments.length > 0)}">    
+        <br/>
+        <br/>
+        <p class="attachment-heading">Attachments</p><br/>
+        <table class="document-table">
+            <thead>
+                <tr>
+                    <th width="5%">Action</th>
+                    <th width="30%">Name</th>
+                    <aura:if isTrue="{!v.categories.length > 0}">
+                        <th width="25%">Category</th>
+                    </aura:if>
+                    <th width="40%">Description</th>
+                </tr>
+            </thead>
+            <tbody id="attachmentTable">
+                <aura:if isTrue="{!v.uploadDocuments.length > 0}">
+                    <aura:iteration items="{!v.uploadDocuments}" var="doc" indexVar="index">
+                        <tr>
+                            <td>
+                                <aura:if isTrue="{!!v.formLocked}">
+                                    <a onclick="{!c.removeFile}" data="{!index}" id="{!'uploadDoc' + index}" name="{!doc.attachmentId}">Remove</a>
+                                </aura:if>
+                            </td>
+                            <td>{!doc.name}</td>
+                            <aura:if isTrue="{!v.categories.length > 0}">
+                                <td>{!doc.category}</td>
+                            </aura:if>
+                            <td>{!doc.description}</td>
+                        </tr>
+                    </aura:iteration>
+                </aura:if>
+            </tbody>
+        </table>
+    </aura:if>
+
+    <aura:if isTrue="{!!v.isLoadedInSalesforce}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="modal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h2 id="header43" class="slds-text-heading--medium">Attach file</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{!v.fileName}</p>
+                    <br/>
+                    <aura:if isTrue="{!v.fileUploadValidationError}">
+                        <div class="alert alert-danger">
+                            Please make sure you have entered all the field(s)
+                        </div>
+                    </aura:if>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <aura:iteration items="{!v.categories}" var="category" indexVar="categoryIndex">
+                                <div class="col-xs-12">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="{!category.value}" name="category" onclick="{!c.evntOptionSubmenu}" data="{!categoryIndex}" />
+                                        {!category.value} &nbsp; 
+                                    
+                                        <aura:if isTrue="{!category.helptext}">
+                                            <span class="glyphicon glyphicon-info-sign" aria-hidden="true" id="{!'help' + categoryIndex}" data-placement="bottom" title="{!category.helptext}"></span>
+                                        </aura:if>
+                                    
+                                    </label>
+
+                                    <aura:if isTrue="{!and(v.optionSubmenuVisible == categoryIndex, category.tier2.length>0)}">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="first-level-submenu">
+                                                    <ul class="option-list">
+                                                        <aura:iteration items="{!category.tier2}" var="tier2" indexVar="categoryTier2Index">
+                                                            <li class="option-list__item">
+                                                                <label class="radio-inline" >
+                                                                    <input type="radio" name="category_sub" value="{!tier2.value}" onclick="{!c.evntSubOptionSubmenu}" data="{!categoryTier2Index}"/>
+                                                                    {!tier2.value}
+                                                                    
+                                                                    <aura:if isTrue="{!and(tier2.tier3.length>0, v.optionSubSubmenuVisible == categoryTier2Index)}">
+                                                                        <div>
+                                                                            <ul class="option-list">
+                                                                                <aura:iteration items="{!tier2.tier3}" var="tier3">
+                                                                                    <li class="option-list__item">
+                                                                                        <label class="radio-inline">
+                                                                                            <input type="radio" name="category_sub_checkbox" value="{!tier3.value}"/>
+                                                                                            {!tier3.value}
+                                                                                        </label>
+                                                                                    </li>
+                                                                                </aura:iteration>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </aura:if>
+                                                                </label>
+                                                            </li>
+                                                        </aura:iteration>
+                                                    </ul>
+                                                </div>     
+                                            </div>
+                                        </div>
+                                    </aura:if>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+
+                    <aura:if isTrue="{!v.categories.length > 0}">
+                        <hr/>
+                        <aura:if isTrue="{!v.optionSubmenuVisible == 8}">
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <c:UI_InternalUserLookup aura:id="internalAuthor" label="Internal Author" value="{!v.uploadForm.internalAuthor}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <c:UI_InputDate id="decisionSentDate" aura:id="decisionSentDate" label="DecisionSentDate" value="{!v.uploadForm.decisionSentDate}"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <c:UI_InternalUserLookup aura:id="internalReviewer" label="Internal Reviewer" value="{!v.uploadForm.internalReviewer}" />
+                                </div>
+                            </div>
+                        </aura:if>
+
+                        <aura:if isTrue="{!v.optionSubmenuVisible != 8}">
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <c:UI_InputText aura:id="author" label="Document author" value="{!v.uploadForm.author}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <c:UI_InputDate id="dateOfDocument" aura:id="dateOfDocument" label="Date of document" value="{!v.uploadForm.dateOfDocument}"/>
+                                </div>
+                            </div>
+                            <aura:if isTrue="{!or(v.optionSubmenuVisible == 7, and(v.optionSubmenuVisible == 1, v.optionSubSubmenuVisible == 0))}">
+                                <div class="form-group row">
+                                    <div class="col-xs-12">
+                                        <c:UI_InputDate id="fromDateCorrespondance" aura:id="fromDateCorrespondance" label="From date of correspondence" value="{!v.uploadForm.fromDateCorrespondance}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-xs-12">
+                                        <c:UI_InputDate id="toDateCorrespondance" aura:id="toDateCorrespondance" label="To date of correspondence" value="{!v.uploadForm.toDateCorrespondance}"/>
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </aura:if>
+                    </aura:if>
+
+                    <aura:if isTrue="{!v.optionSubmenuVisible != 8}">
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="description" label="Description" value="{!v.uploadForm.description}" />
+                            </div>
+                        </div>
+                    </aura:if>
+
+                    <aura:renderIf isTrue="{!v.pageMode == 'internal'}">
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <label class="checkbox-inline"><input type="checkbox" id="externallyVisible" value="true"/>Externally Visible?</label>
+                            </div>
+                        </div>
+                    </aura:renderIf>
+                </div>
+                <div class="slds-modal__footer">
+                    <c:UI_Button class="btn-previous" onClickFunction="{!c.closeModal}">Back</c:UI_Button>
+                    <c:UI_Button class="btn-submit" onClickFunction="{!c.saveFile}">Attach</c:UI_Button>
+                </div>
+            </div>
+        </div>
+
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="progressBarModal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" role="progressbar">
+                        <span class="slds-progress-bar__value" style="{!('width:' + v.progressPercentage + '%;')}"/>
+                    </div>
+                    <span class="slds-progress-bar-text">{!v.progressPercentage}%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-backdrop" id="backdrop"></div>
+    </aura:if>
+</aura:component>

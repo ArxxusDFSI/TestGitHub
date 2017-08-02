@@ -17,4 +17,21 @@
             <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
         </sharedFrom>
     </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_internal_MRS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Accounts contacts and cases with Internal MRS</description>
+        <label>Share internal MRS</label>
+        <sharedTo>
+            <group>MRS_Internal_Staff</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MRS_Internal_Staff</group>
+        </sharedFrom>
+    </sharingOwnerRules>
 </SharingRules>

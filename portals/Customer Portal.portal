@@ -6,8 +6,12 @@
     <emailSenderAddress>mramsey@salesforce.com</emailSenderAddress>
     <emailSenderName>admin@servicecloud.trial</emailSenderName>
     <enableSelfCloseCase>false</enableSelfCloseCase>
+    <footerDocument>Trial_Documents/Trial_Customer_Portal_Footer_HTML.html</footerDocument>
     <forgotPassTemplate>unfiled$public/CustomerPortalChangePwdEmail</forgotPassTemplate>
+    <headerDocument>Trial_Documents/Trial_Customer_Portal_Header_HTML.html</headerDocument>
     <isSelfRegistrationActivated>true</isSelfRegistrationActivated>
+    <loginHeaderDocument>Trial_Documents/Trial_Customer_Portal_Login_HTML.html</loginHeaderDocument>
+    <logoDocument>Trial_Documents/serviceCloudLogo.png</logoDocument>
     <newPassTemplate>unfiled$public/CustomerPortalChangePwdEmail</newPassTemplate>
     <newUserTemplate>unfiled$public/CustomerPortalNewUserEmail</newUserTemplate>
     <selfRegUserDefaultProfile>trial customer portal user</selfRegUserDefaultProfile>

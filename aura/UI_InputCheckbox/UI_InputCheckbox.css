@@ -1,0 +1,83 @@
+.THIS .checkbox-inline{
+	border: solid 1px #007a33;
+    width: 100%;
+    height: auto;
+    padding: 11px 11px 11px 40px;
+}
+.THIS .checkbox-checked{
+    background-color: #eff7f3;
+    border: solid 1px #007a33;
+}
+.THIS input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin: 0 0.4em 0.4em 0;
+    border: 2px solid green;
+    margin-left: -25px;
+    margin-top: 5px;
+    -webkit-appearance: none;
+    -webkit-transition: box-shadow 200ms; 
+}
+
+/* border radius for checkbox */
+.THIS input[type="checkbox"] {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+/* hover state */
+.THIS input[type="checkbox"]:not(:disabled):hover {
+    border-color:green;
+    
+}
+
+/* active state */
+.THIS input[type="checkbox"]:active:not(:disabled) {
+    border-color:green;
+}
+
+/* focus state */
+.THIS input[type="checkbox"]:focus {
+    outline:none;
+  
+}
+
+/* input checked border color */
+.THIS input[type="checkbox"]:checked {
+    border-color:green;
+    background-color: #fff;
+}
+
+/* checkbox checked */
+.THIS input[type="checkbox"]:checked:before {
+	content: '';
+	display: block;
+	width: 4px;
+	height: 8px;
+	border: 2px solid green;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin-left: 4px;
+	margin-top: 1px;
+}
+
+/* disabled input */
+.THIS input:disabled {
+	box-shadow: none;
+	background: #fff;
+	box-shadow:none;
+}
+
+/* style label for disabled input */
+.THIS input:disabled + label {
+	cursor:default;
+	-webkit-user-select: none;
+}
+@media only screen and (max-width: 500px) {
+    .THIS .checkbox-inline{
+        height: auto;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,59 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="caseNumber" type="string" />
+    <aura:attribute name="applicationId" type="string" />
+    <aura:attribute name="uploadDocuments" type="Object[]" />
+    <aura:attribute name="requestDetails" type="string" />
+    <aura:attribute name="applicationData" type="string" />
+    <aura:attribute name="submittedDate" type="string" />
+    <aura:attribute name="submittedBy" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="formLocked" type="boolean" default="false"/>
+    <aura:attribute name="communitylink" type="string" default="insurerlegal"/>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="isLoadedInSalesforce" type="boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+            {!v.errorMessage}
+        </div>
+    </aura:if>
+    <div id="additionalForm">
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Additional information requested by SIRA</div>
+                <div class="panel-body">
+                    <h3>The Request</h3>
+                    <p>{!v.requestDetails}</p>
+                    <br/>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="response">Your Response</label>
+                            <textarea rows="4" id="response" class="form-control" placeholder="Enter your response"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_upload aura:id="uiUpload" uploadDocuments="{!v.uploadDocuments}" isLoadedInSalesforce="{!v.isLoadedInSalesforce}" caseId="{!v.caseId}" caseItemId="{!v.applicationId}" formLocked="{!v.formLocked}"/>
+                        </div>
+                    </div>
+                    <aura:if isTrue="{!!v.formLocked}">
+                        <button class="button btn btn-primary pull-right btn-lg" onclick="{!c.submit}">Submit</button>
+                    </aura:if>
+                    <aura:if isTrue="{!v.formLocked}">
+                        <div class="form-group row">
+                            <div class="col-xs-6"><h3>Submitted by: {!v.submittedBy}</h3></div>
+                            <div class="col-xs-6"><h3>Submitted date: {!v.submittedDate}</h3></div>
+                        </div>
+                        <aura:if isTrue="{!!isLoadedInSalesforce}">
+                            <a class="button btn btn-primary pull-left btn-lg" href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.caseId}">Back</a>
+                        </aura:if>
+                    </aura:if>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

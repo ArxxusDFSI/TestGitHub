@@ -1,0 +1,67 @@
+.THIS .btn{	
+    background: none;
+	background-color: #f3f3f3;
+    color: #000;
+    border: 1px solid #9b9b9b;
+    font-weight: normal;
+    max-width: 174px;
+    height: 63px;
+    text-decoration: none;
+    outline: none;
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-family: 'Gotham-Book';
+}
+.THIS .btn-group-justified>.btn-group{
+    width: 174px;
+    float: left;
+    margin-right: 20px;
+}
+.THIS .btn:hover{
+	background-color: #ffffff;
+    color: #486cb3;
+    border: 2px solid green;
+}
+
+.THIS .btn:focus {
+    background-color: #ffffff;
+    color: #486cb3;
+    border: 2px solid #deeaf0;
+}
+
+.THIS .btn:active {
+    background-color: #e0e4e6;
+    color: #153980;
+    border: 2px solid green;
+}
+
+.THIS .btn-toggle-is-on{
+    background-color: #F5FFFA;
+    color: #000;
+    border: 2px solid green;
+}
+
+.THIS .btn-toggle-is-on:hover {
+    background-color: #F5FFFA;
+    color: #000;
+    border: 2px solid green;
+}
+
+.THIS label{
+    font-weight: normal;
+}
+
+.THIS .errorLabel {
+    clear: both;
+}
+
+@media only screen and (max-width: 500px) {
+    .THIS .btn-group-justified>.btn-group{
+        width: 50%;
+        margin-right: 0px;
+    }
+}

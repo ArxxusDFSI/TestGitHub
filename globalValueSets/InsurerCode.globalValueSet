@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>26 - AAMI</fullName>
+        <default>false</default>
+        <label>26 - AAMI</label>
+    </customValue>
+    <customValue>
+        <fullName>31 - GIO</fullName>
+        <default>false</default>
+        <label>31 - GIO</label>
+    </customValue>
+    <customValue>
+        <fullName>32 - Allianz</fullName>
+        <default>false</default>
+        <label>32 - Allianz</label>
+    </customValue>
+    <customValue>
+        <fullName>34 - NRMA</fullName>
+        <default>false</default>
+        <label>34 - NRMA</label>
+    </customValue>
+    <customValue>
+        <fullName>36 - QBE</fullName>
+        <default>false</default>
+        <label>36 - QBE</label>
+    </customValue>
+    <customValue>
+        <fullName>38 - Zurich</fullName>
+        <default>false</default>
+        <label>38 - Zurich</label>
+    </customValue>
+    <customValue>
+        <fullName>39 - CIC Allianz</fullName>
+        <default>false</default>
+        <label>39 - CIC Allianz</label>
+    </customValue>
+    <masterLabel>InsurerCode</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,33 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="name" type="string" default="Test"/>
+    <aura:attribute name="status" type="string" default="Open"/>
+    <aura:attribute name="claim" type="string" default="1234"/>
+    <aura:attribute name="date" type="string" default="01/01/2000"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Important Application Details</div>
+            <div class="panel-body">
+                <div class="form-group row">
+                    <div class="col-xs-6">Status</div>
+                    <div class="col-xs-6">{!v.status}</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">Work Name</div>
+                    <div class="col-xs-6">{!v.name}</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">Claim Number</div>
+                    <div class="col-xs-6">{!v.claim}</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">Date Lodged</div>
+                    <div class="col-xs-6">{!v.date}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</aura:component>

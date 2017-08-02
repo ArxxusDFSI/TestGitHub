@@ -1,0 +1,82 @@
+.THIS .btn-white {
+    border: 3px solid #467082;
+    color: #467082;
+    text-transform: uppercase;
+    background-color: #fff;
+    width: 44%;
+    display: inline-block;
+    text-align: center;
+    padding: 6px;
+}
+.THIS .btn-transparent{
+    background-color: transparent;
+    border: 3px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
+    height: 45px;
+    width: 140px;
+    display: inline-block;
+    text-align: center;
+    text-align: center;
+    padding: 5px;
+    margin-left: 18px;
+    position: relative;
+    top: 100px;
+    font-size: 20px;
+}
+.THIS .btn-submit{
+    margin-left: 16%;
+}
+.THIS .btn-transparent:hover{
+    background-color: #fff;
+    color: #467082;
+}
+.THIS .box-white:after {
+    border-style: solid;
+    border-width: 0 0 35px 64px;
+    border-color: transparent transparent #fff transparent;
+    content: '';
+    height: 0;
+    top: -113px;
+    left: 28.5%;
+    position: relative;
+}
+.THIS.side-panel{
+    width: 100%;
+    float: left;
+}
+.THIS.side-panel .btn{
+    width:100%;
+}
+.THIS .box-header a:hover{
+    text-decoration: underline;
+}
+.THIS .panel-heading{
+    font-size: 18px;
+}
+.THIS.side-panel .panel-group a{
+    font-size: 16px;
+}
+.THIS .details-icon{
+    top: 3px;
+    left: 5px;
+}
+.THIS .panel-primary .panel-heading, .THIS .panel-primary .panel-body{
+    background-color: #fff;
+ }
+ .THIS table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.THIS .glyphicon-trash{
+    cursor: pointer;
+}
+.THIS td, .THIS th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.THIS tr:nth-child(even) {
+    background-color: #f7f7f7;
+}

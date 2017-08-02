@@ -5,10 +5,5 @@
         <sharedTo>AllInternalUsers</sharedTo>
         <sharedToType>Organization</sharedToType>
     </folderShares>
-    <folderShares>
-        <accessLevel>View</accessLevel>
-        <sharedTo>AllCustomerPortalUsers</sharedTo>
-        <sharedToType>AllCspUsers</sharedToType>
-    </folderShares>
     <name>Example Sales and Marketing Dashboards</name>
 </DashboardFolder>

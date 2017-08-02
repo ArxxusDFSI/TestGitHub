@@ -1,0 +1,13 @@
+.THIS .uiLabel{
+    color: #000;
+}
+.THIS .input[disabled]{
+	background-color: #eee;
+}
+.THIS .input{
+	border-radius: 0px;
+	font-size:16px;
+}
+.THIS .error{
+	color: #a94442;
+}

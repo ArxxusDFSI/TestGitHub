@@ -1,0 +1,593 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="pageNumber" type="Integer" default="1" />
+    <aura:attribute name="showInfo" type="boolean" default="true" />
+    <aura:attribute name="form" type="string" />
+    <aura:attribute name="formCopy" type="string" />
+    <aura:attribute name="successMessage" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="validationErrorMessages" type="Object[]" />
+    <aura:attribute name="communitylink" type="string" default="mrs01"/>
+    <aura:attribute name="autoSaving" type="boolean" default="false"/>
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    <aura:attribute name="uploadDocuments" type="Object[]" />
+    <aura:attribute name="formLocked" type="boolean" default="false"/>
+    <aura:attribute name="formStatus" type="string" />
+    <aura:attribute name="checkBoxRequired" type="boolean" default="false"/>
+    <aura:attribute name="submittedDate" type="string" />
+    <aura:attribute name="submittedBy" type="string" />
+    <aura:attribute name="isLoadedInSalesforce" type="boolean" />
+    <aura:attribute name="isLoadedInConsole" type="boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <div class="disputePage row" id="disputeForm">
+        <div id="disputeForm" aura:id="disputeForm" class="col-xs-12">
+            <aura:if isTrue="{!v.errorMessage.length > 0}">
+                <div class="alert alert-danger">
+                    {!v.errorMessage}
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.successMessage}">
+                <div class="alert alert-success">
+                    {!v.successMessage}
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.validationErrorMessages.length > 0}">
+                <div class="alert alert-danger">
+                    <b>Please make sure you have filled in the following fields:</b>
+                    <ol>
+                        <aura:iteration items="{!v.validationErrorMessages}" var="msg">
+                            <li>{!msg.value}</li>
+                        </aura:iteration>
+                    </ol>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!!v.isLoadedInConsole}">
+                <!-- ################################# PAGE 1 ##########################################-->
+                <div id="1" class="{!'page ' + (v.pageNumber == 1 ? 'active' : '')}">
+                    <aura:if isTrue="{!!v.showInfo}">
+                        <br/><a onclick="{!c.doShowInfo}" style="font-size:16px;">Info about this form</a><br/><br/>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showInfo}">
+                        <div class="row">
+                            <div class="col-md-8 col-xs-12">
+                                <h1>Application</h1>
+                            </div>
+                            <div class="col-md-4 print-container col-xs-12">
+                                <span class="mandatory-label">mandatory fields *</span>
+                                <br/>
+                                <span class="printButton" onclick="{!c.print}"><i class="glyphicon glyphicon-print"/>Print</span>
+                            </div>
+                        </div>
+                        <aura:if isTrue="{!v.formLocked}">
+                            <div class="row form-group">
+                                <div class="col-xs-12 not-print">
+                                    <aura:if isTrue="{!!v.isLoadedInSalesforce}" >
+                                        <c:UI_Button href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.form.caseId}" class="return-to-case"><i class="glyphicon glyphicon-arrow-left"/>Return to Case</c:UI_Button>
+                                    </aura:if>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info col-xs-12">
+                                <aura:if isTrue="{!v.formStatus == 'Submitted'}">
+                                    This application was submitted by: <b>{!v.submittedBy}</b> on the <b>{!v.submittedDate}</b>
+                                    <aura:set attribute="else">
+                                        This application was created on the <b>{!v.submittedDate}</b>
+                                    </aura:set>
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                        <h3>Effective from 16 December 2016</h3>
+                        <p>Use this form if you are a worker who wants SIRA to review the work capacity decision(s) made by an insurer. You may request the review of more than one work capacity decision on this form under section 44BB of the Workers Compensation Act 1987.</p>
+                        <br/>
+                        <p>For more information you can refer to the Guidelines for claiming workers compensation or the <a href="http://www.sira.nsw.gov.au/disputes/workers-compensation-disputes/work-capacity-disputes">Merit review user guide</a>.</p>
+                        <br/>
+                        <p>If you require assistance completing this form contact the insurer in the first instance, alternatively you can call SIRA on 13 10 50. If you require an interpreter, call 13 14 50 to arrange a free interpreting service</p>
+                        <br/>
+                        <h3>Terms and Conditions</h3>
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            Using this form
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>Before completing your application, make sure you have already applied for an internal review of the work capacity decision(s) made by the insurer and:</p>
+                                        <br/>
+                                        <ul>
+                                            <li>received notification of the internal review decision from the insurer in the last 30 days, or</li>
+                                            <li>not received a notification of the internal review decision from the insurer within 30 days from the date of your application.</li>
+                                        </ul>
+                                        <br/>
+                                        <p>Your application must clearly identify the decision(s) you are requesting to be reviewed and include the reasons you are requesting a review. You should also attach any supporting information that the insurer may not have.</p>
+                                        <p>Before you begin, you need to agree to our terms and conditions.</p>
+                                        <p>SIRA may decline to review a decision if:</p>
+                                        <br/>
+                                        <ul>
+                                            <li>the application is made more than 30 days after you receive the insurer internal review decision, or</li>
+                                            <li>it determines that the application is frivolous or vexatious, or</li>
+                                            <li>you have not provided the required information.</li>
+                                        </ul>
+                                        <br/>
+                                        <p>The information you supply in the form, and its attachments, are to be true and correct to the best of your knowledge. Making a false or misleading claim or false and misleading statement in support of the claim is punishable by law and you may be prosecuted.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            Stay of a work capacity decision
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>A merit review of a work capacity decision may operate to stay (temporarily suspend) the original work capacity decision. The insurer will explain how a stay may apply to your circumstances.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            Legal assistance
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>You may seek assistance from a legal practitioner regarding an application or proposed application for merit review by SIRA. The insurer is liable to pay costs for advice given in connection with an application or a proposed application for merit review of an original work capacity decision made by an insurer in accordance with the Workers Compensation Amendment (Legal Costs) Regulation 2016 of the Workers Compensation Act.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            What happens next?
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>SIRA will contact you and the insurer within seven days of receiving this form to inform both parties of the procedures for the review.</p>
+                                        <br/>
+                                        <p>The insurer will send you and SIRA their reply, attaching all relevant information relating to the work capacity decision (including any information you have supplied), within seven days of receiving this form.</p>
+                                        <br/>
+                                        <p>On completion of their review, SIRA will send both parties their findings of the review, together with any recommendations and supporting reasons.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            Important information about privacy
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>By completing and submitting this form, you are consenting to the collection by SIRA and the insurer of any personal and health information contained in the form and in any supporting documents. Both SIRA and the insurer may use this information in the course of dealing with your application, and any subsequent applications you may make.</p>
+                                        <br/>
+                                        <p>By completing this form you are also consenting to your personal and health information being used by SIRA, and disclosed by SIRA to a third party, for administrative purposes including monitoring and reviewing the workers compensation system.</p>
+                                        <br/>
+                                        <p>SIRA is required to comply with the Privacy and Personal Information Protection Act 1998 and Health Records and Information Privacy Act 2002 when collecting, using or disclosing any of your personal or health information. You have the right to access your personal or health information held by SIRA, to be provided copies of that information, and to correct any inaccuracies in that information.</p>
+                                        <p>Applications to SIRA to access and correct any information about you should be made in writing to:<br/>
+                                        DRS, Level 19, 1 Oxford St, Darlinghurst, NSW, 2010</p>
+                                        <p>Whilst your application is in your draft your details sit with the authority for a period of 90 days or until your application is submitted.</p>
+                                        <br/>
+                                        <p>SIRA collects, uses and discloses personal information for the purpose of the administration of the online portal, to provide you with messages relevant to your application for merit review, to allow you to update your details with SIRA and for reporting purposes. Detailed information about the ways that SIRA may collect, use and disclose your information are available at <a href="http://www.sira.nsw.gov.au/privacy/sira-privacy-docs/sira-privacy-statement">http://www.sira.nsw.gov.au/privacy/sira-privacy-docs/sira-privacy-statement.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" onclick="{!c.collapse}">
+                                            <i class="more-less glyphicon glyphicon-chevron-down"></i>
+                                            Section: Publication of decisions
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseSix" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>SIRA merit review findings or recommendations may be published on the SIRA website. Publication is intended to help improve claims management practices, work capacity decision making, and minimise disputation in the workers compensation system.</p>
+                                        <br/>
+                                        <p>SIRA will de-identify findings and recommendations before publishing. At SIRA’s discretion, certain parts of the review findings or recommendations may not be published due to assessment of length, content, appropriateness or confidentiality.</p>
+                                        <br/>
+                                        <p>For more information about the publication of decisions please see the Merit Review User Guide at <a href="http://www.sira.nsw.gov.au/__data/assets/pdf_file/0014/101642/Merit-review-user-guide.pdf">http://www.sira.nsw.gov.au/__data/assets/pdf_file/0014/101642/Merit-review-user-guide.pdf.</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="panel">
+                                <div class="form-group row">
+                                    <div class="col-xs-12">
+                                        <p>Please indicate below if you do not want to have your review decision published.</p>
+                                        <c:UI_InputCheckbox aura:id="dontPublish" checked="{!v.form.dontPublish}" disabled="{!v.buttonDisable}" label=" No. I do not want my review decision published." />
+                                        <br/>
+                                        <c:UI_ToggleButton aura:id="agreeCondition" label="I understand the information provided above and agree to the conditions*" value="{!v.form.agreeCondition}" disabled="{!v.buttonDisable}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aura:if>
+                </div>
+                <!-- ################################# END OF PAGE 1 ###################################-->
+            </aura:if>
+            
+            <!-- ################################# PAGE 2 ##########################################-->
+            <div id="2" class="{!'page ' + (v.pageNumber == 2 ? 'active' : '')}">
+                <div class="row not-print">
+                    <div class="col-md-8">
+                        <h1>Application</h1>
+                    </div>
+                    <div class="col-md-4 print-container">
+                        <span class="mandatory-label">mandatory fields *</span>
+                        <br/>
+                        <span class="printButton" onclick="{!c.print}"><i class="glyphicon glyphicon-print"/>Print</span>
+                    </div>
+                </div>
+                <aura:if isTrue="{!v.formLocked}">
+                    <div class="row form-group not-print">
+                        <div class="col-xs-12">
+                            <aura:if isTrue="{!!v.isLoadedInSalesforce}" >
+                                <c:UI_Button href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.form.caseId}" class="return-to-case"><i class="glyphicon glyphicon-arrow-left"/>Return to Case</c:UI_Button>
+                            </aura:if>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info col-xs-12 not-print">
+                        <aura:if isTrue="{!v.formStatus == 'Submitted'}">
+                            This application was submitted by: <b>{!v.submittedBy}</b> on the <b>{!v.submittedDate}</b>
+                            <aura:set attribute="else">
+                                This application was created on the <b>{!v.submittedDate}</b>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                    <br/><br/><br/>
+                </aura:if>
+                
+                <aura:if isTrue="{!v.isLoadedInConsole}">
+                    <div class="panel">
+                        <h3>Case Details</h3><br/>
+                        <div class="form-group row">
+                            <div class="col-md-6 col-xs-12">
+                                <c:UI_InputSelect label="Case Origin" aura:id="caseOrigin" value="{!v.form.caseOrigin}" disabled="{!v.buttonDisable}" 
+                                options="[{'label': 'Post', 'key': 'Post'}, {'label': 'Email', 'key': 'Email'}, {'label': 'Phone', 'key': 'Phone'}, {'label': 'Other', 'key': 'Other'}]" />
+                            </div>
+
+                            <div class="col-md-6 col-xs-12">
+                                <c:UI_InputSelect label="Contact Preference" aura:id="contactPreference" value="{!v.form.contactPreference}" disabled="{!v.buttonDisable}" 
+                                options="[{'label': 'Email', 'key': 'Email'}, {'label': 'Post', 'key': 'Post'}, {'label': 'Phone', 'key': 'Phone'}, {'label': 'Online', 'key': 'Online'}]" />
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+
+                <div class="panel">
+                    <h3>Section 1 : My needs</h3>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_ToggleButton aura:id="interpreter" label="Do you require an interpreter?" value="{!v.form.interpreter}" disabled="{!v.buttonDisable}"/>
+                        </div>
+                    </div>
+                    <aura:if isTrue="{!v.form.interpreter == 'yes'}">
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-6">
+                                <c:UI_InputSelect label="Please specify which language you require an interpreter for" aura:id="language" value="{!v.form.language}" disabled="{!v.buttonDisable}" 
+                                options="[{'label':'English','key':'English'},{'label':'Chinese (Simplified)','key':'Chinese (Simplified)'},{'label':'Chinese (Traditional)','key':'Chinese (Traditional)'},{'label':'Danish','key':'Danish'},{'label':'Dutch','key':'Dutch'},{'label':'Finnish','key':'Finnish'},{'label':'French','key':'French'},{'label':'German','key':'German'},{'label':'Greek','key':'Greek'},{'label':'Italian','key':'Italian'},{'label':'Korean','key':'Korean'},{'label':'Portuguese (Brazil)','key':'Portuguese (Brazil)'},{'label':'Russian','key':'Russian'},{'label':'Spanish','key':'Spanish'},{'label':'Swedish','key':'Swedish'},{'label':'Thai','key':'Thai'}]" />
+                            </div>
+                        </div>
+                    </aura:if>
+                    <br/>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_ToggleButton aura:id="disabilities" label="Do you have any disabilities we need to know about when communicating with you" value="{!v.form.disabilities}" disabled="{!v.buttonDisable}"/>
+                        </div>
+                    </div>
+                    <aura:if isTrue="{!v.form.disabilities == 'yes'}">
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="disabilitiesDetails" label="Please specify your disabilities" value="{!v.form.disabilitiesDetails}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                    </aura:if>
+                </div>
+                <br/>
+                <div class="panel">
+                    <h3>Section 2 : About me</h3>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <c:UI_ToggleButton aura:id="behalfOfWorker" label="I am the Worker and am submitting this form on behalf of myself" value="{!v.form.behalfOfWorker}" disabled="{!v.buttonDisable}" onClickFunction="{!c.behalfOfWorker}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <aura:if isTrue="{!v.form.behalfOfWorker == 'no'}">
+                                <p class="sectionHeading">Worker contact details</p>
+                                <aura:set attribute="else">
+                                    <p class="sectionHeading">My contact details</p>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-3">
+                            <c:UI_InputSelect aura:id="title" label="Title*" value="{!v.form.title}" disabled="{!v.buttonDisable}" options="[{'label': 'Mr.', 'key': 'Mr.'}, {'label': 'Ms.', 'key': 'Ms.'}, {'label': 'Mrs.', 'key': 'Mrs.'}, {'label': 'Dr.', 'key': 'Dr.'}, {'label': 'Prof.', 'key': 'Prof.'}]" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <c:UI_InputText aura:id="givenName" label="Given name*" value="{!v.form.givenName}" disabled="{!v.buttonDisable}"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <c:UI_InputText aura:id="surname" label="Surname*" value="{!v.form.surname}" disabled="{!v.buttonDisable}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 col-xs-12">
+                            <c:UI_InputDate id="dob" aura:id="dob" label="Date of birth*" value="{!v.form.dob}" disabled="{!v.buttonDisable}" mustbe14years="true"/>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <c:UI_InputText aura:id="contact" label="Contact number*" value="{!v.form.contact}" disabled="{!v.buttonDisable}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-6">
+                            <c:UI_InputEmail aura:id="emailAddress" label="Email*" value="{!v.form.emailAddress}" disabled="{!v.buttonDisable}" />
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <c:UI_InputText aura:id="postal" label="Postal address*" value="{!v.form.postal}" disabled="{!v.buttonDisable}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-6">
+                            <c:UI_InputText aura:id="suburb" label="Suburb*" value="{!v.form.suburb}" disabled="{!v.buttonDisable}" />
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <c:UI_InputSelect label="State*" aura:id="state" value="{!v.form.state}" disabled="{!v.buttonDisable}" 
+                                options="[{'label': 'NSW', 'key': 'NSW'}, {'label': 'QLD', 'key': 'QLD'}, {'label': 'SA', 'key': 'SA'}, {'label': 'TAS', 'key': 'TAS'}, {'label': 'VIC', 'key': 'VIC'}, {'label': 'WA', 'key': 'WA'}]" />
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <c:UI_InputNumber label="Postcode*" aura:id="postcode" value="{!v.form.postcode}" disabled="{!v.buttonDisable}" max="4" min="4"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <aura:if isTrue="{!v.form.behalfOfWorker == 'no'}">
+                    <div class="panel">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <aura:if isTrue="{!v.form.behalfOfWorker == 'no'}">
+                                    <p class="sectionHeading">My contact details</p>
+                                    <aura:set attribute="else">
+                                        <p class="sectionHeading">Representative Details</p>
+                                    </aura:set>
+                                </aura:if>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputSelect label="Please specify the type of representation that you are providing the worker" aura:id="representationDetails" value="{!v.form.representationDetails}" disabled="{!v.buttonDisable}" 
+                                    options="[{'label': 'Legal', 'key': 'Legal'}, {'label': 'Union', 'key': 'Union'}, {'label': 'Worker Advocate', 'key': 'Worker Advocate'}, {'label': 'Accountant', 'key': 'Accountant'}, {'label': 'Family Member', 'key': 'Family Member'}]" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText label="Name of representative" aura:id="representativeName" value="{!v.form.representativeName}" disabled="{!v.buttonDisable}" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="organisation" label="Firm or organisation" value="{!v.form.organisation}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="emailAddressRepresentative" label="Email address" value="{!v.form.emailAddressRepresentative}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="representativeContact" label="Contact number" value="{!v.form.representativeContact}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="representativeDXAddress" label="Post or DX address" value="{!v.form.representativeDXAddress}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12">
+                                <c:UI_InputText aura:id="representativeAddress" label="Street address" value="{!v.form.representativeAddress}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-4">
+                                <c:UI_InputText aura:id="representativeSuburb" label="Suburb" value="{!v.form.representativeSuburb}" disabled="{!v.buttonDisable}"/>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <c:UI_InputSelect label="State" aura:id="representativeState" value="{!v.form.representativeState}" disabled="{!v.buttonDisable}" 
+                                                options="[{'label': 'NSW', 'key': 'NSW'}, {'label': 'QLD', 'key': 'QLD'}, {'label': 'SA', 'key': 'SA'}, {'label': 'TAS', 'key': 'TAS'}, {'label': 'VIC', 'key': 'VIC'}, {'label': 'WA', 'key': 'WA'}]" />
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <c:UI_InputNumber aura:id="representativePostcode" label="Postcode" value="{!v.form.representativePostcode}" disabled="{!v.buttonDisable}" max="4" min="4"/>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+                
+                <div class="panel">
+                    <h3><b>Section 3 : Insurer details</b></h3><br/>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <c:UI_InsurerLookup aura:id="insurer" selectedInsurer="{!v.form.insurer}"  disabled="{!v.buttonDisable}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-6">
+                            <c:UI_InputDate id="dateOfInjury" aura:id="dateOfInjury" label="Please enter the date of injury" value="{!v.form.dateOfInjury}" disabled="{!v.buttonDisable}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-6">
+                            <c:UI_InputText aura:id="claimNo" label="Claim number" value="{!v.form.claimNo}" disabled="{!v.buttonDisable}" required="true" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 col-xs-12">
+                            <c:UI_InputDate id="workCapacityDecisionDate" aura:id="workCapacityDecisionDate" label="Please enter the date of the original work capacity decision" value="{!v.form.workCapacityDecisionDate}" disabled="{!v.buttonDisable}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <br/>
+                            <p>Please select the option that best describes your situation</p>
+                            <br/>
+                            <p>I requested that the original work capacity decision be reviewed by the insurer and*:</p>
+                        </div>
+                        <div class="col-xs-12">
+                             <c:UI_InputRadio aura:id="supportingDocumentAttached" value="{!v.form.supportingDocumentAttached}"  disabled="{!v.buttonDisable}" 
+                                options="[{'name': 'internalReviewbyInsurer', 'label': 'An internal review decision has been made by the insurer', 'key': 'supportingDocumentAttached'}, {'name': 'internalReviewbyInsurer', 'label': 'A decision has not been made by the insurer within the past 30 calendar days', 'key': 'notReviewDecision'}]"/>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <div class="col-xs-12">
+                            <aura:if isTrue="{!v.form.supportingDocumentAttached == 'supportingDocumentAttached'}">
+                                <c:UI_InputDate aura:id="supportingDocumentAttachedDate" id="supportingDocumentAttachedDate" label="When did you receive the insurer’s internal review decision?" value="{!v.form.supportingDocumentAttachedDate}" disabled="{!v.buttonDisable}" />
+                            </aura:if>
+                            <aura:if isTrue="{!v.form.supportingDocumentAttached == 'notReviewDecision'}">
+                                <c:UI_InputDate aura:id="notReviewDecisionDate" id="notReviewDecisionDate" label="When did you submit your application for internal review by insurer" value="{!v.form.notReviewDecisionDate}" disabled="{!v.buttonDisable}" />
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Section 4 : Requesting a work capacity decision(s) to be reviewed by SIRA</h3><br/>
+                    <p class="{!(v.checkBoxRequired? 'has-error': '')}">Select the relevant work capacity decision(s) from the list below:</p><br/>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="decisionCurrentWorkCapacity" checked="{!v.form.decisionCurrentWorkCapacity}" disabled="{!v.buttonDisable}" label="decision about your current work capacity" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="decisionSuitableEmployment" checked="{!v.form.decisionSuitableEmployment}" disabled="{!v.buttonDisable}" label="decision about what is suitable employment for you" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="decisionAmountEarnInSuitableEmployment" checked="{!v.form.decisionAmountEarnInSuitableEmployment}" disabled="{!v.buttonDisable}" label="decision about the amount you are able to earn in suitable employment" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="decisionAmountPreInjury" checked="{!v.form.decisionAmountPreInjury}" disabled="{!v.buttonDisable}" label="decision about the amount of your pre-injury average weekly earnings or current weekly earnings" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="decisionResultUnableEngageInEmployment" checked="{!v.form.decisionResultUnableEngageInEmployment}" disabled="{!v.buttonDisable}" label="decision about whether, as a result of your injury, you are unable (without substantial risk of further injury) to engage in employment of a certain kind because of the nature of that employment" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="otherInsurerAfferctsEntitlement" checked="{!v.form.otherInsurerAfferctsEntitlement}" disabled="{!v.buttonDisable}" label="any other insurer decision that affects your entitlement to weekly compensation payments, including a decision to suspend, discontinue or reduce the amount of the weekly payments of compensation" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputCheckbox aura:id="imNotSure" checked="{!v.form.imNotSure}" disabled="{!v.buttonDisable}" label="I’m not sure which decision I wish to have reviewed (the Merit Review Service will contact you to clarify the decisions you wish to have reviewed)" onClickFunction="{!c.validteCheckboxes}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <p>Please outline the reason(s) you are requesting a merit review about the original work capacity, and why you think the decision should be different.</p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputTextArea placeholder="Enter your reason*" rows="4" aura:id="reason" value="{!v.form.reason}" disabled="{!v.buttonDisable}" />
+                        </div>
+                    </div>
+                </div>
+
+               <div class="panel">
+                    <h3>Section 5 : Supporting documentation</h3><br/>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_upload aura:id="uiUpload" uploadDocuments="{!v.uploadDocuments}" isLoadedInSalesforce="{!v.isLoadedInSalesforce}" formLocked="{!v.formLocked}" caseId="{!v.form.caseId}" caseItemId="{!v.form.caseItemId}"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Section 6 : Declaration and submission</h3><br/>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <p>I have read the information provided in this form. I declare that the information I have supplied in this form, and any attachments to this form, is true and correct to the best of my knowledge. I understand that making a false or misleading claim or false and misleading statement in support of the claim in punishable by law and that I may be prosecuted.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <aura:if isTrue="{!v.formLocked}">
+                    <div class="col-xs-12 col-md-6"><h3>Submitted by: {!v.submittedBy}</h3></div>
+                    <div class="col-xs-12 col-md-6"><h3>Submitted date: {!v.submittedDate}</h3></div>
+                </aura:if>
+            </div>
+
+            <div class="form-group row not-print">
+                <aura:if isTrue="{!!v.formLocked}">
+                    <aura:if isTrue="{!!v.isLoadedInConsole}" >
+                        <div class="col-xs-12 col-md-5">
+                            <c:UI_Button disabled="{!v.buttonDisable}" class="btn-saveLater" onClickFunction="{!c.save}">
+                                <i class="glyphicon glyphicon-floppy-disk"></i><span>Save application for later</span>
+                            </c:UI_Button>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <aura:if isTrue="{!v.formLocked}">
+                    <aura:if isTrue="{!!v.isLoadedInSalesforce}">
+                        <div class="col-xs-12 col-md-5">
+                            <c:UI_Button href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.form.caseId}" class="return-to-case"><i class="glyphicon glyphicon-arrow-left"/>Return to Case</c:UI_Button>
+                        </div>
+                    </aura:if>
+                </aura:if>
+
+                <div class="col-xs-12 col-md-3">
+                    <aura:if isTrue="{!and(v.pageNumber != 1, !v.isLoadedInConsole)}" >
+                        <c:UI_Button class="btn-previous pull-right" onClickFunction="{!c.back}">Previous</c:UI_Button>
+                    </aura:if>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <aura:if isTrue="{!and(v.pageNumber != 2, !v.isLoadedInConsole)}" >
+                        <c:UI_Button class="btn-next pull-right" onClickFunction="{!c.next}">Next</c:UI_Button>
+                    </aura:if>
+                    <aura:if isTrue="{!v.pageNumber == 2}" >
+                        <c:UI_Button aura:id="submitButton" type="submit" disabled="{!v.buttonDisable}" class="btn-submit" onClickFunction="{!c.submit}">Submit application</c:UI_Button>
+                    </aura:if>
+                </div>
+                <br/><br/>
+            </div>
+        </div>
+    </div> 
+</aura:component>

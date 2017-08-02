@@ -2,12 +2,62 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
     <excludeButtons>Submit</excludeButtons>
+    <feedLayout>
+        <autocollapsePublisher>true</autocollapsePublisher>
+        <compactFeed>true</compactFeed>
+        <feedFilterPosition>LeftFixed</feedFilterPosition>
+        <feedFilters>
+            <feedFilterType>AllUpdates</feedFilterType>
+        </feedFilters>
+        <feedFilters>
+            <feedFilterType>FeedItemType</feedFilterType>
+            <feedItemType>CallLogPost</feedItemType>
+        </feedFilters>
+        <feedFilters>
+            <feedFilterType>FeedItemType</feedFilterType>
+            <feedItemType>TextPost</feedItemType>
+        </feedFilters>
+        <feedFilters>
+            <feedFilterType>FeedItemType</feedFilterType>
+            <feedItemType>ChangeStatusPost</feedItemType>
+        </feedFilters>
+        <feedFilters>
+            <feedFilterType>FeedItemType</feedFilterType>
+            <feedItemType>ActivityEvent</feedItemType>
+        </feedFilters>
+        <fullWidthFeed>true</fullWidthFeed>
+        <hideSidebar>true</hideSidebar>
+        <highlightExternalFeedItems>true</highlightExternalFeedItems>
+        <rightComponents>
+            <componentType>HelpAndToolLinks</componentType>
+        </rightComponents>
+        <rightComponents>
+            <componentType>Following</componentType>
+        </rightComponents>
+        <rightComponents>
+            <componentType>Followers</componentType>
+        </rightComponents>
+        <rightComponents>
+            <componentType>Topics</componentType>
+        </rightComponents>
+        <rightComponents>
+            <componentType>CustomLinks</componentType>
+        </rightComponents>
+        <rightComponents>
+            <componentType>CustomButtons</componentType>
+        </rightComponents>
+        <useInlineFiltersInConsole>true</useInlineFiltersInConsole>
+    </feedLayout>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>Case Information</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
@@ -23,6 +73,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AccountId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>PrimaryContactPublicEmail__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>PrimaryContactPublicPhone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DoNotPublish__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -155,10 +217,16 @@
     </layoutSections>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>FeedItem.PollPost</quickActionName>
+            <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>FeedItem.TextPost</quickActionName>
+            <quickActionName>Case.LogACall</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>Case.CaseComment</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>Case.ChangeStatus</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.ContentPost</quickActionName>
@@ -167,7 +235,7 @@
             <quickActionName>FeedItem.LinkPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Case.SendEmail</quickActionName>
+            <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>
@@ -185,6 +253,9 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <relatedList>RelatedCaseContactRoleList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>SOLUTION.ISSUE</fields>
         <fields>SOLUTION.SOLUTION_NUMBER</fields>
         <fields>SOLUTION.STATUS</fields>
@@ -193,12 +264,9 @@
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
         <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.DUE_DATE</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -219,13 +287,95 @@
     <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>AttachmentLink__c</fields>
+        <fields>Description__c</fields>
+        <fields>SubmittedBy__c</fields>
+        <relatedList>Attachment__c.Case__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CaseItemLink__c</fields>
+        <fields>Type__c</fields>
+        <fields>SubmittedBy__c</fields>
+        <fields>RoleGroup__c</fields>
+        <fields>Status__c</fields>
+        <fields>ExpiryDate__c</fields>
+        <fields>LAST_UPDATE</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>CaseItem__c.Case__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>JudicialReviewOutcome__c</fields>
+        <fields>Court__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>DRSRole__c</fields>
+        <fields>NextCourtDate__c</fields>
+        <relatedList>Litigation__c.Case__c</relatedList>
+    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>true</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
-    <showInteractionLogPanel>true</showInteractionLogPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
+    <showInteractionLogPanel>false</showInteractionLogPanel>
     <showKnowledgeComponent>false</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00h28000004frUR</masterLabel>
+        <sizeX>3</sizeX>
+        <sizeY>4</sizeY>
+        <summaryLayoutItems>
+            <field>ContactId</field>
+            <posX>0</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>AccountId</field>
+            <posX>0</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>ContactPhone</field>
+            <posX>0</posX>
+            <posY>2</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>CaseNumber</field>
+            <posX>1</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>CreatedDate</field>
+            <posX>1</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Subject</field>
+            <posX>1</posX>
+            <posY>2</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Description</field>
+            <posX>1</posX>
+            <posY>3</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Status</field>
+            <posX>2</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Priority</field>
+            <posX>2</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>OwnerId</field>
+            <posX>2</posX>
+            <posY>2</posY>
+        </summaryLayoutItems>
+        <summaryLayoutStyle>CaseInteraction</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

@@ -62,6 +62,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>IPMP_Application_Form__c</fullName>
         <defaultValue>false</defaultValue>
@@ -114,10 +115,10 @@
     </fields>
     <fields>
         <fullName>IPM_All_Assessments_Complete__c</fullName>
-        <description>IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))</description>
+        <description>IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS0&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS1&quot;, &quot;Red Cross&quot;))</description>
         <externalId>false</externalId>
         <formula>If( RecordType.Name = &quot;Wage Declaration / Non Levy Notes&quot; || RecordType.Name = &quot;Review of Subsidiaries&quot;,&quot;N/A&quot;,
-IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))
+IF(  IPM_All_Assessments_Complete_Flag__c  = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS0&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS1&quot;, &quot;Red Cross&quot;))
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>All Assessments Complete</label>
@@ -148,7 +149,7 @@ true, false)</formula>
     <fields>
         <fullName>IPM_All_Documents_Received__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( IPM_All_Documents_Received_Flag__c = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnK&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=0157F0000000xnL&quot;, &quot;Red Cross&quot;))</formula>
+        <formula>IF( IPM_All_Documents_Received_Flag__c = true, IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS0&quot;, &quot;Green Tick&quot;), IMAGE(&quot;/servlet/servlet.FileDownload?file=015N0000000SfS1&quot;, &quot;Red Cross&quot;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>All Documents Received</label>
         <required>false</required>
@@ -1126,7 +1127,7 @@ AND( IPM_Company_Secretary_Letter__c  = TRUE, IPM_ASIC_Review__c =TRUE)
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Account.RecordType.Name</field>
+                <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Subsidiary</value>
             </filterItems>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Litigation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Litgation</value>
+    </caseValues>
+    <fields>
+        <label><!-- Administrative Challenge Summary --></label>
+        <name>AdministrativeChallengeSummary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The case that this litigation matter relates to --></help>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Litgation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Counsel Billed --></label>
+        <name>CounselBilled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Counsel Estimate --></label>
+        <name>CounselEstimate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Counsel Reference --></label>
+        <name>CounselReference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Court Reference --></label>
+        <name>CourtReference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Court --></label>
+        <name>Court__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRS Role --></label>
+        <name>DRSRole__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amicus</masterLabel>
+            <translation><!-- Amicus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intervener</masterLabel>
+            <translation><!-- Intervener --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No appearance filed</masterLabel>
+            <translation><!-- No appearance filed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitting</masterLabel>
+            <translation><!-- Submitting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Decision Challenged --></label>
+        <name>DecisionChallenged__c</name>
+        <picklistValues>
+            <masterLabel>Decline to Review/ Jurisdictional decision s44BB(3)(a)</masterLabel>
+            <translation><!-- Decline to Review/ Jurisdictional decision s44BB(3)(a) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decline to Review/ Jurisdictional decision s44BB(3)(b)</masterLabel>
+            <translation><!-- Decline to Review/ Jurisdictional decision s44BB(3)(b) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decline to Review/ Jurisdictional decision s44BB(3)(c)</masterLabel>
+            <translation><!-- Decline to Review/ Jurisdictional decision s44BB(3)(c) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merit Review decision s44BB(1)(b)</masterLabel>
+            <translation><!-- Merit Review decision s44BB(1)(b) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Judgment Link --></label>
+        <name>JudgmentLink__c</name>
+    </fields>
+    <fields>
+        <label><!-- Judicial Officers --></label>
+        <name>JudicialOfficers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Judicial Review Outcome --></label>
+        <name>JudicialReviewOutcome__c</name>
+        <picklistValues>
+            <masterLabel>Decided - Set aside</masterLabel>
+            <translation><!-- Decided - Set aside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decided - Upheld</masterLabel>
+            <translation><!-- Decided - Upheld --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discontinued - Upheld</masterLabel>
+            <translation><!-- Discontinued - Upheld --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Set aside</masterLabel>
+            <translation><!-- Settled - Set aside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled - Upheld</masterLabel>
+            <translation><!-- Settled - Upheld --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Court Date --></label>
+        <name>NextCourtDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next court event --></label>
+        <name>NextCourtEvent__c</name>
+        <picklistValues>
+            <masterLabel>Directions</masterLabel>
+            <translation><!-- Directions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hearing</masterLabel>
+            <translation><!-- Hearing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Outcome summary --></label>
+        <name>OutcomeSummary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proceedings filed by name --></label>
+        <name>ProceedingsFiledByName__c</name>
+        <relationshipLabel><!-- Litgation filed --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The role that filed this legal proceeding --></help>
+        <label><!-- Proceedings filed by role --></label>
+        <name>ProceedingsFiledByRole__c</name>
+        <picklistValues>
+            <masterLabel>Insurer</masterLabel>
+            <translation><!-- Insurer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurer Legal Rep</masterLabel>
+            <translation><!-- Insurer Legal Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worker</masterLabel>
+            <translation><!-- Worker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worker Advocate</masterLabel>
+            <translation><!-- Worker Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worker Legal Rep</masterLabel>
+            <translation><!-- Worker Legal Rep --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Proceedings finalised date --></label>
+        <name>ProceedingsFinalisedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The reference number of the TRIM folder / file --></help>
+        <label><!-- TRIM reference number --></label>
+        <name>TRIMReferenceNumber__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

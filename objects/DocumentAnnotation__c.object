@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The annotations for a document. The annotations are saved with reference to the user who created the annotation.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AnnotationData__c</fullName>
+        <description>The JSON containing annotation data for a particular layer of annotation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The JSON containing annotation data for a particular layer of annotation</inlineHelpText>
+        <label>Annotation Data</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Attachment__c</fullName>
+        <description>The parent document for which annotation is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The parent document for which annotation is created</inlineHelpText>
+        <label>Attachment</label>
+        <referenceTo>Attachment__c</referenceTo>
+        <relationshipLabel>Document Annotations</relationshipLabel>
+        <relationshipName>DocumentAnnotations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>LayerRecordId__c</fullName>
+        <description>Unique Identifier from PrizmDoc to identify the annotation</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique Identifier from PrizmDoc to identify the annotation</inlineHelpText>
+        <label>Layer Record Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The user who created the annotation for a particular layer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The user who created the annotation for a particular layer</inlineHelpText>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>DocumentAnnotations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Username__c</fullName>
+        <description>Username for the User field on the object. This is required to show the username to the end user who do not have access to the user records, but do have access to Document Annotation object.</description>
+        <externalId>false</externalId>
+        <formula>User__r.FirstName + &apos; &apos; +  User__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Username for the User field on the object. This is required to show the username to the end user who do not have access to the user records, but do have access to Document Annotation object.</inlineHelpText>
+        <label>Username</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Annotation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>AnnotationData__c</columns>
+        <columns>Attachment__c</columns>
+        <columns>LayerRecordId__c</columns>
+        <columns>User__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ANN-{000000000}</displayFormat>
+        <label>Document Annotation Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Document Annotations</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

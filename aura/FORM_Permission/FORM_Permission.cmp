@@ -1,0 +1,210 @@
+<aura:component controller="DRS_UserManagement_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="users" type="string[]" />
+    <aura:attribute name="accounts" type="string[]" />
+    <aura:attribute name="activeUsers" type="string[]" />
+    <aura:attribute name="pendingUsers" type="string[]" />
+    <aura:attribute name="inActiveUsers" type="string[]" />
+    <aura:attribute name="modalMode" type="string" default="new"/>
+    <aura:attribute name="userId" type="string"/>
+    <aura:attribute name="contactId" type="string"/>
+    <aura:attribute name="userEmail" type="string" default=""/>
+    <aura:attribute name="isDelegatedAdmin" type="Boolean" default="false"/>
+    <aura:attribute name="userListValue" type="string"/>
+    <aura:attribute name="confirmUserModal" type="string" default="activate"/>
+    <aura:attribute name="roles" type="string"/>
+    <aura:attribute name="accountsDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="row form-group">
+        <div class="col-xs-12">
+            <h1>Users</h1>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.isDelegatedAdmin}"> 
+        <div class="row form-group">
+            <div class="col-md-4 col-xs-12">
+                <ui:inputSelect aura:id="usersList" change="{!c.updateUsersList}" value="{!v.userListValue}">
+                    <ui:inputSelectOption text="activeUsers" label="Active users"/>
+                    <ui:inputSelectOption text="pendingUsers" label="Pending users"/>
+                    <ui:inputSelectOption text="inActiveUsers" label="Inactive users"/>
+                </ui:inputSelect>
+            </div>
+
+            <div class="col-md-8 col-xs-12">
+                <button class="button btn btn-primary btn-lg btn-add pull-right" onclick="{!c.addUser}">Add user</button>
+            </div>
+        </div>
+        <table aura:id="caseTeamTable" id="caseTeamTable">
+            <tr>
+                <th width="15%">Action</th>
+                <th width="15%" class="sortable" onclick="{!c.sortColumn}" data="" dataproperty="firstName" datatype="text">Full name</th>
+                <th width="15%" class="sortable" onclick="{!c.sortColumn}" data="" dataproperty="emailAddress" datatype="text">Email</th>
+                <th width="20%">Address</th>
+                <th width="10%">Role</th>
+                <th width="10%" class="sortable" onclick="{!c.sortColumn}" data="" dataproperty="account" datatype="text">Account</th>
+                <th width="15%" class="sortable" onclick="{!c.sortColumn}" data="" dataproperty="lastLoginDateTime" datatype="date">Last login</th>
+            </tr>
+            <aura:iteration items="{!v.users}" var="user" indexVar="key">
+                <tr data="{!user}">
+                    <td>
+                        <a onclick="{!c.editUser}">Edit</a> &nbsp; | &nbsp;
+                        <aura:if isTrue="{!v.userListValue == 'activeUsers'}"> 
+                            <a onclick="{!c.confirmAction}">Deactivate</a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.userListValue == 'pendingUsers'}"> 
+                            <a onclick="{!c.confirmAction}">Resend email</a>
+                        </aura:if>
+                        <aura:if isTrue="{!v.userListValue == 'inActiveUsers'}"> 
+                            <a onclick="{!c.confirmAction}">Activate</a>
+                        </aura:if>
+                    </td>
+                    <td>{!user.firstName} &nbsp; {!user.lastName}</td>
+                    <td>{!user.emailAddress}</td>
+                    <td>{!user.address}&nbsp;{!user.suburb}&nbsp;{!user.state}&nbsp;{!user.postalCode}</td>
+                    <td>{!user.role}</td>
+                    <td>{!user.accountName}</td>
+                    <td>{!user.lastLoginDateTime}</td>
+                </tr>
+            </aura:iteration>
+        </table>
+    </aura:if>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="addUserModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <aura:if isTrue="{!v.modalMode == 'new'}"> 
+                    <h2 id="addUserModalHeader" class="slds-text-heading--medium">Add user</h2>
+                </aura:if>
+                <aura:if isTrue="{!v.modalMode == 'edit'}"> 
+                    <h2 id="addUserModalHeader" class="slds-text-heading--medium">Edit user</h2>
+                </aura:if>
+                
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <aura:if isTrue="{!v.errorMessage.length > 0}">
+                    <div class="alert alert-danger">
+                       {!v.errorMessage}
+                    </div>
+                </aura:if>
+                <form name="addUserForm" id="addUserForm">
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="firstName">Given name(s)</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="lastName">Surname</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputEmail label="Email" aura:id="email"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="phone">Contact Number</label>
+                            <input type="number" class="form-control" id="phone" name="phone"/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-md-6">
+                            <label for="suburb">Suburb</label>
+                            <input type="text" class="form-control" id="suburb" name="suburb"/>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <label for="state">State</label>
+                            <select class="form-control" id="state" name="state">
+                                <option value="NSW">NSW</option>
+                                <option value="QLD">QLD</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="VIC">VIC</option>
+                                <option value="WA">WA</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <label for="postcode">Postcode</label>
+                            <input type="number" class="form-control" id="postcode" name="postcode"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="role">Role</label>
+                            <select class="form-control" id="role" name="role">
+                                <option value=""></option>
+                                <aura:iteration items="{!v.roles}" var="role">
+                                    <option value="{!role.ContactRole__c}">{!role.ContactRole__c}</option>
+                                </aura:iteration>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <label for="role">Accounts</label>
+                            <select class="form-control" id="accounts" name="accounts" disabled="{!v.accountsDisabled}">
+                                <option value=""></option>
+                                <aura:iteration items="{!v.accounts}" var="account">
+                                    <option value="{!account.id}">{!account.name}</option>
+                                </aura:iteration>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral pull-left" onclick="{!c.closeModal}">Cancel</button>
+                <aura:if isTrue="{!v.modalMode == 'edit'}"> 
+                    <button class="slds-button slds-button--brand" type="submit" onclick="{!c.updateModal}" disabled="{!v.buttonDisable}">Update</button>
+                </aura:if>
+                <aura:if isTrue="{!v.modalMode == 'new'}"> 
+                    <button class="slds-button slds-button--brand" type="submit" onclick="{!c.saveModal}" disabled="{!v.buttonDisable}">Save</button>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" id="deactivateUserModal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <aura:if isTrue="{!v.confirmUserModal == 'activate'}"> 
+                    <h2 id="header43" class="slds-text-heading--medium">Activate User</h2>
+                </aura:if>
+                <aura:if isTrue="{!v.confirmUserModal == 'email'}"> 
+                    <h2 id="header43" class="slds-text-heading--medium">Sent email</h2>
+                </aura:if>
+                <aura:if isTrue="{!v.confirmUserModal == 'deactivate'}">
+                    <h2 id="header43" class="slds-text-heading--medium">Deactivate User</h2>
+                </aura:if>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <aura:if isTrue="{!v.confirmUserModal == 'activate'}">
+                    Are you sure you want to activate this user?
+                </aura:if>
+                 <aura:if isTrue="{!v.confirmUserModal == 'email'}"> 
+                    Are you sure you want to sent email to this user?
+                </aura:if>
+                <aura:if isTrue="{!v.confirmUserModal == 'deactivate'}">
+                    Are you sure you want to deactivate this user?
+                </aura:if>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button--neutral pull-left" onclick="{!c.closeConfirmUserModal}">No</button>
+                <button class="slds-button slds-button--brand" type="submit" onclick="{!c.saveConfirmUserModal}">Yes</button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop" id="backdrop"></div>
+</aura:component>

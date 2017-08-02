@@ -1,0 +1,29 @@
+.THIS .btn-add {
+    margin-top: -10px;
+}
+.THIS table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.THIS td, .THIS th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.THIS tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+@media only screen and (max-width: 500px) {
+    .THIS#caseTeamTable{
+        overflow-x: scroll;
+        display: block;
+    }
+}
+
+.THIS .sortable:hover{
+    background-color: rgba(25, 124, 190, 0.1);
+    cursor: pointer;
+}

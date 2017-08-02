@@ -1,0 +1,21 @@
+.THIS.list-group{
+	max-height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 0px;
+}
+.THIS.list-group .list-group-item:hover{
+	background-color: #dc143c;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.THIS .list-group .list-group-item:hover{
+	background-color: #dc143c;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.THIS input[disabled]{
+    background-color: #eee !important;
+    border-color: #eee !important
+}

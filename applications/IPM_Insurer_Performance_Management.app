@@ -11,6 +11,7 @@
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
+        <logo>siraprint</logo>
         <logoVersion>1</logoVersion>
     </brand>
     <description>SIRA Insurer Performance Management Tool</description>

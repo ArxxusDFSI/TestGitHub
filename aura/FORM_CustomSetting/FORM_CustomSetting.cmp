@@ -1,0 +1,37 @@
+<aura:component controller="DRS_Case_CC" implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="caseId" type="string" />
+	<aura:attribute name="loginUser" type="string" />
+	<aura:attribute name="communitylink" type="string" default="/insurerlegal/s"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+	<div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Update Your Details</div>
+            <div class="panel-body">
+                <div class="row">
+                	<div class="col-xs-4">Username</div>
+                	<div class="col-xs-8">Email Address</div>
+                </div>
+                <div class="row form-group">
+                	<div class="col-xs-4">{!username}</div>
+                	<div class="col-xs-8">
+						<input type="text" value="{!email}" id="email" class="form-control"/>
+                	</div>
+                </div>
+                <div class="row form-group">
+                	<div class="col-xs-12">
+	                	Password<br/>
+	                	<a href="">Change Password</a>
+	                </div>
+                </div>
+                <div class="row form-group">
+                	<div class="col-xs-12">
+	                	<a class="button btn btn-primary btn-lg pull-left" href="{!v.communitylink}">Cancel</a>
+                		<a class="button btn btn-primary btn-lg pull-right" onclick="{!c.save}">Save</a>
+	                </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</aura:component>

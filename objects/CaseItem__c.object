@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Case Item object for details related to cases.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>CaseItemData__c</fullName>
+        <description>The data received as part of the Case Item submission. The intended content of this field is a structured JSON object.</description>
+        <externalId>false</externalId>
+        <label>Case Item Data</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CaseItemLink__c</fullName>
+        <description>A link to redirect the user to custom Case Item viewing page (/apex/DRS_CaseItem_CaseItemApp)</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(
+  LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260)) + &apos;/apex/DRS_CaseItem_CaseItemApp?id=&apos; +  Id, 
+   Name
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Item Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The parent Case for the Case Item</description>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Case Items</relationshipLabel>
+        <relationshipName>CaseItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CommunityPageURL__c</fullName>
+        <description>The URL suffix of the community page on which the Case Item should be visible</description>
+        <externalId>false</externalId>
+        <label>Community Page URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DueDate__c</fullName>
+        <description>The date/time on which the Case Item is due to be submitted.</description>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ExpiryDate__c</fullName>
+        <description>The date/time on which the Case Item will be marked as expired. Automation will run to make the item expired.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date/time on which the Case Item will be marked as expired. Automation will run to make the item expired.</inlineHelpText>
+        <label>Expiry Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>RoleGroup__c</fullName>
+        <description>The intended audience of the Case Item to provide the required information.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The person who you are requesting the Additional Information from. Note: This will be made visible to all Case Team Members, but editable only by the people in the Role Group selected.</inlineHelpText>
+        <label>Role Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Insurer</fullName>
+                    <default>false</default>
+                    <label>Insurer</label>
+                </value>
+                <value>
+                    <fullName>Worker/Worker Rep</fullName>
+                    <default>false</default>
+                    <label>Worker/Worker Rep</label>
+                </value>
+                <value>
+                    <fullName>Legal Firm</fullName>
+                    <default>false</default>
+                    <label>Legal Firm</label>
+                </value>
+                <value>
+                    <fullName>Sole Practitioner</fullName>
+                    <default>false</default>
+                    <label>Sole Practitioner</label>
+                </value>
+                <value>
+                    <fullName>Merit Review Service</fullName>
+                    <default>false</default>
+                    <label>Merit Review Service</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>The status of the Case Item</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Archived</fullName>
+                    <default>false</default>
+                    <label>Archived</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SubmittedByName__c</fullName>
+        <externalId>false</externalId>
+        <formula>SubmittedBy__r.FirstName + &apos; &apos; + SubmittedBy__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Submitted By Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubmittedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The user who submitted the Case Item</description>
+        <externalId>false</externalId>
+        <label>Submitted By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>CaseItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>The type of the Case Item</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Case_Item_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <label>Case Item</label>
+    <nameField>
+        <displayFormat>CIN-{00000}</displayFormat>
+        <label>Case Item Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Case Items</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Case_Item</fullName>
+        <active>true</active>
+        <label>Case Item</label>
+        <picklistValues>
+            <picklist>RoleGroup__c</picklist>
+            <values>
+                <fullName>Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Firm</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Merit Review Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Practitioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker%2FWorker Rep</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Archived</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Additional information request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allocation Checklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Application for merit review by SIRA form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jurisdiction Checklist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reply to an application for merit review by SIRA form</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>View_Case_Item</fullName>
+        <availability>online</availability>
+        <description>A button to open the Case Item details in a new window within the lightning components build for the case item type</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View Case Item</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>console.log(&apos;--&apos;);</url>
+    </webLinks>
+</CustomObject>

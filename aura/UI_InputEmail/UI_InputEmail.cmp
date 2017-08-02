@@ -1,0 +1,14 @@
+<aura:component extends="c:UI_FormElement">
+    <aura:attribute name="placeholder" type="String" description="the placeholder of the input" default="user@domain.com" />
+    <aura:attribute name="inputErrorMessage" type="String" description="error message of the input"/>
+    
+    <div aura:id="inputEmail">
+        <label for="inputEmail" class="control-label">{!v.label}</label>
+        
+        <ui:inputEmail aura:id="inputEmail" class="form-control" placeholder="{!v.placeholder}" value="{!v.value}" updateOn="blur" blur="{!c.onChange}" disabled="{!v.disabled}"/>
+        
+        <aura:if isTrue="{!and(v.inputErrorMessage, !v.errorMessage)}">
+            <small class="error">Please enter correct email address</small>
+        </aura:if>
+    </div>
+</aura:component>

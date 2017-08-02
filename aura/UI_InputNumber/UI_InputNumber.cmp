@@ -1,0 +1,6 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="max" type="Integer" />
+	<aura:attribute name="min" type="Integer" />
+
+	<ui:inputNumber aura:id="inputNumber" class="form-control" label="{!v.label}" maxlength="4" labelClass="control-label" value="{!v.value}" placeholder="{!v.placeholder}" disabled="{!v.disabled}" format="####" blur="{!c.blurFunction}"/>
+</aura:component>

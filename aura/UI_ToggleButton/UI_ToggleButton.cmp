@@ -1,0 +1,20 @@
+<aura:component extends="c:UI_FormElement">
+    <aura:attribute name="options" type="Object[]" default="[{'key': 'yes','label': 'Yes'}, {'key': 'no','label': 'No'}]" description="the button list of the buttons" />
+    <aura:attribute name="onClickFunction" type="Object" description="Use this attribute to specify button behaviour. The function is passed in from the parent component." />
+    <aura:attribute name="class" type="string" default="" />
+
+	<p>{!v.label}</p><br/>
+
+	<div class="btn-group btn-group-justified" role="group" aria-label="Button Group">
+		<aura:iteration items="{!v.options}" var="item">
+			<div class="btn-group" role="group" >
+				<aura:renderIf isTrue="{!v.value == item.key}">
+					<button type="button" class="{!'btn btn-default btn-toggle-is-on ' + v.class}" name="{!item.key}" onclick="{!c.buttonClick}" disabled="{!v.disabled}" >{!item.label}</button>
+					<aura:set attribute="else">
+						<button type="button" class="{!'btn btn-default ' + v.class}" name="{!item.key}" onclick="{!c.buttonClick}" disabled="{!v.disabled}">{!item.label}</button>
+					</aura:set>
+				</aura:renderIf>
+		  	</div>
+	  	</aura:iteration>
+    </div>
+</aura:component>

@@ -1,0 +1,90 @@
+.THIS.dashboard_LeftPanel{
+    background-color: #00629b;
+    height: auto;
+    color: #fff;
+}
+.THIS .panel{
+	background-color: #00629b;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+.THIS .heading{
+    width: 160px;
+}
+.THIS h1{
+	padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left:30px;
+    font-size: 36px;
+    font-family: 'Clarendon';
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    line-height: 46px;
+}
+.THIS .userName{
+	font-family: 'Gotham-Light';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.33;
+    color: #f3f3f3;
+}
+.THIS div, .THIS p{
+    font-family: 'Gotham-Light';
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.85;
+    color: #ffffff;
+}
+.THIS .userInfo{
+	padding: 30px 20px 20px 20px;
+    height: auto;
+	background-color: #01507d;
+	font-size: 22px;
+	color: #fff;
+}
+.THIS .userInfo img{
+    margin-top: 4px;
+    margin-left: 10px;
+    float: right;
+}
+.THIS .userInfo a{
+	color: #fff;
+	text-decoration: underline;
+	font-family: 'Gotham-Light';
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.85;
+    color: #ffffff;
+}
+.THIS .contactUs{
+    padding: 30px 20px 20px 30px;
+}
+.THIS .contactUs .contactUs-heading{
+    font-family: 'Gotham-Light';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+}
+.THIS .contactUs a{
+    text-decoration: underline;
+    font-family: 'Gotham-Light';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-left: 14px;
+}
+.THIS .info{
+    padding: 0px 10px 0px 26px;
+}
+.THIS .info a{
+    color: #fff;
+}
+@media print{
+    .THIS.not-print{
+        display:none;
+    }
+}

@@ -1,0 +1,18 @@
+<aura:component controller="DRS_CaseItemForm_CC" extends="c:UI_FormElement" access="global">
+    <aura:attribute name="format" type="string" default="dd/mm/yyyy" />
+    <aura:attribute name="mustbe14years" type="Boolean" default="false"/>
+	<aura:attribute name="minDate" type="string" default="01/01/1900" />
+	<aura:attribute name="maxDateYearDiff" type="string" default="-15" />
+	<aura:attribute name="classes" type="string" default="{!(v.errors.length > 0)? 'control-label uiInput uiInputText uiInput--default uiInput--input input-group date has-error': 'control-label uiInput uiInputText uiInput--default uiInput--input input-group date'}" />
+	<aura:attribute name="labelClass" type="string" default="control-label" />
+    <aura:handler event="aura:doneRendering" action="{!c.onScriptLoad}"/>
+
+    <div class="has-feedback">
+        <div class='{!v.classes}' style="width: 100%">
+            <label class="{!v.labelClass}">
+                {!v.label}
+            </label>
+			<input aura:id="datepicker" id="{!v.id}" type="text" name="date" required="{!v.required}" class="form-control inputDate" placeholder="DD/MM/YYYY" value="{!v.value}" disabled="{!v.disabled}"/>
+		</div>
+	</div>
+</aura:component>

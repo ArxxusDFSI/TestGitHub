@@ -33,6 +33,36 @@
         <type>Default</type>
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>CaseItem__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case Item</label>
+        <referenceTo>CaseItem__c</referenceTo>
+        <relationshipLabel>Case Items</relationshipLabel>
+        <relationshipName>Case_Items</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ClosedDate__c</fullName>
+        <description>Task Close Date</description>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TaskTemplate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Task Template</label>
+        <referenceTo>TaskTemplate__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Tasks</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
     <listViews>
         <fullName>MyActivities</fullName>
         <filterScope>Mine</filterScope>
@@ -90,5 +120,5 @@
         <searchResultsAdditionalFields>TASK.DUE_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

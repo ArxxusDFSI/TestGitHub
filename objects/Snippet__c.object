@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The object stores the values of labels and messages which are displayed on the user interface.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Indicates whether the value of the snippet is usable or not.</description>
+        <externalId>false</externalId>
+        <label>Is Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <defaultValue>&apos;Global&apos;</defaultValue>
+        <description>Where the snippet is used. If it used in a single location (eg. a unique page element) then enter the page name. If it is used in multiple locations, enter &apos;Global&apos;.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Where the snippet is used. If it used in a single location (eg. a unique page element) then enter the page name. If it is used in multiple locations, enter &apos;Global&apos;.</inlineHelpText>
+        <label>Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PermissionSetNames__c</fullName>
+        <description>A comma separated list of names of the permission sets for which this value should be visible. The field should be left blank if the snippet is desired to be visible to all permission sets.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma separated list of names of the permission sets for which this value should be visible. The field should be left blank if the snippet is desired to be visible to all permission sets.</inlineHelpText>
+        <label>Permission Set Names</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MRS_InsureLegalRep</fullName>
+                    <default>false</default>
+                    <label>MRS_InsureLegalRep</label>
+                </value>
+                <value>
+                    <fullName>MRS_Worker</fullName>
+                    <default>false</default>
+                    <label>MRS_Worker</label>
+                </value>
+                <value>
+                    <fullName>MRS_SolePractitioner</fullName>
+                    <default>false</default>
+                    <label>MRS_SolePractitioner</label>
+                </value>
+                <value>
+                    <fullName>MRS_InternalUser</fullName>
+                    <default>false</default>
+                    <label>MRS_InternalUser</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SnippetName__c</fullName>
+        <description>The name of the snippet.</description>
+        <externalId>false</externalId>
+        <label>Snippet Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueNameValidation__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>When a snippet is saved, the Unique Name value is copied into this field. This field enforces case-insensitive uniqueness (formulas do not) so that saving a duplicate Unique Name is prevented.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>When a snippet is saved, the Unique Name value is copied into this field. This field enforces case-insensitive uniqueness (formulas do not) so that saving a duplicate Unique Name is prevented.</inlineHelpText>
+        <label>Unique Name Validation</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>UniqueName__c</fullName>
+        <description>The combination of Location and Name fields to create the Unique Name</description>
+        <externalId>false</externalId>
+        <formula>LOWER( 
+  IF(ISBLANK(Location__c), &apos;Global/&apos;, Location__c + &apos;/&apos; ) + IF(ISBLANK(SnippetName__c), &apos;&apos;, SnippetName__c)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The combination of Location and Name fields to create the Unique Name</inlineHelpText>
+        <label>Unique Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <description>The value of the label or message that needs to be displayed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The value of the label or message that needs to be displayed.</inlineHelpText>
+        <label>Value</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Snippet</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>SnippetName__c</columns>
+        <columns>IsActive__c</columns>
+        <columns>Location__c</columns>
+        <columns>UniqueNameValidation__c</columns>
+        <columns>UniqueName__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SN-{00000000}</displayFormat>
+        <label>Snippet Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Snippets</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

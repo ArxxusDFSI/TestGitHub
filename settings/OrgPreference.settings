@@ -34,7 +34,7 @@
     </preferences>
     <preferences>
         <settingName>UpgradeInsecureRequestsPref</settingName>
-        <settingValue>false</settingValue>
+        <settingValue>true</settingValue>
     </preferences>
     <preferences>
         <settingName>PathAssistantsEnabled</settingName>
@@ -62,7 +62,7 @@
     </preferences>
     <preferences>
         <settingName>NetworksEnabled</settingName>
-        <settingValue>false</settingValue>
+        <settingValue>true</settingValue>
     </preferences>
     <preferences>
         <settingName>AnalyticsSharingEnable</settingName>

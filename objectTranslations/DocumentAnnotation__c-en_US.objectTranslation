@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Document Annotation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Document Annotations</value>
+    </caseValues>
+    <fields>
+        <help><!-- The JSON containing annotation data for a particular layer of annotation --></help>
+        <label><!-- Annotation Data --></label>
+        <name>AnnotationData__c</name>
+    </fields>
+    <fields>
+        <help><!-- The parent document for which annotation is created --></help>
+        <label><!-- Attachment --></label>
+        <name>Attachment__c</name>
+        <relationshipLabel><!-- Document Annotations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Unique Identifier from PrizmDoc to identify the annotation --></help>
+        <label><!-- Layer Record Id --></label>
+        <name>LayerRecordId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The user who created the annotation for a particular layer --></help>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Document Annotations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Username for the User field on the object. This is required to show the username to the end user who do not have access to the user records, but do have access to Document Annotation object. --></help>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

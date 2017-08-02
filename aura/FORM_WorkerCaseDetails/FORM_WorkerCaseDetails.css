@@ -1,0 +1,256 @@
+.THIS.caseDetailsPage{
+    font-family: 'Gotham';
+    background-color: #ffffff;
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.15);
+    margin-left: -24px;
+}
+.THIS h1{
+    font-size: 44px;
+    line-height: 60px;
+    margin: 0.67em 0;
+    font-family: 'Gotham-Book';
+}
+.THIS h2{
+    font-family: 'Gotham';
+    font-size: 28px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 36px;
+    letter-spacing: normal;
+    color: #000000;
+}
+.THIS h3{
+    font-family: 'Gotham';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2.3;
+    color: #000000;
+}
+.THIS p, .THIS ul, .THIS label, .THIS input, .THIS select, .THIS li, .THIS textarea{
+    font-family: 'Gotham-Light';
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.62;
+    letter-spacing: normal;
+    color: #000000;
+}
+.THIS .caseDetails-content-hr{
+    margin-bottom: 0px;
+}
+.THIS .caseDetailsHeading{
+    padding: 0px 10px 20px 30px;
+}
+.THIS .caseDetailsContent{
+    border-right: 1px solid #d4d4d4;
+    padding: 30px;
+}
+.THIS .contact-mrs-heading{
+    font-family: 'Gotham';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 0.67;
+    letter-spacing: 0.4px;
+    color: #5c5c5c;
+    margin-bottom: 10px;
+}
+.THIS .contact-mrs-name{
+    font-family: 'Gotham-Book';
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    color: #000000;
+}
+.THIS .status{
+    color: green;
+}
+.THIS .panel{
+    border: none;
+    box-shadow: none;
+}
+.THIS table {
+    font-family: 'Gotham-Light';
+    border-collapse: collapse;
+    width: 100%;
+}
+.THIS th{
+    text-align: left;
+    padding: 8px;
+    background-color: #f7f7f7;
+    text-transform: uppercase;
+    padding: 8px;
+    font-family: 'Gotham';
+    font-size: 12px;
+    font-weight: 500;
+    height: 8px;
+    color: #282828;
+}
+.THIS th:not(:last-child) {
+    border-right: 1px solid #dddddd;
+}
+.THIS td{
+    padding: 8px;
+    border-bottom: 1px solid #dddddd;
+}
+.THIS td:not(:last-child) {
+    border-right: 1px solid #dddddd;
+}
+.THIS tr{
+    line-height: 30px;
+    white-space: pre-wrap;
+}
+.THIS .workflow{
+    padding: 30px 20px 30px 20px;
+}
+.THIS .workflow .heading{
+	margin-bottom: 20px;
+}
+.THIS .workflow .counter{
+    counter-reset: count;
+}
+.THIS .workflow ol li{
+    margin-bottom: 26px;
+}
+.THIS .workflow ol .number-circle{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+    background: #fff;
+    border: 2px solid #BADFC9;
+    color: green;
+    text-align: center;
+    float: left;
+    display: block;
+}
+.THIS .workflow ol .number-circle-label{
+    float: left;
+    display: block;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.THIS .workflow ol .number-circle-hint{
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    background-color: #EAEAEA;
+    color: #000;
+    text-align: center;
+    float: right;
+    display: block;
+    margin-top: 8px;
+}
+.THIS .workflow ol .active{
+    color: green;
+    margin-left: -28px;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 26px;
+}
+.THIS .workflow ol .active .active-label{
+    margin-left: 28px;
+}
+.THIS .workflow ol .active .number-circle-hint{
+    float: right;
+}
+.THIS .workflow ol .active .glyphicon-record{
+    font-size: 32px;
+    margin-right: 10px;
+    left: 27px;
+    float: left;
+}
+.THIS .workflow ol .active::before{
+    content: '';
+    border: none;
+}
+.THIS .workflow ol .active span{
+    float: left;
+    margin-top: 6px;
+}
+.THIS .workflow ol li:not(:last-child) .dots::after{
+	content: '\2807';
+	font-size: 20px;
+	color: green;
+	margin-left: 2px;
+    float: left;
+    left: 30px;
+    position: absolute;
+}
+.THIS .workflow ol .active .active-dots::after{
+    content: '\2807';
+    font-size: 20px;
+    color: green;
+    margin-left: 8px;
+    float: left;
+    left: 30px;
+    position: absolute;
+    margin-top: -4px;
+}
+.THIS .workflow ol li .workflow-tooltip{
+    cursor: pointer;
+}
+.THIS .workflow ol li .workflow-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 196px;
+    background-color: #00629c;
+    color: #fff;
+    text-align: center;
+    border-radius: 0px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    float: right;
+    right: 0px;
+    margin-top: 24px;
+}
+.THIS .workflow ol .active .workflow-tooltip .tooltiptext {
+    margin-right: -20px;
+}
+.THIS .workflow ol li .workflow-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.THIS .caseDetails-attachements-table{
+    overflow-x: auto;
+}
+.THIS .caseDetails-attachements-table table{
+    width: 1000px;
+}
+.THIS .date-label, .THIS .date, .THIS .time{
+    display: inline-block;
+    float: left;
+}
+@media only screen and (max-width: 500px) {
+    .THIS.caseDetailsPage{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .THIS.caseDetailsPage{
+        margin-left: 0px;
+        box-shadow: none;
+    }
+    .THIS .status{
+        margin-top: 20px;
+    }
+    .THIS table{
+        overflow-x: scroll;
+        display: block;
+    }
+    .THIS h1, .THIS hr{
+        margin: 0px;
+    }
+    .THIS .caseDetailsHeading{
+        padding: 0px;
+    }
+    .THIS .caseDetailsContent{
+        padding: 20px 0px 0px 0px;
+        border-right: none;
+    }
+	.THIS .contactDetails{
+		margin-top: 20px;
+	}
+    .THIS .time{
+        margin-left: 148px;
+    }
+}

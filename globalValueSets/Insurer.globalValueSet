@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>3M</fullName>
+        <default>false</default>
+        <label>3M</label>
+    </customValue>
+    <customValue>
+        <fullName>Allianz</fullName>
+        <default>false</default>
+        <label>Allianz</label>
+    </customValue>
+    <customValue>
+        <fullName>ANZ</fullName>
+        <default>false</default>
+        <label>ANZ</label>
+    </customValue>
+    <customValue>
+        <fullName>Ausgrid</fullName>
+        <default>false</default>
+        <label>Ausgrid</label>
+    </customValue>
+    <customValue>
+        <fullName>Bankstown CC</fullName>
+        <default>false</default>
+        <label>Bankstown CC</label>
+    </customValue>
+    <customValue>
+        <fullName>BHP</fullName>
+        <default>false</default>
+        <label>BHP</label>
+    </customValue>
+    <customValue>
+        <fullName>BlueScope</fullName>
+        <default>false</default>
+        <label>BlueScope</label>
+    </customValue>
+    <customValue>
+        <fullName>BOC</fullName>
+        <default>false</default>
+        <label>BOC</label>
+    </customValue>
+    <customValue>
+        <fullName>Brambles</fullName>
+        <default>false</default>
+        <label>Brambles</label>
+    </customValue>
+    <customValue>
+        <fullName>Brickworks</fullName>
+        <default>false</default>
+        <label>Brickworks</label>
+    </customValue>
+    <customValue>
+        <fullName>Broadspectrum</fullName>
+        <default>false</default>
+        <label>Broadspectrum</label>
+    </customValue>
+    <customValue>
+        <fullName>Campbelltown CC</fullName>
+        <default>false</default>
+        <label>Campbelltown CC</label>
+    </customValue>
+    <customValue>
+        <fullName>Catholic Church Insurances</fullName>
+        <default>false</default>
+        <label>Catholic Church Insurances</label>
+    </customValue>
+    <customValue>
+        <fullName>CC of Blacktown</fullName>
+        <default>false</default>
+        <label>CC of Blacktown</label>
+    </customValue>
+    <customValue>
+        <fullName>CC of Lake Macquarie</fullName>
+        <default>false</default>
+        <label>CC of Lake Macquarie</label>
+    </customValue>
+    <customValue>
+        <fullName>CC of Newcastle</fullName>
+        <default>false</default>
+        <label>CC of Newcastle</label>
+    </customValue>
+    <customValue>
+        <fullName>CC of Sydney</fullName>
+        <default>false</default>
+        <label>CC of Sydney</label>
+    </customValue>
+    <customValue>
+        <fullName>CC of Wollongong</fullName>
+        <default>false</default>
+        <label>CC of Wollongong</label>
+    </customValue>
+    <customValue>
+        <fullName>CGU</fullName>
+        <default>false</default>
+        <label>CGU</label>
+    </customValue>
+    <customValue>
+        <fullName>Coal Mines Insurance</fullName>
+        <default>false</default>
+        <label>Coal Mines Insurance</label>
+    </customValue>
+    <customValue>
+        <fullName>Coles</fullName>
+        <default>false</default>
+        <label>Coles</label>
+    </customValue>
+    <customValue>
+        <fullName>Colin Joss and Co</fullName>
+        <default>false</default>
+        <label>Colin Joss and Co</label>
+    </customValue>
+    <customValue>
+        <fullName>Commonwealth Bank</fullName>
+        <default>false</default>
+        <label>Commonwealth Bank</label>
+    </customValue>
+    <customValue>
+        <fullName>CSR</fullName>
+        <default>false</default>
+        <label>CSR</label>
+    </customValue>
+    <customValue>
+        <fullName>Delta Electricity</fullName>
+        <default>false</default>
+        <label>Delta Electricity</label>
+    </customValue>
+    <customValue>
+        <fullName>Electrolux</fullName>
+        <default>false</default>
+        <label>Electrolux</label>
+    </customValue>
+    <customValue>
+        <fullName>EML</fullName>
+        <default>false</default>
+        <label>EML</label>
+    </customValue>
+    <customValue>
+        <fullName>Endeavour</fullName>
+        <default>false</default>
+        <label>Endeavour</label>
+    </customValue>
+    <customValue>
+        <fullName>Eraring Energy</fullName>
+        <default>false</default>
+        <label>Eraring Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Fairfield CC</fullName>
+        <default>false</default>
+        <label>Fairfield CC</label>
+    </customValue>
+    <customValue>
+        <fullName>Fletcher International</fullName>
+        <default>false</default>
+        <label>Fletcher International</label>
+    </customValue>
+    <customValue>
+        <fullName>GBS</fullName>
+        <default>false</default>
+        <label>GBS</label>
+    </customValue>
+    <customValue>
+        <fullName>GIO</fullName>
+        <default>false</default>
+        <label>GIO</label>
+    </customValue>
+    <customValue>
+        <fullName>Gosford CC</fullName>
+        <default>false</default>
+        <label>Gosford CC</label>
+    </customValue>
+    <customValue>
+        <fullName>Govt of NSW - Forestry</fullName>
+        <default>false</default>
+        <label>Govt of NSW - Forestry</label>
+    </customValue>
+    <customValue>
+        <fullName>Govt of NSW - MSB</fullName>
+        <default>false</default>
+        <label>Govt of NSW - MSB</label>
+    </customValue>
+    <customValue>
+        <fullName>Govt of NSW - STA</fullName>
+        <default>false</default>
+        <label>Govt of NSW - STA</label>
+    </customValue>
+    <customValue>
+        <fullName>Guild Insurance</fullName>
+        <default>false</default>
+        <label>Guild Insurance</label>
+    </customValue>
+    <customValue>
+        <fullName>Hawkesbury CC</fullName>
+        <default>false</default>
+        <label>Hawkesbury CC</label>
+    </customValue>
+    <customValue>
+        <fullName>HEM</fullName>
+        <default>false</default>
+        <label>HEM</label>
+    </customValue>
+    <customValue>
+        <fullName>Holcim</fullName>
+        <default>false</default>
+        <label>Holcim</label>
+    </customValue>
+    <customValue>
+        <fullName>Idamenco (Primary Health Care)</fullName>
+        <default>false</default>
+        <label>Idamenco (Primary Health Care)</label>
+    </customValue>
+    <customValue>
+        <fullName>Inghams</fullName>
+        <default>false</default>
+        <label>Inghams</label>
+    </customValue>
+    <customValue>
+        <fullName>ISS</fullName>
+        <default>false</default>
+        <label>ISS</label>
+    </customValue>
+    <customValue>
+        <fullName>Liverpool CC</fullName>
+        <default>false</default>
+        <label>Liverpool CC</label>
+    </customValue>
+    <customValue>
+        <fullName>Mars</fullName>
+        <default>false</default>
+        <label>Mars</label>
+    </customValue>
+    <customValue>
+        <fullName>McDonalds</fullName>
+        <default>false</default>
+        <label>McDonalds</label>
+    </customValue>
+    <customValue>
+        <fullName>Myer</fullName>
+        <default>false</default>
+        <label>Myer</label>
+    </customValue>
+    <customValue>
+        <fullName>Northern Co-op</fullName>
+        <default>false</default>
+        <label>Northern Co-op</label>
+    </customValue>
+    <customValue>
+        <fullName>North Insurances</fullName>
+        <default>false</default>
+        <label>North Insurances</label>
+    </customValue>
+    <customValue>
+        <fullName>NSW SI-Corp</fullName>
+        <default>false</default>
+        <label>NSW SI-Corp</label>
+    </customValue>
+    <customValue>
+        <fullName>OneSteel</fullName>
+        <default>false</default>
+        <label>OneSteel</label>
+    </customValue>
+    <customValue>
+        <fullName>Pacific Brands</fullName>
+        <default>false</default>
+        <label>Pacific Brands</label>
+    </customValue>
+    <customValue>
+        <fullName>Pacific National</fullName>
+        <default>false</default>
+        <label>Pacific National</label>
+    </customValue>
+    <customValue>
+        <fullName>Pasminco</fullName>
+        <default>false</default>
+        <label>Pasminco</label>
+    </customValue>
+    <customValue>
+        <fullName>Qantas</fullName>
+        <default>false</default>
+        <label>Qantas</label>
+    </customValue>
+    <customValue>
+        <fullName>QBE</fullName>
+        <default>false</default>
+        <label>QBE</label>
+    </customValue>
+    <customValue>
+        <fullName>Racing NSW</fullName>
+        <default>false</default>
+        <label>Racing NSW</label>
+    </customValue>
+    <customValue>
+        <fullName>Railcorp</fullName>
+        <default>false</default>
+        <label>Railcorp</label>
+    </customValue>
+    <customValue>
+        <fullName>Rocla</fullName>
+        <default>false</default>
+        <label>Rocla</label>
+    </customValue>
+    <customValue>
+        <fullName>Shoalhaven CC</fullName>
+        <default>false</default>
+        <label>Shoalhaven CC</label>
+    </customValue>
+    <customValue>
+        <fullName>Skilled</fullName>
+        <default>false</default>
+        <label>Skilled</label>
+    </customValue>
+    <customValue>
+        <fullName>Southern Meats</fullName>
+        <default>false</default>
+        <label>Southern Meats</label>
+    </customValue>
+    <customValue>
+        <fullName>Star City</fullName>
+        <default>false</default>
+        <label>Star City</label>
+    </customValue>
+    <customValue>
+        <fullName>Statecover Mutual</fullName>
+        <default>false</default>
+        <label>Statecover Mutual</label>
+    </customValue>
+    <customValue>
+        <fullName>Sutherland SC</fullName>
+        <default>false</default>
+        <label>Sutherland SC</label>
+    </customValue>
+    <customValue>
+        <fullName>TMF Allianz</fullName>
+        <default>false</default>
+        <label>TMF Allianz</label>
+    </customValue>
+    <customValue>
+        <fullName>TMF EML</fullName>
+        <default>false</default>
+        <label>TMF EML</label>
+    </customValue>
+    <customValue>
+        <fullName>TMF QBE</fullName>
+        <default>false</default>
+        <label>TMF QBE</label>
+    </customValue>
+    <customValue>
+        <fullName>Toll</fullName>
+        <default>false</default>
+        <label>Toll</label>
+    </customValue>
+    <customValue>
+        <fullName>Transfield</fullName>
+        <default>false</default>
+        <label>Transfield</label>
+    </customValue>
+    <customValue>
+        <fullName>UGL</fullName>
+        <default>false</default>
+        <label>UGL</label>
+    </customValue>
+    <customValue>
+        <fullName>ULIS</fullName>
+        <default>false</default>
+        <label>ULIS</label>
+    </customValue>
+    <customValue>
+        <fullName>Unilever</fullName>
+        <default>false</default>
+        <label>Unilever</label>
+    </customValue>
+    <customValue>
+        <fullName>University of NSW</fullName>
+        <default>false</default>
+        <label>University of NSW</label>
+    </customValue>
+    <customValue>
+        <fullName>University of Wollongong</fullName>
+        <default>false</default>
+        <label>University of Wollongong</label>
+    </customValue>
+    <customValue>
+        <fullName>Veolia</fullName>
+        <default>false</default>
+        <label>Veolia</label>
+    </customValue>
+    <customValue>
+        <fullName>Warringah Council</fullName>
+        <default>false</default>
+        <label>Warringah Council</label>
+    </customValue>
+    <customValue>
+        <fullName>Westpac</fullName>
+        <default>false</default>
+        <label>Westpac</label>
+    </customValue>
+    <customValue>
+        <fullName>Woolworths</fullName>
+        <default>false</default>
+        <label>Woolworths</label>
+    </customValue>
+    <customValue>
+        <fullName>Wyong SC</fullName>
+        <default>false</default>
+        <label>Wyong SC</label>
+    </customValue>
+    <customValue>
+        <fullName>Xchanging</fullName>
+        <default>false</default>
+        <label>Xchanging</label>
+    </customValue>
+    <masterLabel>Insurer</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

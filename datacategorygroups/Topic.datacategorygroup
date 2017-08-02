@@ -16,6 +16,5 @@
     <label>Topic</label>
     <objectUsage>
         <object>KnowledgeArticleVersion</object>
-        <object>Question</object>
     </objectUsage>
 </DataCategoryGroup>

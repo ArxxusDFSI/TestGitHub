@@ -51,4 +51,34 @@
         <default>false</default>
         <label>Other</label>
     </standardValue>
+    <standardValue>
+        <fullName>Insurer</fullName>
+        <default>false</default>
+        <label>Insurer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Firm</fullName>
+        <default>false</default>
+        <label>Legal Firm</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Legal Representative</fullName>
+        <default>false</default>
+        <label>Legal Representative</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sole Practitioner</fullName>
+        <default>false</default>
+        <label>Sole Practitioner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Worker/Worker Rep</fullName>
+        <default>false</default>
+        <label>Worker/Worker Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Individual</fullName>
+        <default>false</default>
+        <label>Individual</label>
+    </standardValue>
 </StandardValueSet>

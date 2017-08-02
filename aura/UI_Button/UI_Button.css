@@ -1,0 +1,85 @@
+.THIS{
+    font-family: 'Gotham-Light';
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.62;
+    color: #000000;
+}
+.THIS .btn{
+    line-height: 30px;
+    min-width: 130px;
+    background:none;
+	background-color: #fff;
+	color: #467082;
+	border: 3px solid #467082;
+	border-radius: 0px;
+	font-size: 16px;
+	padding-top: 7px;
+}
+.THIS .btn-submit{
+    background-color: green;
+    color: #fff;
+    border-radius: 0px;
+    border: 3px solid green;
+    text-transform: uppercase;
+}
+.THIS .btn-next{
+    background-color: #00629b;
+    color: #fff;
+    border-radius: 0px;
+    border: 3px solid #00629b;
+}
+.THIS .btn-previous{
+    background-color: #00629b;
+    color: #fff;
+    border-radius: 0px;
+    border: 3px solid #00629b;
+}
+.THIS .btn-saveLater, .THIS .btn-upload{
+    border: none;
+    background-color: #fff;
+    text-decoration: underline;
+    color: #00629b;
+    padding-left: 0px;
+}
+.THIS .btn-saveLater span, .THIS .btn-upload span{
+    margin-left: 6px;
+}
+.THIS .start-new-application{
+    margin-top: 30px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 15%;
+    color: #fff;
+    background-color: #3e98cd;
+    height: 42px;
+    font-size: 14px;
+    border: none;
+    text-transform: uppercase;
+}
+.THIS .glyphicon-arrow-left{
+    margin-right: 6px;
+}
+.THIS .return-to-case{
+    border: none;
+    background-color: #fff;
+    text-decoration: underline;
+    color: #00629b;
+    padding-left: 0px;
+    text-align: left;
+}
+@media only screen and (max-width: 500px) {
+    .THIS .btn{
+        min-width: 100%;
+        margin-bottom: 5px;
+    }
+    .THIS .btn-next{
+        margin-left: 0px;
+    }
+    .THIS .btn-submit{
+        margin-left: 0px;
+    }
+    .THIS .start-new-application{
+        margin-left: 0px;
+    }
+}

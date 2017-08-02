@@ -1,0 +1,30 @@
+<apex:page standardController="CaseItem__c" extensions="DRS_CaseItem_CX" sidebar="false" showHeader="false" title="Case Item">
+    <apex:includeScript value="/resource/jquery" />
+    <apex:includeScript value="/resource/bootstrap/js/bootstrap.min.js" />
+    <apex:includeScript value="/resource/moment" />
+    <apex:includeScript value="/resource/boostrap_datepicker_js" />
+    <apex:includeScript value="/resource/pluploader/plupload/js/plupload.full.min.js" />
+    <apex:stylesheet value="/resource/bootstrap/css/bootstrap.min.css" />
+    <apex:stylesheet value="/resource/bootstrap_datepicker_css" />
+    
+    <apex:includeLightning />
+    <style>
+        .btn-primary{background:none !important;background-color: #fff !important; color: #467082 !important; border: 3px solid #467082 !important; border-radius: 0px; text-transform: uppercase;font-size: 16px !important;line-height: 20px;padding-top: 7px;}
+        .panel-heading{color: #000 !important;font-weight: bold !important;font-size: 20px !important;}
+        .panel-heading a{font-weight:bold;}
+        .panel-body ul{padding:0px;margin-left:0px !important;}
+        #auraErrorMessage{display: none;}
+    </style>
+    <div class="container">
+        <div id="lightning" />
+    </div>
+    <script>
+    $Lightning.use("c:App_LightningOutDependency", function() {
+        $Lightning.createComponent("{!componentName}",
+                                   {recordId: "{!recordId}"},
+                                   "lightning",
+                                   function(cmp, status, errorMessage ) {
+                                   });
+    });
+    </script>
+</apex:page>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Snippet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Snippets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Is Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <help><!-- Where the snippet is used. If it used in a single location (eg. a unique page element) then enter the page name. If it is used in multiple locations, enter &apos;Global&apos;. --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma separated list of names of the permission sets for which this value should be visible. The field should be left blank if the snippet is desired to be visible to all permission sets. --></help>
+        <label><!-- Permission Set Names --></label>
+        <name>PermissionSetNames__c</name>
+        <picklistValues>
+            <masterLabel>MRS_InsureLegalRep</masterLabel>
+            <translation><!-- MRS_InsureLegalRep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MRS_InternalUser</masterLabel>
+            <translation><!-- MRS_InternalUser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MRS_SolePractitioner</masterLabel>
+            <translation><!-- MRS_SolePractitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MRS_Worker</masterLabel>
+            <translation><!-- MRS_Worker --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Snippet Name --></label>
+        <name>SnippetName__c</name>
+    </fields>
+    <fields>
+        <help><!-- When a snippet is saved, the Unique Name value is copied into this field. This field enforces case-insensitive uniqueness (formulas do not) so that saving a duplicate Unique Name is prevented. --></help>
+        <label><!-- Unique Name Validation --></label>
+        <name>UniqueNameValidation__c</name>
+    </fields>
+    <fields>
+        <help><!-- The combination of Location and Name fields to create the Unique Name --></help>
+        <label><!-- Unique Name --></label>
+        <name>UniqueName__c</name>
+    </fields>
+    <fields>
+        <help><!-- The value of the label or message that needs to be displayed. --></help>
+        <label><!-- Value --></label>
+        <name>Value__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

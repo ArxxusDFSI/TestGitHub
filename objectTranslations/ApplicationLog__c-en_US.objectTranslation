@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Logs</value>
+    </caseValues>
+    <fields>
+        <help><!-- The type of application log --></help>
+        <label><!-- Debug Level --></label>
+        <name>DebugLevel__c</name>
+        <picklistValues>
+            <masterLabel>Debug</masterLabel>
+            <translation><!-- Debug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error</masterLabel>
+            <translation><!-- Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Info</masterLabel>
+            <translation><!-- Info --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The payload for integration messages --></help>
+        <label><!-- Integration Payload --></label>
+        <name>IntegrationPayload__c</name>
+    </fields>
+    <fields>
+        <help><!-- The related code for the record --></help>
+        <label><!-- Log Code --></label>
+        <name>LogCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- The record id of the related object that initiated the log record --></help>
+        <label><!-- Reference Id --></label>
+        <name>ReferenceId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The salesforce sObject for the reference id (e.g ref id 0000e9kkks is a Contact) --></help>
+        <label><!-- Reference Information --></label>
+        <name>ReferenceInformation__c</name>
+    </fields>
+    <fields>
+        <help><!-- The source function name of the error (e.g. getContactInformation) --></help>
+        <label><!-- Source Function --></label>
+        <name>SourceFunction__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the utility class or trigger that the message originated from --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+    </fields>
+    <fields>
+        <help><!-- The original stack trace for exceptions --></help>
+        <label><!-- Stack Trace --></label>
+        <name>StackTrace__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

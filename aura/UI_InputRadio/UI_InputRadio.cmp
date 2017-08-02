@@ -1,0 +1,19 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="options" type="Object[]" default="[{'label': '', 'key': ''}]"/>
+	<aura:attribute name="onClickFunction" type="string" />
+	
+    <div class="radio">
+    	<aura:iteration items="{!v.options}" var="option">
+            <aura:if isTrue="{!v.value == option.key}" >
+                <label class="radio-inline radio-checked">
+            		<input aura:id="radioButton" type="radio" name="{!option.name}" value="{!option.key}" onclick="{!c.onClickFunction}" disabled="{!v.disabled}" checked="true"/>{!option.label}
+                </label>
+            		<aura:set attribute="else">
+                        <label class="radio-inline">
+            			    <input aura:id="radioButton" type="radio" name="{!option.name}" value="{!option.key}" onclick="{!c.onClickFunction}" disabled="{!v.disabled}" />{!option.label}
+                        </label>
+            		</aura:set>
+            </aura:if>
+        </aura:iteration>
+    </div>
+</aura:component>

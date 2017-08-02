@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>MRS_GIO</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>MRS GIO</label>
+        <sharedTo>
+            <group>MRS_GIO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MRSInsurerAccount__c</field>
+            <operation>contains</operation>
+            <value>GIO</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MRS_Icare</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Opens up access to all Icare related accounts</description>
+        <label>MRS Icare</label>
+        <sharedTo>
+            <group>MRS_Icare</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MRSInsurerAccount__c</field>
+            <operation>contains</operation>
+            <value>Icare</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Merit Review Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -1,0 +1,420 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="status" type="string" default="success" />
+	<aura:attribute name="insurer" type="string" />
+	<aura:attribute name="caseId" type="string" />
+	<aura:attribute name="caseItemId" type="string" />
+	<aura:attribute name="q1" type="string" default=""/>
+	<aura:attribute name="q2" type="string" default=""/>
+	<aura:attribute name="q2a" type="string" default=""/>
+	<aura:attribute name="q3a" type="string" default=""/>
+	<aura:attribute name="notReviewDecisionDate" type="string" description="Question3a input date"/>
+	<aura:attribute name="submittedDate" type="string" description="Question 4b input date"/>
+	<aura:attribute name="supportingDocumentAttachedDate" type="string" description="Question 3 input date"/>
+	<aura:attribute name="q3bResult" type="string" />
+	<aura:attribute name="q4aResult" type="string" default="info"/>
+	<aura:attribute name="q4b" type="string" />
+	<aura:attribute name="q4bResult" type="string" default="info"/>
+	<aura:attribute name="q5" type="string" default=""/>
+	<aura:attribute name="q5a" type="string" default=""/>
+	<aura:attribute name="q6" type="string" default=""/>
+	<aura:attribute name="caseDetail" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="vaildation" type="boolean" default="false"/>
+	<aura:attribute name="buttonDisable" type="boolean" default="false"/>
+
+    <aura:handler name="change" value="{!v.submittedDate}" action="{!c.q4DateUpdate}" description="Question 4a input date"/>
+    <aura:handler name="change" value="{!v.notReviewDecisionDate}" action="{!c.q3bResult}" description="Question 3b input date" />
+    <aura:handler name="change" value="{!v.supportingDocumentAttachedDate}" action="{!c.q3aResult}" description="Question 3 input date"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+	<aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.vaildation}">
+        <div class="alert alert-success">
+        	Updated!
+        </div>
+    </aura:if>
+
+	<div id="checklist">
+		<div class="row form-group">
+			<div class="col-md-5 panel-grey">
+	            <div class="form-group row">
+	                <div class="col-xs-6">Case number</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.caseNumber}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Worker name</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.workerName}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Insurer</div>
+	                <div class="col-xs-6"><b>{!v.insurer.name}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Claim number</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.claimNo}</b></div>
+	            </div>
+			</div>
+			<div class="col-md-6 pull-right panel-grey">
+				<h2 class="btn-status-label">Application for review</h2>
+				<aura:if isTrue="{!v.status == 'success'}">
+					<button type="button" class="btn btn-status-success-lg">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button>
+				</aura:if>
+				<aura:if isTrue="{!v.status == 'failed'}">
+					<button type="button" class="btn btn-status-failed-lg">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</aura:if>
+				<aura:if isTrue="{!v.status == 'info'}">
+					<button type="button" class="btn btn-status-info-lg">
+						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+					</button>
+				</aura:if>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+			    <label for="q1" class="selectLabel">1. s43(1) - Does the application refer a work capacity decision for review?</label>
+		        <select id="q1" class="form-control select-yesno" value="{!v.q1}" onchange="{!c.validation}">
+					<option value=""></option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q1 == 'yes'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q1 == 'no'}">
+						<button type="button" class="btn btn-status-failed">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!!v.q1}">
+						<button type="button" class="btn btn-status-info">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="4" id="q1comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+				<label for="q2" class="selectLabel">2. s43(2) - Has the Insurer issued a section 74 notice disputing liability for the claim?</label>
+		        <select id="q2" class="form-control select-yesno" value="{!v.q2}" onchange="{!c.validation}">
+					<option value=""></option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			    <br/>
+			    <br/>
+			    <aura:if isTrue="{!v.q2 == 'yes'}">
+					<label for="q2a" class="selectLabel">Officer to confirm jurisdiction and the period covered by the WCD</label>
+			        <select id="q2a" class="form-control select-yesno" value="{!v.q2a}" onchange="{!c.validation}">
+						<option value=""></option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</aura:if>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q2 == 'yes'}">
+						<button type="button" class="btn btn-status-info">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q2 == 'no'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+				</div>
+				<br/>
+				<br/>
+				<aura:if isTrue="{!v.q2 == 'yes'}">
+					<div class="col-xs-12">
+						<aura:if isTrue="{!v.q2a == 'yes'}">
+							<button type="button" class="btn btn-status-success">
+								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!v.q2a == 'no'}">
+							<button type="button" class="btn btn-status-failed">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!!v.q2a}">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+					</div>
+				</aura:if>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="4" id="q2comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+				<c:UI_InputDate id="supportingDocumentAttachedDate" aura:id="supportingDocumentAttachedDate" label="3. s44BB(1)(b), (3)(a) - Date the worker received notice of the insurer's decision on internal review?" value="{!v.supportingDocumentAttachedDate}"/>
+				<br/>
+				<aura:if isTrue="{!!v.supportingDocumentAttachedDate}">
+					<label for="q3" class="selectLabel">Can the worker make an application for merit review under 44BB(3)(b) of the 1987 Act? <br/>Note: check for the approved application for IR form</label>
+			        <select id="q3a" class="form-control select-yesno" value="{!v.q3a}" onchange="{!c.validation}">
+						<option value=""></option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</aura:if>
+			    <br/>
+			    <br/>
+				<aura:if isTrue="{!and(v.q3a=='yes', !v.supportingDocumentAttachedDate)}">
+					<c:UI_InputDate id="notReviewDecisionDate" aura:id="notReviewDecisionDate" label="Date Insurer received application for internal review?" value="{!v.notReviewDecisionDate}"/>
+				</aura:if>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.supportingDocumentAttachedDate.length>0}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+						<aura:set attribute="else">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:set>
+					</aura:if>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<aura:if isTrue="{!!v.supportingDocumentAttachedDate}">
+					<div class="col-xs-12">
+						<aura:if isTrue="{!v.q3a == 'yes'}">
+							<button type="button" class="btn btn-status-success">
+								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!v.q3a == 'no'}">
+							<button type="button" class="btn btn-status-failed">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+					</div>
+				</aura:if>
+				<br/>
+				<br/>
+				<br/>
+				<aura:if isTrue="{!and(v.q3a=='yes', !v.supportingDocumentAttachedDate)}">
+					<div class="col-xs-12">
+						<aura:if isTrue="{!v.q3bResult == 'success'}">
+							<button type="button" class="btn btn-status-success">
+								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!v.q3bResult == 'failed'}">
+							<button type="button" class="btn btn-status-failed">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!v.q3bResult == 'empty'}">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+					</div>
+				</aura:if>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="7" id="q3comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+				<p>4. s44BB(3)(a) - Is the application lodged within time?</p>
+			    <br/>
+				<c:UI_InputDate id="submittedDate" aura:id="submittedDate" label="Date worker made application for merit review by the Authority" value="{!v.submittedDate}"/>
+				<br/>
+				<c:UI_InputDate id="q4b" aura:id="q4b" label="Indicative due date (&quot;periods of time&quot; considerations, excl P/H)" value="{!v.q4b}" disabled="true"/>
+				<aura:if isTrue="{!!v.supportingDocumentAttachedDate}">
+					Due date is not applicable for workers with no IR from the insurer.
+				</aura:if>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q4aResult == 'failed'}">
+						<button type="button" class="btn btn-status-failed">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q4aResult == 'success'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q4aResult == 'info'}">
+						<button type="button" class="btn btn-status-info">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q4bResult == 'failed'}">
+						<button type="button" class="btn btn-status-failed">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q4bResult == 'success'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q4bResult == 'info'}">
+						<button type="button" class="btn btn-status-info">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q4b.length>0}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+						<aura:set attribute="else">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:set>
+					</aura:if>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="6" id="q4comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+				<div class="q5">
+					<label for="q5" class="selectLabel">5. s44BB(2) - Does the application specify the grounds on which the review is sought?</label>
+			        <select id="q5" class="form-control select-yesno" value="{!v.q5}" onchange="{!c.validation}">
+						<option value=""></option>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+			    <br/>
+			    <br/>
+			    <div class="q5">
+				    <aura:if isTrue="{!v.q5 != 'yes'}">
+					    <label for="q5a" class="selectLabel">Officer to follow up then determine if application is frivolous or vexatious</label>
+				        <select id="q5a" class="form-control select-yesno" value="{!v.q5a}" onchange="{!c.validation}">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</aura:if>
+				</div>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q5 == 'yes'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+						<aura:set attribute="else">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:set>
+					</aura:if>
+				</div>
+				<br/>
+				<br/>
+				<aura:if isTrue="{!v.q5 != 'yes'}">
+					<div class="col-xs-12">
+						<aura:if isTrue="{!v.q5a == 'yes'}">
+							<button type="button" class="btn btn-status-failed">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!v.q5a == 'no'}">
+							<button type="button" class="btn btn-status-success">
+								<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+						<aura:if isTrue="{!!v.q5a}">
+							<button type="button" class="btn btn-status-info">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							</button>
+						</aura:if>
+					</div>
+				</aura:if>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="4" id="q5comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+
+		<div class="row form-group panel-section-grey">
+			<div class="col-md-7">
+				<label for="q6" class="selectLabel">6. s44BB(1)(b) - Has the official function of the Authority been exhausted (functus officio)?</label>
+		        <select id="q6" class="form-control select-yesno" value="{!v.q6}" onchange="{!c.validation}">
+					<option value=""></option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
+			<div class="col-md-1">
+				<div class="col-xs-12">
+					<aura:if isTrue="{!v.q6 == 'yes'}">
+						<button type="button" class="btn btn-status-failed">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!v.q6 == 'no'}">
+						<button type="button" class="btn btn-status-success">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					<aura:if isTrue="{!!v.q6}">
+						<button type="button" class="btn btn-status-info">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						</button>
+					</aura:if>
+					
+				</div>
+			</div>
+			<div class="col-md-4">
+				<textarea rows="4" id="q6comment" placeholder="Comments"></textarea>
+			</div>
+		</div>
+	</div>
+	<c:UI_Button aura:id="submitButton" type="submit" disabled="{!v.buttonDisable}" class="btn-submit pull-right" onClickFunction="{!c.submit}">Save</c:UI_Button>
+	<br/><br/>
+</aura:component>

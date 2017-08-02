@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Configurations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>CaseOwner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Community Account Owner --></label>
+        <name>CommunityAccountOwner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Task Owner --></label>
+        <name>DefaultTaskOwner__c</name>
+    </fields>
+    <fields>
+        <help><!-- The path of the EC2 server. --></help>
+        <label><!-- EC2 Server Path --></label>
+        <name>EC2ServerPath__c</name>
+    </fields>
+    <fields>
+        <help><!-- The sender of the emails going out for this project. This value will be populated as the sender of the emails. --></help>
+        <label><!-- From Email Address --></label>
+        <name>FromEmailAddress__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of days before an item gets expired. --></help>
+        <label><!-- Number Of Days To Expire --></label>
+        <name>NumberOfDaysToExpire__c</name>
+    </fields>
+    <fields>
+        <help><!-- The encrypted field contains the password part of the credentials. The field is encrypted to ensure security of credentials. --></help>
+        <label><!-- Password --></label>
+        <name>Password__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Id 1 --></label>
+        <name>ProfileId1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Id 2 --></label>
+        <name>ProfileId2__c</name>
+    </fields>
+    <fields>
+        <help><!-- The bucket name in S3 where the files will be uploaded to. --></help>
+        <label><!-- S3 Bucket Name --></label>
+        <name>S3BucketName__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 encryption scheme for pre-signed urls. --></help>
+        <label><!-- S3 Encryption Scheme --></label>
+        <name>S3EncryptionScheme__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 header encryption scheme for pre-signed urls. --></help>
+        <label><!-- S3 Header Encryption Scheme --></label>
+        <name>S3HeaderEncryptionScheme__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 Host value for S3 uploads. --></help>
+        <label><!-- S3 Host --></label>
+        <name>S3Host__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 Region for pre-signed urls. --></help>
+        <label><!-- S3 Region --></label>
+        <name>S3Region__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 server side encryption algorithm value. --></help>
+        <label><!-- S3 Server Side Encryption Algorithm --></label>
+        <name>S3ServerSideEncryptionAlgorithm__c</name>
+    </fields>
+    <fields>
+        <help><!-- The S3 timeout for pre-signed urls. --></help>
+        <label><!-- S3 Timeout --></label>
+        <name>S3Timeout__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Id 1 --></label>
+        <name>SiteId1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Id 2 --></label>
+        <name>SiteId2__c</name>
+    </fields>
+    <fields>
+        <help><!-- The encrypted field contains the username part of the credentials. The field is encrypted to ensure security of credentials. --></help>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

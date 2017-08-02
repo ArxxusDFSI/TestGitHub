@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Cases$Status</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Cases$ClaimNumber__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Cases$ClaimType__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Cases$Subject</field>
+    </columns>
+    <description>Current Cases by Month</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.Cases$Status</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Draft,New,Validate,Discovery,Assess,Review,Decision</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>Account.Contacts.Cases$CreatedDate</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
+    <name>Current Cases by Month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Insurer_Accounts_and_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

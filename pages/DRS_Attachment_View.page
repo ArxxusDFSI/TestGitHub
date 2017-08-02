@@ -1,0 +1,26 @@
+<apex:page standardController="Attachment__c" extensions="DRS_ViewDocument_CX" standardStylesheets="false" sidebar="false" showHeader="false">
+    <script>
+    if(!{!isMultimedia}) {
+        if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
+            var referLink = document.createElement('a');
+            referLink.href = "{!url}";
+            document.body.appendChild(referLink);
+            referLink.click();
+        } else {
+            location.href = "{!url}";
+        }
+    }
+    </script>
+    <div id="divVideoMultiMediaS3" style="display:{!IF(AND(isMultimedia, len(videoMultiMediaURL) > 0), '', 'none;')}">
+        <video controls="controls">
+            <source src="{!videoMultiMediaURL}" />
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div id="divAudioMultiMediaS3" style="display:{!IF(AND(isMultimedia, len(audioMultiMediaURL) > 0), '', 'none;')}">
+        <audio controls="controls">
+            <source src="{!audioMultiMediaURL}" />
+            Your browser does not support HTML5 audio.
+        </audio>
+    </div>
+</apex:page>

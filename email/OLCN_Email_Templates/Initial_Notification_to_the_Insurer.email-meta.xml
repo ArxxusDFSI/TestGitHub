@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to the matching insurer at the point when the case is matched to a specific insurer by CAS member</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>Initial Notification to the Insurer</name>
+    <style>freeForm</style>
+    <subject>REF NO. {!Case.CaseNumber} A new case has been matched</subject>
+    <textOnly>Dear {!Case.Insurer__c} team,
+
+A new online claim notification has been matched to
+
+{!Case.Insurer__c}
+
+Reference number
+
+{!Case.CaseNumber}
+
+
+Please process and contact the customer in five working days.
+
+Click to open the case
+
+
+{https://ctpdev01-onlineclaims.cs58.force.com/OnlineClaimNotificaiton} Or open portal?  (TBC)
+
+
+Kind regards
+
+Claims Advisory Service
+
+State Insurance Regulatory Authority
+p 1300 656 919
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>

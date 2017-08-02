@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent at the point of submission,when the form is submitted and case is created in Salesforce</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>Initial Notification To CAS Team</name>
+    <style>freeForm</style>
+    <subject>REF NO. {!Case.CaseNumber} A new case has been submitted</subject>
+    <textOnly>Dear CAS team,
+
+You have a new online claim notification.
+
+Reference Number
+{!Case.CaseNumber}
+
+Please match the CTP insurer within one working day.
+
+
+If you are unable to match, please call the contact person.
+
+
+Click to open the case
+
+
+{!Case.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

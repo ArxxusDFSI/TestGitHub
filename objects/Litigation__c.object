@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object contains records related to any litigation that may be brought against a dispute decision.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AdministrativeChallengeSummary__c</fullName>
+        <externalId>false</externalId>
+        <label>Administrative Challenge Summary</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <description>The case that this litigation matter relates to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The case that this litigation matter relates to</inlineHelpText>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Litgation</relationshipLabel>
+        <relationshipName>Litgation</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CounselBilled__c</fullName>
+        <externalId>false</externalId>
+        <label>Counsel Billed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CounselEstimate__c</fullName>
+        <externalId>false</externalId>
+        <label>Counsel Estimate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CounselReference__c</fullName>
+        <externalId>false</externalId>
+        <label>Counsel Reference</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CourtReference__c</fullName>
+        <externalId>false</externalId>
+        <label>Court Reference</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Court__c</fullName>
+        <externalId>false</externalId>
+        <label>Court</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Court</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DRSRole__c</fullName>
+        <externalId>false</externalId>
+        <label>DRS Role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Submitting</fullName>
+                    <default>false</default>
+                    <label>Submitting</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>No appearance filed</fullName>
+                    <default>false</default>
+                    <label>No appearance filed</label>
+                </value>
+                <value>
+                    <fullName>Intervener</fullName>
+                    <default>false</default>
+                    <label>Intervener</label>
+                </value>
+                <value>
+                    <fullName>Amicus</fullName>
+                    <default>false</default>
+                    <label>Amicus</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DecisionChallenged__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision Challenged</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Merit Review decision s44BB(1)(b)</fullName>
+                    <default>false</default>
+                    <label>Merit Review decision s44BB(1)(b)</label>
+                </value>
+                <value>
+                    <fullName>Decline to Review/ Jurisdictional decision s44BB(3)(a)</fullName>
+                    <default>false</default>
+                    <label>Decline to Review/ Jurisdictional decision s44BB(3)(a)</label>
+                </value>
+                <value>
+                    <fullName>Decline to Review/ Jurisdictional decision s44BB(3)(b)</fullName>
+                    <default>false</default>
+                    <label>Decline to Review/ Jurisdictional decision s44BB(3)(b)</label>
+                </value>
+                <value>
+                    <fullName>Decline to Review/ Jurisdictional decision s44BB(3)(c)</fullName>
+                    <default>false</default>
+                    <label>Decline to Review/ Jurisdictional decision s44BB(3)(c)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>JudgmentLink__c</fullName>
+        <externalId>false</externalId>
+        <label>Judgment Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>JudicialOfficers__c</fullName>
+        <externalId>false</externalId>
+        <label>Judicial Officers</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JudicialReviewOutcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Judicial Review Outcome</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Decided - Set aside</fullName>
+                    <default>false</default>
+                    <label>Decided - Set aside</label>
+                </value>
+                <value>
+                    <fullName>Decided - Upheld</fullName>
+                    <default>false</default>
+                    <label>Decided - Upheld</label>
+                </value>
+                <value>
+                    <fullName>Discontinued - Upheld</fullName>
+                    <default>false</default>
+                    <label>Discontinued - Upheld</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Settled - Set aside</fullName>
+                    <default>false</default>
+                    <label>Settled - Set aside</label>
+                </value>
+                <value>
+                    <fullName>Settled - Upheld</fullName>
+                    <default>false</default>
+                    <label>Settled - Upheld</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NextCourtDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Court Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NextCourtEvent__c</fullName>
+        <externalId>false</externalId>
+        <label>Next court event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hearing</fullName>
+                    <default>false</default>
+                    <label>Hearing</label>
+                </value>
+                <value>
+                    <fullName>Directions</fullName>
+                    <default>false</default>
+                    <label>Directions</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OutcomeSummary__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome summary</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProceedingsFiledByName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The account that filed these proceedings.</description>
+        <externalId>false</externalId>
+        <label>Proceedings filed by name</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Litgation filed</relationshipLabel>
+        <relationshipName>Litgation</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProceedingsFiledByRole__c</fullName>
+        <description>The role that filed this legal proceeding</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The role that filed this legal proceeding</inlineHelpText>
+        <label>Proceedings filed by role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Insurer</fullName>
+                    <default>false</default>
+                    <label>Insurer</label>
+                </value>
+                <value>
+                    <fullName>Insurer Legal Rep</fullName>
+                    <default>false</default>
+                    <label>Insurer Legal Rep</label>
+                </value>
+                <value>
+                    <fullName>Worker</fullName>
+                    <default>false</default>
+                    <label>Worker</label>
+                </value>
+                <value>
+                    <fullName>Worker Advocate</fullName>
+                    <default>false</default>
+                    <label>Worker Advocate</label>
+                </value>
+                <value>
+                    <fullName>Worker Legal Rep</fullName>
+                    <default>false</default>
+                    <label>Worker Legal Rep</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ProceedingsFinalisedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Proceedings finalised date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TRIMReferenceNumber__c</fullName>
+        <description>The reference number of the TRIM folder / file</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The reference number of the TRIM folder / file</inlineHelpText>
+        <label>TRIM reference number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Litigation</label>
+    <nameField>
+        <label>Proceedings Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Litgation</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

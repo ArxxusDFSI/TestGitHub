@@ -1,0 +1,276 @@
+.THIS label{
+    font-weight: normal !important;
+}
+.THIS .collapsedState .uiButton{
+    top: -77px !important;
+}
+.THIS .uiButton{
+    height: 42px;
+    font-size: 22px;
+}
+.THIS .uploadButton{
+    padding-top: 5px;
+}
+.THIS .details-icon{
+    top: 3px;
+    left: 5px;
+}
+.THIS .uiButton--brand{
+    background-color: #467082;
+}
+.THIS table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.THIS td, .THIS th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.THIS tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.THIS.slds-modal tr{
+    background-color: #fff;
+}
+
+.THIS .btn-manage{
+    width: 35%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.THIS.progressbar{
+    height: 40px;
+    width: 100%;
+    margin-left: 0px;
+    background-color: #b6b6b6;
+}
+.THIS.progressbar div{
+    padding: 9px;
+    position:relative;
+    text-align:center;
+}
+.THIS.progressbar div:after{
+    content:"";
+    position:absolute;
+    height:0;
+    width:0;
+    left:100%;
+    top:0;
+    border:20px dotted transparent;
+    border-left: 20px dotted #b6b6b6;
+}
+.THIS.progressbar .status-on{
+    color: #fff;
+    background-color: #7DCEA0;
+    border-color: #d6e9c6;
+}
+.THIS.progressbar .status-on:after{
+    content:"";
+    position:absolute;
+    height:0;
+    width:0;
+    left:100%;
+    top:0;
+    border:20px dotted transparent;
+    border-left: 20px dotted #7DCEA0;
+}
+.THIS .glyphicon{
+    cursor: pointer;
+}
+.THIS .glyphicon{
+    cursor: pointer;
+}
+.THIS .button-addMember{
+    margin-top: 27px;
+}
+.THIS .glyphicon-ok{
+    margin-top: 4px;
+    margin-left: -50px;
+}
+.THIS .slds-is-complete:hover .glyphicon{
+    display: none;
+}
+.THIS .slds-is-complete .slds-tabs--path__title{
+    margin-left: -10px;
+}
+.THIS .panel-primary{
+    border-radius: 0px;
+    border-color: #fff;
+}
+.THIS .panel-heading{
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.THIS .panel-body{
+    margin-top: -15px;
+}
+.THIS .slds-is-incomplete{
+    background-color: #e1e9ed;
+}
+.THIS .slds-is-incomplete:before {
+    background-color: #e1e9ed;
+}
+.THIS .panel-grey{
+    background-color: #f7f7f7;
+    padding: 15px;
+}
+.THIS.panel-section-grey{
+    background-color: #f7f7f7;
+    padding: 15px;
+}
+@media only screen and (max-width: 500px) {
+    .THIS table{
+        overflow-x: scroll;
+        display: block;
+    }
+}
+.THIS textarea{
+    width: 100%;
+}
+.THIS .checkbox{
+    margin-left: 10px;
+}
+.THIS h2{
+    background-color: #f7f7f7;
+    padding-left: 15px;
+    line-height: 45px;
+}
+.THIS hr{
+    width: 80%;
+}
+.THIS .checkboxdiv{
+    display: inline-block;
+}
+.THIS .btn-status-label{
+    display: inline-block;
+}
+.THIS .btn-status-success-lg{
+    float: right;
+    display: block;
+    height: 54px;
+    width: 57px;
+    border-radius: 50%;
+    background-color: #32CD32 !important;
+    border: none;
+    background: none;
+    margin-top: 12px;
+}
+.THIS .btn .glyphicon{
+    color: #fff;
+    font-size: 30px;
+    margin-left: 0px;
+    margin-top: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+.THIS .btn-status-failed-lg{
+    float: right;
+    display: block;
+    height: 50px;
+    width: 54px;
+    border-radius: 50%;
+    background-color: #FF4500 !important;
+    border: none;
+    background: none;
+    margin-top: 12px;
+}
+.THIS .btn-status-failed{
+    display: block;
+    height: 34px;
+    width: 37px;
+    border-radius: 50%;
+    background-color: #FF4500 !important;
+    border: none;
+    background: none;
+}
+.THIS .btn-status-failed .glyphicon{
+    font-size: 22px;
+    margin-left: 2px;
+}
+.THIS .btn-status-info-lg{
+    float: right;
+    display: block;
+    height: 54px;
+    width: 57px;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    padding-left: 7px;
+    margin-bottom: -14px;
+}
+.THIS .btn-status-info{
+    float: right;
+    display: block;
+    height: 54px;
+    width: 57px;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    padding-left: 7px;
+    margin-bottom: -14px;
+}
+.THIS .glyphicon-remove{
+    margin-top: 0px;
+}
+.THIS .btn-status-success{
+    height: 34px;
+    width: 37px;
+    background-color: #32CD32 !important;
+    border-radius: 50%;
+    border: none;
+    background: none;
+}
+.THIS .btn-status-success .glyphicon{
+    font-size: 20px;
+    margin-left: -2px;
+    margin-top: -2px;
+}
+.THIS .btn-status-info{
+    background-color: transparent;
+}
+.THIS .btn .glyphicon-info-sign{
+    background-color: transparent;
+    color: #FFD700;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 39px;
+    margin-left: 15px;
+    margin-top: -20px;
+}
+.THIS .btn-status-info-lg .glyphicon-info-sign{
+    margin-top: 15px;
+    font-size: 50px;
+    margin-left: -20px;
+}
+.THIS .btn-primary{
+    width: 150px;
+    line-height: 36px;
+}
+.THIS .select-yesno{
+    width: 100px;
+    float: left;
+    margin-left: 6px;
+    margin-top: -5px;
+}
+.THIS .selectLabel{
+    float: left;
+    display: block;
+}
+.THIS h3{
+    font-size: 23px;
+}
+.THIS .q5{
+    width: 100%;
+    float: left;
+}
+@media screen{
+    .THIS .page:not(.active){
+        display:none;
+    }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to send to an Insurer requesting their reply for when a worker submits an application for Merit Review</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>SIRA_Letterhead</letterhead>
+    <name>Email to Insurer requesting lodgement of reply</name>
+    <style>formalLetter</style>
+    <subject>New Application - Reply to Required {CaseNumber}</subject>
+    <textOnly>Dear {!Contact.Name},
+
+
+
+We acknowledge receipt of an application for merit review received by the Merit Review Service on {dateTimeStamp} from {workerContact}.
+
+
+The Authority request you lodge a completed ‘Work capacity – reply to an application for merit review by the authority’ form as quickly as possible and preferably within 7 days due on {dueDate}.
+
+
+
+Please access this case via the link {caseLink}.
+
+
+If you need assistance please do not hesitate to contact us via email mrs@sira.nsw.gov.au or call us on 02 9284 2284.
+
+
+Yours sincerely
+
+
+Merit Review Service</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Item Data --></label>
+        <name>CaseItemData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Item Link --></label>
+        <name>CaseItemLink__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Case Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Community Page URL --></label>
+        <name>CommunityPageURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>DueDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date/time on which the Case Item will be marked as expired. Automation will run to make the item expired. --></help>
+        <label><!-- Expiry Date --></label>
+        <name>ExpiryDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The person who you are requesting the Additional Information from. Note: This will be made visible to all Case Team Members, but editable only by the people in the Role Group selected. --></help>
+        <label><!-- Role Group --></label>
+        <name>RoleGroup__c</name>
+        <picklistValues>
+            <masterLabel>Insurer</masterLabel>
+            <translation><!-- Insurer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Firm</masterLabel>
+            <translation><!-- Legal Firm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merit Review Service</masterLabel>
+            <translation><!-- Merit Review Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sole Practitioner</masterLabel>
+            <translation><!-- Sole Practitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worker/Worker Rep</masterLabel>
+            <translation><!-- Worker/Worker Rep --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Archived</masterLabel>
+            <translation><!-- Archived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Submitted By Name --></label>
+        <name>SubmittedByName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted By --></label>
+        <name>SubmittedBy__c</name>
+        <relationshipLabel><!-- Case Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- Case Item --></label>
+        <name>Case_Item</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- View_Case_Item --></label>
+        <name>View_Case_Item</name>
+    </webLinks>
+</CustomObjectTranslation>

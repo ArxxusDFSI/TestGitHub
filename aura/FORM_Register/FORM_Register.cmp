@@ -1,0 +1,123 @@
+<aura:component controller="DRS_RegisterLogin_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="form" type="string" />
+	<aura:attribute name="passwordError" type="boolean" default="false"/>
+    <aura:attribute name="passwordLengthError" type="boolean" default="false"/>
+    <aura:attribute name="passwordComplexityError" type="boolean" default="false"/>
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="communitylink" type="string"/>
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    <aura:attribute name="solePractitioner" type="boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+            {!v.errorMessage}
+        </div>
+    </aura:if>
+
+    <div class="panel">
+        <h1>Create a DRS Live Account</h1>
+        <br/>
+        <p>Welcome to DRS Live, the 24/7 online dispute management system for SIRA's Dispute Resolution Services which are available free of charge to injured people and insurers in the motor accidents scheme, the lifetime care scheme, and the workers compensation scheme.</p><br/>
+        <p>The dispute resolution services we deliver include;</p>
+        <ol>
+            <li>Workers Compensation Merit Review Service (MRS) – Live now</li>
+            <li>Motor Accident Medical Assessment Service (MAS) – Under development</li>
+            <li>Motor Accident Claims Assessment &amp; Resolution Service (CARS) – Under development</li>
+            <li>Lifetime Care Dispute Reviews – Under development</li>
+            <li>Motor Accidents Dispute Resolution Service (DRS) – Under development</li>
+        </ol>
+        <br/>
+        <div class="row form-group">
+            <div class="col-md-8">
+                <h3>My contact Details</h3>
+            </div>
+            <div class="col-md-4">
+                <div class="mandatory-label">mandatory fields *</div>
+            </div>
+        </div>
+        <form name="registerForm" aura:id="registerForm">
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputSelect aura:id="title" label="Title" value="{!v.form.title}" options="[{'label': 'Mr.', 'key': 'Mr.'}, {'label': 'Ms.', 'key': 'Ms.'}, {'label': 'Mrs.', 'key': 'Mrs.'}, {'label': 'Dr.', 'key': 'Dr.'}, {'label': 'Prof.', 'key': 'Prof.'}]" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="firstName" label="Given name(s)*" value="{!v.form.firstName}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="lastName" label="Surname*" value="{!v.form.lastName}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputDate aura:id="birthDate" id="birthDate" label="Date of Birth*" value="{!v.form.birthDate}" mustbe14years="true"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="phone" label="Contact Number*" value="{!v.form.phone}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="mailingStreet" label="Postal address*" value="{!v.form.mailingStreet}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="mailingCity" label="Suburb*" value="{!v.form.mailingCity}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputSelect label="State*" aura:id="mailingState" value="{!v.form.mailingState}"
+                        options="[{'label': 'NSW', 'key': 'NSW'}, {'label': 'QLD', 'key': 'QLD'}, {'label': 'SA', 'key': 'SA'}, {'label': 'TAS', 'key': 'TAS'}, {'label': 'VIC', 'key': 'VIC'}, {'label': 'WA', 'key': 'WA'}]" />
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputNumber label="PostCode*" aura:id="mailingPostalCode" value="{!v.form.mailingPostalCode}" max="4" min="4"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputEmail label="Email*" aura:id="emailAddress" value="{!v.form.emailAddress}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputEmail label="Re-confirm Email Address*" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6" aura:id="pwd">
+                    <c:UI_InputPassword aura:id="password" label="Password*" onBlurFunction="{!c.passwordLengthCheck}" value="{!v.form.password}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputPassword aura:id="confirmPassword" label="Re-confirm Password*" onBlurFunction="{!c.checkPassword}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12">
+                    <c:UI_ToggleButton aura:id="solePractitioner" label="Are you a Legal Sole Practitioner?" value="{!v.form.solePractitioner}" onClickFunction="{!c.checkedIsSolePractitioner}"/>
+                </div>
+            </div>
+            <aura:if isTrue="{!v.form.solePractitioner == 'yes'}">
+                <div class="form-group row">
+                    <div class="col-xs-12">
+                        <c:UI_InputText aura:id="laySocietyNumber" label="Law Society No" value="{!v.form.laySocietyNumber}"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-12 col-md-6">
+                        <c:UI_InputDate id="validFrom" aura:id="validFrom" label="Valid from" value="{!v.form.validFrom}"/>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <c:UI_InputDate id="validTo" aura:id="validTo" label="Valid to" value="{!v.form.validTo}"/>
+                    </div>
+                </div>
+            </aura:if>
+        </form>
+        <br/>
+        <div class="form-group row">
+            <div class="col-xs-12">
+                <c:UI_Button aura:id="submitButton" type="submit" class="btn-submit" onClickFunction="{!c.submit}" disabled="{!v.buttonDisable}">Create Account</c:UI_Button>
+            </div>
+        </div>
+    </div>
+</aura:component>

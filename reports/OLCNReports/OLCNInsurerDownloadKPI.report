@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount/PARENTGROUPVAL(RowCount, GRAND_SUMMARY)</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>% of Cases downloaded</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>BucketField_41769894</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% Cases</masterLabel>
+        <scale>1</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Case.OLCN_NumberOfDaysTakenToDownload__c:AVG</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Average days to download Cases</description>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>Case.OLCN_Insurer__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Ave days to Download Cases</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_41769894</developerName>
+        <masterLabel># Cases</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Case.OLCN_NumberOfDaysTakenToDownload__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>1</to>
+            </sourceValues>
+            <value>Downloaded in 1 Bus Day</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1</from>
+                <to>5</to>
+            </sourceValues>
+            <value>Downloaded in 5 Bus Day</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>5</from>
+            </sourceValues>
+            <value>Downloaded in &gt;5 Bus Day</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_60858142</developerName>
+        <masterLabel>Cases</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Case.OLCN_NumberOfDaysTakenToDownload__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>1</to>
+            </sourceValues>
+            <value>Downloaded in 1 Bus day</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>1</from>
+                <to>5</to>
+            </sourceValues>
+            <value>Downloaded in 5 Bus days</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>5</from>
+            </sourceValues>
+            <value>Downloaded in &gt;5 Bus days</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_InsurerStatus__c</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_NumberOfDaysTakenToDownload__c</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_MatchedDate__c</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_DateDownloaded__c</field>
+    </columns>
+    <description>Monitor insurer behaviour and ensure they are downloading the Injured person details.</description>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>Case.OLCN_InsurerStatus__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Updated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.OLCN_InsurerStatus__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Downloaded</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_41769894</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.OLCN_Insurer__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>OLCN Insurer Download KPIs</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CONTACT.CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

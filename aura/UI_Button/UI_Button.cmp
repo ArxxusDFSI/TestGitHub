@@ -1,0 +1,13 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="onClickFunction" type="Object" description="Use this attribute to specify button behaviour. The function is passed in from the parent component." />
+    <aura:attribute name="class" type="string" default="" />
+    <aura:attribute name="type" type="string" default="" />
+    <aura:attribute name="href" type="string" default="" />
+
+    <aura:renderIf isTrue="{!v.href.length > 0}">
+    	<a class="{!'btn ' + v.class}" href="{!v.href}">{!v.body}</a>
+    	<aura:set attribute="else">
+			<button aura:id="button" type="{!v.type}" disabled="{!v.disabled}" class="{!'btn ' + v.class}" onclick="{!c.buttonClick}">{!v.body}</button>
+		</aura:set>
+	</aura:renderIf>
+</aura:component>

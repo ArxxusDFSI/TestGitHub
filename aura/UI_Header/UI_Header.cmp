@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="hostname" type="string" />
+	<aura:attribute name="communitylink" type="string" />
+	<aura:attribute name="hideBacktoHome" type="boolean" default="false"/>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 header-image">
+				<a href="{!v.hostname}"><img src="{!(v.communitylink + '/resource/SIRA_LOGO')}" width="300" height="300"/></a>
+			</div>
+			<div class="col-md-4 hidden-xs backtohome pull-right">
+				<aura:if isTrue="{!!v.hideBacktoHome}">
+					<a href="{!v.hostname}"><i class="glyphicon glyphicon-home" />&nbsp;Back to home</a>
+				</aura:if>
+			</div>
+		</div>
+	</div>
+</aura:component>

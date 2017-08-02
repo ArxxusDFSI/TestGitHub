@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Create a Case Feed Item when a new attachment has been inserted {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create a Case Feed Item when a new attachment has been inserted</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_a_Chatter_Post_when_a_new_attachment_is_added</name>
+        <label>Create a Chatter Post when a new attachment is added</label>
+        <locationX>485</locationX>
+        <locationY>253</locationY>
+        <inputAssignments>
+            <field>Body</field>
+            <value>
+                <stringValue>&quot;A new attachment has been added to the Case&quot;</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>CaseId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>FeedItem</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Lookup_the_case_Id</name>
+        <label>Lookup the case Id</label>
+        <locationX>420</locationX>
+        <locationY>120</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_a_Chatter_Post_when_a_new_attachment_is_added</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AttachmentId</elementReference>
+            </value>
+        </filters>
+        <object>Attachment__c</object>
+        <outputAssignments>
+            <assignToReference>CaseId</assignToReference>
+            <field>Case__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <startElementReference>Lookup_the_case_Id</startElementReference>
+    <variables>
+        <name>AttachmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>CaseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,3 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>CseCASTeamRW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>All records owned by CAS team (internal) is shared to CAS</description>
+        <label>CseCASTeamRW</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

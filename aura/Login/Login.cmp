@@ -1,0 +1,49 @@
+<aura:component controller="LightningLoginFormController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="community" type="String" />
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="form" type="String" />
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    <aura:attribute name="startUrl" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    
+    <div class="login-wrapper">
+        <h1>Log in to DRS Live</h1>
+        <br/>
+        <aura:renderIf isTrue="{!v.errorMessage.length > 0}">
+            <div class="alert alert-danger">
+                {!v.errorMessage}
+            </div>
+        </aura:renderIf>
+        
+        <div class="row form-group">
+            <div class="col-md-6 col-xs-12">
+                <c:UI_InputText aura:id="username" label="Email" value="{!v.form.username}" keyup="{!c.keyup}"/>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <c:UI_InputPassword aura:id="pwd" label="Password" value="{!v.form.pwd}" keyup="{!c.keyup}"/>
+                <br/>
+                <a href="{!'/' + v.community + '/s/forgot-password'}" >Forgot your password?</a>
+                <br/><br/>
+            </div>
+            <br/>
+            <div class="col-xs-12">
+                <c:UI_Button aura:id="submitButton" type="submit" class="btn-submit" onClickFunction="{!c.submit}">Log In</c:UI_Button>
+                <br/>
+                <aura:if isTrue="{!v.community != 'insurerlegal'}">
+                    <a href="{!'/' + v.community + '/s/createaccount'}">Create an account</a>
+                </aura:if>
+                <br/><br/>
+                <p>Welcome to DRS Live, the 24/7 online dispute management system for SIRA's Dispute Resolution Services which are available free of charge to injured people and insurers in the motor accidents scheme, the lifetime care scheme, and the workers compensation scheme.</p><br/>
+                <p>The dispute resolution services we deliver include;</p>
+
+                <ol>
+                    <li>Workers Compensation Merit Review Service (MRS) – Live now</li>
+                    <li>Motor Accident Medical Assessment Service (MAS) – Under development</li>
+                    <li>Motor Accident Claims Assessment &amp; Resolution Service (CARS) – Under development</li>
+                    <li>Lifetime Care Dispute Reviews – Under development</li>
+                    <li>Motor Accidents Dispute Resolution Service (DRS) – Under development</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</aura:component>

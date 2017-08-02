@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object will capture feedback received from injured person when a CAS team member calls the injured person.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Answer11__c</fullName>
+        <externalId>false</externalId>
+        <label>Answer 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Declined to answer</fullName>
+                    <default>false</default>
+                    <label>Declined to answer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Answer12__c</fullName>
+        <externalId>false</externalId>
+        <label>Answer 2</label>
+        <length>30000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Answer13__c</fullName>
+        <externalId>false</externalId>
+        <label>Answer 3</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Declined to answer</fullName>
+                    <default>false</default>
+                    <label>Declined to answer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Answer14__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What do you feel that they are/are not doing well?</inlineHelpText>
+        <label>Answer 4</label>
+        <length>30000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Answer15__c</fullName>
+        <externalId>false</externalId>
+        <label>Answer 5</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5 - Very satisfied</fullName>
+                    <default>false</default>
+                    <label>5 - Very satisfied</label>
+                </value>
+                <value>
+                    <fullName>4 - Satisfied</fullName>
+                    <default>false</default>
+                    <label>4 - Satisfied</label>
+                </value>
+                <value>
+                    <fullName>3 - Neutral</fullName>
+                    <default>false</default>
+                    <label>3 - Neutral</label>
+                </value>
+                <value>
+                    <fullName>2 - Unsatisfied</fullName>
+                    <default>false</default>
+                    <label>2 - Unsatisfied</label>
+                </value>
+                <value>
+                    <fullName>1 - Very unsatisfied</fullName>
+                    <default>false</default>
+                    <label>1 - Very unsatisfied</label>
+                </value>
+                <value>
+                    <fullName>Declined to answer</fullName>
+                    <default>false</default>
+                    <label>Declined to answer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>Feedback</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CompletedBy__c</fullName>
+        <description>CAS team member who completes the Notification Follow-up.</description>
+        <externalId>false</externalId>
+        <label>Completed By</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <description>Completed date of Notification-Follow-Up.</description>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Injured_Person_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Injured Person Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NoOfDays_Taken__c</fullName>
+        <description>This field is used in Reports to Calculate the Number of days taken to complete the Notification-Follow-Up.</description>
+        <externalId>false</externalId>
+        <formula>Completed_Date__c  -   DATEVALUE(CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>NoOfDays Taken To complete</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional notes and commentary on the feedback</inlineHelpText>
+        <label>Notes</label>
+        <length>30000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question11__c</fullName>
+        <defaultValue>&quot;Has dealing with the insurer been easy?&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question 1</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question12__c</fullName>
+        <defaultValue>&quot;Why do you feel that way?&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question 2</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question13__c</fullName>
+        <defaultValue>&quot;Is the insurer keeping you informed about the claims process?&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question 3</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question14__c</fullName>
+        <defaultValue>&quot;What do you feel that they are/are not doing well?&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question 4</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Question15__c</fullName>
+        <defaultValue>&quot;How satisfied are you with the insurer&apos;s management of your claim? (Scale 1-5)&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question 5</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Call back</fullName>
+                    <default>false</default>
+                    <label>Call back</label>
+                </value>
+                <value>
+                    <fullName>No issues identified</fullName>
+                    <default>false</default>
+                    <label>No issues identified</label>
+                </value>
+                <value>
+                    <fullName>All issues resolved</fullName>
+                    <default>false</default>
+                    <label>All issues resolved</label>
+                </value>
+                <value>
+                    <fullName>Escalated</fullName>
+                    <default>false</default>
+                    <label>Escalated</label>
+                </value>
+                <value>
+                    <fullName>Further Assistance</fullName>
+                    <default>false</default>
+                    <label>Further Assistance</label>
+                </value>
+                <value>
+                    <fullName>Unable to Contact</fullName>
+                    <default>false</default>
+                    <label>Unable to Contact</label>
+                </value>
+                <value>
+                    <fullName>Declined to Answer</fullName>
+                    <default>false</default>
+                    <label>Declined to Answer</label>
+                </value>
+                <value>
+                    <fullName>Already provided</fullName>
+                    <default>false</default>
+                    <label>Already provided</label>
+                </value>
+                <value>
+                    <fullName>Follow Up Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Follow Up Completed</label>
+                </value>
+                <value>
+                    <fullName>Unable to Follow Up</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Unable to Follow Up</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Notification Follow-up</label>
+    <listViews>
+        <fullName>My_Team_Outbound_Call_list_view_Open</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>Case__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Call back</value>
+        </filters>
+        <label>My Team Outbound Call list view (Open)</label>
+        <sharedTo>
+            <role>CAS_Manager</role>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>FB{000000}</displayFormat>
+        <label>Outbound Call</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Notification Follow-ups</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

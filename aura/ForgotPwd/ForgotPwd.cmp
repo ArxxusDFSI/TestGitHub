@@ -1,0 +1,50 @@
+<aura:component controller="DRS_RegisterLogin_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="user" type="object" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="successMessage" type="String"/>
+    <aura:attribute name="vaildation" type="boolean" default="false"/>
+    
+    <div class="login-wrapper">
+        <aura:if isTrue="{!v.vaildation}">
+            <aura:if isTrue="{!v.errorMessage.length > 0}">
+                <div class="alert alert-danger">
+                    {!v.errorMessage}
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.successMessage}">
+                <div class="alert alert-success">
+                    {!v.successMessage}
+                </div>
+            </aura:if>
+        </aura:if>
+        <div class="login-form-table">
+            <div class="login-form-row">
+                <div class="login-form-cell">
+                    <div class="login-form-title">Forgot your password</div>
+                    <div>
+                        <div>Having trouble logging in?</div>
+                        <ul>
+                            <li>Usernames are in the form of an email address.</li>
+                            <li>Password are case sensitive.</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="width: 50%;">
+                        <label for="usr">Email</label>
+                        <input type="text" id="usr" class="login-input" onchange="{!c.checkEmail}"/>
+                        <aura:if isTrue="{!v.showError}">
+                            <span class="errorLabel">
+                                {!v.errorMessage}
+                            </span>
+                        </aura:if>
+                    </div>
+                    
+                    <div style="text-align: right;width: 50%;">
+                        <input class="login-form-btn" type="submit" value="Reset" onclick="{!c.submit}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

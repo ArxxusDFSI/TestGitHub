@@ -1,0 +1,10 @@
+.THIS .uiLabel{
+    color: #000;
+}
+.THIS .textarea[disabled]{
+	background-color: #eee;
+}
+.THIS .textarea{
+	border-radius: 0px;
+	font-size:16px;
+}

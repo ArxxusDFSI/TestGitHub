@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Answer11__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Answer12__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Answer13__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Answer14__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Answer15__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Notes__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.CompletedBy__c</field>
+    </columns>
+    <columns>
+        <field>OutboundCalls__c.Completed_Date__c</field>
+    </columns>
+    <description>To extract all data about ‘Outbound Call’ records to allow analysis of customer comments.</description>
+    <filter>
+        <criteriaItems>
+            <column>OutboundCalls__c.Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>All issues resolved</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Outbound Call Text Extract Final</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$OutboundCalls__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>OutboundCalls__c.Completed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

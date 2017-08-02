@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Parent/guardian</fullName>
+        <default>false</default>
+        <label>Parent/guardian</label>
+    </customValue>
+    <customValue>
+        <fullName>Family member</fullName>
+        <default>false</default>
+        <label>Family member</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner/spouse</fullName>
+        <default>false</default>
+        <label>Partner/spouse</label>
+    </customValue>
+    <customValue>
+        <fullName>Health professional</fullName>
+        <default>false</default>
+        <label>Health professional</label>
+    </customValue>
+    <customValue>
+        <fullName>Interpreter</fullName>
+        <default>false</default>
+        <label>Interpreter</label>
+    </customValue>
+    <customValue>
+        <fullName>Legal representative</fullName>
+        <default>false</default>
+        <label>Legal representative</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Contact Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

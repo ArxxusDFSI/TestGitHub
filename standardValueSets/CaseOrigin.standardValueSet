@@ -21,4 +21,19 @@
         <default>false</default>
         <label>Chatter Answers</label>
     </standardValue>
+    <standardValue>
+        <fullName>Post</fullName>
+        <default>false</default>
+        <label>Post</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Walk-In</fullName>
+        <default>false</default>
+        <label>Walk-In</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
 </StandardValueSet>

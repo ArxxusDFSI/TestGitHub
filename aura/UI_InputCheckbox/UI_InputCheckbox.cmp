@@ -1,0 +1,9 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="checked" type="boolean" default="false"/>
+	<aura:attribute name="name" type="string" default="checkbox"/>
+	<aura:attribute name="onClickFunction" type="Object" description="Use this attribute to specify button behaviour. The function is passed in from the parent component." />
+	
+	<label class="{!v.checked == true? 'checkbox-inline checkbox-checked': 'checkbox-inline'}">
+		<input type="checkbox" aura:id="checkbox" name="{!v.name}" value="true" disabled="{!v.disabled}" checked="{!v.checked}" onchange="{!c.selectionChange}"/>{!v.label}
+	</label>
+</aura:component>

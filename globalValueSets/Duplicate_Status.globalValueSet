@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Not a duplicate</fullName>
+        <default>false</default>
+        <label>Not a duplicate</label>
+    </customValue>
+    <customValue>
+        <fullName>Duplicate - submitted in error</fullName>
+        <default>false</default>
+        <label>Duplicate - submitted in error</label>
+    </customValue>
+    <customValue>
+        <fullName>Resolved - Duplicate, additional informationDuplicate - Additional information</fullName>
+        <default>false</default>
+        <label>Duplicate - Additional information</label>
+    </customValue>
+    <customValue>
+        <fullName>Duplicate - no additional information</fullName>
+        <default>false</default>
+        <label>Duplicate - no additional information</label>
+    </customValue>
+    <masterLabel>Duplicate Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

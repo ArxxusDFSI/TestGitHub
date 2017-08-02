@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to send when a new member is added to the case team</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>SIRA_Letterhead</letterhead>
+    <name>Case Team Member Added Email</name>
+    <style>formalLetter</style>
+    <subject>New Merit Review Case {CaseNumber}</subject>
+    <textOnly>Hi {Contact.Name},
+
+You have been added to the case team for Merit Review Case: {CaseNumber}.
+
+Please click the following link to browse the Case:
+{CaseLink}
+
+Thanks
+Merit Review Service</textOnly>
+    <type>html</type>
+</EmailTemplate>

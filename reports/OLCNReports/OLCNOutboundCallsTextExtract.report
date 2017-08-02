@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Status__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer11__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer12__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer13__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer14__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer15__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Notes__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_CompletedBy__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_CompletedDate__c</field>
+    </columns>
+    <description>To extract all data about ‘Outbound Call’ records to allow analysis of customer comments.</description>
+    <filter>
+        <criteriaItems>
+            <column>OLCN_OutboundCalls__c.OLCN_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>All issues resolved</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>OLCN Outbound Call Text Extract</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$OLCN_OutboundCalls__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>OLCN_OutboundCalls__c.OLCN_CompletedDate__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

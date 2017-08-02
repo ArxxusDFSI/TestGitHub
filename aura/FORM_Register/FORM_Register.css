@@ -1,0 +1,38 @@
+.THIS.panel{
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.15);
+    padding: 50px;
+}
+.THIS h1{
+	font-family: 'Gotham-Book';
+	font-size: 44px;
+	color: #000000;
+}
+.THIS h3{
+	font-family: 'Gotham';
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 2.3;
+	color: #000000;
+}
+.THIS ol{
+    list-style-type: disc;
+    margin-left: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.THIS .mandatory-label{
+    font-family: 'Gotham-Book';
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #9b9b9b;
+}
+@media only screen and (max-width: 500px) {
+	.THIS.panel{
+		box-shadow: none;
+        padding: 0px;
+    }
+}

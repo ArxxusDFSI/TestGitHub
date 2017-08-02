@@ -1,0 +1,43 @@
+<!--*******************************************************************************************
+Author:         Shyamala Sridevi
+Company:        Capgemini
+Description:    This is the Lightening Component for InsurerPortal_Login Page                      
+Test Class:     InsurerPortal_Login
+History
+13/July/2017    Shyamala Sridevi     Created
+********************************************************************************************-->
+<aura:component controller="InsurerPortal_LightningLoginController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="community" type="String" />
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="form" type="String" />
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    <aura:attribute name="startUrl" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    
+    <div class="login-wrapper">
+        <h1>Log in to Insurer Portal </h1>
+        <br/>
+        <aura:renderIf isTrue="{!v.errorMessage.length > 0}">
+            <div  class="alert-danger">
+                {!v.errorMessage}
+            </div>
+        </aura:renderIf>
+        
+       
+            
+           <div class="inputst">
+               <c:UI_InputText aura:id="username" label="Username" value="{!v.form.username}" keyup="{!c.keyup}" />
+         
+                <c:UI_InputPassword aura:id="pwd" label="Password" value="{!v.form.pwd}" keyup="{!c.keyup}"/>
+               </div><br/>
+                <a href="{!'/' + v.community + '/s/insurerportalforgot-password'}" >Forgot your password?</a>
+                <br/><br/>
+           
+            <br/>
+            <div class="col-xs-12">
+               <c:UI_Button aura:id="submitButton" type="submit" class="btn-submit" onClickFunction="{!c.submit}">Log In</c:UI_Button>
+                <br/><br/>   
+            </div>
+        </div>
+    
+</aura:component>

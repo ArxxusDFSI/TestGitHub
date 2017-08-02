@@ -1,0 +1,21 @@
+.THIS.userCaseSidePanel{
+    margin: 0px;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0 0 1rem 0;
+    border-radius: .25rem;
+    overflow: hidden;
+    border: 1px solid #d4d4d4;
+}
+.THIS h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.THIS table{
+    width: 100%;
+}
+.THIS table tr td{
+    padding-left: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

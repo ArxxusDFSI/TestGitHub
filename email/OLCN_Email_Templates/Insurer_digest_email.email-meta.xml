@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to each insurer twice a day (12am, 12pm) with the number of cases that have been allocated but not yet been downloaded by the insurer. (showing new and updated cases)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>Insurer digest email</name>
+    <style>freeForm</style>
+    <subject>{!Today()} Online CTP submissions for download</subject>
+    <textOnly>Dear {!Account.Name} team,
+
+You have {!Account.Insurer_Process_Status_New_Count__c} new CTP submission(s) to download.
+
+You have {!Account.Insurer_Process_Status_Update_Count__c} updated CTP submission(s) to download.
+
+Login here to view the list:  [Link to the portal list view page &apos;All Open cases&apos;]
+
+
+Kind regards
+
+Claims Advisory Service
+
+State Insurance Regulatory Authority
+
+p 1300 656 919
+
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>

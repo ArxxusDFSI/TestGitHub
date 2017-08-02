@@ -1,0 +1,13 @@
+<aura:component controller="DRS_RegisterLogin_CC" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="messageToDisplay" type="string" default="Please wait..." />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+            {!v.errorMessage}
+        </div>
+    </aura:if>
+    
+    <div>{!v.messageToDisplay}</div>
+</aura:component>

@@ -1,0 +1,38 @@
+.THIS .btn-add {
+    margin-top: 15px;
+}
+.THIS table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.THIS th:hover{
+	background-color: rgba(25, 124, 190, 0.1);
+	cursor: pointer;
+}
+.THIS td, .THIS th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.THIS tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.THIS .glyphicon{
+    color: #467082;
+}
+
+.THIS .button-refresh{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+@media only screen and (max-width: 500px) {
+    .THIS#caseTeamTable{
+        overflow-x: scroll;
+        display: block;
+    }
+}

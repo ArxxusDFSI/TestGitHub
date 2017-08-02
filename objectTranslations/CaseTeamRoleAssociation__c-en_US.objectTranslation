@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Team Role Association</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Team Role Association</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Type --></label>
+        <name>AccountType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Team Role --></label>
+        <name>CaseTeamRole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Role --></label>
+        <name>ContactRole__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

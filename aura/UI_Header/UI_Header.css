@@ -1,0 +1,20 @@
+.THIS .header-image{
+	margin-left: 22px;
+	margin-right: -22px;
+}
+.THIS .backtohome{
+    position: relative;
+    height: 70px;
+    text-align: right;
+    padding-right: 70px;
+}
+.THIS a{
+	color: #000;
+	position: relative;
+    top: 50%;
+}
+@media only screen and (max-width: 500px) {
+	.THIS .header-image{
+		margin: 0px;
+	}
+}

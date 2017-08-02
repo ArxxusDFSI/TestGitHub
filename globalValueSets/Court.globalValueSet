@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>District Court</fullName>
+        <default>false</default>
+        <label>District Court</label>
+    </customValue>
+    <customValue>
+        <fullName>Supreme Court</fullName>
+        <default>false</default>
+        <label>Supreme Court</label>
+    </customValue>
+    <customValue>
+        <fullName>Court of Appeal</fullName>
+        <default>false</default>
+        <label>Court of Appeal</label>
+    </customValue>
+    <customValue>
+        <fullName>High Court</fullName>
+        <default>false</default>
+        <label>High Court</label>
+    </customValue>
+    <masterLabel>Court</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

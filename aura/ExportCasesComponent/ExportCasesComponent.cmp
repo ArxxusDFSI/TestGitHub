@@ -1,0 +1,17 @@
+<!--*******************************************************************************************
+Author:         Shyamala Sridevi
+Company:        Capgemini
+Description:    This is the Lightening Component to download the cases from  OnlineClaimNotification Communities.                      
+Test Class:     CaseExportContoller_test
+History
+14/July/2017    Shyamala Sridevi     Created
+********************************************************************************************-->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" controller="CaseExportContoller" access="global" >
+    <ltng:require scripts="/resource/OLCN_Bootstrap/js/jquery-2.0.0.min,/resource/OLCN_Bootstrap/js/bootstrap.min.js" />
+    <aura:attribute name="casesToExport" type="Case[]" />
+    <div class="slds-align_absolute-center">
+        <lightning:button label=" Download All Open Cases" onclick="{!c.exportOlcnAllOpenCases}" />&nbsp;&nbsp;&nbsp;
+        <lightning:button label=" Download Last 30 days Cases " onclick="{!c.exportOlcnLast30daysCases}" />     
+        
+    </div>	
+</aura:component>

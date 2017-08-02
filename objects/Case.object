@@ -56,8 +56,236 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <businessProcesses>
+        <fullName>Merit Review Service</fullName>
+        <description>Merit Review Service Application Management Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Assess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discovery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validate</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>Online Claims Notification</fullName>
+        <description>Process for all Online Claims Notification to CAS teams</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Further Enquiries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending Acceptance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Require Notification Follow-up</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <compactLayoutAssignment>CSECaseDetailCompactLayout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CSECaseDetailCompactLayout</fullName>
+        <fields>CaseNumber</fields>
+        <fields>ContactId</fields>
+        <fields>OLCN_AccidentDate__c</fields>
+        <fields>OLCN_InsurerStatus__c</fields>
+        <fields>OLCN_AtFaultRegistrationNumber__c</fields>
+        <fields>OwnerId</fields>
+        <label>CSECaseDetailCompactLayout</label>
+    </compactLayouts>
     <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AccidentDateText__c</fullName>
+        <description>This field is used in PICF PDF generation functionality.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(AccidentDate__c)), 2 ,&apos;0&apos;)+&apos;/&apos;+LPAD(TEXT(MONTH(AccidentDate__c)), 2 ,&apos;0&apos;)+&apos;/&apos;+TEXT(YEAR(AccidentDate__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AccidentDateText</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccidentDate__c</fullName>
+        <defaultValue>Null</defaultValue>
+        <description>Date of Accident - OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>AccidentDay__c</fullName>
+        <description>Day of the accident.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(AccidentDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>AccidentDay</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccidentLocation__c</fullName>
+        <defaultValue>null</defaultValue>
+        <description>Location of accident - filled by webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccidentMonth__c</fullName>
+        <description>Month of the accident.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(MONTH(AccidentDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>AccidentMonth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccidentRoleOther__c</fullName>
+        <description>This is mandatory when the Accident Role is &quot;other&quot; - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Role Other</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AccidentRole__c</fullName>
+        <description>Role of the person who did the accident - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Driver</fullName>
+                    <default>false</default>
+                    <label>Driver</label>
+                </value>
+                <value>
+                    <fullName>Passenger</fullName>
+                    <default>false</default>
+                    <label>Passenger</label>
+                </value>
+                <value>
+                    <fullName>Pedestrian</fullName>
+                    <default>false</default>
+                    <label>Pedestrian</label>
+                </value>
+                <value>
+                    <fullName>Motorcycle rider</fullName>
+                    <default>false</default>
+                    <label>Motorcycle rider</label>
+                </value>
+                <value>
+                    <fullName>Motorcycle passenger</fullName>
+                    <default>false</default>
+                    <label>Motorcycle passenger</label>
+                </value>
+                <value>
+                    <fullName>Cyclist</fullName>
+                    <default>false</default>
+                    <label>Cyclist</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AccidentYear__c</fullName>
+        <description>Year of the accident.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(AccidentDate__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AccidentYear</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Accident_Geolocation__c</fullName>
+        <description>Accident co-ordinates from google. OLCN</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Accident Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -73,11 +301,390 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AtFaultRegistrationNumber__c</fullName>
+        <description>Filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>At Fault Registration Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attachments__c</fullName>
+        <description>Count of Attachments</description>
+        <externalId>false</externalId>
+        <label>Attachments</label>
+        <summaryForeignKey>Attachment__c.Case__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>BriefSummaryOfOutcome__c</fullName>
+        <description>MRS - Brief Summary of Outcome (if Different Reasoning to Insurer)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Brief Summary of Outcome (if Different Reasoning to Insurer)</inlineHelpText>
+        <label>Brief Summary of Outcome</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>BusinessHoursId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CaseReasons__c</fullName>
+        <description>Custom Case Reasons - for field dependency on status</description>
+        <externalId>false</externalId>
+        <label>Case Reasons</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No application for internal review made</fullName>
+                    <default>false</default>
+                    <label>No application for internal review made</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - No Work Capacity Decision</fullName>
+                    <default>false</default>
+                    <label>Review Declined - No Work Capacity Decision</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - No internal review</fullName>
+                    <default>false</default>
+                    <label>Review Declined - No internal review</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Out of time application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Out of time application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Frivolous application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Frivolous application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Vexatious application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Vexatious application</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Expired application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Expired application</label>
+                </value>
+                <value>
+                    <fullName>Review Withdrawn - Insurer withdrew WCD</fullName>
+                    <default>false</default>
+                    <label>Review Withdrawn - Insurer withdrew WCD</label>
+                </value>
+                <value>
+                    <fullName>Review Withdrawn - Worker withdrew MR</fullName>
+                    <default>false</default>
+                    <label>Review Withdrawn - Worker withdrew MR</label>
+                </value>
+                <value>
+                    <fullName>Same Decision - No new information</fullName>
+                    <default>false</default>
+                    <label>Same Decision - No new information</label>
+                </value>
+                <value>
+                    <fullName>Same Decision - New information</fullName>
+                    <default>false</default>
+                    <label>Same Decision - New information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Better for worker - No new information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Better for worker - No new information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Better for worker - New information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Better for worker - New information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Worse for worker - No new information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Worse for worker - No new information</label>
+                </value>
+                <value>
+                    <fullName>Different Decision - Worse for worker - New information</fullName>
+                    <default>false</default>
+                    <label>Different Decision - Worse for worker - New information</label>
+                </value>
+                <value>
+                    <fullName>No Internal review &amp; 30 days has not lapsed since application for internal review was made</fullName>
+                    <default>false</default>
+                    <label>No Internal review &amp; 30 days has not lapsed since application for internal review was made</label>
+                </value>
+                <value>
+                    <fullName>Review Declined - Deleted draft application</fullName>
+                    <default>false</default>
+                    <label>Review Declined - Deleted draft application</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>No application for internal review made</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - No Work Capacity Decision</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - No internal review</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Out of time application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Frivolous application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Declined - Vexatious application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Withdrawn - Insurer withdrew WCD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Review Withdrawn - Worker withdrew MR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Same Decision - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Same Decision - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Better for worker - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Better for worker - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Worse for worker - No new information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>Different Decision - Worse for worker - New information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Decision</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <controllingFieldValue>Assess</controllingFieldValue>
+                <controllingFieldValue>Review</controllingFieldValue>
+                <valueName>No Internal review &amp; 30 days has not lapsed since application for internal review was made</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Review Declined - Expired application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Review Declined - Deleted draft application</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ClaimNumber__c</fullName>
+        <description>Claim Number provided by the Insurer</description>
+        <externalId>true</externalId>
+        <label>Claim Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClaimType__c</fullName>
+        <description>MRS - Claim Type</description>
+        <externalId>false</externalId>
+        <label>Claim Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On or after 01/10/12</fullName>
+                    <default>false</default>
+                    <label>On or after 01/10/12</label>
+                </value>
+                <value>
+                    <fullName>Before 01/10/12</fullName>
+                    <default>false</default>
+                    <label>Before 01/10/12</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CloseReason__c</fullName>
+        <description>This field is to enter the reason for closing the case</description>
+        <externalId>false</externalId>
+        <label>Close Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Nominal Defendant</fullName>
+                    <default>false</default>
+                    <label>Nominal Defendant</label>
+                </value>
+                <value>
+                    <fullName>Interstate Insurer</fullName>
+                    <default>false</default>
+                    <label>Interstate Insurer</label>
+                </value>
+                <value>
+                    <fullName>Unable to Contact</fullName>
+                    <default>false</default>
+                    <label>Unable to Contact</label>
+                </value>
+                <value>
+                    <fullName>No Issues Identified</fullName>
+                    <default>false</default>
+                    <label>No Issues Identified</label>
+                </value>
+                <value>
+                    <fullName>All Issues Resolved</fullName>
+                    <default>false</default>
+                    <label>All Issues Resolved</label>
+                </value>
+                <value>
+                    <fullName>Escalated</fullName>
+                    <default>false</default>
+                    <label>Escalated</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Nominal Defendant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Interstate Insurer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Unable to Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>No Issues Identified</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>All Issues Resolved</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Escalated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>ClosedDate</fullName>
@@ -118,13 +725,495 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>ContactPreference__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Contact.ContactPreference__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The preferred contact method indicated by the contact on their Contact record..</inlineHelpText>
+        <label>Contact Preference</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CreateOutboundCallFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used in XYZ process builder to create a blank Outbound Call record.
+
+This field by default is false. XYZ workflow will update this field to True.</description>
+        <externalId>false</externalId>
+        <label>CreateOutboundCallFlag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DRSStatusFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DRS Status Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DRS_ContactLastname__c</fullName>
+        <description>The LastName of the Contact (ContactId) associated with the Case. The field needs to be a Text field to be used in aggregate functions.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The LastName of the Contact (ContactId) associated with the Case. The field needs to be a Text field to be used in aggregate functions.</inlineHelpText>
+        <label>Contact Lastname</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DateDecisionSent__c</fullName>
+        <description>MRS - Date/Time decision was sent to parties (insurer/worker). Key metric used in reporting to indicate end of case lifecycle.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date MRS sent the decision to all parties.</inlineHelpText>
+        <label>Decision Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateDownloaded__c</fullName>
+        <description>date data was downloaded by insurer - OLCN</description>
+        <externalId>false</externalId>
+        <label>Date Downloaded</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOfInjury__c</fullName>
+        <description>MRS Date of Injury</description>
+        <externalId>false</externalId>
+        <label>Date of Injury</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateTimeCaseLodged__c</fullName>
+        <description>MRS - Date/Time Case Lodged, this is is the date/time the case was submitted to MRS
+Used by OLCN to capture date</description>
+        <externalId>false</externalId>
+        <label>Date/Time Case Lodged</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DateWorkerReceivedIR__c</fullName>
+        <description>MRS - Date Worker Received IR</description>
+        <externalId>false</externalId>
+        <label>Date Worker  Received IR</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DaysToDecisionSent__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+NOT( ISBLANK(DecisionDate__c)) , 
+(DecisionDate__c -  DATEVALUE( DateTimeCaseLodged__c) ), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of days it has taken from Date/Time Lodged to Decision Date.</inlineHelpText>
+        <label>Days to Decision Sent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DecisionDate__c</fullName>
+        <description>MRS Application Decision Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date MRS made decision.</inlineHelpText>
+        <label>Decision Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>DescriptionOfVehicle__c</fullName>
+        <description>Description of Vehicle - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Description of Vehicle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DoNotPublish__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The option selected by the worker on submission of the Case Item whether to publish the decision or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The option selected by the worker on submission of the Case Item whether to publish the decision or not.</inlineHelpText>
+        <label>Do Not Publish?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DriverName__c</fullName>
+        <description>Name of the driver - filled by OLCN form</description>
+        <externalId>false</externalId>
+        <label>Driver Name</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DueDateOfOutboundCall__c</fullName>
+        <description>This formula field is to calculate the Due date of Outbound call and it is used in reports. OLCN</description>
+        <externalId>false</externalId>
+        <formula>MatchedDate__c + 21</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Due Date of Outbound Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DuplicateFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by a Batch Job to indicate if another record/s are found that meet the criteria.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DuplicateStatus__c</fullName>
+        <description>This field is managed by users to indicate which records have been data quality checked. are considered clean or not after data checks have commenced.</description>
+        <externalId>false</externalId>
+        <label>Duplicate Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Duplicate_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>EntitlementId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FormEmail__c</fullName>
+        <description>Injured Person Email; From OLCN webform -</description>
+        <externalId>false</externalId>
+        <label>Form: Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormFirstName__c</fullName>
+        <description>From OLCN webform - name of injured person. This is just a text field. Lookup is used for contact where found.</description>
+        <externalId>false</externalId>
+        <label>Form: First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormLastName__c</fullName>
+        <description>From OLCN webform - name of injured person. This is just a text field. Lookup is used for contact where found.</description>
+        <externalId>false</externalId>
+        <label>Form: Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormPhone__c</fullName>
+        <description>Injured Person Phone - from OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>FormRepEmail__c</fullName>
+        <description>Email of the Representative - created by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormRepFirstName__c</fullName>
+        <description>First Name of Representative - from webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormRepLastName__c</fullName>
+        <description>Representative last name - from OLCN webform</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormRepPhone__c</fullName>
+        <description>Representative&apos;s phone number - created by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>FormSubmitter__c</fullName>
+        <description>This indicates submitter of the OLCN form</description>
+        <externalId>false</externalId>
+        <label>Form Submitter</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injured person</fullName>
+                    <default>false</default>
+                    <label>Injured person</label>
+                </value>
+                <value>
+                    <fullName>Representative</fullName>
+                    <default>false</default>
+                    <label>Representative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>HomePhone__c</fullName>
+        <description>This field is populated with Phone number if the FormPhone__c is not a mobile format.</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(LEN(FormPhone__c)= 10,(LEFT(FormPhone__c, 2) = &apos;04&apos;)) ,&apos;&apos;,FormPhone__c)</formula>
+        <label>HomePhone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IRDecision__c</fullName>
+        <description>MRS - IR Decision</description>
+        <externalId>false</externalId>
+        <label>IR Decision Notice Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IRLodged__c</fullName>
+        <description>MRS - IR Lodged</description>
+        <externalId>false</externalId>
+        <label>Date IR Application Made</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>InsurerCode__c</fullName>
+        <description>List of insurers with their codes - filled by webforms</description>
+        <externalId>false</externalId>
+        <label>Insurer Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>InsurerCode</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>InsurerProcessAge__c</fullName>
+        <description>This is a Formula field to calculate the age of case after it is matched to Insurer. OLCN</description>
+        <externalId>false</externalId>
+        <formula>Today() - MatchedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurer Process Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InsurerStatus__c</fullName>
+        <description>Status for insurer</description>
+        <externalId>false</externalId>
+        <label>Insurer Process Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Downloaded</fullName>
+                    <default>false</default>
+                    <label>Downloaded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Insurer_Email__c</fullName>
+        <description>Insurer Email. This field is created to send email to insurer. Populated by workflow else template cannot be used.</description>
+        <externalId>false</externalId>
+        <label>Insurer Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurer_Phone__c</fullName>
+        <description>This field holds the insurer phone number,It is used in the email templates.</description>
+        <externalId>false</externalId>
+        <formula>Insurer__r.Phone</formula>
+        <label>Insurer Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurer_Process_Status_Update__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(InsurerStatus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurer Process Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurer__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Insurer Account Name</description>
+        <externalId>false</externalId>
+        <label>Insurer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -161,12 +1250,1160 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>MRSCaseNumber__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://regdev2-dfsi--regdev2.cs6.force.com/insurerlegal/s/casedetail?recordId=&quot; &amp;  Id , CaseNumber)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>MRS Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MRSInsurerAccount__c</fullName>
+        <description>MRS Insurer Account for Sharing rules</description>
+        <externalId>false</externalId>
+        <label>MRS Insurer Account</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MatchedBy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Team member who matched the case to insurer</inlineHelpText>
+        <label>Matched By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MatchedDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date matched to insurer. Automatically stamped.</inlineHelpText>
+        <label>Matched Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MatchedDay__c</fullName>
+        <description>This field populates the Day of MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(MatchedDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>MatchedDay</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MatchedMonth__c</fullName>
+        <description>This field populates the month of MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(MONTH(MatchedDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>MatchedMonth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MatchedYear__c</fullName>
+        <description>This field populates the year field of  MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(MatchedDate__c))</formula>
+        <label>MatchedYear</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MilestoneStatus</fullName>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>MilestoneStatusIcon</fullName>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <description>This field is populated with Mobile number if the FormPhone__c is of mobile format.</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(LEN(FormPhone__c)= 10,(LEFT(FormPhone__c, 2) = &apos;04&apos;)) , FormPhone__c, &apos;&apos;)</formula>
+        <label>Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NotAWorkCapacityDecision__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type Not a Work Capacity Decision</description>
+        <externalId>false</externalId>
+        <label>Not a Work Capacity Decision</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfBusinessDays__c</fullName>
+        <description>This is a formula field used in report to calculate the total number of business days taken by the CAS team members to match a case to an insurer</description>
+        <externalId>false</externalId>
+        <formula>MatchedDate__c - DATEVALUE(CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Business Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfDaysTakenToDownload__c</fullName>
+        <externalId>false</externalId>
+        <formula>DateDownloaded__c - MatchedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Days Taken to Download</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfDueDays__c</fullName>
+        <description>This formula filed is to calculate the number of due days to outbound call.
+this filed is used in reports.</description>
+        <externalId>false</externalId>
+        <formula>DueDateOfOutboundCall__c  - Today()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Due Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentDateText__c</fullName>
+        <description>This field is used in PICF PDF generation functionality.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(OLCN_AccidentDate__c)), 2 ,&apos;0&apos;)+&apos;/&apos;+LPAD(TEXT(MONTH(OLCN_AccidentDate__c)), 2 ,&apos;0&apos;)+&apos;/&apos;+TEXT(YEAR(OLCN_AccidentDate__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AccidentDateText</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentDate__c</fullName>
+        <defaultValue>Null</defaultValue>
+        <description>Date of Accident - OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentDay__c</fullName>
+        <description>Day of the accident.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(OLCN_AccidentDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>AccidentDay</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentGeolocation__c</fullName>
+        <description>Accident co-ordinates from google. OLCN</description>
+        <displayLocationInDecimal>false</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Accident Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentLocation__c</fullName>
+        <defaultValue>null</defaultValue>
+        <description>Location of accident - filled by webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentMonth__c</fullName>
+        <description>Month of the accident.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(MONTH(OLCN_AccidentDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>AccidentMonth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentPostCode__c</fullName>
+        <description>This field holds the Accident PostCode Information,This is used on the PICF form.</description>
+        <externalId>false</externalId>
+        <label>Accident PostCode</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentRoleOther__c</fullName>
+        <description>This is mandatory when the Accident Role is &quot;other&quot; - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Role Other</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentRole__c</fullName>
+        <description>Role of the person who did the accident - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Accident Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Driver</fullName>
+                    <default>false</default>
+                    <label>Driver</label>
+                </value>
+                <value>
+                    <fullName>Passenger</fullName>
+                    <default>false</default>
+                    <label>Passenger</label>
+                </value>
+                <value>
+                    <fullName>Pedestrian</fullName>
+                    <default>false</default>
+                    <label>Pedestrian</label>
+                </value>
+                <value>
+                    <fullName>Motorcycle rider</fullName>
+                    <default>false</default>
+                    <label>Motorcycle rider</label>
+                </value>
+                <value>
+                    <fullName>Motorcycle passenger</fullName>
+                    <default>false</default>
+                    <label>Motorcycle passenger</label>
+                </value>
+                <value>
+                    <fullName>Cyclist</fullName>
+                    <default>false</default>
+                    <label>Cyclist</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentState__c</fullName>
+        <description>This field holds the Accident State Information,This is used on the PICF form.</description>
+        <externalId>false</externalId>
+        <label>Accident State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentStreet__c</fullName>
+        <description>This field holds the Accident Street Information,This is used on the PICF form.</description>
+        <externalId>false</externalId>
+        <label>Accident Street</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentSuburb__c</fullName>
+        <description>This field holds the Accident Suburb Information,This is used on the PICF form.</description>
+        <externalId>false</externalId>
+        <label>Accident Suburb</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AccidentYear__c</fullName>
+        <description>Year of the accident.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(OLCN_AccidentDate__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AccidentYear</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_AtFaultRegistrationNumber__c</fullName>
+        <description>Filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>At Fault Registration Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_CASComments__c</fullName>
+        <description>CAS team members use this field to provide notes to insurers.</description>
+        <externalId>false</externalId>
+        <label>CAS Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OLCN_CloseReason__c</fullName>
+        <description>This field is to enter the reason for closing the case</description>
+        <externalId>false</externalId>
+        <label>Close Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Nominal Defendant</fullName>
+                    <default>false</default>
+                    <label>Nominal Defendant</label>
+                </value>
+                <value>
+                    <fullName>Interstate Insurer</fullName>
+                    <default>false</default>
+                    <label>Interstate Insurer</label>
+                </value>
+                <value>
+                    <fullName>Unable to Contact</fullName>
+                    <default>false</default>
+                    <label>Unable to Contact</label>
+                </value>
+                <value>
+                    <fullName>No Issues Identified</fullName>
+                    <default>false</default>
+                    <label>No Issues Identified</label>
+                </value>
+                <value>
+                    <fullName>All Issues Resolved</fullName>
+                    <default>false</default>
+                    <label>All Issues Resolved</label>
+                </value>
+                <value>
+                    <fullName>Escalated</fullName>
+                    <default>false</default>
+                    <label>Escalated</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>New</controllingFieldValue>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Duplicate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Nominal Defendant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Interstate Insurer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Unable to Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>No Issues Identified</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>All Issues Resolved</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Escalated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Closed</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_ContactText__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact.FirstName &amp; &quot; &quot; &amp;  Contact.LastName</formula>
+        <label>Contact.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_CreateOutboundCallFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used in XYZ process builder to create a blank Outbound Call record.
+
+This field by default is false. XYZ workflow will update this field to True.</description>
+        <externalId>false</externalId>
+        <label>CreateOutboundCallFlag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_DateDownloaded__c</fullName>
+        <description>date data was downloaded by insurer - OLCN</description>
+        <externalId>false</externalId>
+        <label>Date Downloaded</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_DescriptionOfVehicle__c</fullName>
+        <description>Description of Vehicle - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Description of Vehicle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_DriverName__c</fullName>
+        <description>Name of the driver - filled by OLCN form</description>
+        <externalId>false</externalId>
+        <label>Driver Name</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_DueDateOfOutboundCall__c</fullName>
+        <description>This formula field is to calculate the Due date of Outbound call and it is used in reports. OLCN</description>
+        <externalId>false</externalId>
+        <formula>OLCN_MatchedDate__c + 21</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Due Date of Outbound Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormEmail__c</fullName>
+        <description>Injured Person Email; From OLCN webform -</description>
+        <externalId>false</externalId>
+        <label>Form: Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormFirstName__c</fullName>
+        <description>From OLCN webform - name of injured person. This is just a text field. Lookup is used for contact where found.</description>
+        <externalId>false</externalId>
+        <label>Form: First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormLastName__c</fullName>
+        <description>From OLCN webform - name of injured person. This is just a text field. Lookup is used for contact where found.</description>
+        <externalId>false</externalId>
+        <label>Form: Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormPhone__c</fullName>
+        <description>Injured Person Phone - from OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormRepEmail__c</fullName>
+        <description>Email of the Representative - created by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormRepFirstName__c</fullName>
+        <description>First Name of Representative - from webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormRepLastName__c</fullName>
+        <description>Representative last name - from OLCN webform</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormRepPhone__c</fullName>
+        <description>Representative&apos;s phone number - created by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Form: Rep Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_FormSubmitter__c</fullName>
+        <description>This indicates submitter of the OLCN form</description>
+        <externalId>false</externalId>
+        <label>Form Submitter</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injured person</fullName>
+                    <default>false</default>
+                    <label>Injured person</label>
+                </value>
+                <value>
+                    <fullName>Representative</fullName>
+                    <default>false</default>
+                    <label>Representative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_GetRecordTypeName__c</fullName>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OLCN Get Record Type Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_HomePhone__c</fullName>
+        <description>This field is populated with Phone number if the FormPhone__c is not a mobile format.</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(LEN(OLCN_FormPhone__c)= 10,(LEFT(OLCN_FormPhone__c, 2) = &apos;04&apos;)) ,&apos;&apos;,OLCN_FormPhone__c)</formula>
+        <label>HomePhone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerCode__c</fullName>
+        <description>List of insurers with their codes - filled by webforms</description>
+        <externalId>false</externalId>
+        <label>Insurer Code</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>InsurerCode</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerEmail__c</fullName>
+        <description>Insurer Email. This field is created to send email to insurer. Populated by workflow else template cannot be used.</description>
+        <externalId>false</externalId>
+        <label>Insurer Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerPhone__c</fullName>
+        <description>This field holds the insurer phone number,It is used in the email templates.</description>
+        <externalId>false</externalId>
+        <formula>OLCN_Insurer__r.Phone</formula>
+        <label>Insurer Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerProcessAge__c</fullName>
+        <description>This is a Formula field to calculate the age of case after it is matched to Insurer. OLCN</description>
+        <externalId>false</externalId>
+        <formula>Today() - OLCN_MatchedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurer Process Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerStatus__c</fullName>
+        <description>Status for insurer</description>
+        <externalId>false</externalId>
+        <label>Insurer Process Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Downloaded</fullName>
+                    <default>false</default>
+                    <label>Downloaded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_InsurerText__c</fullName>
+        <externalId>false</externalId>
+        <formula>OLCN_Insurer__r.Name</formula>
+        <label>Insurer.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_Insurer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Insurer who is responsible for this case - filled by webforms</description>
+        <externalId>false</externalId>
+        <label>Insurer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases (Insurer)</relationshipLabel>
+        <relationshipName>Cases_Insurer_OLCN</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_MatchedBy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Team member who matched the case to insurer</inlineHelpText>
+        <label>Matched By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_MatchedDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date matched to insurer. Automatically stamped.</inlineHelpText>
+        <label>Matched Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_MatchedDay__c</fullName>
+        <description>This field populates the Day of MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(DAY(OLCN_MatchedDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>MatchedDay</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_MatchedMonth__c</fullName>
+        <description>This field populates the month of MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>LPAD(TEXT(MONTH(OLCN_MatchedDate__c)), 2 ,&apos;0&apos;)</formula>
+        <label>MatchedMonth</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_MatchedYear__c</fullName>
+        <description>This field populates the year field of  MatchedDate__c.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(OLCN_MatchedDate__c))</formula>
+        <label>MatchedYear</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_Mobile__c</fullName>
+        <description>This field is populated with Mobile number if the FormPhone__c is of mobile format.</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(LEN(OLCN_FormPhone__c)= 10,(LEFT(OLCN_FormPhone__c, 2) = &apos;04&apos;)) , OLCN_FormPhone__c, &apos;&apos;)</formula>
+        <label>Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_NumberOfBusinessDays__c</fullName>
+        <description>This is a formula field used in report to calculate the total number of business days taken by the CAS team members to match a case to an insurer</description>
+        <externalId>false</externalId>
+        <formula>OLCN_MatchedDate__c - DATEVALUE(CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Business Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_NumberOfDaysTakenToDownload__c</fullName>
+        <externalId>false</externalId>
+        <formula>OLCN_DateDownloaded__c - OLCN_MatchedDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Days Taken to Download</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_NumberOfDueDays__c</fullName>
+        <description>This formula filed is to calculate the number of due days to outbound call.
+this filed is used in reports.</description>
+        <externalId>false</externalId>
+        <formula>OLCN_DueDateOfOutboundCall__c  - Today()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Due Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepContactText__c</fullName>
+        <description>OLCN - displayed to not allow insurer to click on related record.</description>
+        <externalId>false</externalId>
+        <formula>OLCN_RepContact__r.FirstName &amp; &quot; &quot; &amp;  OLCN_RepContact__r.LastName</formula>
+        <label>Rep Contact.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup on case - from OLCN webforms - this is the identified person</description>
+        <externalId>false</externalId>
+        <label>Rep Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Cases (Representative)</relationshipLabel>
+        <relationshipName>Cases_Representative</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepEmail__c</fullName>
+        <externalId>false</externalId>
+        <formula>OLCN_RepContact__r.Email</formula>
+        <label>Rep Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepPhone__c</fullName>
+        <externalId>false</externalId>
+        <formula>OLCN_RepContact__r.Phone</formula>
+        <label>Rep Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepTypeOther__c</fullName>
+        <description>Other representative type - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Rep Type Other</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OLCN_RepType__c</fullName>
+        <description>Filled by OLCN webforms - representative type</description>
+        <externalId>false</externalId>
+        <label>Rep Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>OLCN_FormSubmitter__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Parent/guardian</fullName>
+                    <default>false</default>
+                    <label>Parent/guardian</label>
+                </value>
+                <value>
+                    <fullName>Family member</fullName>
+                    <default>false</default>
+                    <label>Family Member</label>
+                </value>
+                <value>
+                    <fullName>Partner/spouse</fullName>
+                    <default>false</default>
+                    <label>Partner/spouse</label>
+                </value>
+                <value>
+                    <fullName>Health professional</fullName>
+                    <default>false</default>
+                    <label>Health professional</label>
+                </value>
+                <value>
+                    <fullName>Interpreter</fullName>
+                    <default>false</default>
+                    <label>Interpreter</label>
+                </value>
+                <value>
+                    <fullName>Legal representative</fullName>
+                    <default>false</default>
+                    <label>Legal representative</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Parent/guardian</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Family member</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Partner/spouse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Health professional</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Interpreter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Legal representative</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_SelectTemplate__c</fullName>
+        <description>This field is used to store name the Email Templates on Case object</description>
+        <externalId>false</externalId>
+        <label>Select Template</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Resend email - confirmation of submission</fullName>
+                    <default>false</default>
+                    <label>Resend email - confirmation of submission</label>
+                </value>
+                <value>
+                    <fullName>Resend email - unable to reach Contact</fullName>
+                    <default>false</default>
+                    <label>Resend email - unable to reach Contact</label>
+                </value>
+                <value>
+                    <fullName>Resend email - your insurer details</fullName>
+                    <default>false</default>
+                    <label>Resend email - your insurer details</label>
+                </value>
+                <value>
+                    <fullName>Resend email - follow up email to Contact</fullName>
+                    <default>false</default>
+                    <label>Resend email - follow up email to Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCN_SendTo__c</fullName>
+        <description>This indicates the preferred contact to send communications to</description>
+        <externalId>false</externalId>
+        <label>Send To</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injured person</fullName>
+                    <default>false</default>
+                    <label>Injured person</label>
+                </value>
+                <value>
+                    <fullName>Representative</fullName>
+                    <default>false</default>
+                    <label>Representative</label>
+                </value>
+                <value>
+                    <fullName>Both parties</fullName>
+                    <default>false</default>
+                    <label>Both parties</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OLCP_InsurerProcessStatusUpdate__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(OLCN_InsurerStatus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurer Process Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Origin</fullName>
@@ -184,6 +2421,77 @@
     </fields>
     <fields>
         <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PeerReviewComplete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS peer review complete indicator - checked = yes unchecked = no</description>
+        <externalId>false</externalId>
+        <label>Peer Review Complete?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactName__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.FirstName + &apos; &apos; + PrimaryContact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactPublicEmail__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.PublicEmail__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Public Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContactPublicPhone__c</fullName>
+        <externalId>false</externalId>
+        <formula>PrimaryContact__r.PublicPhone__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Contact Public Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrimaryContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Displayed in DRS Communities, Including User.PublicPhone__C and User.PublicEmail__C</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Primary Contact for external parties.</inlineHelpText>
+        <label>Primary Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases_w_Primary_Contact</relationshipName>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -216,6 +2524,306 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RepContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup on case - from OLCN webforms - this is the identified person</description>
+        <externalId>false</externalId>
+        <label>Rep Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RepEmail__c</fullName>
+        <externalId>false</externalId>
+        <formula>RepContact__r.Email</formula>
+        <label>Rep Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RepPhone__c</fullName>
+        <externalId>false</externalId>
+        <formula>RepContact__r.Phone</formula>
+        <label>Rep Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RepTypeOther__c</fullName>
+        <description>Other representative type - filled by OLCN webforms</description>
+        <externalId>false</externalId>
+        <label>Rep Type Other</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RepType__c</fullName>
+        <description>Filled by OLCN webforms - representative type</description>
+        <externalId>false</externalId>
+        <label>Rep Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>FormSubmitter__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Parent/guardian</fullName>
+                    <default>false</default>
+                    <label>Parent/guardian</label>
+                </value>
+                <value>
+                    <fullName>Family member</fullName>
+                    <default>false</default>
+                    <label>Family Member</label>
+                </value>
+                <value>
+                    <fullName>Partner/spouse</fullName>
+                    <default>false</default>
+                    <label>Partner/spouse</label>
+                </value>
+                <value>
+                    <fullName>Health professional</fullName>
+                    <default>false</default>
+                    <label>Health professional</label>
+                </value>
+                <value>
+                    <fullName>Interpreter</fullName>
+                    <default>false</default>
+                    <label>Interpreter</label>
+                </value>
+                <value>
+                    <fullName>Legal representative</fullName>
+                    <default>false</default>
+                    <label>Legal representative</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Parent/guardian</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Family member</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Partner/spouse</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Health professional</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Interpreter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Legal representative</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Representative</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ReplyToDateReceived__c</fullName>
+        <description>MRS - Insurer Reply to Date Received</description>
+        <externalId>false</externalId>
+        <label>Reply to Date Received</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RepresentativeType__c</fullName>
+        <description>Representative Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the Representative as submitted on the Application. To see who submitted the form, look at the Created By field.</inlineHelpText>
+        <label>Representative Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+                <value>
+                    <fullName>Union</fullName>
+                    <default>false</default>
+                    <label>Union</label>
+                </value>
+                <value>
+                    <fullName>Worker Advocate</fullName>
+                    <default>false</default>
+                    <label>Worker Advocate</label>
+                </value>
+                <value>
+                    <fullName>Accountant</fullName>
+                    <default>false</default>
+                    <label>Accountant</label>
+                </value>
+                <value>
+                    <fullName>Family Member</fullName>
+                    <default>false</default>
+                    <label>Family Member</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>S43AWorkCapacity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WCD Decision Type S43A - Work Capacity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43A - Work Capacity</inlineHelpText>
+        <label>S43A Work Capacity</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43BSuitableEmployment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43B - Suitable Employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43B - Suitable Employment</inlineHelpText>
+        <label>S43B Suitable Employment</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43CAmountEarntInSE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43C - Amount earnt in SE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43C - Amount earnt in SE</inlineHelpText>
+        <label>S43C Amount earnt in SE</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43D1PIAWE__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43D1 - PIAWE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43D1 - PIAWE</inlineHelpText>
+        <label>S43D1 PIAWE</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43D2CurrentWeeklyEarnings__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43D2 Current Weekly Earnings</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43D2 - Current Weekly Earnings</inlineHelpText>
+        <label>S43D2 Current Weekly Earnings</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43EUnableToEngageInCertainEmploy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43E - Inability to engage in certain employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43E - Inability to engage in certain employment</inlineHelpText>
+        <label>S43E Unable to engage in certain employ.</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>S43FAnyOtherWeeklyPaymentsDecision__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>MRS - WDC Decision Type S43F - Any other weekly payments decision</description>
+        <externalId>false</externalId>
+        <inlineHelpText>S43F - Any other weekly payments decision</inlineHelpText>
+        <label>S43F Any other weekly payments decision</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SendTo__c</fullName>
+        <description>This indicates the preferred contact to send communications to</description>
+        <externalId>false</externalId>
+        <label>Send To</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injured person</fullName>
+                    <default>false</default>
+                    <label>Injured person</label>
+                </value>
+                <value>
+                    <fullName>Representative</fullName>
+                    <default>false</default>
+                    <label>Representative</label>
+                </value>
+                <value>
+                    <fullName>Both parties</fullName>
+                    <default>false</default>
+                    <label>Both parties</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SlaExitDate</fullName>
@@ -268,14 +2876,44 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>TopicFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The field helps users to find the Cases that do not have a Topic assigned to them. The field is checked and unchecked through a trigger on Case Assignment object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The field helps users to find the Cases that do not have a Topic assigned to them. The field is checked and unchecked through a trigger on Case Assignment object.</inlineHelpText>
+        <label>Topic Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>WCDNoticeDate__c</fullName>
+        <description>MRS - WCD Notice Date</description>
+        <externalId>false</externalId>
+        <label>WCD Notice Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <listViews>
         <fullName>AllOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -283,14 +2921,425 @@
             <value>0</value>
         </filters>
         <label>All Open Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DRS_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_AAMI_Cases</fullName>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>equals</operation>
+            <value>AAMI</value>
+        </filters>
+        <label>~All Open Cases for AAMI</label>
+        <sharedTo>
+            <portalRoleAndSubordinates>AAMIPartnerManager</portalRoleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DRS_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Downloaded_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Downloaded</value>
+        </filters>
+        <label>~All Downloaded Cases</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_New_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Online_Claims_Notification</value>
+        </filters>
+        <label>~All New Cases</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </filters>
+        <label>All Open Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DRS_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases_Last_30_Days</fullName>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Downloaded</value>
+        </filters>
+        <filters>
+            <field>OLCN_MatchedDate__c</field>
+            <operation>lessOrEqual</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>~All Open Cases (Last 30 Days)</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases_Last_3_Months</fullName>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Downloaded</value>
+        </filters>
+        <filters>
+            <field>OLCN_MatchedDate__c</field>
+            <operation>equals</operation>
+            <value>LAST_N_MONTHS:3</value>
+        </filters>
+        <label>~All Open Cases (Last 3 Months)</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases_New_Updated</fullName>
+        <booleanFilter>(1 OR 2)</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <label>~All Open Cases (New &amp; Updated)</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Cases_for_GIO</fullName>
+        <booleanFilter>(1 or 2) AND 3</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <filters>
+            <field>OLCN_InsurerCode__c</field>
+            <operation>equals</operation>
+            <value>31 - GIO</value>
+        </filters>
+        <label>~All Open Cases for GIO</label>
+        <sharedTo>
+            <portalRoleAndSubordinates>GIOPartnerManager</portalRoleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Updated_cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>OLCN_ContactText__c</columns>
+        <columns>OLCN_MatchedDate__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <columns>OLCN_InsurerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OLCN_InsurerStatus__c</field>
+            <operation>equals</operation>
+            <value>Updated</value>
+        </filters>
+        <label>~All Updated cases</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CAS_All_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>CAS All Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CAS_All_Further_Enquiry_cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>NAME</columns>
+        <columns>OLCN_AccidentDate__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Further Enquiries</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Online_Claims_Notification</value>
+        </filters>
+        <label>CAS All Further Enquiry cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CAS_All_Open_cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>NAME</columns>
+        <columns>OLCN_AccidentDate__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>New,Further Enquiries,Require Notification Follow-up</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Online_Claims_Notification</value>
+        </filters>
+        <label>CAS All Open cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CAS_All_Outbound_Call</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>NAME</columns>
+        <columns>OLCN_AccidentDate__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>OLCN_InsurerStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Require Outbound Call</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Online_Claims_Notification</value>
+        </filters>
+        <label>CAS All Notification Follow-up required</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAS_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CAS_Team_Queue_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Online_Claims_Notification</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+        </filters>
+        <label>CAS Team Queue</label>
+        <queue>CAS_Team_Queue</queue>
+        <sharedTo>
+            <role>CAS_Manager</role>
+            <role>CAS_Team</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Merit_Review_Service_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Merit Review Service Queue</label>
+        <queue>Merit_Review_Service</queue>
+        <sharedTo>
+            <roleAndSubordinates>DRS_Director</roleAndSubordinates>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DRS_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>ClaimNumber__c</columns>
+        <columns>OLCN_Insurer__c</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>DateTimeCaseLodged__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -298,42 +3347,758 @@
             <value>0</value>
         </filters>
         <label>My Open Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DRS_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>IPM_IPM_Director_QA</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>Sample_Cases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.TYPE</field>
-            <operation>equals</operation>
-            <value>Sample Cases</value>
-        </filters>
-        <label>Sample Cases</label>
-    </listViews>
-    <listViews>
-        <fullName>Trial_Activities</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CASES.CLOSED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.TYPE</field>
-            <operation>equals</operation>
-            <value>Trial</value>
-        </filters>
-        <label>Trial Activities</label>
-    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Merit_Review_Service</fullName>
+        <active>true</active>
+        <businessProcess>Merit Review Service</businessProcess>
+        <description>Merit Review Service (Do not change name, referenced in Process)</description>
+        <label>Merit Review Service</label>
+        <picklistValues>
+            <picklist>CaseReasons__c</picklist>
+            <values>
+                <fullName>Different Decision - Better for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Better for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No application for internal review made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Deleted draft application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Expired application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Frivolous application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No Work Capacity Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No internal review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Out of time application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Vexatious application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Insurer withdrew WCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Worker withdrew MR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - No new information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ClaimType__c</picklist>
+            <values>
+                <fullName>Before 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On or after 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DuplicateStatus__c</picklist>
+            <values>
+                <fullName>Duplicate - no additional information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate - submitted in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved - Duplicate%2C additional informationDuplicate - Additional information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_SelectTemplate__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Walk-In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RepresentativeType__c</picklist>
+            <values>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker Advocate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Online_Claims_Notification</fullName>
+        <active>true</active>
+        <businessProcess>Online Claims Notification</businessProcess>
+        <description>Record type for all Online Claims Notification to CAS teams</description>
+        <label>Online Claims Notification</label>
+        <picklistValues>
+            <picklist>AccidentRole__c</picklist>
+            <values>
+                <fullName>Cyclist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Driver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorcycle passenger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorcycle rider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pedestrian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CaseReasons__c</picklist>
+            <values>
+                <fullName>Different Decision - Better for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Better for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Different Decision - Worse for worker - No new information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Internal review %26 30 days has not lapsed since application for internal review was made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No application for internal review made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Deleted draft application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Expired application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Frivolous application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No Work Capacity Decision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - No internal review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Out of time application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Declined - Vexatious application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Insurer withdrew WCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Review Withdrawn - Worker withdrew MR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - New information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Decision - No new information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ClaimType__c</picklist>
+            <values>
+                <fullName>Before 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On or after 01%2F10%2F12</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CloseReason__c</picklist>
+            <values>
+                <fullName>All Issues Resolved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interstate Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Issues Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nominal Defendant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DuplicateStatus__c</picklist>
+            <values>
+                <fullName>Duplicate - no additional information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate - submitted in error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not a duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved - Duplicate%2C additional informationDuplicate - Additional information</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>FormSubmitter__c</picklist>
+            <values>
+                <fullName>Injured person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Representative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InsurerCode__c</picklist>
+            <values>
+                <fullName>26 - AAMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31 - GIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>32 - Allianz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>34 - NRMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>36 - QBE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>38 - Zurich</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39 - CIC Allianz</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InsurerStatus__c</picklist>
+            <values>
+                <fullName>Downloaded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Updated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_AccidentRole__c</picklist>
+            <values>
+                <fullName>Cyclist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Driver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorcycle passenger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motorcycle rider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pedestrian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_CloseReason__c</picklist>
+            <values>
+                <fullName>All Issues Resolved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interstate Insurer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Issues Identified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nominal Defendant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_FormSubmitter__c</picklist>
+            <values>
+                <fullName>Injured person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Representative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_InsurerCode__c</picklist>
+            <values>
+                <fullName>26 - AAMI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31 - GIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>32 - Allianz</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>34 - NRMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>36 - QBE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>38 - Zurich</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>39 - CIC Allianz</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_InsurerStatus__c</picklist>
+            <values>
+                <fullName>Downloaded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Updated</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_RepType__c</picklist>
+            <values>
+                <fullName>Family member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2Fguardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner%2Fspouse</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_SelectTemplate__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resend email - confirmation of submission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resend email - follow up email to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resend email - unable to reach Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resend email - your insurer details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OLCN_SendTo__c</picklist>
+            <values>
+                <fullName>Both parties</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Injured person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Representative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Chatter Answers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RepType__c</picklist>
+            <values>
+                <fullName>Family member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2Fguardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner%2Fspouse</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RepresentativeType__c</picklist>
+            <values>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Member</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Worker Advocate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SendTo__c</picklist>
+            <values>
+                <fullName>Both parties</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Injured person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Representative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Sample Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trial</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <excludedStandardButtons>MassClose</excludedStandardButtons>
+        <excludedStandardButtons>ChangeStatus</excludedStandardButtons>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
@@ -351,6 +4116,70 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Change_Validate_Status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISPICKVAL(Status, &quot;Validate&quot;),$Profile.Id = &quot;00eN0000000I7lM&quot;)</errorConditionFormula>
+        <errorDisplayField>Status</errorDisplayField>
+        <errorMessage>Please close all your outstanding tasks to proceed to the next stage</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DRS_CompleteDecision</fullName>
+        <active>true</active>
+        <description>When Case Status is updated to Decision, ensure that Decision Date and Outcome fields are complete.</description>
+        <errorConditionFormula>IF( RecordType.DeveloperName = &quot;Merit_Review_Service&quot;,
+
+IF(ISPICKVAL(Status, &quot;Decision&quot;), 
+AND(
+OR(
+ ISBLANK( BriefSummaryOfOutcome__c ) ,
+ ISBLANK( DecisionDate__c ) 
+)
+)
+, False)
+,False
+)</errorConditionFormula>
+        <errorMessage>Please ensure you have completed the fields &apos;Brief Summary of Outcome&apos; and &apos;Decision Date&apos; in the MRS Decision section before updating the Case to Review.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>ANF</fullName>
+        <availability>online</availability>
+        <description>This button is to generate Accident-Notification-Form</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>ANF</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/{!$Site.Name}/apex/loop__looplus?&amp;eid={!Case.Id}&amp;header=false&amp;sidebar=false&amp;hidecontact=true&amp;hideddp=true&amp;autorun=true&amp;ddpIds=a030k000001IP3d&amp;deploy=a010k0000019R82</url>
+    </webLinks>
+    <webLinks>
+        <fullName>DRS_Create_Document</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Document</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var redirectUrl = &quot;/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;image1={!User.SignatureID__c}&amp;eid={!Case.Id}&amp;contactId={!Case.ContactId}&quot;;
+if (sforce &amp;&amp; sforce.console &amp;&amp; sforce.console.isInConsole()) {
+        sforce.console.getEnclosingTabId(function(enclosingResult){
+            sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
+            if (primaryResult &amp;&amp; primaryResult.success)
+                sforce.console.openSubtab(primaryResult.id, redirectUrl+&apos;&amp;previousTabId=&apos;+enclosingResult.id+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            else
+                sforce.console.openPrimaryTab(null, redirectUrl+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            });
+        });
+    }
+    else {
+        window.location.href = redirectUrl;
+    }</url>
+    </webLinks>
     <webLinks>
         <fullName>Loop__LOOP</fullName>
         <availability>online</availability>
@@ -421,6 +4250,156 @@ else
     url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
     url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
     window.location.href = url;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Merit_Review_case</fullName>
+        <availability>online</availability>
+        <description>New Merit Review case</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Merit Review case</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/DRS_Case_WorkerCaseItemCreate</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PICF</fullName>
+        <availability>online</availability>
+        <description>This button will generate Personal Injury Claim Form.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>PICF</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/{!$Site.Name}/apex/loop__looplus?&amp;eid={!Case.Id}&amp;header=false&amp;sidebar=false&amp;hidecontact=true&amp;hideddp=true&amp;autorun=true&amp;ddpIds=a030k000001IP3i&amp;deploy=a010k0000019R8R</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_Additional_Information</fullName>
+        <availability>online</availability>
+        <description>A button to initiate the flow for requesting additional information</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Request Additional Information</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/22.0/integration.js&quot;)}
+
+sforce.console.getEnclosingPrimaryTabId(function(result) {
+   sforce.console.openSubtab(result.id, &apos;/apex/DRS_Case_AdditionalInformationCreate?id={!Case.Id}&apos;, true, &apos;Additional Information&apos;);
+});</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Run_Document_Package</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Run Document Package</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var redirectUrl = &quot;/apex/loop__looplus?&amp;eid={!Case.Id}&quot;;
+if (sforce &amp;&amp; sforce.console &amp;&amp; sforce.console.isInConsole()) {
+        sforce.console.getEnclosingTabId(function(enclosingResult){
+            sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
+            if (primaryResult &amp;&amp; primaryResult.success)
+                sforce.console.openSubtab(primaryResult.id, redirectUrl+&apos;&amp;previousTabId=&apos;+enclosingResult.id+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            else
+                sforce.console.openPrimaryTab(null, redirectUrl+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            });
+        });
+    }
+    else {
+        window.location.href = redirectUrl;
+    }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TESTAJTestURL</fullName>
+        <availability>online</availability>
+        <description>AJ Test URL Button - delete</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>TESTAJTestURL</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>www.google.com</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TESTDL_Test</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>TESTDL Test</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>OnlineClaimNotification/apex/loop__looplus?&amp;eid={!Case.Id}&amp;accountId={!Case.AccountId}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TESTDLtest2</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>TESTDLtest2</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/OnlineClaimNotification/apex/loop__looplus?eid={!Case.Id}&amp;returnURL=OnlineClaimNotification/{!Case.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TESTDrawloopList</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>TESTDrawloopList</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/OnlineClaimNotification/apex/loop__looplus?eid=5000l000000VEmD</url>
+    </webLinks>
+    <webLinks>
+        <fullName>TESTExport_As_Excel</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>TESTExport As Excel</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var ids = {!GETRECORDIDS($ObjectType.Case)};
+if (!ids || ids.length &lt; 1)
+    alert(&quot;Please select at least one record.&quot;);
+else
+{
+    var redirectUrl = &quot;/apex/loop__masslooplus?retURL=&quot; + encodeURI(window.location.pathname+window.location.search);
+    redirectUrl += &quot;&amp;recordIds=&quot;+ids.join(&quot;,&quot;);
+    if (sforce &amp;&amp; sforce.console &amp;&amp; sforce.console.isInConsole()) {
+        sforce.console.getEnclosingTabId(function(enclosingResult){
+            sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
+            if (primaryResult &amp;&amp; primaryResult.success)
+                sforce.console.openSubtab(primaryResult.id, redirectUrl+&apos;&amp;previousTabId=&apos;+enclosingResult.id+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            else
+                sforce.console.openPrimaryTab(null, redirectUrl+&apos;&amp;isSubTab=true&apos;, true, &apos;&apos;, null);
+            });
+        });
+    }
+    else {
+        window.location.href = redirectUrl;
+    }
 }</url>
     </webLinks>
 </CustomObject>

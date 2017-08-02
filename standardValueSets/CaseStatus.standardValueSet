@@ -2,18 +2,6 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>On Hold</fullName>
-        <default>false</default>
-        <label>On Hold</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
-        <fullName>Escalated</fullName>
-        <default>false</default>
-        <label>Escalated</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Closed</fullName>
         <default>false</default>
         <label>Closed</label>
@@ -23,6 +11,66 @@
         <fullName>New</fullName>
         <default>true</default>
         <label>New</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Draft</fullName>
+        <default>false</default>
+        <label>Draft</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Validate</fullName>
+        <default>false</default>
+        <label>Validate</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Discovery</fullName>
+        <default>false</default>
+        <label>Discovery</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Assess</fullName>
+        <default>false</default>
+        <label>Assess</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Review</fullName>
+        <default>false</default>
+        <label>Review</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Decision</fullName>
+        <default>false</default>
+        <label>Decision</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Further Enquiries</fullName>
+        <default>false</default>
+        <label>Further Enquiries</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Pending Acceptance</fullName>
+        <default>false</default>
+        <label>Pending Acceptance</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Require Notification Follow-up</fullName>
+        <default>false</default>
+        <label>Require Notification Follow-up</label>
         <closed>false</closed>
     </standardValue>
 </StandardValueSet>

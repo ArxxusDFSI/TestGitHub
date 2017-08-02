@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This template is used by CAS team members when they are unable to contact injured person</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>UnableToContactCustomer</name>
+    <style>none</style>
+    <subject>REF NO. {!Case.CaseNumber} Motor accident injury insurer details</subject>
+    <textOnly>Dear {!Contact.FirstName},  
+
+Thank you for completing the online form as provided on the State Insurance Regulatory Authority (SIRA) website. I am writing from the Claims Advisory Service (CAS) regarding your recent request to find out who to claim compensation with for your motor accident injury.  
+
+We tried calling you on {!Contact.Phone} but we&apos;ve been unsuccessful.  
+
+Can you please call us back on 1300 656 919, 8:30am to 5pm, Monday to Friday to discuss your request.  
+
+Please do not reply on this email, if you have any enquiries please send your email to motor@sira.nsw.gov.au 
+
+
+Your reference number: 
+{!Case.CaseNumber} 
+
+Kind regards, 
+Claims Advisory Service 
+State Insurance Regulatory Authority 
+p 1300 656 919 
+www.sira.nsw.gov.au</textOnly>
+    <type>custom</type>
+</EmailTemplate>

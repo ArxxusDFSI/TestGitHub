@@ -1,0 +1,83 @@
+<aura:component controller="DRS_RegisterLogin_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="form" type="string" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="communitylink" type="string" />
+    <aura:attribute name="vaildation" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.vaildation}">
+        <div class="alert alert-success">
+          Your details has been successfully updated!
+        </div>
+    </aura:if>
+    
+    <div class="panel" id="userProfile">
+        <h1>Update Your Details</h1>
+        <br/>
+        <h3>Your SIRA Profile</h3>
+        <br/>
+        <form name="profileForm" id="profileForm">
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputSelect aura:id="title" label="Title" value="{!v.form.Salutation}" options="[{'label': 'Mr.', 'key': 'Mr.'}, {'label': 'Ms.', 'key': 'Ms.'}, {'label': 'Mrs.', 'key': 'Mrs.'}, {'label': 'Dr.', 'key': 'Dr.'}, {'label': 'Prof.', 'key': 'Prof.'}]" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="firstName" label="Given name(s)" value="{!v.form.FirstName}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="lastName" label="Surname" value="{!v.form.LastName}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputDate aura:id="birthDate" id="birthDate" label="Date of Birth" value="{!v.form.Birthdate}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="phone" label="Contact Number" value="{!v.form.Phone}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputEmail label="Email" value="{!v.form.Email}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="mailingStreet" label="Postal address" value="{!v.form.MailingStreet}"/>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <c:UI_InputText aura:id="mailingCity" label="Suburb" value="{!v.form.MailingCity}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputSelect label="State" aura:id="mailingState" value="{!v.form.MailingState}"
+                        options="[{'label': 'NSW', 'key': 'NSW'}, {'label': 'QLD', 'key': 'QLD'}, {'label': 'SA', 'key': 'SA'}, {'label': 'TAS', 'key': 'TAS'}, {'label': 'VIC', 'key': 'VIC'}, {'label': 'WA', 'key': 'WA'}]" />
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <c:UI_InputNumber label="PostCode" aura:id="mailingPostalCode" value="{!v.form.MailingPostalCode}" max="4" min="4"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-12">
+                    <p>Password</p>
+                    <a href="{!v.communitylink + '/changepassword'}">Change Password</a>
+                </div>
+            </div>
+        </form>
+        <br/>
+        <div class="form-group row">
+            <div class="col-xs-12">
+                <c:UI_Button aura:id="submitButton" type="submit" class="btn-submit" onClickFunction="{!c.submit}">Save</c:UI_Button>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,34 @@
+<apex:page standardController="Case" sidebar="false" showHeader="false" title="Case Item">
+    <apex:includeScript value="/resource/jquery" />
+    <apex:includeScript value="/resource/bootstrap/js/bootstrap.min.js" />
+    <apex:includeScript value="/resource/moment" />
+    <apex:includeScript value="/resource/boostrap_datepicker_js" />
+    <apex:includeScript value="/resource/pluploader/plupload/js/plupload.full.min.js" />
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <apex:stylesheet value="/resource/bootstrap/css/bootstrap.min.css" />
+    <apex:stylesheet value="/resource/bootstrap_datepicker_css" />
+    <apex:slds />
+    <apex:includeLightning />
+    <style>
+        .btn-primary{background:none !important;background-color: #fff !important; color: #467082 !important; border: 3px solid #467082 !important; border-radius: 0px; text-transform: uppercase;font-size: 16px !important;line-height: 20px;padding-top: 7px;}
+        .panel-heading{color: #000 !important;font-weight: bold !important;font-size: 20px !important;}
+        .panel-heading a{font-weight:bold;}
+        #auraErrorMessage{display: none;}
+    </style>
+    <div class="container">
+        <div id="lightning" />
+    </div>
+    <script>
+    $Lightning.use("c:App_LightningOutDependency", function() {
+        $Lightning.createComponent("c:UI_upload",
+                                   {caseId: window.location.search.split('caseId=')[1].split('&')[0]},
+                                   "lightning",
+                                   function(cmp, status, errorMessage ) {
+                                   });
+    });
+    
+    //Set the current tab's title 
+    sforce.console.setTabTitle('Upload attachments'); 
+    
+    </script>
+</apex:page>

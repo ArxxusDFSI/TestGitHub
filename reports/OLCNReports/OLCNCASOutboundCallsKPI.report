@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount/PARENTGROUPVAL(RowCount, GRAND_SUMMARY)</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>To Calculate the % Of Outbound Calls Completed</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>BucketField_19558907</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>% Of Outbound Calls Completed</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_41647929</developerName>
+        <masterLabel>Days taken to Complete</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>OLCN_OutboundCalls__c.OLCN_NoOfDaysTaken__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>30</to>
+            </sourceValues>
+            <value>Completed within 4 Weeks</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>30</from>
+            </sourceValues>
+            <value>Completed &gt; 4 Weeks</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_19558907</developerName>
+        <masterLabel>Outbound Calls</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>OLCN_OutboundCalls__c.OLCN_NoOfDaysTaken__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>30</to>
+            </sourceValues>
+            <value>Completed within 4 weeks</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>30</from>
+            </sourceValues>
+            <value>Completed &gt;4 weeks</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>CASE_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_Insurer__c</field>
+    </columns>
+    <columns>
+        <field>CONTACT.NAME</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_MatchedDate__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_CompletedDate__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer11__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer13__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Answer15__c</field>
+    </columns>
+    <columns>
+        <field>OLCN_OutboundCalls__c.OLCN_Status__c</field>
+    </columns>
+    <columns>
+        <field>Case.OLCN_CloseReason__c</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>OLCN_OutboundCalls__c.OLCN_NoOfDaysTaken__c</field>
+    </columns>
+    <description>To monitor CAS performance when completing the Outbound Calls.</description>
+    <filter>
+        <criteriaItems>
+            <column>OLCN_OutboundCalls__c.OLCN_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Call back</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OLCN_OutboundCalls__c.OLCN_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>OLCN_OutboundCalls__c.OLCN_CompletedBy__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_19558907</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>OLCN CAS Outbound Call KPIs</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$OLCN_OutboundCalls__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>OLCN_OutboundCalls__c.OLCN_CompletedDate__c</dateColumn>
+        <interval>INTERVAL_LAST120</interval>
+    </timeFrameFilter>
+</Report>

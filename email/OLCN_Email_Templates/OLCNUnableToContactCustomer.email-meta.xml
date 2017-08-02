@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent if the CAS team member triggers it from the case view.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>OLCNUnableToContactCustomer</name>
+    <style>freeForm</style>
+    <subject>REF NO. {!Case.CaseNumber} Motor accident injury insurer details</subject>
+    <textOnly>Dear {!Case.OLCN_FormFirstName__c},
+
+
+Thank you for completing the online form as provided on the State Insurance Regulatory Authority (SIRA) website. I am writing from the Claims Advisory Service (CAS) regarding your recent request to find
+out who to claim compensation with for your motor accident injury.
+
+We tried calling you on {!Case.OLCN_FormPhone__c} but we&apos;ve been unsuccessful.
+
+Can you please call us back on 1300 656 919, 8:30am to 5pm, Monday to Friday to discuss your request.
+
+Your reference number:
+
+{!Case.CaseNumber}
+
+
+Kind regards,
+
+Claims Advisory Service
+
+State Insurance Regulatory Authority
+p 1300 656 919
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>

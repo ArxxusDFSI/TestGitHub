@@ -1,0 +1,5 @@
+<aura:component extends="c:UI_FormElement">
+	<aura:attribute name="keyup" type="String" />
+	<aura:attribute name="blurFunction" type="String" />
+	<ui:inputText aura:id="input" label="{!v.label}" labelClass="control-label" required="{!v.required}" placeholder="{!v.placeHolder}" value="{!v.value}" maxlength="{!v.size}" class="form-control" disabled="{!v.disabled}" updateOn="keyup" keyup="{!c.keyupFunction}" blur="{!c.blurFunction}" />
+</aura:component>

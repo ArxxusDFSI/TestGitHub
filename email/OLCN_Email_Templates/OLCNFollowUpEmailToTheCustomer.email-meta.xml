@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent once the CAS member calls the customer to follow up (21 days) and there is no further issue to resolve or the customer does not require call back.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>OLCNFollowUpEmailToTheCustomer</name>
+    <style>freeForm</style>
+    <subject>REF NO: {!Case.CaseNumber}</subject>
+    <textOnly>Dear {!Case.OLCN_FormFirstName__c},
+
+
+Thank you for your time today and for your feedback regarding your experiences with Compulsory Third Party insurance.
+
+SIRA is here to help and our Claims Advisory Service (CAS) can provide you with assistance throughout your claims process.
+
+We are available 8:30am to 5pm Monday to Friday by calling 1300 656 919. There is also information available at www.sira.nsw.gov.au.
+
+Any enquiries or feedback can also be submitted via our online form {link to the online form}.
+
+Your privacy and personal information is important to us.
+
+We have collected the details of your experience with the insurer and we will use your feedback to help regulate CTP insurers.
+
+Your feedback will not be shared with anyone outside of SIRA. We may compare your feedback with others to analyse trends which may be available publicly.
+
+Please contact us at any time if you need to make any update with the personal information collected.
+
+Kind regards
+
+{!Case.OwnerFullName}
+
+State Insurance Regulatory Authority
+p 1300 656 919
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>

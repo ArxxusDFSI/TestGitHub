@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>OLCNNCFSendFollowUpEmailToInjuredPerson</fullName>
+        <description>OLCNNCFSendFollowUpEmailToInjuredPerson</description>
+        <protected>false</protected>
+        <recipients>
+            <field>OLCN_InjuredPersonEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>OLCN_Email_Templates/OLCNFollowUpEmailToTheCustomer</template>
+    </alerts>
+    <alerts>
+        <fullName>OLCNNFUSendFollowUpEmailToInjuredPerson</fullName>
+        <description>OLCNNFUSendFollowUpEmailToInjuredPerson</description>
+        <protected>false</protected>
+        <recipients>
+            <field>OLCN_InjuredPersonEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>OLCN_Email_Templates/OLCNFollowUpEmailToTheCustomer</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>OLCNNFUNotificationFollowUpCompletedDate</fullName>
+        <field>OLCN_CompletedDate__c</field>
+        <formula>TODAY()</formula>
+        <name>OLCNNFUNotificationFollowUpCompletedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OLCNNFUUpdateInjuredPersonEmail</fullName>
+        <field>OLCN_InjuredPersonEmail__c</field>
+        <formula>OLCN_Case__r.Contact.Email</formula>
+        <name>OLCNNFUUpdateInjuredPersonEmail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>OLCNNFUNotificationFollowUpCompletedDateUpdate</fullName>
+        <actions>
+            <name>OLCNNFUNotificationFollowUpCompletedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where the CAS team completed the Notification-follow-up,Completed date filed will be Auto updated.</description>
+        <formula>AND(   ISCHANGED( OLCN_Status__c ), OR( ISPICKVAL( OLCN_Status__c , &quot;No issues identified&quot;), ISPICKVAL( OLCN_Status__c , &quot;All issues resolved&quot;),ISPICKVAL( OLCN_Status__c , &quot;Escalated&quot;),ISPICKVAL( OLCN_Status__c , &quot;Further Assistance&quot;),ISPICKVAL( OLCN_Status__c , &quot;Unable to Contact&quot;),ISPICKVAL( OLCN_Status__c , &quot;Already provided&quot;),ISPICKVAL( OLCN_Status__c , &quot;Declined to Answer&quot;) )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>OLCNNFUSendFollowUpNotificationEmail</fullName>
+        <actions>
+            <name>OLCNNFUSendFollowUpEmailToInjuredPerson</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>OLCNNFUUpdateInjuredPersonEmail</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>OLCN_OutboundCalls__c.OLCN_Status__c</field>
+            <operation>equals</operation>
+            <value>No issues identified,All issues resolved,Escalated,Further Assistance</value>
+        </criteriaItems>
+        <description>Send follow up mail to injured person</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>admin@dfsi.gov.au</contactEmail>
+    <label>Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://sira2017--sirasit07.cs57.my.salesforce.com/services/oauth2/callback</callbackUrl>
+        <consumerKey>3MVG959Nd8JMmavTbGfHtuH.8W5IrS.O8TguOEOKj.DQYD_HO4Wq5UVkU4B1bTmHSXjoEVeDsBeRczMuCqW32</consumerKey>
+        <scopes>Api</scopes>
+        <scopes>OpenID</scopes>
+    </oauthConfig>
+</ConnectedApp>

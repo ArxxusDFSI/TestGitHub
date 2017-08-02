@@ -1,0 +1,579 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="status" type="string" default="success" />
+	<aura:attribute name="insurer" type="string" />
+	<aura:attribute name="caseId" type="string" />
+	<aura:attribute name="caseItemId" type="string" />
+	<aura:attribute name="caseDetail" type="string" />
+	<aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="vaildation" type="boolean" default="false"/>
+    
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+	<aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.vaildation}">
+        <div class="alert alert-success">
+        	Updated!
+        </div>
+    </aura:if>
+
+    <div id="checklist">
+		<div class="row form-group">
+			<div class="col-md-5 panel-grey">
+	            <div class="form-group row">
+	                <div class="col-xs-6">Case number</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.caseNumber}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Worker name</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.workerName}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Insurer</div>
+	                <div class="col-xs-6"><b>{!v.insurer.name}</b></div>
+	            </div>
+	            <div class="form-group row">
+	                <div class="col-xs-6">Claim number</div>
+	                <div class="col-xs-6"><b>{!v.caseDetail.claimNo}</b></div>
+	            </div>
+			</div>
+			<div class="col-md-6 pull-right panel-grey">
+				<h2 class="btn-status-label">Allocation checklist</h2>
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<div class="col-xs-12">
+	        	<h3>Background</h3>
+				<br/>
+				<br/>
+				<div class="row form-group">
+					<div class="col-md-3">
+						Date of injury
+					</div>
+					<div class="col-md-3">
+						<c:UI_InputDate id="dateOfInjury" aura:id="dateOfInjury"/>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="dateOfInjuryComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Section of the Act
+					</div>
+					<div class="col-md-3">
+						<select id="sectonOfAct" class="form-control">
+							<option value=""></option>
+							<option value="Section 36">Section 36</option>
+							<option value="Section 37">Section 37</option>
+							<option value="Section 38">Section 38</option>
+							<option value="Section 39">Section 39</option>
+							<option value="TBC">TBC</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="sectonOfActComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Weeks paid
+					</div>
+					<div class="col-md-3">
+						<select id="weeksPaid" class="form-control">
+							<option value=""></option>
+							<option value="0 - 13">0 - 13</option>
+							<option value="14 - 130">14 - 130</option>
+							<option value="130weeks">&gt;130&nbsp;weeks</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="weeksPaidComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						<label for="existingRecipient" class="selectLabel">Existing recipient</label>
+				    </div>
+				    <div class="col-md-3">
+				        <select id="existingRecipient" class="form-control select-yesno">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="existingRecipientComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						<label for="workerWithHighNeed" class="selectLabel">Worker with high/highest needs</label>
+					</div>
+					<div class="col-md-3">
+				        <select id="workerWithHighNeed" class="form-control select-yesno">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="workerWithHighNeedComment" class="form-control"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="row form-group">
+			<div class="col-xs-4">
+	        	<h3>Decisions made in the WCD notice</h3>
+				<br/>
+				<br/>
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431a" class="selectLabel">s43(1)(a) - current work capcacity</label>
+				        <select id="wcds431a" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431b" class="selectLabel">s43(1)(b) - suitable employment</label>
+				        <select id="wcds431b" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431c" class="selectLabel">s43(1)(c) - ability to earn in S/E</label>
+				        <select id="wcds431c" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431d" class="selectLabel">s43(1)(d) - PIAWE or CWE</label>
+				        <select id="wcds431d" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431e" class="selectLabel">s43(1)(e) - further risk of injury</label>
+				        <select id="wcds431e" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="wcds431f" class="selectLabel">s43(1)(f) - any other decision</label>
+				        <select id="wcds431f" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+	        	<h3>Decisions made in the IRD notice</h3>
+				<br/>
+				<br/>
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431a" class="selectLabel">s43(1)(a) - current work capcacity</label>
+				        <select id="irds431a" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431b" class="selectLabel">s43(1)(b) - suitable employment</label>
+				        <select id="irds431b" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431c" class="selectLabel">s43(1)(c) - ability to earn in S/E</label>
+				        <select id="irds431c" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431d" class="selectLabel">s43(1)(d) - PIAWE or CWE</label>
+				        <select id="irds431d" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431e" class="selectLabel">s43(1)(e) - further risk of injury</label>
+				        <select id="irds431e" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="irds431f" class="selectLabel">s43(1)(f) - any other decision</label>
+				        <select id="irds431f" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+	        	<h3 class="issue-in-dispute">Issues in dispute</h3>
+				<br/><br/><br/>
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431a" class="selectLabel">s43(1)(a) - current work capcacity</label>
+				        <select id="disputes431a" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431b" class="selectLabel">s43(1)(b) - suitable employment</label>
+				        <select id="disputes431b" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431c" class="selectLabel">s43(1)(c) - ability to earn in S/E</label>
+				        <select id="disputes431c" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431d" class="selectLabel">s43(1)(d) - PIAWE or CWE</label>
+				        <select id="disputes431d" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431e" class="selectLabel">s43(1)(e) - further risk of injury</label>
+				        <select id="disputes431e" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-12">
+						<label for="disputes431f" class="selectLabel">s43(1)(f) - any other decision</label>
+				        <select id="disputes431f" class="form-control select-yesno pull-right">
+							<option value=""></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<div class="col-xs-12">
+				<div class="row form-group">
+					<div class="col-md-3">
+						Application documents
+					</div>
+					<div class="col-md-3">
+						<select id="applicationDocuments" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="applicationDocumentsComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Section 74 notices
+					</div>
+					<div class="col-md-3">
+						<select id="section74notices" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="section74noticesComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Certificates of capacity
+					</div>
+					<div class="col-md-3">
+						<select id="certificatesOfCapacity" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="certificatesOfCapacityComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						IMC
+					</div>
+					<div class="col-md-3">
+						<select id="imc" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="imcComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						IME
+					</div>
+					<div class="col-md-3">
+						<select id="ime" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="imeComment" class="form-control"/>
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<div class="col-md-3">
+						Functional
+					</div>
+					<div class="col-md-3">
+						<select id="functional" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="functionalComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						NTD report
+					</div>
+					<div class="col-md-3">
+						<select id="ntdReport" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="ntdReportComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						NTS report
+					</div>
+					<div class="col-md-3">
+						<select id="ntsReport" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="ntsReportComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Position description
+					</div>
+					<div class="col-md-3">
+						<select id="positionDescription" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="positionDescriptionComment" class="form-control"/>
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<div class="col-md-3">
+						Payslips received
+					</div>
+					<div class="col-md-3">
+						<select id="payslipsReceived" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="payslipsReceivedComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Vocational assessment
+					</div>
+					<div class="col-md-3">
+						<select id="vocationalAssessment" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="vocationalAssessmentComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						Recent rehab reports
+					</div>
+					<div class="col-md-3">
+						<select id="recentRehabReports" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="recentRehabReportsComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						130 week application form
+					</div>
+					<div class="col-md-3">
+						<select id="130WeekApplicationForm" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="130WeekApplicationFormComment" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="row form-group">
+					<div class="col-md-3">
+						PIAWE information
+					</div>
+					<div class="col-md-3">
+						<select id="PIAWEInformation" class="form-control">
+							<option value=""></option>
+							<option value="Requested">Requested</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="Comment" id="PIAWEInformationComment" class="form-control"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<c:UI_Button aura:id="submitButton" type="submit" disabled="{!v.buttonDisable}" class="btn-submit pull-right" onClickFunction="{!c.submit}">Save</c:UI_Button>
+	<br/><br/>
+</aura:component>

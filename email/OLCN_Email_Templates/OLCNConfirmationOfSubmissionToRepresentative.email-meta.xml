@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent once the web form has been submitted to representative.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>OLCNConfirmationOfSubmissionToRepresentative</name>
+    <style>freeForm</style>
+    <subject>REF NO. {!Case.CaseNumber} Thank you for submitting your details</subject>
+    <textOnly>Dear {!Case.OLCN_FormRepFirstName__c}
+
+Thank you for submitting your details.
+
+We will use the information you have provided to identify and put you in touch with the CTP insurer of the vehicle you believe was at fault in the accident.
+
+Your reference number for this form is:
+{!Case.CaseNumber}
+
+What next
+You will be contacted within one working day with information about:
+
+Name of the CTP insurer
+insurer contact details
+what to do next
+
+If you need help
+If you have any questions or need to change the information you submitted to us, contact our Claims Advisory Service
+on 1300 656 919.
+
+
+What you told us
+
+Accident date
+Accident date: {!Case.OLCN_AccidentDate__c}
+
+
+Reason you are completing this form
+Who is completing this form: {!Case.OLCN_RepType__c}
+First name: {!Case.OLCN_FormRepFirstName__c}
+Last name: {!Case.OLCN_FormRepLastName__c}
+Email: {!Case.OLCN_FormRepEmail__c}
+Phone number: {!Case.OLCN_FormRepPhone__c}
+Correspondence to be send: {!Case.OLCN_SendTo__c}
+
+Personal Details of Injured
+First name: {!Case.OLCN_FormFirstName__c}
+Last name: {!Case.OLCN_FormLastName__c}
+Email: {!Case.OLCN_FormEmail__c}
+Phone number: {!Case.OLCN_FormPhone__c}
+
+Accident Details
+Role In Accident:  {!Case.OLCN_AccidentRole__c}
+Registration Number: {!Case.OLCN_AtFaultRegistrationNumber__c}
+Description of Vehicle: {!Case.OLCN_DescriptionOfVehicle__c}
+Full name of driver at fault: {!Case.OLCN_DriverName__c}
+Accident Address: {!Case.OLCN_AccidentLocation__c}
+
+Please do not reply on this email, if you have any enquiries please send your email to motor@sira.nsw.gov.au 
+
+
+Kind regards
+
+Claims Advisory Service
+
+State Insurance Regulatory Authority
+p 1300 656 919
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>

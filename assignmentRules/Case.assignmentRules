@@ -1,3 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>CAS Assignment Rule</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>CAS_Team_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Web</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Online Claims Notification</value>
+            </criteriaItems>
+            <template>OLCN_Email_Templates/Initial_Notification_To_CAS_Team</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CAS_Team_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Online Claims Notification</value>
+            </criteriaItems>
+            <template>OLCN_Email_Templates/Initial_Notification_To_CAS_Team</template>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>OLCN CSE CAS Assignment Rule</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>CAS_Team_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Web</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Online Claims Notification</value>
+            </criteriaItems>
+            <template>OLCN_Email_Templates/OLCNInitialNotificationToCASTeam</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CAS_Team_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Online Claims Notification</value>
+            </criteriaItems>
+            <template>OLCN_Email_Templates/OLCNInitialNotificationToCASTeam</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

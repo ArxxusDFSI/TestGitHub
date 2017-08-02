@@ -1,0 +1,13 @@
+.THIS .panel-heading{
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.THIS .panel-body{
+    margin-top: -15px;
+}
+.THIS .panel-primary{
+    border-radius: 0px;
+    border-color: #fff;
+}

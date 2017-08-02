@@ -1,0 +1,237 @@
+<aura:component controller="DRS_CaseItemForm_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="givenName" type="string" />
+    <aura:attribute name="surname" type="string" />
+    <aura:attribute name="dob" type="string" />
+    <aura:attribute name="dateOfInjury" type="string" />
+    <aura:attribute name="claimNo" type="string" />
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="caseNumber" type="string" />
+    <aura:attribute name="applicationId" type="string" />
+    <aura:attribute name="uploadDocuments" type="Object[]" />
+    <aura:attribute name="submittedDate" type="string" />
+    <aura:attribute name="submittedBy" type="string" />
+    <aura:attribute name="validation" type="boolean" default="false"/>
+    <aura:attribute name="formLocked" type="boolean" default="false"/>
+    <aura:attribute name="postal" type="string" />
+    <aura:attribute name="postcode" type="string" />
+    <aura:attribute name="state" type="string" />
+    <aura:attribute name="suburb" type="string" />
+    <aura:attribute name="insurer" type="string" />
+    <aura:attribute name="communitylink" type="string" default="insurerlegal"/>
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="notReviewDecisionDate" type="string" />
+    <aura:attribute name="isLoadedInSalesforce" type="boolean" />
+    <aura:attribute name="successMessage" type="string"/>
+    <aura:attribute name="buttonDisable" type="boolean" default="false"/>
+    <aura:attribute name="formStatus" type="string" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.successMessage}">
+        <div class="alert alert-success">
+            {!v.successMessage}
+        </div>
+    </aura:if>
+    <div id="replyForm">
+        <div class="page-header">
+            <h1>Work capacity decision- reply to an application for merit review by SIRA</h1>
+        </div>
+        <aura:if isTrue="{!v.formLocked}">
+            <div class="row form-group">
+                <div class="col-xs-12">
+                    <aura:if isTrue="{!!v.isLoadedInSalesforce}" >
+                        <a class="button btn btn-primary pull-left btn-lg" href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.caseId}">Back</a>
+                    </aura:if>
+                </div>
+            </div>
+            <aura:if isTrue="{!v.formStatus == 'submitted'}">
+                <div class="alert alert-info col-xs-12">
+                    This application was Submitted by: <b>{!v.submittedBy}</b> on the <b>{!v.submittedDate}</b>
+                </div>
+            </aura:if>
+        </aura:if>
+        <h3>Effective from 16 December 2016</h3>
+        <br/>
+        <p>Use this form if you are an insurer lodging a reply to a worker’s application for a merit review of a work capacity decision under section 44BB of the Workers Compensation Act 1987.</p>
+        <br/>
+        <p>For more information you can refer to the Guidelines for claiming worker compensation and/or the Merit review user guide at www.sira.nsw.gov.au.</p>
+        <br/>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Completing this form
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>You must fully and accurately complete this form then send a copy to both the worker and SIRA as soon as possible and within seven days of receiving the application for a merit review.</p>
+						<p>You are required to list and attach all relevant information relating to the work capacity decision, including any information the worker has supplied.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            What happens next?
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>SIRA will contact you and the worker within seven days of receiving this form to discuss review procedures.</p>
+						<p>Once the review is complete, SIRA will send both parties the review findings along with any recommendations and reasons.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            <i class="more-less glyphicon glyphicon-plus"></i>
+                            Publication of decisions
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        SIRA merit review findings and recommendations may be published on the SIRA website, in a de-identified form. Publication is intended to improve claims management practices, work capacity decision making, and minimise disputation in the workers compensation system.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Insurer details</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-6 col-xs-12">
+                            <p>Was the worker in receipt of weekly payments immediately before 1 October 2012?</p>
+                            <label class="radio-inline"><input type="radio" name="workInReceipt" value="yes" />Yes</label>
+                            <label class="radio-inline"><input type="radio" name="workInReceipt" value="no" />No</label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <label for="weeklyPayment">Number of weekly payments made during period of incapacity</label>
+                            <input type="text" class="form-control" id="weeklyPayment"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Worker details</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-xs-6">
+                            <label for="givenName">Given name</label>
+                            <input type="text" class="form-control" id="givenName" value="{!v.givenName}"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" id="surname" value="{!v.surname}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3 col-xs-12">
+                            <c:UI_InputDate id="dob" aura:id="dob" label="Date of birth" value="{!v.dob}"/>
+                        </div>
+                        <div class="col-md-3 col-xs-12">
+                            <c:UI_InputDate id="dateOfInjury" aura:id="dateOfInjury" label="Date of injury" value="{!v.dateOfInjury}"/>
+                        </div>
+                        <div class="col-md-3 col-xs-12">
+                            <label for="claimNo">Claim number</label>
+                            <input type="text" class="form-control" id="claimNo" value="{!v.claimNo}"/>
+                        </div>
+                        <div class="col-md-3 col-xs-12">
+                            <label for="caseId">Case number</label>
+                            <input type="text" class="form-control" id="caseNumber" value="{!v.caseNumber}" disabled="true"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Date of decisions</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-md-6 col-xs-12">
+                            <c:UI_InputDate id="insurerWorkCapacityDecisionDate" aura:id="insurerWorkCapacityDecisionDate" label="Date of original work capacity decision"/>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <c:UI_InputDate id="insurerSupportingDocumentAttachedDate" aura:id="insurerSupportingDocumentAttachedDate" label="Date the worker applied for the internal review" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_InputDate id="internalReviewDecisionNotified" aura:id="internalReviewDecisionNotified" label="Date the worker was notified of the internal review decision" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Response to the worker’s submissions in the application for merit review</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <textarea rows="4" id="response"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Attach all information and evidence that supports your application</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <c:UI_upload aura:id="uiUpload" uploadDocuments="{!v.uploadDocuments}" isLoadedInSalesforce="{!v.isLoadedInSalesforce}" caseId="{!v.caseId}" caseItemId="{!v.applicationId}" formLocked="{!v.formLocked}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Section: Declaration</div>
+                <div class="panel-body">
+                    <div class="form-group row">
+                        <div class="col-xs-12">
+                            <p>I have read the information provided in this form. I declare that the details I have provided on this form are true and correct, and that I am authorised to provide this information on the insurer’s behalf.</p>
+                            <br/>
+                            <aura:if isTrue="{!!v.formLocked}">
+                                <button disabled="{!v.buttonDisable}" class="button btn btn-primary pull-left btn-lg" onclick="{!c.save}">Save application for later</button>
+                            	<button disabled="{!v.buttonDisable}" class="button btn btn-primary pull-right btn-lg" onclick="{!c.submit}">Submit Application</button>
+                            </aura:if>
+                            <aura:if isTrue="{!v.formLocked}">
+                                <div class="form-group row">
+                                    <div class="col-xs-6"><h3>Submitted by: {!v.submittedBy}</h3></div>
+                                    <div class="col-xs-6"><h3>Submitted date: {!v.submittedDate}</h3></div>
+                                </div>
+                                <aura:if isTrue="{!!v.isLoadedInSalesforce}" >
+                                    <a class="button btn btn-primary pull-left btn-lg" href="{!'/' + v.communitylink + '/s/casedetail?recordId=' + v.caseId}">Back</a>
+                                </aura:if>
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,21 @@
+.THIS .radio-inline{
+	width: 750px;
+	height: auto;
+	background-color: #f3f3f3;
+	border: solid 1px #9b9b9b;
+	padding: 20px 20px 20px 40px;
+}
+.THIS .radio-inline:not(:last-child){
+	margin-bottom: 20px;
+}
+.THIS .radio-checked{
+	width: 750px;
+	height: auto;
+	background-color: #eff7f3;
+	border: solid 1px #007a33;
+	padding: 20px 20px 20px 40px;
+}
+.THIS .radio-inline+.radio-inline {
+    margin-top: 0;
+    margin-left: 0px;
+}

@@ -1,0 +1,20 @@
+.THIS{
+    font-family: 'Gotham-Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.62;
+    color: #000000;
+}
+.THIS.error{
+	color: #a94442;
+}
+.THIS label{
+    font-family: 'Gotham-Light';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.62;
+    color: #000000;
+}
+.THIS.has-error .form-control {border-color: #a94442 !important;}
+.THIS.has-error .control-label{color:#a94442 !important;}
+.THIS.has-error .errorLabel{color:#a94442 !important;}

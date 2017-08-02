@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Notification Follow-up</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Notification Follow-ups</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answer 1 --></label>
+        <name>OLCN_Answer11__c</name>
+        <picklistValues>
+            <masterLabel>Declined to answer</masterLabel>
+            <translation><!-- Declined to answer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Answer 2 --></label>
+        <name>OLCN_Answer12__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer 3 --></label>
+        <name>OLCN_Answer13__c</name>
+        <picklistValues>
+            <masterLabel>Declined to answer</masterLabel>
+            <translation><!-- Declined to answer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What do you feel that they are/are not doing well? --></help>
+        <label><!-- Answer 4 --></label>
+        <name>OLCN_Answer14__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer 5 --></label>
+        <name>OLCN_Answer15__c</name>
+        <picklistValues>
+            <masterLabel>1 - Very unsatisfied</masterLabel>
+            <translation><!-- 1 - Very unsatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Unsatisfied</masterLabel>
+            <translation><!-- 2 - Unsatisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Neutral</masterLabel>
+            <translation><!-- 3 - Neutral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 - Satisfied</masterLabel>
+            <translation><!-- 4 - Satisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 - Very satisfied</masterLabel>
+            <translation><!-- 5 - Very satisfied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined to answer</masterLabel>
+            <translation><!-- Declined to answer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>OLCN_Case__c</name>
+        <relationshipLabel><!-- Notification FollowUps --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Completed By --></label>
+        <name>OLCN_CompletedBy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed Date --></label>
+        <name>OLCN_CompletedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Injured Person Email --></label>
+        <name>OLCN_InjuredPersonEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- NoOfDays Taken To complete --></label>
+        <name>OLCN_NoOfDaysTaken__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional notes and commentary on the feedback --></help>
+        <label><!-- Notes --></label>
+        <name>OLCN_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question 1 --></label>
+        <name>OLCN_Question11__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question 2 --></label>
+        <name>OLCN_Question12__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question 3 --></label>
+        <name>OLCN_Question13__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question 4 --></label>
+        <name>OLCN_Question14__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question 5 --></label>
+        <name>OLCN_Question15__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>OLCN_Status__c</name>
+        <picklistValues>
+            <masterLabel>All issues resolved</masterLabel>
+            <translation><!-- All issues resolved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Already provided</masterLabel>
+            <translation><!-- Already provided --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call back</masterLabel>
+            <translation><!-- Call back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined to Answer</masterLabel>
+            <translation><!-- Declined to Answer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalated</masterLabel>
+            <translation><!-- Escalated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Further Assistance</masterLabel>
+            <translation><!-- Further Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No issues identified</masterLabel>
+            <translation><!-- No issues identified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unable to Contact</masterLabel>
+            <translation><!-- Unable to Contact --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

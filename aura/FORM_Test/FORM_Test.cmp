@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="TestCtrl">
+    <aura:attribute name="caseItemId" type="string" default="a0ON0000005QkNZ"/>
+    <aura:attribute name="statusOfSave" type="string" default=""/>
+
+    <ui:outputText aura:id="statusOfSave" value="{!v.statusOfSave}" />
+    <ui:inputText aura:id="caseItemId" label="Case Item Id:" placeholder="Case Item Id" value="{!v.caseItemId}" />
+    <ui:button aura:id="testButton" buttonTitle="Test" class="button" label="Test" press="{!c.doSubmit}"/>
+</aura:component>

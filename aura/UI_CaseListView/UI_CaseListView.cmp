@@ -1,0 +1,44 @@
+<aura:component controller="DRS_Case_CC" implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="cases" type="string[]" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="communitylink" type="string" />
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:if isTrue="{!v.errorMessage.length > 0}">
+        <div class="alert alert-danger">
+           {!v.errorMessage}
+        </div>
+    </aura:if>
+
+	<div class="row form-group">
+		<div class="col-xs-12">
+			<h1>Cases</h1>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-xs-6">
+            <p>{!v.cases.length}+&nbsp;items</p>
+        </div>
+        <div class="col-xs-6">
+            <button class="button btn pull-right button-refresh" onclick="{!c.refresh}"><span class="glyphicon glyphicon-refresh"></span></button>
+        </div>
+    </div>
+	<table aura:id="caseTeamTable" id="caseTeamTable">
+        <tr>
+            <th width="15%" onclick="{!c.sortColumn}" data="" dataproperty="caseNumber" datatype="number">Case Number</th>
+            <th width="25%" onclick="{!c.sortColumn}" data="" dataproperty="workerName" dataType="text">Work name</th>
+            <th width="15%" onclick="{!c.sortColumn}" data="" dataproperty="claimNumber" datatype="number">Claim number</th>
+            <th width="10%" onclick="{!c.sortColumn}" data="" dataproperty="status" datatype="text">Status</th>
+            <th width="25%" onclick="{!c.sortColumn}" data="" dataproperty="dateLodged" datatype="date">Date/Time opened</th>
+        </tr>
+        <aura:iteration items="{!v.cases}" var="case">
+            <tr>
+                <td><a href="{!v.communitylink + '/casedetail?recordId=' + case.caseId}">{!case.caseNumber}</a></td>
+                <td>{!case.workerName}</td>
+                <td>{!case.claimNumber}</td>
+                <td>{!case.status}</td>
+                <td>{!case.dateLodged}</td>
+            </tr>
+        </aura:iteration>
+    </table>
+</aura:component>

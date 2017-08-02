@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email is sent to Representative once the Insurer has been assigned by CAS, and the Insurer has opted-in to the Insurer portal.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>OLCN_Letterhead</letterhead>
+    <name>Insurer Details Opted In To Representative</name>
+    <style>freeForm</style>
+    <subject>REF NO. {!Case.CaseNumber} Motor accident injury insurer details</subject>
+    <textOnly>Dear {!Case.FormRepFirstName__c},
+
+
+Thank you for completing the online form on the State Insurance Regulatory Authority website (SIRA). I am writing from SIRA&apos;s Claims Advisory Service (CAS) regarding your recent request to find out who to claim compensation with.
+
+
+1. Your reference number:
+{!Case.CaseNumber}
+
+
+2. The insurer of the vehicle you believe is at fault:
+{!Case.Insurer__c}
+Ph: {!Case.Insurer_Phone__c}
+
+This insurer now has your basic personal and accident details, and you can expect to hear from them in five working days.
+
+
+3. What you can do now:
+If you have not already done so, you will need to report your accident to the police. Call the Police Assistance Line on 131 444.
+
+Being in a motor accident can be stressful and it may take some time to recover.
+Visit our Injury Advice Centre where you will find easy to understand, practical advice to help you (or someone you know) recover after a motor accident.
+
+
+4. If you need assistance:
+For more information on making a claim, see our website.
+
+If you do need any further help, the SIRA Claims Advisory Service can provide you with information and assistance throughout the claims process. You can contact us on 1300 656 919.
+
+
+Please do not reply on this email, if you have any enquiries please send your email to motor@sira.nsw.gov.au 
+
+
+Kind regards
+
+Claims Advisory Service
+
+State Insurance Regulatory Authority
+p 1300 656 919
+www.sira.nsw.gov.au</textOnly>
+    <type>html</type>
+</EmailTemplate>
